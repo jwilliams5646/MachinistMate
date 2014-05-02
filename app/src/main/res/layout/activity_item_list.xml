@@ -4,7 +4,6 @@
     android:name="com.jwilliams.machinistmate.app.ItemListFragment"
     android:layout_width="match_parent"
     android:layout_height="fill_parent"
-    android:background="#111111"
     tools:context="com.jwilliams.machinistmate.app.ItemListActivity"
     tools:layout="@android:layout/list_content">
 

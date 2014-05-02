@@ -3,7 +3,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@id/item_detail_container"
-    style="@style/Base"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.jwilliams.machinistmate.app.FractionMetricActivity"
@@ -16,7 +15,7 @@
         android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
-        android:background="#161819"
+        android:background="#1d1d1d"
         android:layout_margin="4dp">
 
 
@@ -63,7 +62,7 @@
         android:layout_width="600dp"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:background="#161819"
+        android:background="#1d1d1d"
         android:numColumns="3"
         android:layout_centerHorizontal="true"
         android:layout_margin="4dp"
