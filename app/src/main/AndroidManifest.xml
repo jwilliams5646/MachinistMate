@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jwilliams.machinistmate.app">
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="Machinist Mate"
+        android:logo="@drawable/ic_action_logo"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:label="Machinist Mate"
+            android:screenOrientation="nosensor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.ItemDetailActivity"
+            android:label=""
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.SpeedsDetailActivity"
+            android:label=""
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.FeedsDetailActivity"
+            android:label=""
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.ConversionDetailActivity"
+            android:label=""
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.GeometryDetailActivity"
+            android:label=""
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.ReferencePagerActivity"
+            android:label=""
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
+        android:name=".FractionMetricActivity"
+        android:label=""
+        android:parentActivityName="com.jwilliams.machinistmate.app.ReferencePagerActivity"
+        android:screenOrientation="nosensor">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.jwilliams.machinistmate.app.ReferenceChoiceActivity" />
+    </activity>
+        <activity
+            android:name=".ReferencePagerActivity"
+            android:label=""
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+    </application>
+
+</manifest>

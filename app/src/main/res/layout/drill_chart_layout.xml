@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/item_detail_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jwilliams.machinistmate.app.FractionMetricActivity"
+    tools:ignore="MergeRootFrame">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="600dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:layout_margin="4dp"
+        android:id="@+id/linearLayout">
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:text="All"
+            android:id="@+id/drill_all_button"
+            android:layout_marginRight="1dp"
+            style="@style/buttons"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="1dp"
+            android:text="#"
+            android:id="@+id/drill_wiregauge_button"
+            style="@style/buttons" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="1dp"
+            android:text="ABC"
+            android:id="@+id/drill_letter_button"
+            style="@style/buttons" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="1dp"
+            android:text="1/2"
+            android:id="@+id/drill_fraction_button"
+            style="@style/buttons" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:text="MM"
+            android:id="@+id/drill_metric_button"
+            style="@style/buttons" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="600dp"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#161819"
+        android:id="@+id/drill_chart_headers">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:id="@+id/type_header"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="2dp"
+            style="@style/HeaderStyle"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:text="@string/standard"
+            style="@style/HeaderStyle"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="2dp"
+            android:id="@+id/standard_header" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="fill_parent"
+            android:text="@string/metric"
+            style="@style/HeaderStyle"
+            android:layout_marginBottom="2dp"
+            android:id="@+id/metric_header"/>
+    </LinearLayout>
+
+    <GridView
+        android:layout_width="600dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/drill_chart_grid"
+        android:layout_below="@+id/drill_chart_headers"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="4dp"
+        android:layout_marginTop="-4dp"
+        android:background="#161819"
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp"
+        android:gravity="center"
+        android:numColumns="3"
+        android:clickable="false" />
+
+</RelativeLayout>

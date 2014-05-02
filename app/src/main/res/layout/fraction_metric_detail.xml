@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@id/item_detail_container"
+    style="@style/Base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jwilliams.machinistmate.app.FractionMetricActivity"
+    tools:ignore="MergeRootFrame">
+
+    <LinearLayout
+        android:id="@+id/chart_header"
+        android:orientation="horizontal"
+        android:layout_width="600dp"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:background="#161819"
+        android:layout_margin="4dp">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/fraction"
+            android:id="@+id/textView"
+            android:gravity="center"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="2dp"
+            style="@style/HeaderStyle"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/standard"
+            android:id="@+id/textView2"
+            android:gravity="center"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="2dp"
+            style="@style/HeaderStyle"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/metric"
+            android:id="@+id/textView3"
+            android:gravity="center"
+            android:layout_marginBottom="2dp"
+            style="@style/HeaderStyle"/>
+
+        </LinearLayout>
+
+    <GridView
+        android:layout_below="@+id/chart_header"
+        android:id="@+id/chart_reference_grid"
+        android:layout_width="600dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="#161819"
+        android:numColumns="3"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="4dp"
+        android:horizontalSpacing="1dp"
+        android:verticalSpacing="1dp"
+        android:clickable="false" />
+
+
+</RelativeLayout>

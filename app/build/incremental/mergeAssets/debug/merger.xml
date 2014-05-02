@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\src\main\assets" >
+            <file
+                name="drill_db"
+                path="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\src\main\assets\drill_db" />
+        </source>
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\src\debug\assets" />
+    </dataSet>
+
+</merger>
