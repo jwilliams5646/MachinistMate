@@ -25,7 +25,7 @@ public class SpeedsDetailFragment extends Fragment {
      */
     public static final String ARG_ITEM_ID = "item_id";
 
-    public static final float TOP_MARGIN_FROM_FLOAT = 150.0f;
+    public static final float TOP_MARGIN_FROM_FLOAT = 25.0f;
     public static final float OTHER_MARGIN_FROM_FLOAT = 4.0f;
     //set private view variables
     private TextView speedAnswer;

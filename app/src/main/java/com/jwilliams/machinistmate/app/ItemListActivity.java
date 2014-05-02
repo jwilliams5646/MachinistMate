@@ -2,6 +2,7 @@ package com.jwilliams.machinistmate.app;
 
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -52,6 +53,10 @@ public class ItemListActivity extends FragmentActivity
             ((ItemListFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.item_list))
                     .setActivateOnItemClick(true);
+        }
+
+        if(mTwoPane){
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
 
         // TODO: If exposing deep links into your app, handle intents here.
