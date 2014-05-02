@@ -105,26 +105,26 @@ public class FeedsDetailFragment extends Fragment {
     }
 
     public void calcFeed() {
-        int speedFeedIn = 0;
-        double feedPerToothIn = 0.0;
-        int numberTeethIn = 0;
-        double feed = 0.0;
+        int speed = 0;
+        double fpt = 0.0;
+        int numTeeth = 0;
+        //double feed = 0.0;
         boolean notValid = false;
 
         try {
-            speedFeedIn = Integer.parseInt(feedSpeedInput.getText().toString());
+            speed = Integer.parseInt(feedSpeedInput.getText().toString());
         } catch (NumberFormatException e) {
             feedSpeedInput.setHint("Invalid");
             notValid = true;
         }
         try {
-            feedPerToothIn = Double.parseDouble(feedPerToothInput.getText().toString());
+            fpt = Double.parseDouble(feedPerToothInput.getText().toString());
         } catch (NumberFormatException e) {
             feedPerToothInput.setHint("Invalid");
             notValid = true;
         }
         try {
-            numberTeethIn = Integer.parseInt(numberTeethInput.getText().toString());
+            numTeeth = Integer.parseInt(numberTeethInput.getText().toString());
         } catch (NumberFormatException e) {
             numberTeethInput.setHint("Invalid");
             notValid = true;
@@ -134,7 +134,7 @@ public class FeedsDetailFragment extends Fragment {
             return;
         }
 
-        feed = (speedFeedIn * feedPerToothIn * numberTeethIn);
+        double feed = (speed * fpt * numTeeth);
 
         DecimalFormat df = new DecimalFormat("##.###");
 

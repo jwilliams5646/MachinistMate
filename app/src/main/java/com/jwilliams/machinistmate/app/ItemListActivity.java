@@ -87,10 +87,7 @@ public class ItemListActivity extends FragmentActivity
             FeedsDetailFragment feedFragment = new FeedsDetailFragment();
             feedFragment.setArguments(feedArguments);
 
-            Bundle convArguments = new Bundle();
-            convArguments.putString(ConversionDetailFragment.ARG_ITEM_ID, id);
             ConversionDetailFragment convFragment = new ConversionDetailFragment();
-            convFragment.setArguments(convArguments);
 
             Bundle geometryArguments = new Bundle();
             geometryArguments.putString(GeometryDetailFragment.ARG_ITEM_ID, id);
@@ -151,7 +148,6 @@ public class ItemListActivity extends FragmentActivity
             feedIntent.putExtra(FeedsDetailFragment.ARG_ITEM_ID, id);
 
             Intent convIntent = new Intent(this, ConversionDetailActivity.class);
-            convIntent.putExtra(ConversionDetailFragment.ARG_ITEM_ID, id);
 
             Intent geometryIntent = new Intent(this, GeometryDetailActivity.class);
             geometryIntent.putExtra(GeometryDetailFragment.ARG_ITEM_ID, id);
