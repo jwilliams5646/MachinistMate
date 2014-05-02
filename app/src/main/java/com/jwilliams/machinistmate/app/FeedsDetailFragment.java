@@ -136,12 +136,12 @@ public class FeedsDetailFragment extends Fragment {
 
         feed = (speedFeedIn * feedPerToothIn * numberTeethIn);
 
-        NumberFormat f = new DecimalFormat("#0.000");
+        DecimalFormat df = new DecimalFormat("##.###");
 
         if (feedType) {
-            feedAnswer.setText(f.format(feed));
+            feedAnswer.setText(df.format(feed));
         } else {
-            feedAnswer.setText(f.format(feed));
+            feedAnswer.setText(df.format(feed));
         }
     }
 }
