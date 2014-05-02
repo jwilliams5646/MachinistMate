@@ -21,17 +21,18 @@ import com.jwilliams.machinistmate.app.AppContent.Calculations;
  */
 public class ConversionDetailFragment extends Fragment {
 
-    //public static final String ARG_ITEM_ID = "item_id";
     public double calcInput = 0.0;
     TextView convAnswer;
     TextView convAnswerType;
     Spinner convInputSpinner;
     Spinner convOutputSpinner;
+    Spinner convPrecisionSpinner;
     EditText convInput;
     Button convCalcButton;
     LinearLayout convAnswerLayout;
     int inputSpinner;
     int outputSpinner;
+    int precSpinner;
 
     public ConversionDetailFragment() {
     }
@@ -45,13 +46,13 @@ public class ConversionDetailFragment extends Fragment {
         setLayoutVariables(rootView);
         setTwoPane();
         setSpinnerAdapter();
+        setPrecisionAdapter();
 
         AdapterView.OnItemSelectedListener convInputSelectedListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> spinner, View container,
                                        int position, long id) {
                 inputSpinner = position;
-
             }
 
             @Override
@@ -79,6 +80,21 @@ public class ConversionDetailFragment extends Fragment {
         convInputSpinner.setOnItemSelectedListener(convInputSelectedListener);
         convOutputSpinner.setOnItemSelectedListener(convOutputSelectedListener);
 
+        AdapterView.OnItemSelectedListener convPrecisionSelectedListener = new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> spinner, View container,
+                                       int position, long id) {
+                precSpinner = position+1;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                precSpinner = 1;
+            }
+        };
+
+        convPrecisionSpinner.setOnItemSelectedListener(convPrecisionSelectedListener);
+
         View.OnClickListener convCalcButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +112,7 @@ public class ConversionDetailFragment extends Fragment {
         convAnswerType = (TextView) rootView.findViewById(R.id.conv_answer_type);
         convInputSpinner = (Spinner) rootView.findViewById(R.id.conv_input_spinner);
         convOutputSpinner = (Spinner) rootView.findViewById(R.id.conv_output_spinner);
+        convPrecisionSpinner = (Spinner)rootView.findViewById(R.id.conv_prec_spinner);
         convInput = (EditText) rootView.findViewById(R.id.conv_input);
         convCalcButton = (Button) rootView.findViewById(R.id.conv_calc_button);
         convAnswerLayout = (LinearLayout) rootView.findViewById(R.id.conv_answer_layout);
@@ -119,6 +136,13 @@ public class ConversionDetailFragment extends Fragment {
         convAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         convInputSpinner.setAdapter(convAdapter);
         convOutputSpinner.setAdapter(convAdapter);
+    }
+
+    private void setPrecisionAdapter(){
+        ArrayAdapter<CharSequence> precAdapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.precision_array, R.layout.spinner_background);
+        precAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
+        convPrecisionSpinner.setAdapter(precAdapter);
     }
 
     private void setConversionType(int position){
@@ -156,6 +180,6 @@ public class ConversionDetailFragment extends Fragment {
             return;
         }
         convAnswer.setText(Double.toString(
-                Calculations.conversionCalc(inputSpinner, outputSpinner, calcInput)));
+                Calculations.conversionCalc(inputSpinner, outputSpinner, calcInput, precSpinner)));
     }
 }

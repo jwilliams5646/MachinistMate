@@ -7,15 +7,13 @@ import java.text.DecimalFormat;
  * This class is used for the conversion of various values within the app.
  */
 public class Calculations {
-    // Decimal Formatter usable by all Activities
-    DecimalFormat df;
     //Conversion Activity Variables
-    private final static double INCHES_TO_FEET = 0.0833333333333333;
-    private final static double INCHES_TO_YARD = 0.0277778;
+    private final static double INCHES_TO_FEET = 0.0833;
+    private final static double INCHES_TO_YARD = 0.0277;
     private final static double INCHES_TO_MM = 25.4;
     private final static double INCHES_TO_CM = 2.54;
     private final static double INCHES_TO_METER = 0.0254;
-    private final static double FEET_TO_YARD = 0.333333;
+    private final static double FEET_TO_YARD = 0.3333;
     private final static double FEET_TO_MM = 304.8;
     private final static double FEET_TO_CM = 30.48;
     private final static double FEET_TO_METER = 0.3048;
@@ -31,8 +29,9 @@ public class Calculations {
     }
 
     //Conversion Activity Calculations
-    public static double conversionCalc(int inputSpinner, int outputSpinner, double input) {
+    public static double conversionCalc(int inputSpinner, int outputSpinner, double input, int precSpinner) {
         double answer = 0.0;
+        DecimalFormat df = new DecimalFormat("###.###");
 
         if (inputSpinner == outputSpinner) {
             answer = input;
@@ -60,7 +59,7 @@ public class Calculations {
                 case 1:
                     switch (outputSpinner) {
                         case 0:
-                            answer = input / INCHES_TO_FEET;
+                            answer = Double.parseDouble(df.format(input / INCHES_TO_FEET));
                             break;
                         case 2:
                             answer = input * FEET_TO_YARD;
@@ -154,6 +153,25 @@ public class Calculations {
                     break;
             }
         }
-        return answer;
+        return formatter(answer, precSpinner);
     }
+
+    // Decimal Formatter usable by all Activities
+    public static double formatter(double answer, int precision){
+        DecimalFormat df;
+        String formats= "##.";
+        Double returnAnswer = 0.0;
+        if(precision>0) {
+            for (int x = 0; x < precision; x++) {
+                formats = formats + "#";
+            }
+            df = new DecimalFormat(formats);
+            returnAnswer = Double.valueOf(df.format(answer));
+        }else{
+            returnAnswer = answer;
+        }
+
+        return returnAnswer;
+    }
+
 }

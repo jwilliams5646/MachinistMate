@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:id="@+id/conv_answer_layout"
-        android:layout_width="500dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="false"
         android:layout_alignParentTop="true"
@@ -39,12 +39,15 @@
 
     <LinearLayout
         android:id="@+id/conv_spinner_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/conv_answer_layout"
         android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_alignStart="@id/conv_answer_layout"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginRight="4dp">
 
         <LinearLayout
             android:id="@+id/input_spinner_layout"
@@ -84,12 +87,15 @@
 
     <LinearLayout
         android:id="@+id/conversion_input_layout"
-        android:layout_width="300dp"
+        android:layout_width="400dp"
         android:layout_height="48dp"
         android:layout_below="@+id/conv_spinner_layout"
         android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_alignStart="@id/conv_spinner_layout"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginRight="4dp">
 
 
         <TextView
@@ -107,8 +113,39 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="1"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:layout_alignStart="@id/conversion_input_layout"
+        android:layout_below="@+id/conversion_input_layout"
+        android:layout_alignParentStart="false"
+        android:id="@+id/conv_precision"
+        android:layout_alignParentBottom="false"
+        android:layout_marginRight="4dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/precision"
+            android:id="@+id/textView"
+            style="@style/TextViewStyle"
+            android:layout_marginRight="4dp" />
+
+        <Spinner
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:id="@+id/conv_prec_spinner"
+            android:layout_marginLeft="4dp" />
     </LinearLayout>
 
     <Button
@@ -116,7 +153,7 @@
         style="@style/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/conversion_input_layout"
+        android:layout_below="@+id/conv_precision"
         android:layout_centerHorizontal="true"
         android:layout_margin="4dp"
         android:text="@string/calculate" />
