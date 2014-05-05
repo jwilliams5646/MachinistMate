@@ -19,8 +19,6 @@ import android.widget.Toast;
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
-import java.text.DecimalFormat;
-
 /**
  * Created by John on 4/4/2014.
  * <p/>

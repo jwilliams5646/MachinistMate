@@ -77,7 +77,7 @@
         android:id="@+id/drill_chart_headers">
 
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -86,7 +86,7 @@
             android:layout_marginBottom="2dp"
             style="@style/HeaderStyle"/>
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -96,7 +96,7 @@
             android:layout_marginBottom="2dp"
             android:id="@+id/standard_header" />
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"

@@ -42,7 +42,6 @@ public class FractionMetricFragment extends Fragment {
         return(String.format(ctxt.getString(R.string.fraction_metric_chart), position + 1));
     }
 
-    public static final String ARG_ITEM_ID = "item_id";
     GridView referenceGridView;
 
     public FractionMetricFragment() {

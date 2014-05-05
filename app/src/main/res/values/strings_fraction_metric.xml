@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="fraction_metric_chart">Fraction - Metric Chart</string>
+    <string name="fraction_metric_chart"><b>Fraction - Metric Chart</b></string>
 
     <string-array name="reference_array">
         <item>Fraction to Metric</item>

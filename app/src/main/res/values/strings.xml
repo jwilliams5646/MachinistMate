@@ -26,7 +26,7 @@
     <string name="converto"><b>convert to</b></string>
 
 
-    <string name="drill_size_chart">Drill Size Chart</string>
+    <string name="drill_size_chart"><b>Drill Size Chart</b></string>
 
     <string-array name="conversions_array">
         <item>Inches</item>

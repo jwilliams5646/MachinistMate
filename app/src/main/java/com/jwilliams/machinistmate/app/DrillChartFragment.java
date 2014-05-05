@@ -3,6 +3,7 @@ package com.jwilliams.machinistmate.app;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +12,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
-import android.widget.TextView;
+
+import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -21,40 +23,19 @@ import java.util.List;
  * Created by john.williams on 4/24/2014.
  */
 public class DrillChartFragment extends Fragment {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
+
     private static final String KEY_POSITION="position";
-
-    static DrillChartFragment newInstance(int position) {
-        DrillChartFragment frag=new DrillChartFragment();
-        Bundle args=new Bundle();
-
-        args.putInt(KEY_POSITION, position);
-        frag.setArguments(args);
-
-        return(frag);
-    }
-
-    static String getTitle(Context ctxt, int position) {
-        return(String.format(ctxt.getString(R.string.drill_size_chart), position + 2));
-    }
-
-    public static final String ARG_ITEM_ID = "item_id";
-    Button allInfo;
-    Button wiregaugeButton;
-    Button letterButton;
-    Button fractionButton;
-    Button metricButton;
-    TextView typeHeader;
-    TextView standardHeader;
-    TextView metricHeader;
-    GridView referenceGridView;
-    DataBaseHelper myDbHelper;
-    List<String> li;
-    ArrayAdapter<String> adapter;
-
+    private Button allInfo;
+    private Button wiregaugeButton;
+    private Button letterButton;
+    private Button fractionButton;
+    private Button metricButton;
+    private RobotoTextView typeHeader;
+    private GridView referenceGridView;
+    private DataBaseHelper myDbHelper;
+    private List<String> li;
+    private ArrayAdapter<String> adapter;
+    private Typeface tf;
 
     public DrillChartFragment() {
     }
@@ -69,38 +50,16 @@ public class DrillChartFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.drill_chart_layout, container, false);
 
-        allInfo = (Button)rootView.findViewById(R.id.drill_all_button);
-        wiregaugeButton = (Button)rootView.findViewById(R.id.drill_wiregauge_button);
-        letterButton = (Button)rootView.findViewById(R.id.drill_letter_button);
-        fractionButton = (Button)rootView.findViewById(R.id.drill_fraction_button);
-        metricButton = (Button)rootView.findViewById(R.id.drill_metric_button);
+        setLayout(rootView);
+        setAdapter();
+        setDatabase();
 
-        typeHeader = (TextView)rootView.findViewById(R.id.type_header);
-        standardHeader = (TextView)rootView.findViewById(R.id.standard_header);
-        metricHeader = (TextView)rootView.findViewById(R.id.metric_header);
-
-        referenceGridView = (GridView)rootView.findViewById(R.id.drill_chart_grid);
-
-        //instantiates the array list used for the adapter
-        li = new ArrayList<String>();
-        //the adapter, sets the list to the layout
-        adapter = new ArrayAdapter<String>(getActivity(),
-                R.layout.grid_item_layout, li);
-
-        //instantiates the database and the
-        myDbHelper = new DataBaseHelper(getActivity());
-        try {
-            myDbHelper.createDataBase();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-
-        setAll();
+        setAllInfo();
 
         allInfo.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setAll();
+                setAllInfo();
             }
         });
 
@@ -135,6 +94,60 @@ public class DrillChartFragment extends Fragment {
     }
 
 
+    //view pager setup info
+    static DrillChartFragment newInstance(int position) {
+        DrillChartFragment frag=new DrillChartFragment();
+        Bundle args=new Bundle();
+
+        args.putInt(KEY_POSITION, position);
+        frag.setArguments(args);
+
+        return(frag);
+    }
+
+    static String getTitle(Context ctxt, int position) {
+        return(String.format(ctxt.getString(R.string.drill_size_chart), position + 2));
+    }//end view pager setup info
+
+
+    public void setLayout(View rootView){
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
+        allInfo = (Button)rootView.findViewById(R.id.drill_all_button);
+        wiregaugeButton = (Button)rootView.findViewById(R.id.drill_wiregauge_button);
+        letterButton = (Button)rootView.findViewById(R.id.drill_letter_button);
+        fractionButton = (Button)rootView.findViewById(R.id.drill_fraction_button);
+        metricButton = (Button)rootView.findViewById(R.id.drill_metric_button);
+
+        allInfo.setTypeface(tf);
+        wiregaugeButton.setTypeface(tf);
+        letterButton.setTypeface(tf);
+        fractionButton.setTypeface(tf);
+        metricButton.setTypeface(tf);
+
+        typeHeader = (RobotoTextView)rootView.findViewById(R.id.type_header);
+
+        referenceGridView = (GridView)rootView.findViewById(R.id.drill_chart_grid);
+    }
+
+    private void setAdapter(){
+        //instantiates the array list used for the adapter
+        li = new ArrayList<String>();
+        //the adapter, sets the list to the layout
+        adapter = new ArrayAdapter<String>(getActivity(),
+                R.layout.grid_item_layout, li);
+    }
+
+    private void setDatabase(){
+        //instantiates the database and the
+        myDbHelper = new DataBaseHelper(getActivity());
+        try {
+            myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+    }
+
+
     public void openDb(){
         try {
             myDbHelper.openDataBase();
@@ -143,7 +156,7 @@ public class DrillChartFragment extends Fragment {
         }
     }
 
-    public void setAll(){
+    public void setAllInfo(){
         openDb();
         adapter.clear();
         typeHeader.setText("All");

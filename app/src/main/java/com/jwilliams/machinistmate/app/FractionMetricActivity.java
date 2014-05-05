@@ -31,11 +31,7 @@ public class FractionMetricActivity extends FragmentActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(FractionMetricFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(FractionMetricFragment.ARG_ITEM_ID));
             FractionMetricFragment fragment = new FractionMetricFragment();
-            fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit();

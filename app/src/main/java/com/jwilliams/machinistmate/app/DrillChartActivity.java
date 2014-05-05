@@ -31,11 +31,7 @@ public class DrillChartActivity extends FragmentActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(DrillChartFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(DrillChartFragment.ARG_ITEM_ID));
             DrillChartFragment fragment = new DrillChartFragment();
-            fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit();

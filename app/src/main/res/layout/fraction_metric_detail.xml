@@ -19,7 +19,7 @@
         android:layout_margin="4dp">
 
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -31,7 +31,7 @@
             android:layout_marginBottom="2dp"
             style="@style/HeaderStyle"/>
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
@@ -43,7 +43,7 @@
             android:layout_marginBottom="2dp"
             style="@style/HeaderStyle"/>
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
