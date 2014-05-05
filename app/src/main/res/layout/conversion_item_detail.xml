@@ -40,7 +40,7 @@
     <LinearLayout
         android:id="@+id/conv_spinner_layout"
         android:layout_width="400dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/conv_answer_layout"
         android:layout_centerHorizontal="true"
         android:gravity="center"
@@ -58,14 +58,14 @@
                 android:id="@+id/conv_input_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="5" />
+                android:layout_weight="5"
+                android:layout_marginRight="4dp" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
-            android:layout_margin="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:src="@drawable/ic_look_over" />
@@ -79,7 +79,8 @@
                 android:id="@+id/conv_output_spinner"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="5" />
+                android:layout_weight="5"
+                android:layout_marginLeft="4dp" />
         </LinearLayout>
 
 
@@ -104,7 +105,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:text="@string/input" />
+            android:text="@string/input"
+            android:layout_marginRight="4dp" />
 
 
         <EditText
@@ -114,7 +116,8 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:inputType="numberDecimal"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:layout_marginLeft="4dp" />
     </LinearLayout>
 
 
@@ -152,7 +155,7 @@
         android:id="@+id/conv_calc_button"
         style="@style/buttons"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/conv_precision"
         android:layout_centerHorizontal="true"
         android:layout_margin="4dp"

@@ -22,7 +22,7 @@
     <string name="intHint"><b>0</b></string>
     <string name="input"><b>Input</b></string>
     <string name="diameter"><b>Diameter</b></string>
-    <string name="precision">Precision</string>
+    <string name="precision">Max Precision</string>
 
 
     <string name="drill_size_chart">Drill Size Chart</string>
