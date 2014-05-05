@@ -1,16 +1,22 @@
 package com.jwilliams.machinistmate.app;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 
 /**
@@ -19,21 +25,22 @@ import android.widget.Toast;
  * This class is the View-Controller for the Speeds calculations.
  */
 public class SpeedsDetailFragment extends Fragment {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-    public static final String ARG_ITEM_ID = "item_id";
 
     public static final float TOP_MARGIN_FROM_FLOAT = 25.0f;
     public static final float OTHER_MARGIN_FROM_FLOAT = 4.0f;
     //set private view variables
-    private TextView speedAnswer;
-    private TextView surfaceType;
-    private TextView diameterType;
+    private RobotoTextView speedAnswer;
+    private RobotoTextView surfaceType;
+    private RobotoTextView diameterType;
     private EditText surfaceInput;
     private EditText diameterInput;
     private boolean speedsType;
+    private Typeface tf;
+    private RadioGroup speedRadioGroup;
+    private Button speedsCalc;
+    private LinearLayout speedAnswerLayout;
+    private RadioButton standardButton;
+    private RadioButton metricButton;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -52,27 +59,8 @@ public class SpeedsDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.speeds_item_detail, container, false);
 
-        assert rootView != null;
-        RadioGroup speedRadioGroup = (RadioGroup) rootView.findViewById(R.id.speed_radio_group);
-        surfaceType = (TextView) rootView.findViewById(R.id.surface_type_view);
-        diameterType = (TextView) rootView.findViewById(R.id.diameter_type_view);
-        surfaceInput = (EditText) rootView.findViewById(R.id.surfaceInput);
-        diameterInput = (EditText) rootView.findViewById(R.id.diameterInput);
-        Button speedsCalc = (Button) rootView.findViewById(R.id.speed_calc);
-        speedAnswer = (TextView) rootView.findViewById(R.id.speed_answer);
-        LinearLayout speedAnswerLayout = (LinearLayout) rootView.findViewById(R.id.speed_answer_layout);
-
-        speedsType = true;
-
-        if (ItemListActivity.mTwoPane) {
-            final float SCALE = getActivity().getResources().getDisplayMetrics().density;
-            int topMargin = (int) (TOP_MARGIN_FROM_FLOAT * SCALE + 0.5f);
-            int x = (int) (OTHER_MARGIN_FROM_FLOAT * SCALE + 0.5f);
-            LinearLayout.MarginLayoutParams params = (LinearLayout.MarginLayoutParams) speedAnswerLayout.getLayoutParams();
-            assert params != null;
-            params.setMargins(x, topMargin, x, x);
-            speedAnswerLayout.setLayoutParams(params);
-        }
+        setLayout(rootView);
+        setTwoPane();
 
         speedRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -102,7 +90,39 @@ public class SpeedsDetailFragment extends Fragment {
         return rootView;
     }
 
-    public void calcSpeed(boolean i) {
+    private void setLayout(View rootView){
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
+        speedRadioGroup = (RadioGroup) rootView.findViewById(R.id.speed_radio_group);
+        surfaceType = (RobotoTextView) rootView.findViewById(R.id.surface_type_view);
+        diameterType = (RobotoTextView) rootView.findViewById(R.id.diameter_type_view);
+        surfaceInput = (EditText) rootView.findViewById(R.id.surfaceInput);
+        diameterInput = (EditText) rootView.findViewById(R.id.diameterInput);
+        speedsCalc = (Button) rootView.findViewById(R.id.speed_calc);
+        speedAnswer = (RobotoTextView) rootView.findViewById(R.id.speed_answer);
+        speedAnswerLayout = (LinearLayout) rootView.findViewById(R.id.speed_answer_layout);
+        standardButton = (RadioButton)rootView.findViewById(R.id.speeds_standard_radio);
+        metricButton = (RadioButton)rootView.findViewById(R.id.speeds_metric_radio);
+
+        speedsCalc.setTypeface(tf);
+        standardButton.setTypeface(tf);
+        metricButton.setTypeface(tf);
+
+        speedsType = true;
+    }
+
+    private void setTwoPane(){
+        if (ItemListActivity.mTwoPane) {
+            final float SCALE = getActivity().getResources().getDisplayMetrics().density;
+            int topMargin = (int) (TOP_MARGIN_FROM_FLOAT * SCALE + 0.5f);
+            int x = (int) (OTHER_MARGIN_FROM_FLOAT * SCALE + 0.5f);
+            LinearLayout.MarginLayoutParams params = (LinearLayout.MarginLayoutParams) speedAnswerLayout.getLayoutParams();
+            assert params != null;
+            params.setMargins(x, topMargin, x, x);
+            speedAnswerLayout.setLayoutParams(params);
+        }
+    }
+
+    private void calcSpeed(boolean i) {
         speedAnswer.setText("");
         double surfaceIn = 0.0;
         double diameter1 = 0.0;

@@ -18,7 +18,7 @@
         android:layout_margin="4dp"
         android:orientation="horizontal">
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/speed_answer"
             style="@style/AnswerStyle"
             android:layout_width="0dp"
@@ -29,7 +29,7 @@
             android:gravity="center"
             android:hint="@string/intHint" />
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/speed_answer_type"
             style="@style/TypeStyle"
             android:layout_width="wrap_content"
@@ -70,29 +70,33 @@
 
     <LinearLayout
         android:id="@+id/speed_surface_layout"
-        android:layout_width="500dp"
+        android:layout_width="400dp"
         android:layout_height="48dp"
         android:layout_below="@+id/speed_radio_group"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_toStartOf="@id/speed_answer_layout"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp">
 
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/surface_view"
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/surface" />
+            android:text="@string/surface"
+            android:layout_marginRight="4dp" />
         <EditText
             android:id="@+id/surfaceInput"
             style="@style/EditTextStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:layout_marginLeft="4dp"/>
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/surface_type_view"
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
@@ -102,20 +106,23 @@
 
     <LinearLayout
         android:id="@+id/diameter_view"
-        android:layout_width="500dp"
+        android:layout_width="400dp"
         android:layout_height="48dp"
         android:layout_below="@+id/speed_surface_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        android:orientation="horizontal">
+        android:layout_toStartOf="@id/speed_answer_layout"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp">
 
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/diameter_text"
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/diameter" />
+            android:text="@string/diameter"
+            android:layout_marginRight="4dp" />
 
 
         <EditText
@@ -124,9 +131,10 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:layout_marginLeft="4dp" />
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/diameter_type_view"
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
@@ -139,9 +147,9 @@
         style="@style/buttons"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_below="@+id/diameter_view"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="4dp"
-        android:text="@string/calculate" />
+        android:text="@string/calculate"
+        android:layout_below="@+id/diameter_view" />
 
 </RelativeLayout>

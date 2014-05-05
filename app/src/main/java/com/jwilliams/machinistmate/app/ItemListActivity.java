@@ -77,11 +77,7 @@ public class ItemListActivity extends FragmentActivity
             ItemDetailFragment fragment = new ItemDetailFragment();
             fragment.setArguments(arguments);
 
-            Bundle speedArguments = new Bundle();
-            speedArguments.putString(SpeedsDetailFragment.ARG_ITEM_ID, id);
             SpeedsDetailFragment speedFragment = new SpeedsDetailFragment();
-            speedFragment.setArguments(speedArguments);
-
 
             FeedsDetailFragment feedFragment = new FeedsDetailFragment();
 
@@ -140,7 +136,6 @@ public class ItemListActivity extends FragmentActivity
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
 
             Intent speedIntent = new Intent(this, SpeedsDetailActivity.class);
-            speedIntent.putExtra(SpeedsDetailFragment.ARG_ITEM_ID, id);
 
             Intent feedIntent = new Intent(this, FeedsDetailActivity.class);
 
