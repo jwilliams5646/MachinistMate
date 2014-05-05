@@ -27,7 +27,6 @@
             android:layout_marginRight="4dp"
             android:layout_weight="4"
             android:gravity="center"
-            android:hint="@string/doubleHint"
             android:singleLine="true" />
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
@@ -86,7 +85,8 @@
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="@string/speedView" />
+            android:text="@string/speedView"
+            android:layout_marginRight="4dp" />
 
 
         <EditText
@@ -95,7 +95,8 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight=".6"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:layout_marginLeft="4dp" />
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/feed_speed_type"
@@ -122,7 +123,8 @@
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="@string/feedPerToothView" />
+            android:text="@string/feedPerToothView"
+            android:layout_marginRight="4dp" />
 
 
         <EditText
@@ -131,7 +133,8 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight=".6"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:layout_marginLeft="4dp" />
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/feed_per_tooth_type"
@@ -158,17 +161,18 @@
             style="@style/TextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:text="@string/numberTeethView" />
+            android:text="@string/numberTeethView"
+            android:layout_marginRight="4dp" />
 
 
         <EditText
             android:id="@+id/number_teeth_input"
             style="@style/EditTextStyle"
-            android:layout_width="0dp"
+            android:layout_width="75dp"
             android:layout_height="48dp"
-            android:layout_weight=".6"
             android:inputType="numberDecimal"
-            android:gravity="left|bottom"/>
+            android:gravity="bottom|right"
+            android:layout_marginLeft="4dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -209,5 +213,32 @@
         android:layout_marginTop="4dp"
         android:text="@string/calculate"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <RelativeLayout
+        android:layout_width="320px"
+        android:layout_height="50px"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/relativeLayout"></RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="4dp"
+        android:layout_alignParentBottom="true"
+        android:background="#1d1d1d"
+        android:clickable="false">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="This is where an ad will go"
+            android:id="@+id/textView2"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 </RelativeLayout>

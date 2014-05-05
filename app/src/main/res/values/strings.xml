@@ -18,8 +18,6 @@
     <string name="rpm"><b>RPM</b></string>
     <string name="ipm"><b>IPM</b></string>
     <string name="mmpm"><b>MMPM</b></string>
-    <string name="doubleHint"><b>0.0</b></string>
-    <string name="intHint"><b>0</b></string>
     <string name="input"><b>Input</b></string>
     <string name="diameter"><b>Diameter</b></string>
     <string name="precision"><b>Max Precision</b></string>
