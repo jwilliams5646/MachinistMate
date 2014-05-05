@@ -1,5 +1,6 @@
 package com.jwilliams.machinistmate.app;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -33,6 +34,7 @@ public class ConversionDetailFragment extends Fragment {
     int inputSpinner;
     int outputSpinner;
     int precSpinner;
+    public static Typeface tf;
 
     public ConversionDetailFragment() {
     }
@@ -108,6 +110,7 @@ public class ConversionDetailFragment extends Fragment {
     }
 
     private void setLayoutVariables(View rootView){
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         convAnswer = (TextView) rootView.findViewById(R.id.conv_answer);
         convAnswerType = (TextView) rootView.findViewById(R.id.conv_answer_type);
         convInputSpinner = (Spinner) rootView.findViewById(R.id.conv_input_spinner);
@@ -116,6 +119,7 @@ public class ConversionDetailFragment extends Fragment {
         convInput = (EditText) rootView.findViewById(R.id.conv_input);
         convCalcButton = (Button) rootView.findViewById(R.id.conv_calc_button);
         convAnswerLayout = (LinearLayout) rootView.findViewById(R.id.conv_answer_layout);
+        convCalcButton.setTypeface(tf);
     }
 
     private void setTwoPane(){

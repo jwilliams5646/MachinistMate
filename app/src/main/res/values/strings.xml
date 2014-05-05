@@ -23,6 +23,7 @@
     <string name="input"><b>Input</b></string>
     <string name="diameter"><b>Diameter</b></string>
     <string name="precision"><b>Max Precision</b></string>
+    <string name="converto"><b>convert to</b></string>
 
 
     <string name="drill_size_chart">Drill Size Chart</string>

@@ -32,11 +32,7 @@ public class FeedsDetailActivity extends FragmentActivity {
         if (savedInstanceState == null) {
             // Create the detail fragment and add it to the activity
             // using a fragment transaction.
-            Bundle arguments = new Bundle();
-            arguments.putString(FeedsDetailFragment.ARG_ITEM_ID,
-                    getIntent().getStringExtra(FeedsDetailFragment.ARG_ITEM_ID));
             FeedsDetailFragment fragment = new FeedsDetailFragment();
-            fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit();
