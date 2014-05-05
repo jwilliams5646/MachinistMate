@@ -15,14 +15,14 @@
     <string name="standard"><b>Standard</b></string>
     <string name="metric"><b>Metric</b></string>
     <string name="fraction"><b>Fraction</b></string>
-    <string name="speedType">RPM</string>
-    <string name="feedType1">IPM</string>
-    <string name="feedType2"><b>MMPM</b></string>
+    <string name="rpm"><b>RPM</b></string>
+    <string name="ipm"><b>IPM</b></string>
+    <string name="mmpm"><b>MMPM</b></string>
     <string name="doubleHint"><b>0.0</b></string>
     <string name="intHint"><b>0</b></string>
     <string name="input"><b>Input</b></string>
     <string name="diameter"><b>Diameter</b></string>
-    <string name="precision">Max Precision</string>
+    <string name="precision"><b>Max Precision</b></string>
 
 
     <string name="drill_size_chart">Drill Size Chart</string>

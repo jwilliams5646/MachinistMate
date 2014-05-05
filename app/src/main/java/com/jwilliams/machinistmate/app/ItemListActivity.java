@@ -82,10 +82,8 @@ public class ItemListActivity extends FragmentActivity
             SpeedsDetailFragment speedFragment = new SpeedsDetailFragment();
             speedFragment.setArguments(speedArguments);
 
-            Bundle feedArguments = new Bundle();
-            feedArguments.putString(FeedsDetailFragment.ARG_ITEM_ID, id);
+
             FeedsDetailFragment feedFragment = new FeedsDetailFragment();
-            feedFragment.setArguments(feedArguments);
 
             ConversionDetailFragment convFragment = new ConversionDetailFragment();
 
@@ -145,7 +143,6 @@ public class ItemListActivity extends FragmentActivity
             speedIntent.putExtra(SpeedsDetailFragment.ARG_ITEM_ID, id);
 
             Intent feedIntent = new Intent(this, FeedsDetailActivity.class);
-            feedIntent.putExtra(FeedsDetailFragment.ARG_ITEM_ID, id);
 
             Intent convIntent = new Intent(this, ConversionDetailActivity.class);
 

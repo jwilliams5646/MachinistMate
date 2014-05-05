@@ -37,7 +37,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="4dp"
             android:gravity="center|fill"
-            android:text="@string/speedType" />
+            android:text="@string/rpm" />
     </LinearLayout>
 
     <RadioGroup
