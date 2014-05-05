@@ -14,7 +14,7 @@
         android:paddingBottom="10dp"
         android:paddingTop="10dp">
 
-        <TextView
+        <com.jwilliams.machinistmate.app.AppContent.RobotoBoldTextView
             android:id="@+id/text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
