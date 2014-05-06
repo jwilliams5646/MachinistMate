@@ -73,16 +73,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab4bee1-78de-4b64-bf21-cb59711258ad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/assets/machinist_mate_db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/LengthdbHelper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Utility.java" />
-      <change type="DELETED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\java\com\jwilliams\machinistmate\app\AppContent\Calculations.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\java\com\jwilliams\machinistmate\app\DataBaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/DrilldbHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/DrillChartFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/DrillChartFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FeedsDetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FeedsDetailFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Machinist Mate.iws" />
@@ -124,23 +116,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConversionDetailFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ConversionDetailFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-              <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.20934255" vertical-offset="661" max-vertical-offset="1428">
+              <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
               <folding>
                 <element signature="method#ConversionDetailFragment#0;class#ConversionDetailFragment#0" expanded="false" />
                 <element signature="method#onCreateView#0;class#ConversionDetailFragment#0" expanded="false" />
-                <element signature="class#1889:2293" expanded="false" />
-                <element signature="e#2091#2092#0" expanded="true" />
-                <element signature="e#2146#2147#0" expanded="true" />
-                <element signature="e#2234#2235#0" expanded="true" />
-                <element signature="e#2282#2283#0" expanded="true" />
-                <element signature="class#2372:2870" expanded="false" />
-                <element signature="method#onItemSelected#0;class#2372:2870" expanded="false" />
-                <element signature="method#onNothingSelected#0;class#2372:2870" expanded="false" />
-                <element signature="class#3113:3516" expanded="false" />
+                <element signature="class#1854:2258" expanded="false" />
+                <element signature="e#2056#2057#0" expanded="true" />
+                <element signature="e#2111#2112#0" expanded="true" />
+                <element signature="e#2199#2200#0" expanded="true" />
+                <element signature="e#2247#2248#0" expanded="true" />
+                <element signature="class#2337:2835" expanded="false" />
+                <element signature="method#onItemSelected#0;class#2337:2835" expanded="false" />
+                <element signature="method#onNothingSelected#0;class#2337:2835" expanded="false" />
+                <element signature="class#3078:3481" expanded="false" />
                 <element signature="method#setLayoutVariables#0;class#ConversionDetailFragment#0" expanded="false" />
                 <element signature="method#setTwoPane#0;class#ConversionDetailFragment#0" expanded="false" />
                 <element signature="method#setSpinnerAdapter#0;class#ConversionDetailFragment#0" expanded="false" />
@@ -148,9 +140,8 @@
                 <element signature="method#setConversionType#0;class#ConversionDetailFragment#0" expanded="false" />
                 <element signature="method#setDatabase#0;class#ConversionDetailFragment#0" expanded="false" />
                 <element signature="method#openDb#0;class#ConversionDetailFragment#0" expanded="false" />
-                <element signature="class#getCalculation#0;class#ConversionDetailFragment#0" expanded="false" />
-                <element signature="e#8764#8765#0" expanded="true" />
-                <element signature="e#8825#8826#0" expanded="true" />
+                <element signature="e#8770#8771#0" expanded="true" />
+                <element signature="e#8831#8832#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -169,8 +160,8 @@
       <file leaf-file-name="DrillChartFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/DrillChartFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2232" max-vertical-offset="3536">
-              <caret line="200" column="8" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="651" max-vertical-offset="3536">
+              <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -188,11 +179,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LengthdbHelper.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LengthdbHelper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/LengthdbHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9411765" vertical-offset="0" max-vertical-offset="2465">
-              <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2465">
+              <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1592,7 +1583,11 @@
       <created>1399326813270</created>
       <updated>1399326813270</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Added Asynctask thread to handle database transaction for ConversionDetailFragment.  Reduced the number of options for precision.  Changed ConversionDetailFragment calculations to read from database, eliminating need for switch/cases in Calculations.java.  Changed Calculations.java to Utility.java to hold the formatter.  Removed all switch/cases from Utility.java.">
+      <created>1399410225731</created>
+      <updated>1399410225731</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1679,7 +1674,8 @@
     <MESSAGE value="Refactored SpeedsFrag/Act. Added RobotoTextView" />
     <MESSAGE value="Few minor changes, added placeholder for ads." />
     <MESSAGE value="Added some fonts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some fonts" />
+    <MESSAGE value="Added Asynctask thread to handle database transaction for ConversionDetailFragment.  Reduced the number of options for precision.  Changed ConversionDetailFragment calculations to read from database, eliminating need for switch/cases in Calculations.java.  Changed Calculations.java to Utility.java to hold the formatter.  Removed all switch/cases from Utility.java." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Asynctask thread to handle database transaction for ConversionDetailFragment.  Reduced the number of options for precision.  Changed ConversionDetailFragment calculations to read from database, eliminating need for switch/cases in Calculations.java.  Changed Calculations.java to Utility.java to hold the formatter.  Removed all switch/cases from Utility.java." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2111,48 +2107,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="901">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
-          <folding>
-            <element signature="method#ConversionDetailFragment#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="method#onCreateView#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="class#1889:2293" expanded="false" />
-            <element signature="e#2091#2092#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2234#2235#0" expanded="true" />
-            <element signature="e#2282#2283#0" expanded="true" />
-            <element signature="class#2372:2870" expanded="false" />
-            <element signature="method#onItemSelected#0;class#2372:2870" expanded="false" />
-            <element signature="method#onNothingSelected#0;class#2372:2870" expanded="false" />
-            <element signature="class#3113:3516" expanded="false" />
-            <element signature="method#setLayoutVariables#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="method#setTwoPane#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="method#setSpinnerAdapter#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="method#setPrecisionAdapter#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="method#setConversionType#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="method#setDatabase#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="method#openDb#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="class#getCalculation#0;class#ConversionDetailFragment#0" expanded="false" />
-            <element signature="e#8764#8765#0" expanded="true" />
-            <element signature="e#8825#8826#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="935">
           <caret line="37" column="41" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/DrillChartFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2232" max-vertical-offset="3536">
-          <caret line="200" column="8" selection-start-line="200" selection-start-column="8" selection-end-line="200" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -2169,10 +2127,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/LengthdbHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9411765" vertical-offset="0" max-vertical-offset="2465">
-          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2465">
+          <caret line="16" column="3" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/DrillChartFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="651" max-vertical-offset="3536">
+          <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20934255" vertical-offset="661" max-vertical-offset="1428">
+          <caret line="212" column="0" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
+          <folding>
+            <element signature="method#ConversionDetailFragment#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="method#onCreateView#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="class#1854:2258" expanded="false" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2111#2112#0" expanded="true" />
+            <element signature="e#2199#2200#0" expanded="true" />
+            <element signature="e#2247#2248#0" expanded="true" />
+            <element signature="class#2337:2835" expanded="false" />
+            <element signature="method#onItemSelected#0;class#2337:2835" expanded="false" />
+            <element signature="method#onNothingSelected#0;class#2337:2835" expanded="false" />
+            <element signature="class#3078:3481" expanded="false" />
+            <element signature="method#setLayoutVariables#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="method#setTwoPane#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="method#setSpinnerAdapter#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="method#setPrecisionAdapter#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="method#setConversionType#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="method#setDatabase#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="method#openDb#0;class#ConversionDetailFragment#0" expanded="false" />
+            <element signature="e#8770#8771#0" expanded="true" />
+            <element signature="e#8831#8832#0" expanded="true" />
           </folding>
         </state>
       </provider>

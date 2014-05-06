@@ -30,7 +30,6 @@ import java.io.IOException;
  */
 public class ConversionDetailFragment extends Fragment {
     //Conversion Variables
-    public double calcInput = 0.0;
     private TextView convAnswer;
     private TextView convAnswerType;
     private Spinner convInputSpinner;
@@ -210,6 +209,8 @@ public class ConversionDetailFragment extends Fragment {
     }
 
     private class getCalculation extends AsyncTask{
+        private double calcInput = 0.0;
+
         @Override
         protected void onPreExecute(){
             try {
