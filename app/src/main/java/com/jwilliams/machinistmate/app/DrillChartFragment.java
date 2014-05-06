@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 
+import com.jwilliams.machinistmate.app.AppContent.DrilldbHelper;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class DrillChartFragment extends Fragment {
     private Button metricButton;
     private RobotoTextView typeHeader;
     private GridView referenceGridView;
-    private DataBaseHelper myDbHelper;
+    private DrilldbHelper myDbHelper;
     private List<String> li;
     private ArrayAdapter<String> adapter;
     private Typeface tf;
@@ -139,7 +140,7 @@ public class DrillChartFragment extends Fragment {
 
     private void setDatabase(){
         //instantiates the database and the
-        myDbHelper = new DataBaseHelper(getActivity());
+        myDbHelper = new DrilldbHelper(getActivity());
         try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {

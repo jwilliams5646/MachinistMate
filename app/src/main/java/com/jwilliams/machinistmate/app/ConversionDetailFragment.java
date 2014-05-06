@@ -1,6 +1,9 @@
 package com.jwilliams.machinistmate.app;
 
+import android.database.Cursor;
+import android.database.SQLException;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,27 +17,33 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.Log;
 
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.LengthdbHelper;
+import com.jwilliams.machinistmate.app.AppContent.Utility;
+
+import java.io.IOException;
 
 /**
- * Created by John on 4/6/2014.
+ * Created by John Williams
+ * Manages the ConversionDetailFragment Lifecycle
  */
 public class ConversionDetailFragment extends Fragment {
-
+    //Conversion Variables
     public double calcInput = 0.0;
-    TextView convAnswer;
-    TextView convAnswerType;
-    Spinner convInputSpinner;
-    Spinner convOutputSpinner;
-    Spinner convPrecisionSpinner;
-    EditText convInput;
-    Button convCalcButton;
-    LinearLayout convAnswerLayout;
+    private TextView convAnswer;
+    private TextView convAnswerType;
+    private Spinner convInputSpinner;
+    private Spinner convOutputSpinner;
+    private Spinner convPrecisionSpinner;
+    private EditText convInput;
+    private Button convCalcButton;
+    private LinearLayout convAnswerLayout;
     int inputSpinner;
     int outputSpinner;
     int precSpinner;
     public static Typeface tf;
+    private String output;
 
     public ConversionDetailFragment() {
     }
@@ -43,7 +52,6 @@ public class ConversionDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.conversion_item_detail, container, false);
-        assert rootView != null;
 
         setLayoutVariables(rootView);
         setTwoPane();
@@ -100,7 +108,7 @@ public class ConversionDetailFragment extends Fragment {
         View.OnClickListener convCalcButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                convCalculation();
+                new getCalculation().execute();
             }
         };
 
@@ -150,40 +158,86 @@ public class ConversionDetailFragment extends Fragment {
     }
 
     private void setConversionType(int position){
-
         switch (position) {
             case 0:
                 convAnswerType.setText("in");
+                output = "inch";
                 break;
             case 1:
                 convAnswerType.setText("ft");
+                output = "feet";
                 break;
             case 2:
                 convAnswerType.setText("yd");
+                output = "yard";
                 break;
             case 3:
                 convAnswerType.setText("mm");
+                output = "millimeter";
                 break;
             case 4:
                 convAnswerType.setText("cm");
+                output = "centimeter";
                 break;
             case 5:
                 convAnswerType.setText("m");
+                output = "meter";
                 break;
             default:
                 convAnswerType.setText("in");
+                output = "inch";
                 break;
         }
     }
 
-    private void convCalculation() {
+    private void setDatabase(LengthdbHelper myDbHelper){
+        //instantiates the database and the
+        myDbHelper = new LengthdbHelper(getActivity());
         try {
-            calcInput = Double.parseDouble(convInput.getText().toString());
-        } catch (NumberFormatException e) {
-            Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
-            return;
+            myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
         }
-        convAnswer.setText(Double.toString(
-                Calculations.conversionCalc(inputSpinner, outputSpinner, calcInput, precSpinner)));
+    }
+
+    public void openDb(LengthdbHelper myDbHelper){
+        try {
+            myDbHelper.openDataBase();
+        }catch(SQLException sqle){
+            Log.d("Open Database","SQL Exception");
+            throw sqle;
+        }
+    }
+
+    private class getCalculation extends AsyncTask{
+        @Override
+        protected void onPreExecute(){
+            try {
+                calcInput = Double.parseDouble(convInput.getText().toString());
+            } catch (NumberFormatException e) {
+                Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
+                cancel(true);
+            }
+        }
+
+        @Override
+        protected Double doInBackground(Object[] params) {
+            Log.d("DB Thread", "Starting work");
+            LengthdbHelper myDbHelper = new LengthdbHelper(getActivity());
+            setDatabase(myDbHelper);
+            openDb(myDbHelper);
+            Cursor c = myDbHelper.getConversionFactor(inputSpinner, output);
+            c.moveToFirst();
+            Double result = Utility.formatter(calcInput *
+                    Double.parseDouble(c.getString(c.getColumnIndex(output))), precSpinner);
+            myDbHelper.close();
+            Log.d("DB Thread", "Ending work");
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Object result){
+            convAnswer.setText(result.toString());
+        }
     }
 }

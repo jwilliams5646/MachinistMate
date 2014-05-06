@@ -1,4 +1,4 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.AppContent;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -17,11 +17,11 @@ import java.io.OutputStream;
  */
 
 
-public class DataBaseHelper extends SQLiteOpenHelper{
+public class DrilldbHelper extends SQLiteOpenHelper{
 
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.jwilliams.machinistmate.app/databases/";
-    private static String DB_NAME = "drill_db";
+    private static String DB_NAME = "machinist_mate_db";
     private static String TABLE_NAME = "drillsize";
     private static String SIZE = "size";
     private static String STANDARD = "standard";
@@ -40,8 +40,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
      * @param context
      */
-    public DataBaseHelper(Context context) {
-
+    public DrilldbHelper(Context context) {
         super(context, DB_NAME, null, 1);
         this.myContext = context;
     }
@@ -60,23 +59,17 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         dbExist = checkDataBase();
 
         if(!dbExist){
-
             //By calling this method and empty database will be created into the default system path
             //of your application so we are gonna be able to overwrite that database with our database.
             this.getReadableDatabase();
 
             try {
-
                 copyDataBase();
-
             } catch (IOException e) {
-
                 throw new Error("Error copying database");
-
             }
         }
         close();
-
     }
 
     /**
@@ -92,17 +85,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
             checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
 
         }catch(SQLiteException e){
-
-            //database does't exist yet.
-
         }
 
         if(checkDB != null){
-
             checkDB.close();
-
         }
-
         return checkDB != null ? true : false;
     }
 
@@ -133,30 +120,24 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         myOutput.flush();
         myOutput.close();
         myInput.close();
-
     }
 
     public void openDataBase() throws SQLException {
-
         //Open the database
         String myPath = DB_PATH + DB_NAME;
         myDataBase = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-
     }
 
     @Override
     public synchronized void close() {
-
         if(myDataBase != null)
             myDataBase.close();
 
         super.close();
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
     }
 
     @Override
@@ -164,6 +145,9 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         myContext.deleteDatabase(DB_NAME);
     }
 
+    /**
+     * DrillChart db queries
+     * */
     public Cursor byWireGauge(){
         return myDataBase.rawQuery("select "+ SIZE + "," + STANDARD + ", "
                 + METRIC_COLUMN +" from " + TABLE_NAME + " where " + TYPE + " = " + WIREGAUGE,null);
@@ -188,10 +172,5 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return myDataBase.rawQuery("select "+ SIZE + "," + STANDARD + ", "
                 + METRIC_COLUMN +" from " + TABLE_NAME,null);
     }
-
-
-    // Add your public helper methods to access and get content from the database.
-    // You could return cursors by doing "return myDataBase.query(....)" so it'd be easy
-    // to you to create adapters for your views.
 }
 

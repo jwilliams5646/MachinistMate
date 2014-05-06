@@ -16,7 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Utility;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -180,7 +180,7 @@ public class FeedsDetailFragment extends Fragment {
 
         double feed = (speed * fpt * numTeeth);
 
-        feedAnswer.setText(Double.toString(Calculations.formatter(feed,precSpinner)));
+        feedAnswer.setText(Double.toString(Utility.formatter(feed, precSpinner)));
     }
 
 
