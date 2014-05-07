@@ -4,8 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 
-import com.jwilliams.machinistmate.app.AppContent.DrilldbHelper;
+import com.jwilliams.machinistmate.app.AppContent.DbHelper;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 import java.io.IOException;
@@ -33,10 +35,10 @@ public class DrillChartFragment extends Fragment {
     private Button metricButton;
     private RobotoTextView typeHeader;
     private GridView referenceGridView;
-    private DrilldbHelper myDbHelper;
     private List<String> li;
     private ArrayAdapter<String> adapter;
     private Typeface tf;
+    private int dbSwitch;
 
     public DrillChartFragment() {
     }
@@ -50,45 +52,58 @@ public class DrillChartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.drill_chart_layout, container, false);
-
+        dbSwitch = 0;
         setLayout(rootView);
         setAdapter();
-        setDatabase();
-
-        setAllInfo();
+        new setGrid().execute();
 
         allInfo.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setAllInfo();
+                typeHeader.setText("All");
+                adapter.clear();
+                dbSwitch = 0;
+                new setGrid().execute();
             }
         });
 
         wiregaugeButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setWireGauge();
+                typeHeader.setText("Wiregauge");
+                adapter.clear();
+                dbSwitch = 1;
+                new setGrid().execute();
             }
         });
 
         letterButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setLetter();
+                typeHeader.setText("Letter");
+                adapter.clear();
+                dbSwitch = 2;
+                new setGrid().execute();
             }
         });
 
         fractionButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setFraction();
+                typeHeader.setText("Fraction");
+                adapter.clear();
+                dbSwitch = 3;
+                new setGrid().execute();
             }
         });
 
         metricButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setMetric();
+                typeHeader.setText("Metric");
+                adapter.clear();
+                dbSwitch = 4;
+                new setGrid().execute();
             }
         });
         return rootView;
@@ -128,6 +143,8 @@ public class DrillChartFragment extends Fragment {
         typeHeader = (RobotoTextView)rootView.findViewById(R.id.type_header);
 
         referenceGridView = (GridView)rootView.findViewById(R.id.drill_chart_grid);
+
+        typeHeader.setText("All");
     }
 
     private void setAdapter(){
@@ -138,9 +155,9 @@ public class DrillChartFragment extends Fragment {
                 R.layout.grid_item_layout, li);
     }
 
-    private void setDatabase(){
+    private void setDatabase(DbHelper myDbHelper){
         //instantiates the database and the
-        myDbHelper = new DrilldbHelper(getActivity());
+        myDbHelper = new DbHelper(getActivity());
         try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {
@@ -149,7 +166,7 @@ public class DrillChartFragment extends Fragment {
     }
 
 
-    public void openDb(){
+    public void openDb(DbHelper myDbHelper){
         try {
             myDbHelper.openDataBase();
         }catch(SQLException sqle){
@@ -157,91 +174,98 @@ public class DrillChartFragment extends Fragment {
         }
     }
 
-    public void setAllInfo(){
-        openDb();
-        adapter.clear();
-        typeHeader.setText("All");
-        Cursor c = myDbHelper.byAll();
-        while(c.moveToNext()) {
-            String size = c.getString(c.getColumnIndex("size"));
-            String standard = c.getString(c.getColumnIndex("standard"));
-            String metric = c.getString(c.getColumnIndex("metric"));
-            li.add(size);
-            li.add(standard);
-            li.add(metric);
+    private class setGrid extends AsyncTask {
+
+        @Override
+        protected void onPreExecute(){
         }
-        referenceGridView.setAdapter(adapter);
-        myDbHelper.close();
-    }
 
-    public void setWireGauge(){
+        @Override
+        protected Object doInBackground(Object[] params) {
+            Log.d("DB Thread", "Starting work");
+            DbHelper myDbHelper = new DbHelper(getActivity());
+            setDatabase(myDbHelper);
+            openDb(myDbHelper);
+            Cursor c = null;
 
-        openDb();
-        adapter.clear();
-        typeHeader.setText("Wiregauge");
-        Cursor c = myDbHelper.byWireGauge();
-        while(c.moveToNext()) {
-            String size = c.getString(c.getColumnIndex("size"));
-            String standard = c.getString(c.getColumnIndex("standard"));
-            String metric = c.getString(c.getColumnIndex("metric"));
-            li.add(size);
-            li.add(standard);
-            li.add(metric);
+            switch (dbSwitch){
+                case 0:
+                    c = myDbHelper.byAll();
+                    while(c.moveToNext()) {
+                        String size = c.getString(c.getColumnIndex("size"));
+                        String standard = c.getString(c.getColumnIndex("standard"));
+                        String metric = c.getString(c.getColumnIndex("metric"));
+                        li.add(size);
+                        li.add(standard);
+                        li.add(metric);
+                    }
+                    break;
+                case 1:
+                    c = myDbHelper.byWireGauge();
+                    while(c.moveToNext()) {
+                        String size = c.getString(c.getColumnIndex("size"));
+                        String standard = c.getString(c.getColumnIndex("standard"));
+                        String metric = c.getString(c.getColumnIndex("metric"));
+                        li.add(size);
+                        li.add(standard);
+                        li.add(metric);
+                    }
+                    break;
+                case 2:
+                    c = myDbHelper.byLetter();
+                    while(c.moveToNext()) {
+                        String size = c.getString(c.getColumnIndex("size"));
+                        String standard = c.getString(c.getColumnIndex("standard"));
+                        String metric = c.getString(c.getColumnIndex("metric"));
+                        li.add(size);
+                        li.add(standard);
+                        li.add(metric);
+                    }
+                    break;
+                case 3:
+                    c = myDbHelper.byFraction();
+                    while(c.moveToNext()) {
+                        String size = c.getString(c.getColumnIndex("size"));
+                        String standard = c.getString(c.getColumnIndex("standard"));
+                        String metric = c.getString(c.getColumnIndex("metric"));
+                        li.add(size);
+                        li.add(standard);
+                        li.add(metric);
+                    }
+                    break;
+                case 4:
+                    c = myDbHelper.byMetric();
+                    while(c.moveToNext()) {
+                        String size = c.getString(c.getColumnIndex("size"));
+                        String standard = c.getString(c.getColumnIndex("standard"));
+                        String metric = c.getString(c.getColumnIndex("metric"));
+                        li.add(size);
+                        li.add(standard);
+                        li.add(metric);
+                    }
+                    break;
+                default:
+                    c = myDbHelper.byAll();
+                    while(c.moveToNext()) {
+                        String size = c.getString(c.getColumnIndex("size"));
+                        String standard = c.getString(c.getColumnIndex("standard"));
+                        String metric = c.getString(c.getColumnIndex("metric"));
+                        li.add(size);
+                        li.add(standard);
+                        li.add(metric);
+                    }
+                    break;
+            }
+
+            myDbHelper.close();
+            Log.d("DB Thread", "Ending work");
+            return null;
         }
-        referenceGridView.setAdapter(adapter);
-        myDbHelper.close();
-    }
 
-
-    private void setLetter() {
-        openDb();
-        adapter.clear();
-        typeHeader.setText("Letter");
-        Cursor c = myDbHelper.byLetter();
-        while(c.moveToNext()) {
-            String size = c.getString(c.getColumnIndex("size"));
-            String standard = c.getString(c.getColumnIndex("standard"));
-            String metric = c.getString(c.getColumnIndex("metric"));
-            li.add(size);
-            li.add(standard);
-            li.add(metric);
+        @Override
+        protected void onPostExecute(Object result){
+            referenceGridView.setAdapter(adapter);
         }
-        referenceGridView.setAdapter(adapter);
-        myDbHelper.close();
-    }
-
-    public void setFraction(){
-        openDb();
-        adapter.clear();
-        typeHeader.setText("Fraction");
-        Cursor c = myDbHelper.byFraction();
-        while(c.moveToNext()) {
-            String size = c.getString(c.getColumnIndex("size"));
-            String standard = c.getString(c.getColumnIndex("standard"));
-            String metric = c.getString(c.getColumnIndex("metric"));
-            li.add(size);
-            li.add(standard);
-            li.add(metric);
-        }
-        referenceGridView.setAdapter(adapter);
-        myDbHelper.close();
-    }
-
-    public void setMetric(){
-        openDb();
-        adapter.clear();
-        typeHeader.setText("Metric");
-        Cursor c = myDbHelper.byMetric();
-        while(c.moveToNext()) {
-            String size = c.getString(c.getColumnIndex("size"));
-            String standard = c.getString(c.getColumnIndex("standard"));
-            String metric = c.getString(c.getColumnIndex("metric"));
-            li.add(size);
-            li.add(standard);
-            li.add(metric);
-        }
-        referenceGridView.setAdapter(adapter);
-        myDbHelper.close();
     }
 
 }

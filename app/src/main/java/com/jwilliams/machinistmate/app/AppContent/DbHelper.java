@@ -17,7 +17,7 @@ import java.io.OutputStream;
  */
 
 
-public class DrilldbHelper extends SQLiteOpenHelper{
+public class DbHelper extends SQLiteOpenHelper{
 
     //The Android's default system path of your application database.
     private static String DB_PATH = "/data/data/com.jwilliams.machinistmate.app/databases/";
@@ -40,7 +40,7 @@ public class DrilldbHelper extends SQLiteOpenHelper{
      * Takes and keeps a reference of the passed context in order to access to the application assets and resources.
      * @param context
      */
-    public DrilldbHelper(Context context) {
+    public DbHelper(Context context) {
         super(context, DB_NAME, null, 1);
         this.myContext = context;
     }
@@ -171,6 +171,14 @@ public class DrilldbHelper extends SQLiteOpenHelper{
     public Cursor byAll(){
         return myDataBase.rawQuery("select "+ SIZE + "," + STANDARD + ", "
                 + METRIC_COLUMN +" from " + TABLE_NAME,null);
+    }
+
+    /**
+     * Conversion db query
+     * */
+    public Cursor getConversionFactor(int id, String output){
+        return myDataBase.rawQuery("select "+ output + " from "
+                + "length" + " Where _id = " + id,null);
     }
 }
 

@@ -19,7 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
 
-import com.jwilliams.machinistmate.app.AppContent.LengthdbHelper;
+import com.jwilliams.machinistmate.app.AppContent.DbHelper;
 import com.jwilliams.machinistmate.app.AppContent.Utility;
 
 import java.io.IOException;
@@ -189,9 +189,8 @@ public class ConversionDetailFragment extends Fragment {
         }
     }
 
-    private void setDatabase(LengthdbHelper myDbHelper){
+    private void setDatabase(DbHelper myDbHelper){
         //instantiates the database and the
-        myDbHelper = new LengthdbHelper(getActivity());
         try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {
@@ -199,7 +198,7 @@ public class ConversionDetailFragment extends Fragment {
         }
     }
 
-    public void openDb(LengthdbHelper myDbHelper){
+    public void openDb(DbHelper myDbHelper){
         try {
             myDbHelper.openDataBase();
         }catch(SQLException sqle){
@@ -224,7 +223,7 @@ public class ConversionDetailFragment extends Fragment {
         @Override
         protected Double doInBackground(Object[] params) {
             Log.d("DB Thread", "Starting work");
-            LengthdbHelper myDbHelper = new LengthdbHelper(getActivity());
+            DbHelper myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
             Cursor c = myDbHelper.getConversionFactor(inputSpinner, output);

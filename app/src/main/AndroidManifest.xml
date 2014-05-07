@@ -6,12 +6,12 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="Machinist Mate"
         android:logo="@drawable/ic_action_logo"
+        android:title="Machinist Mate"
         android:theme="@style/AppTheme">
         <activity
             android:name="com.jwilliams.machinistmate.app.ItemListActivity"
-            android:label=""
+            android:label="Machinist Mate"
             android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +30,7 @@
         </activity>
         <activity
             android:name="com.jwilliams.machinistmate.app.SpeedsDetailActivity"
-            android:label=""
+            android:label="Speeds"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
             android:screenOrientation="nosensor">
             <meta-data
@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name="com.jwilliams.machinistmate.app.FeedsDetailActivity"
-            android:label=""
+            android:label="Feeds"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
             android:screenOrientation="nosensor">
             <meta-data
@@ -48,7 +48,7 @@
         </activity>
         <activity
             android:name="com.jwilliams.machinistmate.app.ConversionDetailActivity"
-            android:label=""
+            android:label="Conversions"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
             android:screenOrientation="nosensor">
             <meta-data
@@ -57,7 +57,7 @@
         </activity>
         <activity
             android:name="com.jwilliams.machinistmate.app.GeometryDetailActivity"
-            android:label=""
+            android:label="Geometry"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
             android:screenOrientation="nosensor">
             <meta-data
@@ -66,7 +66,7 @@
         </activity>
         <activity
             android:name="com.jwilliams.machinistmate.app.ReferencePagerActivity"
-            android:label=""
+            android:label="Reference"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
             android:screenOrientation="nosensor">
             <meta-data
@@ -75,22 +75,13 @@
         </activity>
         <activity
         android:name=".FractionMetricActivity"
-        android:label=""
+        android:label="Fraction Metric Chart"
         android:parentActivityName="com.jwilliams.machinistmate.app.ReferencePagerActivity"
         android:screenOrientation="nosensor">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.jwilliams.machinistmate.app.ReferenceChoiceActivity" />
     </activity>
-        <activity
-            android:name=".ReferencePagerActivity"
-            android:label=""
-            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
-            android:screenOrientation="nosensor">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
-        </activity>
     </application>
 
 </manifest>
