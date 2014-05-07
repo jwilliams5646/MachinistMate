@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="com.jwilliams.machinistmate.app.ItemListActivity"
-            android:label="Machinist Mate"
+            android:label=""
             android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

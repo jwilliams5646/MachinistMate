@@ -72,10 +72,7 @@ public class ItemListActivity extends FragmentActivity
         //check for two panes, sign of a large screen or tablet
         if (mTwoPane) {
             // Replaces fragment in the detail container
-            Bundle arguments = new Bundle();
-            arguments.putString(ItemDetailFragment.ARG_ITEM_ID, id);
             ItemDetailFragment fragment = new ItemDetailFragment();
-            fragment.setArguments(arguments);
 
             SpeedsDetailFragment speedFragment = new SpeedsDetailFragment();
 
@@ -133,7 +130,6 @@ public class ItemListActivity extends FragmentActivity
         } else {
             //if not two pane then set intent to change activities between menu items
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
-            detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
 
             Intent speedIntent = new Intent(this, SpeedsDetailActivity.class);
 
