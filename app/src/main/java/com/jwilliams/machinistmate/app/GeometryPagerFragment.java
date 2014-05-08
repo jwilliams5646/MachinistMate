@@ -13,9 +13,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 /**
- * Created by John on 4/27/2014.
+ * Created by john.williams on 5/8/2014.
  */
-public class ReferencePagerFragment extends Fragment {
+public class GeometryPagerFragment extends Fragment {
     Typeface tf;
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -44,6 +44,6 @@ public class ReferencePagerFragment extends Fragment {
         return rootView;
     }
     private PagerAdapter buildAdapter() {
-        return(new ReferenceAdapter(getActivity(), getChildFragmentManager()));
+        return(new GeometryAdapter(getActivity(), getChildFragmentManager()));
     }
 }

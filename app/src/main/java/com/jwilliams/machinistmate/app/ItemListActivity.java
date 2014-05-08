@@ -80,10 +80,7 @@ public class ItemListActivity extends FragmentActivity
 
             ConversionDetailFragment convFragment = new ConversionDetailFragment();
 
-            Bundle geometryArguments = new Bundle();
-            geometryArguments.putString(GeometryDetailFragment.ARG_ITEM_ID, id);
-            GeometryDetailFragment geometryFragment = new GeometryDetailFragment();
-            geometryFragment.setArguments(geometryArguments);
+            GeometryPagerFragment geometryFragment = new GeometryPagerFragment();
 
             ReferencePagerFragment referenceFragment = new ReferencePagerFragment();
 
@@ -137,8 +134,7 @@ public class ItemListActivity extends FragmentActivity
 
             Intent convIntent = new Intent(this, ConversionDetailActivity.class);
 
-            Intent geometryIntent = new Intent(this, GeometryDetailActivity.class);
-            geometryIntent.putExtra(GeometryDetailFragment.ARG_ITEM_ID, id);
+            Intent geometryIntent = new Intent(this, GeometryPagerActivity.class);
 
             Intent referenceIntent = new Intent(this, ReferencePagerActivity.class);
 

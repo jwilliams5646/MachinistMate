@@ -6,7 +6,8 @@
     <string name="in"><b>in</b></string>
     <string name="mm"><b>mm</b></string>
     <string name="calculate"><b>Calculate</b></string>
-    <string name="surface"><b>Surface</b></string>
+    <string name="surface_standard"><b>SFM</b></string>
+    <string name="surface_metric"><b>SMM</b></string>
     <string name="surfaceFeet"><b>ft</b></string>
     <string name="surfaceMeters"><b>m</b></string>
     <string name="speedView"><b>Speed</b></string>
@@ -25,6 +26,8 @@
 
 
     <string name="drill_size_chart"><b>Drill Size Chart</b></string>
+
+    <string name="right_triangle_calc"><b>Right Triangle Calculations</b></string>
 
     <string-array name="conversions_array">
         <item>Inches</item>

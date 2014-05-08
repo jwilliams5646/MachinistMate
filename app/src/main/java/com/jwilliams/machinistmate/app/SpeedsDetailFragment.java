@@ -67,12 +67,12 @@ public class SpeedsDetailFragment extends Fragment {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
                     case R.id.speeds_standard_radio:
-                        surfaceType.setText(getText(R.string.surfaceFeet));
+                        surfaceType.setText(getText(R.string.surface_standard));
                         diameterType.setText(getText(R.string.in));
                         speedsType = true;
                         break;
                     case R.id.speeds_metric_radio:
-                        surfaceType.setText(getText(R.string.surfaceMeters));
+                        surfaceType.setText(getText(R.string.surface_metric));
                         diameterType.setText(getText(R.string.mm));
                         speedsType = false;
                         break;
@@ -93,7 +93,7 @@ public class SpeedsDetailFragment extends Fragment {
     private void setLayout(View rootView){
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         speedRadioGroup = (RadioGroup) rootView.findViewById(R.id.speed_radio_group);
-        surfaceType = (RobotoTextView) rootView.findViewById(R.id.surface_type_view);
+        surfaceType = (RobotoTextView) rootView.findViewById(R.id.surface_view);
         diameterType = (RobotoTextView) rootView.findViewById(R.id.diameter_type_view);
         surfaceInput = (EditText) rootView.findViewById(R.id.surfaceInput);
         diameterInput = (EditText) rootView.findViewById(R.id.diameterInput);
@@ -124,20 +124,20 @@ public class SpeedsDetailFragment extends Fragment {
 
     private void calcSpeed(boolean i) {
         speedAnswer.setText("");
-        double surfaceIn = 0.0;
-        double diameter1 = 0.0;
+        double surface = 0.0;
+        double diameter = 0.0;
         int speed = 0;
         boolean notValid = false;
 
         try {
-            surfaceIn = Double.parseDouble(surfaceInput.getText().toString());
+            surface = Double.parseDouble(surfaceInput.getText().toString());
         } catch (NumberFormatException e) {
             surfaceInput.setHint("Invalid");
             notValid = true;
         }
 
         try {
-            diameter1 = Double.parseDouble(diameterInput.getText().toString());
+            diameter = Double.parseDouble(diameterInput.getText().toString());
         } catch (NumberFormatException e) {
             diameterInput.setHint("Invalid");
             notValid = true;
@@ -149,10 +149,10 @@ public class SpeedsDetailFragment extends Fragment {
         }
 
         if (i) {
-            speed = (int) ((surfaceIn * 3.82) / diameter1);
+            speed = (int) ((surface * 3.82) / diameter);
             speedAnswer.setText(Integer.toString(speed));
         } else {
-            speed = (int) ((surfaceIn * 320) / diameter1);
+            speed = (int) ((surface * 320) / diameter);
             speedAnswer.setText(Integer.toString(speed));
         }
     }
