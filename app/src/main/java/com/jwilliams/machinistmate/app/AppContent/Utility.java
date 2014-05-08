@@ -1,5 +1,6 @@
 package com.jwilliams.machinistmate.app.AppContent;
 
+
 import java.text.DecimalFormat;
 
 /**
@@ -16,7 +17,6 @@ public class Utility {
         DecimalFormat df;
         String formats= "##.";
         Double returnAnswer;
-        int returnLength;
 
         if(precision>0) {
             for (int x = 0; x < precision; x++) {

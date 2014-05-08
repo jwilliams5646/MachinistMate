@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.graphics.Typeface;
 
 /**
  * Created by John on 4/27/2014.
@@ -24,7 +23,7 @@ public class ReferenceAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        Fragment frag;// = new Fragment();
+        Fragment frag;
 
         switch (position)
         {

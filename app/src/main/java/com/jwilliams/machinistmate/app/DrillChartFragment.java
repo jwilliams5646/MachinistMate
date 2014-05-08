@@ -61,7 +61,6 @@ public class DrillChartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 typeHeader.setText("All");
-                adapter.clear();
                 dbSwitch = 0;
                 new setGrid().execute();
             }
@@ -71,7 +70,6 @@ public class DrillChartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 typeHeader.setText("Wiregauge");
-                adapter.clear();
                 dbSwitch = 1;
                 new setGrid().execute();
             }
@@ -81,7 +79,6 @@ public class DrillChartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 typeHeader.setText("Letter");
-                adapter.clear();
                 dbSwitch = 2;
                 new setGrid().execute();
             }
@@ -91,7 +88,6 @@ public class DrillChartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 typeHeader.setText("Fraction");
-                adapter.clear();
                 dbSwitch = 3;
                 new setGrid().execute();
             }
@@ -101,7 +97,6 @@ public class DrillChartFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 typeHeader.setText("Metric");
-                adapter.clear();
                 dbSwitch = 4;
                 new setGrid().execute();
             }
@@ -156,8 +151,6 @@ public class DrillChartFragment extends Fragment {
     }
 
     private void setDatabase(DbHelper myDbHelper){
-        //instantiates the database and the
-        myDbHelper = new DbHelper(getActivity());
         try {
             myDbHelper.createDataBase();
         } catch (IOException ioe) {
@@ -178,6 +171,9 @@ public class DrillChartFragment extends Fragment {
 
         @Override
         protected void onPreExecute(){
+            if(adapter!=null){
+                adapter.clear();
+            }
         }
 
         @Override
@@ -186,74 +182,32 @@ public class DrillChartFragment extends Fragment {
             DbHelper myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
-            Cursor c = null;
+            Cursor c;
 
             switch (dbSwitch){
                 case 0:
                     c = myDbHelper.byAll();
-                    while(c.moveToNext()) {
-                        String size = c.getString(c.getColumnIndex("size"));
-                        String standard = c.getString(c.getColumnIndex("standard"));
-                        String metric = c.getString(c.getColumnIndex("metric"));
-                        li.add(size);
-                        li.add(standard);
-                        li.add(metric);
-                    }
+                    createListAdapter(c);
                     break;
                 case 1:
                     c = myDbHelper.byWireGauge();
-                    while(c.moveToNext()) {
-                        String size = c.getString(c.getColumnIndex("size"));
-                        String standard = c.getString(c.getColumnIndex("standard"));
-                        String metric = c.getString(c.getColumnIndex("metric"));
-                        li.add(size);
-                        li.add(standard);
-                        li.add(metric);
-                    }
+                    createListAdapter(c);
                     break;
                 case 2:
                     c = myDbHelper.byLetter();
-                    while(c.moveToNext()) {
-                        String size = c.getString(c.getColumnIndex("size"));
-                        String standard = c.getString(c.getColumnIndex("standard"));
-                        String metric = c.getString(c.getColumnIndex("metric"));
-                        li.add(size);
-                        li.add(standard);
-                        li.add(metric);
-                    }
+                    createListAdapter(c);
                     break;
                 case 3:
                     c = myDbHelper.byFraction();
-                    while(c.moveToNext()) {
-                        String size = c.getString(c.getColumnIndex("size"));
-                        String standard = c.getString(c.getColumnIndex("standard"));
-                        String metric = c.getString(c.getColumnIndex("metric"));
-                        li.add(size);
-                        li.add(standard);
-                        li.add(metric);
-                    }
+                    createListAdapter(c);
                     break;
                 case 4:
                     c = myDbHelper.byMetric();
-                    while(c.moveToNext()) {
-                        String size = c.getString(c.getColumnIndex("size"));
-                        String standard = c.getString(c.getColumnIndex("standard"));
-                        String metric = c.getString(c.getColumnIndex("metric"));
-                        li.add(size);
-                        li.add(standard);
-                        li.add(metric);
-                    }
+                    createListAdapter(c);
                     break;
                 default:
                     c = myDbHelper.byAll();
-                    while(c.moveToNext()) {
-                        String size = c.getString(c.getColumnIndex("size"));
-                        String standard = c.getString(c.getColumnIndex("standard"));
-                        String metric = c.getString(c.getColumnIndex("metric"));
-                        li.add(size);
-                        li.add(standard);
-                        li.add(metric);
-                    }
+                    createListAdapter(c);
                     break;
             }
 
@@ -262,10 +216,20 @@ public class DrillChartFragment extends Fragment {
             return null;
         }
 
+        private void createListAdapter(Cursor c) {
+            while(c.moveToNext()) {
+                String size = c.getString(c.getColumnIndex("size"));
+                String standard = c.getString(c.getColumnIndex("standard"));
+                String metric = c.getString(c.getColumnIndex("metric"));
+                li.add(size);
+                li.add(standard);
+                li.add(metric);
+            }
+        }
+
         @Override
         protected void onPostExecute(Object result){
             referenceGridView.setAdapter(adapter);
         }
     }
-
 }
