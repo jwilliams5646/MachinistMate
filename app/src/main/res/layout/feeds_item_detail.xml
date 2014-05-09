@@ -43,19 +43,18 @@
     <RadioGroup
         android:id="@+id/feed_radio_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/feed_answer_layout"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_margin="4dp"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/feeds_standard_radio"
             style="@style/radioButtons"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginRight="4dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:checked="true"
             android:text="@string/standard" />
 
@@ -63,116 +62,121 @@
             android:id="@+id/feeds_metric_radio"
             style="@style/radioButtons"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginLeft="4dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:text="@string/metric" />
     </RadioGroup>
 
     <LinearLayout
         android:id="@+id/feed_speed_layout"
         android:layout_width="500dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/feed_radio_group"
         android:layout_alignStart="@id/feed_answer_layout"
-        android:layout_marginTop="4dp"
         android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
         android:orientation="horizontal">
 
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/feed_speed"
             style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:text="@string/speedView"
-            android:layout_marginRight="4dp" />
-
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom"/>
 
         <EditText
             android:id="@+id/feed_speed_input"
             style="@style/EditTextStyle"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight=".6"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
             android:inputType="numberDecimal"
-            android:layout_marginLeft="4dp" />
-
-        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:id="@+id/feed_speed_type"
-            style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="@string/rpm" />
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom"
+            android:gravity="bottom|right"
+            android:hint="@string/rpm" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/feed_per_tooth_layout"
         android:layout_width="500dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/feed_speed_layout"
         android:layout_alignStart="@id/feed_answer_layout"
-        android:layout_marginTop="4dp"
         android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
         android:orientation="horizontal">
 
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/feed_per_tooth_view"
             style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
             android:text="@string/feedPerToothView"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom" />
 
 
         <EditText
             android:id="@+id/feed_per_tooth_input"
             style="@style/EditTextStyle"
             android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight=".6"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:inputType="numberDecimal"
-            android:layout_marginLeft="4dp" />
-
-        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:id="@+id/feed_per_tooth_type"
-            style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:text="@string/in" />
+            android:hint="@string/in"
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom"
+            android:gravity="bottom|right"/>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/number_teeth_layout"
         android:layout_width="500dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@+id/feed_per_tooth_layout"
         android:layout_alignStart="@id/feed_answer_layout"
-        android:layout_marginTop="4dp"
         android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp"
         android:orientation="horizontal">
 
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/number_teeth_view"
             style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
             android:text="@string/numberTeethView"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom"/>
 
 
         <EditText
             android:id="@+id/number_teeth_input"
             style="@style/EditTextStyle"
-            android:layout_width="75dp"
-            android:layout_height="48dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
             android:inputType="numberDecimal"
             android:gravity="bottom|right"
-            android:layout_marginLeft="4dp" />
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom" />
     </LinearLayout>
 
     <LinearLayout
@@ -182,49 +186,47 @@
         android:layout_below="@+id/number_teeth_layout"
         android:id="@+id/feed_precision"
         android:layout_alignStart="@id/feed_answer_layout"
-        android:layout_marginTop="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="4dp">
+        android:layout_marginRight="4dp">
 
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/precision"
             android:id="@+id/textView"
             style="@style/TextViewStyle"
-            android:layout_marginRight="4dp"/>
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom"/>
 
         <Spinner
-            android:layout_width="75dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:id="@+id/feed_prec_spinner"
-            android:layout_marginLeft="4dp" />
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp" />
     </LinearLayout>
 
     <Button
         android:id="@+id/feed_calc"
         style="@style/buttons"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/feed_precision"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
+        android:layout_margin="4dp"
         android:text="@string/calculate"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <RelativeLayout
-        android:layout_width="320px"
-        android:layout_height="50px"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/relativeLayout"></RelativeLayout>
 
     <RelativeLayout
         android:layout_width="320dp"
         android:layout_height="50dp"
-        android:layout_above="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="4dp"
         android:layout_alignParentBottom="true"

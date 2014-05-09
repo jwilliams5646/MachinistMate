@@ -31,7 +31,6 @@ public class SpeedsDetailFragment extends Fragment {
     //set private view variables
     private RobotoTextView speedAnswer;
     private RobotoTextView surfaceType;
-    private RobotoTextView diameterType;
     private EditText surfaceInput;
     private EditText diameterInput;
     private boolean speedsType;
@@ -68,12 +67,12 @@ public class SpeedsDetailFragment extends Fragment {
                 switch (i) {
                     case R.id.speeds_standard_radio:
                         surfaceType.setText(getText(R.string.surface_standard));
-                        diameterType.setText(getText(R.string.in));
+                        diameterInput.setHint(getText(R.string.in));
                         speedsType = true;
                         break;
                     case R.id.speeds_metric_radio:
                         surfaceType.setText(getText(R.string.surface_metric));
-                        diameterType.setText(getText(R.string.mm));
+                        diameterInput.setHint(getText(R.string.mm));
                         speedsType = false;
                         break;
                 }
@@ -94,7 +93,6 @@ public class SpeedsDetailFragment extends Fragment {
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         speedRadioGroup = (RadioGroup) rootView.findViewById(R.id.speed_radio_group);
         surfaceType = (RobotoTextView) rootView.findViewById(R.id.surface_view);
-        diameterType = (RobotoTextView) rootView.findViewById(R.id.diameter_type_view);
         surfaceInput = (EditText) rootView.findViewById(R.id.surfaceInput);
         diameterInput = (EditText) rootView.findViewById(R.id.diameterInput);
         speedsCalc = (Button) rootView.findViewById(R.id.speed_calc);

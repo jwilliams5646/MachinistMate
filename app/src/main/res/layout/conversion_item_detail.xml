@@ -45,39 +45,46 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp">
 
         <LinearLayout
             android:id="@+id/input_spinner_layout"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginRight="4dp">
+            android:layout_height="match_parent">
 
             <Spinner
                 android:id="@+id/conv_input_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginRight="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="bottom" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_height="match_parent"
+            android:layout_margin="4dp"
             android:src="@drawable/ic_look_over"
-            android:contentDescription="@string/converto" />
+            android:contentDescription="@string/converto"
+            android:layout_gravity="center_vertical" />
 
         <LinearLayout
             android:id="@+id/output_spinner_layout"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_marginLeft="4dp">
+            android:layout_height="match_parent">
 
             <Spinner
                 android:id="@+id/conv_output_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_gravity="bottom" />
         </LinearLayout>
 
 
@@ -98,11 +105,14 @@
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/conv_input_text"
             style="@style/TextViewStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:text="@string/input"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom" />
 
 
         <EditText
@@ -110,10 +120,12 @@
             style="@style/EditTextStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
             android:inputType="numberDecimal"
             android:layout_weight="1"
-            android:layout_marginLeft="4dp" />
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom" />
     </LinearLayout>
 
 
@@ -121,37 +133,41 @@
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="48dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
         android:layout_alignStart="@id/conversion_input_layout"
         android:layout_below="@+id/conversion_input_layout"
-        android:layout_alignParentStart="false"
         android:id="@+id/conv_precision"
-        android:layout_alignParentBottom="false"
         android:layout_marginRight="4dp">
 
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="2"
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/precision"
             android:id="@+id/textView"
             style="@style/TextViewStyle"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom" />
 
         <Spinner
-            android:layout_width="75dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:id="@+id/conv_prec_spinner"
-            android:layout_marginLeft="4dp" />
+            android:layout_marginLeft="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="bottom" />
     </LinearLayout>
 
     <Button
         android:id="@+id/conv_calc_button"
         style="@style/buttons"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="40dp"
         android:layout_below="@+id/conv_precision"
         android:layout_centerHorizontal="true"
         android:layout_margin="4dp"

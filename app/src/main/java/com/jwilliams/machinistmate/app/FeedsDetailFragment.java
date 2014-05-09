@@ -38,7 +38,6 @@ public class FeedsDetailFragment extends Fragment {
     private EditText feedPerToothInput;
     private EditText numberTeethInput;
     private RobotoTextView feedAnswerType;
-    private RobotoTextView feedPerToothType;
     private Button feedCalc;
     private RadioButton standardButton;
     private RadioButton metricButton;
@@ -75,11 +74,11 @@ public class FeedsDetailFragment extends Fragment {
                 switch (i) {
                     case R.id.feeds_standard_radio:
                         feedAnswerType.setText(getText(R.string.ipm));
-                        feedPerToothType.setText(R.string.in);
+                        feedPerToothInput.setHint(R.string.in);
                         break;
                     case R.id.feeds_metric_radio:
                         feedAnswerType.setText(getText(R.string.mmpm));
-                        feedPerToothType.setText(R.string.mm);
+                        feedPerToothInput.setHint(R.string.mm);
                         break;
                 }
             }
@@ -116,7 +115,6 @@ public class FeedsDetailFragment extends Fragment {
         feedPerToothInput = (EditText) rootView.findViewById(R.id.feed_per_tooth_input);
         numberTeethInput = (EditText) rootView.findViewById(R.id.number_teeth_input);
         feedAnswerType = (RobotoTextView) rootView.findViewById(R.id.feed_answer_type);
-        feedPerToothType = (RobotoTextView) rootView.findViewById(R.id.feed_per_tooth_type);
         feedAnswerLayout = (LinearLayout) rootView.findViewById(R.id.feed_answer_layout);
         feedRadioGroup = (RadioGroup) rootView.findViewById(R.id.feed_radio_group);
         standardButton = (RadioButton)rootView.findViewById(R.id.feeds_standard_radio);

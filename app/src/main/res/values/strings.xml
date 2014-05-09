@@ -3,8 +3,8 @@
 
     <string name="app_name"><b>Machinist Mate</b></string>
     <string name="title_item_detail">Item Detail</string>
-    <string name="in"><b>in</b></string>
-    <string name="mm"><b>mm</b></string>
+    <string name="in"><b>inch</b></string>
+    <string name="mm"><b>millimeter</b></string>
     <string name="calculate"><b>Calculate</b></string>
     <string name="surface_standard"><b>SFM</b></string>
     <string name="surface_metric"><b>SMM</b></string>
@@ -23,6 +23,11 @@
     <string name="diameter"><b>Diameter</b></string>
     <string name="precision"><b>Max Precision</b></string>
     <string name="converto"><b>convert to</b></string>
+    <string name="opposite"><b>(O)pposite</b></string>
+    <string name="hypotenuse"><b>(H)ypotenuse</b></string>
+    <string name="adjacent"><b>(A)djacent</b></string>
+    <string name="base"><b>Base(A)</b></string>
+    <string name="height"><b>Height(O)</b></string>
 
 
     <string name="drill_size_chart"><b>Drill Size Chart</b></string>
@@ -45,6 +50,21 @@
         <item>4</item>
         <item>5</item>
         <item>Max</item>
+    </string-array>
+
+    <string-array name="rt_array">
+        <item>Sine</item>
+        <item>Inverse Sine</item>
+        <item>Cosine</item>
+        <item>Inverse Cosine</item>
+        <item>Tangent</item>
+        <item>Inverse Tangent</item>
+        <item>Area</item>
+    </string-array>
+
+    <string-array name="rt_degree_rad_array">
+        <item>Degree</item>
+        <item>Radian</item>
     </string-array>
 
 
