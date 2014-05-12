@@ -80,8 +80,17 @@
         android:screenOrientation="nosensor">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.jwilliams.machinistmate.app.ReferenceChoiceActivity" />
+            android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
     </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.RightTriangleActivity"
+            android:label="Geometry"
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
     </application>
 
 </manifest>
