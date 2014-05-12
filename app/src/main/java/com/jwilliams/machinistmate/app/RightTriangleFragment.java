@@ -54,6 +54,7 @@ public class RightTriangleFragment extends Fragment {
     private boolean degree;
     private boolean entry;
     RelativeLayout.LayoutParams params;
+    RelativeLayout.LayoutParams adjacentParams;
 
     static RightTriangleFragment newInstance(int position) {
         RightTriangleFragment frag=new RightTriangleFragment();
@@ -111,9 +112,10 @@ public class RightTriangleFragment extends Fragment {
                     case 2:
                         rtSpinnerPosition = 2;
                         clearLayouts();
+                        adjacentMoveUp();
                         rtDegreeRadianLayout.setVisibility(View.VISIBLE);
                         rtOrLayout.setVisibility(View.VISIBLE);
-                        rtOppositeLayout.setVisibility(View.VISIBLE);
+                        rtAdjacentLayout.setVisibility(View.VISIBLE);
                         rtHypotenuseLayout.setVisibility(View.VISIBLE);
                         params.addRule(RelativeLayout.BELOW, R.id.rt_hypotenuse_layout);
                         rtCalcButtonLayout.setLayoutParams(params);
@@ -128,6 +130,7 @@ public class RightTriangleFragment extends Fragment {
                     case 4:
                         rtSpinnerPosition = 4;
                         clearLayouts();
+                        adjacentMoveDown();
                         rtDegreeRadianLayout.setVisibility(View.VISIBLE);
                         rtOrLayout.setVisibility(View.VISIBLE);
                         rtOppositeLayout.setVisibility(View.VISIBLE);
@@ -392,7 +395,7 @@ public class RightTriangleFragment extends Fragment {
 
     private void calcCos() {
         double degreeRad = getDegreeRad();
-        double opposite = getOpposite();
+        double adjacent = getAdjacent();
         double hypotenuse = getHypotenuse();
 
         if(!degree && entry){
@@ -404,7 +407,7 @@ public class RightTriangleFragment extends Fragment {
         }
 
         if(degree && !entry){
-            rtAnswer.setText(Double.toString(Calculations.calcCosByValues(opposite, hypotenuse)));
+            rtAnswer.setText(Double.toString(Calculations.calcCosByValues(adjacent, hypotenuse)));
         }
 
         if(degree && entry){
@@ -564,6 +567,7 @@ public class RightTriangleFragment extends Fragment {
         rtCalcButton = (Button)rootView.findViewById(R.id.rt_calc);
         rtCalcButtonLayout = (RelativeLayout)rootView.findViewById(R.id.rt_calc_button_layout);
         params = (RelativeLayout.LayoutParams)rtCalcButtonLayout.getLayoutParams();
+        adjacentParams = (RelativeLayout.LayoutParams)rtAdjacentLayout.getLayoutParams();
         degree = false;
         entry = false;
     }
@@ -580,5 +584,14 @@ public class RightTriangleFragment extends Fragment {
     private void clearBools(){
         degree = false;
         entry = false;
+    }
+    private void adjacentMoveUp(){
+        adjacentParams.addRule(RelativeLayout.BELOW, R.id.rt_or_layout);
+        rtCalcButtonLayout.setLayoutParams(params);
+    }
+
+    private void adjacentMoveDown(){
+        adjacentParams.addRule(RelativeLayout.BELOW, R.id.rt_opposite_layout);
+        rtCalcButtonLayout.setLayoutParams(params);
     }
 }

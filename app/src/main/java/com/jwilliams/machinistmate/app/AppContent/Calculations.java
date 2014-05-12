@@ -9,82 +9,82 @@ public class Calculations {
     }
 
     public static double calcSinByDegree(double degreeRad) {
-        return 0;
+        return Math.sin(Math.toRadians(degreeRad));
     }
 
     public static double calcSinByRadian(double degreeRad) {
-        return 0;
+        return Math.sin(degreeRad);
     }
 
     public static double calcSinByValues(double opposite, double hypotenuse) {
-        return 0;
+        return opposite/hypotenuse;
     }
 
     public static double calcInvSinByDegree(double degreeRad) {
-        return 0;
+        return Math.asin(Math.toRadians(degreeRad));
     }
 
     public static double calcInvSinByRadian(double degreeRad) {
-        return 0;
+        return Math.asin(degreeRad);
     }
 
     public static double calcCosByDegree(double degreeRad) {
-        return 0;
+        return Math.cos(Math.toRadians(degreeRad));
     }
 
     public static double calcCosByRadian(double degreeRad) {
-        return 0;
+        return Math.cos(degreeRad);
     }
 
-    public static double calcCosByValues(double opposite, double hypotenuse) {
-        return 0;
+    public static double calcCosByValues(double adjacent, double hypotenuse) {
+        return adjacent/hypotenuse;
     }
 
     public static double calcInvCosByDegree(double degreeRad) {
-        return 0;
+        return Math.acos(Math.toRadians(degreeRad));
     }
 
     public static double calcInvCosByRadian(double degreeRad) {
-        return 0;
+        return Math.acos(degreeRad);
     }
 
     public static double calcTanByValues(double opposite, double adjacent) {
-        return 0;
+        return opposite/adjacent;
     }
 
     public static double calcTanByRadian(double degreeRad) {
-        return 0;
+        return Math.tan(degreeRad);
     }
 
     public static double calcTanByDegree(double degreeRad) {
-        return 0;
+        return Math.tan(Math.toRadians(degreeRad));
     }
 
     public static double calcInvTanByDegree(double degreeRad) {
-        return 0;
+        return Math.atan(Math.toRadians(degreeRad));
     }
 
     public static double calcInvTanByRadian(double degreeRad) {
-        return 0;
+        return Math.atan(degreeRad);
     }
 
     public static double calcArea(double base, double height) {
-        return 0;
+        return (base*height)/2;
     }
 
     public static double calcSideH(double sideO, double sideA) {
-        return 0;
+        return Math.sqrt(Math.pow(sideO,2)+Math.pow(sideA,2));
     }
 
     public static double calcSideO(double sideH, double sideA) {
-        return 0;
+        return Math.sqrt(Math.pow(sideH,2)-Math.pow(sideA,2));
     }
 
     public static double calcSideA(double sideH, double sideO) {
-        return 0;
+        return Math.sqrt(Math.pow(sideH,2)-Math.pow(sideO,2));
     }
 
     public static double calcPerimeter(double sideH, double sideO, double sideA) {
-        return 0;
+        return sideH+sideO+sideA;
     }
 }
