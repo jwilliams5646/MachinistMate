@@ -8,5 +8,5 @@
     android:textColor="#999999"
     android:gravity="center"
     android:layout_gravity="center"
-    android:textAppearance="?android:attr/textAppearanceMedium"/>
+    android:textSize="20sp"/>
 

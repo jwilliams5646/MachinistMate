@@ -21,12 +21,12 @@
         <devices>
           <device id="Nexus 5" />
           <device id="Nexus One" />
-          <device id="Galaxy Nexus" />
+          <device id="Nexus S" />
+          <device id="Nexus 7" />
           <device id="Nexus 10" />
+          <device id="Galaxy Nexus" />
           <device id="Nexus_1" />
           <device id="Nexus 7 2013" />
-          <device id="Nexus 7" />
-          <device id="Nexus S" />
         </devices>
       </config>
     </shared>
@@ -78,13 +78,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab4bee1-78de-4b64-bf21-cb59711258ad" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\res\layout\geometry_item_detail.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" afterPath="$PROJECT_DIR$/app/build/dex/debug/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Calculations.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Calculations.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/grid_item_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/grid_item_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/spinner_background.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/spinner_background.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Machinist Mate.iws" />
@@ -119,13 +124,14 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6363635" vertical-offset="3723" max-vertical-offset="6477">
-              <caret line="234" column="12" selection-start-line="234" selection-start-column="12" selection-end-line="234" selection-end-column="12" />
+            <state vertical-scroll-proportion="-30.6" vertical-offset="510" max-vertical-offset="6324">
+              <caret line="129" column="43" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="43" />
               <folding>
-                <element signature="e#4331#4343#0" expanded="true" />
-                <element signature="e#5279#5297#0" expanded="true" />
-                <element signature="e#6652#6672#0" expanded="true" />
-                <element signature="e#8063#8081#0" expanded="true" />
+                <element signature="e#4028#4040#0" expanded="true" />
+                <element signature="e#4983#5001#0" expanded="true" />
+                <element signature="e#6363#6383#0" expanded="true" />
+                <element signature="e#7781#7799#0" expanded="true" />
+                <element signature="e#12923#12942#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,32 +140,92 @@
       <file leaf-file-name="RightTriangleFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="9440" max-vertical-offset="9843">
-              <caret line="589" column="23" selection-start-line="589" selection-start-column="23" selection-end-line="589" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="5746">
+              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+              <folding>
+                <element signature="method#calcPerimeter#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcSideA#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcSideO#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcSideH#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcArea#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcInverseTan#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcTan#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcInverseCos#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcCos#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcInverseSine#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#calcSine#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#getHypotenuse#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#getOpposite#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#getAdjacent#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#getDegreeRad#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#getSide1#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#getSide2#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#getSide3#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#setSpinnerAdapters#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#clearLayouts#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#clearBools#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#adjacentMoveUp#0;class#RightTriangleFragment#0" expanded="false" />
+                <element signature="method#adjacentMoveDown#0;class#RightTriangleFragment#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Calculations.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Calculations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="952">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="method#Calculations#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcSinByDegree#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcSinByValues#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcInvSinToDegree#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcCosByDegree#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcCosByValues#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcInvCosToDegree#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcTanByValues#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcTanByDegree#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcInvTanToDegree#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcSideH#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcSideO#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcSideA#0;class#Calculations#0" expanded="false" />
+                <element signature="method#calcPerimeter#0;class#Calculations#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1479">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Calculations.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Calculations.java">
+      <file leaf-file-name="ConversionDetailFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.662531" vertical-offset="549" max-vertical-offset="952">
-              <caret line="86" column="81" selection-start-line="86" selection-start-column="81" selection-end-line="86" selection-end-column="81" />
+            <state vertical-scroll-proportion="0.36060607" vertical-offset="1377" max-vertical-offset="4131">
+              <caret line="126" column="22" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="conversion_item_detail.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="3383">
+              <caret line="127" column="43" selection-start-line="127" selection-start-column="43" selection-end-line="127" selection-end-column="43" />
               <folding>
-                <element signature="method#calcSinByDegree#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcSinByValues#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcInvSinByDegree#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcCosByDegree#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcCosByValues#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcInvCosByDegree#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcTanByValues#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcTanByDegree#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcInvTanByDegree#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcSideH#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcSideO#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcSideA#0;class#Calculations#0" expanded="false" />
-                <element signature="method#calcPerimeter#0;class#Calculations#0" expanded="false" />
+                <element signature="e#4854#4866#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -848,7 +914,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Utilities.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FeedsDetailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/grid_item_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FractionMetricFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FractionMetricActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ReferenceAdapter.java" />
@@ -865,9 +930,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/LengthdbHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/DrilldbHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/DbHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/DrillChartFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryPagerActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryPagerFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleActivity.java" />
@@ -881,24 +944,27 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FeedsDetailFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_drop_down.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_background.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fraction_metric_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/RobotoTextView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/spinner_backgrounds.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/RobotoTextView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/spinner_background.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/grid_item_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Calculations.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="491" />
-    <option name="y" value="163" />
-    <option name="width" value="1135" />
-    <option name="height" value="812" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -926,7 +992,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1223,7 +1289,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1323,19 +1389,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1361,6 +1414,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1601,7 +1667,11 @@
       <created>1399671782514</created>
       <updated>1399671782514</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Made adjacent available to be moved for different calculations.  Completed all calculations.">
+      <created>1399904665839</created>
+      <updated>1399904665839</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1625,13 +1695,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="491" y="163" width="1135" height="812" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.82453334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1438" y="354" width="416" height="353" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.82453334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="983" y="337" width="473" height="436" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3292683" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933258" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1641,15 +1711,15 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5" sideWeight="0.5010661" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20628998" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32317072" sideWeight="0.49953488" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.2804878" sideWeight="0.4989339" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.28" sideWeight="0.4989339" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32372093" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32317072" sideWeight="0.4989605" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18550107" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23555556" sideWeight="0.4989605" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1693,7 +1763,8 @@
     <MESSAGE value="Removed lengthdbhelper because I can use one dbhelper for the same database.  Renamed drilldbhelper to dbhelper and am using that for all of them.  Using asynctask on drill chart to query the database.  Changed Styles to not show title at all in the actionbar." />
     <MESSAGE value="Added Geometry Pager and all that that entails.  Added right triangle activity.  Added a few images to see what I like." />
     <MESSAGE value="Layout Changes for Speeds/Feeds/Conversions/SpinnerBackgrounds.  Added some string arrays, added Roboto regular font. Created Right Triangle Layout." />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout Changes for Speeds/Feeds/Conversions/SpinnerBackgrounds.  Added some string arrays, added Roboto regular font. Created Right Triangle Layout." />
+    <MESSAGE value="Made adjacent available to be moved for different calculations.  Completed all calculations." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made adjacent available to be moved for different calculations.  Completed all calculations." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1701,24 +1772,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="842" max-vertical-offset="1326">
-          <caret line="64" column="43" selection-start-line="64" selection-start-column="43" selection-end-line="64" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/grid_item_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46469247" vertical-offset="0" max-vertical-offset="439">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/pager_top.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.65665233" vertical-offset="0" max-vertical-offset="510">
@@ -1952,28 +2005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_background.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30591258" vertical-offset="0" max-vertical-offset="389">
-          <caret line="7" column="29" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_drop_down.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2622108" vertical-offset="0" max-vertical-offset="389">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FeedsDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2109182" vertical-offset="1736" max-vertical-offset="2771">
@@ -2012,32 +2043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.444445" vertical-offset="2319" max-vertical-offset="3383">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding>
-            <element signature="e#2781#2799#0" expanded="false" />
-            <element signature="e#4181#4196#0" expanded="false" />
-            <element signature="e#5485#5504#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.85604113" vertical-offset="1928" max-vertical-offset="2992">
-          <caret line="133" column="45" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ItemListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.2043269" vertical-offset="392" max-vertical-offset="2924">
@@ -2052,53 +2057,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="5746">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+          <folding>
+            <element signature="method#calcPerimeter#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcSideA#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcSideO#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcSideH#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcArea#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcInverseTan#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcTan#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcInverseCos#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcCos#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcInverseSine#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#calcSine#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#getHypotenuse#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#getOpposite#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#getAdjacent#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#getDegreeRad#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#getSide1#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#getSide2#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#getSide3#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#setSpinnerAdapters#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#clearLayouts#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#clearBools#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#adjacentMoveUp#0;class#RightTriangleFragment#0" expanded="false" />
+            <element signature="method#adjacentMoveDown#0;class#RightTriangleFragment#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/spinner_backgrounds.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21091811" vertical-offset="0" max-vertical-offset="403">
+          <caret line="5" column="95" selection-start-line="5" selection-start-column="95" selection-end-line="5" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/edit_text_background.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_drop_down.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30591258" vertical-offset="0" max-vertical-offset="4267">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="9" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.2622108" vertical-offset="0" max-vertical-offset="389">
+          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/grid_item_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1411">
-          <caret line="64" column="27" selection-start-line="64" selection-start-column="27" selection-end-line="64" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.5244216" vertical-offset="0" max-vertical-offset="389">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_background.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1411">
-          <caret line="13" column="60" selection-start-line="13" selection-start-column="60" selection-end-line="13" selection-end-column="60" />
+        <state vertical-scroll-proportion="0.30591258" vertical-offset="0" max-vertical-offset="389">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/RobotoTextView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6682927" vertical-offset="31" max-vertical-offset="714">
+        <state vertical-scroll-proportion="0.6401985" vertical-offset="184" max-vertical-offset="714">
           <caret line="30" column="102" selection-start-line="30" selection-start-column="102" selection-end-line="30" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="3638">
-          <caret line="91" column="8" selection-start-line="91" selection-start-column="8" selection-end-line="91" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="2992">
+          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/spinner_backgrounds.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13821138" vertical-offset="0" max-vertical-offset="615">
-          <caret line="5" column="95" selection-start-line="5" selection-start-column="95" selection-end-line="5" selection-end-column="95" />
+        <state vertical-scroll-proportion="0.59057075" vertical-offset="918" max-vertical-offset="1428">
+          <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="6.2056556" vertical-offset="884" max-vertical-offset="4250">
+          <caret line="194" column="48" selection-start-line="194" selection-start-column="48" selection-end-line="194" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -2108,44 +2181,67 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6363635" vertical-offset="3723" max-vertical-offset="6477">
-          <caret line="234" column="12" selection-start-line="234" selection-start-column="12" selection-end-line="234" selection-end-column="12" />
+        <state vertical-scroll-proportion="-30.6" vertical-offset="510" max-vertical-offset="6324">
+          <caret line="129" column="43" selection-start-line="129" selection-start-column="43" selection-end-line="129" selection-end-column="43" />
           <folding>
-            <element signature="e#4331#4343#0" expanded="true" />
-            <element signature="e#5279#5297#0" expanded="true" />
-            <element signature="e#6652#6672#0" expanded="true" />
-            <element signature="e#8063#8081#0" expanded="true" />
+            <element signature="e#4028#4040#0" expanded="true" />
+            <element signature="e#4983#5001#0" expanded="true" />
+            <element signature="e#6363#6383#0" expanded="true" />
+            <element signature="e#7781#7799#0" expanded="true" />
+            <element signature="e#12923#12942#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="9440" max-vertical-offset="9843">
-          <caret line="589" column="23" selection-start-line="589" selection-start-column="23" selection-end-line="589" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Calculations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.662531" vertical-offset="549" max-vertical-offset="952">
-          <caret line="86" column="81" selection-start-line="86" selection-start-column="81" selection-end-line="86" selection-end-column="81" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="141" max-vertical-offset="952">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
+            <element signature="method#Calculations#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcSinByDegree#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcSinByValues#0;class#Calculations#0" expanded="false" />
-            <element signature="method#calcInvSinByDegree#0;class#Calculations#0" expanded="false" />
+            <element signature="method#calcInvSinToDegree#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcCosByDegree#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcCosByValues#0;class#Calculations#0" expanded="false" />
-            <element signature="method#calcInvCosByDegree#0;class#Calculations#0" expanded="false" />
+            <element signature="method#calcInvCosToDegree#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcTanByValues#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcTanByDegree#0;class#Calculations#0" expanded="false" />
-            <element signature="method#calcInvTanByDegree#0;class#Calculations#0" expanded="false" />
+            <element signature="method#calcInvTanToDegree#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcSideH#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcSideO#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcSideA#0;class#Calculations#0" expanded="false" />
             <element signature="method#calcPerimeter#0;class#Calculations#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1479">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1656" max-vertical-offset="3383">
+          <caret line="127" column="43" selection-start-line="127" selection-start-column="43" selection-end-line="127" selection-end-column="43" />
+          <folding>
+            <element signature="e#4854#4866#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ConversionDetailFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36060607" vertical-offset="1377" max-vertical-offset="4131">
+          <caret line="126" column="22" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

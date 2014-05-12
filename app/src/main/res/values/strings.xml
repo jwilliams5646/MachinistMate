@@ -3,8 +3,12 @@
 
     <string name="app_name"><b>Machinist Mate</b></string>
     <string name="title_item_detail">Item Detail</string>
-    <string name="in"><b>inch</b></string>
-    <string name="mm"><b>millimeter</b></string>
+    <string name="in">inch</string>
+    <string name="ft">foot</string>
+    <string name="yd">yard</string>
+    <string name="mm">millimeter</string>
+    <string name="cm">centimeter</string>
+    <string name="m">meter</string>
     <string name="calculate"><b>Calculate</b></string>
     <string name="surface_standard"><b>SFM</b></string>
     <string name="surface_metric"><b>SMM</b></string>
@@ -36,8 +40,8 @@
     <string name="right_triangle_calc"><b>Right Triangle Calculations</b></string>
 
     <string-array name="conversions_array">
-        <item>Inches</item>
-        <item>Feet</item>
+        <item>Inch</item>
+        <item>Foot</item>
         <item>Yard</item>
         <item>Millimeter</item>
         <item>Centimeter</item>

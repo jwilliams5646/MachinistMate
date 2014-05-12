@@ -62,6 +62,7 @@ public class ConversionDetailFragment extends Fragment {
             public void onItemSelected(AdapterView<?> spinner, View container,
                                        int position, long id) {
                 inputSpinner = position;
+                setInputHint(position);
             }
 
             @Override
@@ -114,6 +115,32 @@ public class ConversionDetailFragment extends Fragment {
         convCalcButton.setOnClickListener(convCalcButtonListener);
 
         return rootView;
+    }
+
+    private void setInputHint(int position) {
+        switch (position) {
+            case 0:
+                convInput.setHint("in");
+                break;
+            case 1:
+                convInput.setHint("ft");
+                break;
+            case 2:
+                convInput.setHint("yd");
+                break;
+            case 3:
+                convInput.setHint("mm");
+                break;
+            case 4:
+                convInput.setHint("cm");
+                break;
+            case 5:
+                convInput.setHint("m");
+                break;
+            default:
+                convInput.setHint("in");
+                break;
+        }
     }
 
     private void setLayoutVariables(View rootView){

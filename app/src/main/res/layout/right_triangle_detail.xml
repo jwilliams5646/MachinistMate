@@ -26,44 +26,35 @@
         android:layout_marginRight="4dp"
         android:layout_alignStart="@+id/right_triangle_imageView"
         android:layout_below="@+id/right_triangle_imageView"
-        android:id="@+id/rt_answer_layout">
+        android:id="@+id/rt_choice_answer_layout">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/rt_spinner"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"/>
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/rt_answer"
             style="@style/TextViewStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginRight="4dp"
-            android:layout_weight="4"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
             android:gravity="center"
             android:singleLine="true" />
-
-        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:id="@+id/rt_answer_type"
-            style="@style/TextViewStyle"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_marginLeft="4dp"
-            android:gravity="center|fill"
-            android:padding="5dp" />
         </LinearLayout>
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:id="@+id/rt_spinner"
-        android:layout_below="@+id/rt_answer_layout"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"/>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="48dp"
-        android:layout_below="@+id/rt_spinner"
-        android:layout_alignStart="@+id/rt_answer_layout"
+        android:layout_below="@+id/rt_choice_answer_layout"
+        android:layout_alignStart="@+id/rt_choice_answer_layout"
         android:layout_marginRight="4dp"
         android:id="@+id/rt_degree_radian_layout">
 
@@ -95,7 +86,7 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rt_degree_radian_layout"
-        android:layout_alignStart="@+id/rt_answer_layout"
+        android:layout_alignStart="@+id/rt_choice_answer_layout"
         android:layout_marginRight="4dp"
         android:id="@+id/rt_or_layout">
 
@@ -128,7 +119,7 @@
         android:layout_height="48dp"
         android:layout_marginRight="4dp"
         android:layout_below="@+id/rt_or_layout"
-        android:layout_alignStart="@+id/rt_answer_layout">
+        android:layout_alignStart="@+id/rt_choice_answer_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/rt_opposite_view"
@@ -165,7 +156,7 @@
         android:layout_height="48dp"
         android:layout_marginRight="4dp"
         android:layout_below="@+id/rt_opposite_layout"
-        android:layout_alignStart="@+id/rt_answer_layout">
+        android:layout_alignStart="@+id/rt_choice_answer_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:id="@+id/rt_hypotenuse_view"
@@ -203,7 +194,7 @@
         android:layout_marginRight="4dp"
         android:layout_height="48dp"
         android:layout_below="@+id/rt_opposite_layout"
-        android:layout_alignStart="@+id/rt_answer_layout"
+        android:layout_alignStart="@+id/rt_choice_answer_layout"
         android:visibility="invisible">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
@@ -238,8 +229,8 @@
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="48dp"
-        android:layout_below="@+id/rt_spinner"
-        android:layout_alignStart="@+id/rt_answer_layout"
+        android:layout_below="@+id/rt_choice_answer_layout"
+        android:layout_alignStart="@+id/rt_choice_answer_layout"
         android:layout_marginRight="4dp"
         android:id="@+id/rt_side1_layout"
         android:visibility="invisible">
@@ -273,7 +264,7 @@
         android:layout_width="400dp"
         android:layout_height="48dp"
         android:layout_below="@+id/rt_side1_layout"
-        android:layout_alignStart="@+id/rt_answer_layout"
+        android:layout_alignStart="@+id/rt_choice_answer_layout"
         android:layout_marginRight="4dp"
         android:id="@+id/rt_side2_layout"
         android:visibility="invisible">
@@ -307,7 +298,7 @@
         android:layout_width="400dp"
         android:layout_height="48dp"
         android:layout_below="@+id/rt_side2_layout"
-        android:layout_alignStart="@+id/rt_answer_layout"
+        android:layout_alignStart="@+id/rt_choice_answer_layout"
         android:layout_marginRight="4dp"
         android:id="@+id/rt_side3_layout"
         android:visibility="invisible">

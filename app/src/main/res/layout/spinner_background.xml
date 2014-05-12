@@ -5,7 +5,6 @@
     android:id="@+id/textView1"
     style="@style/TextViewStyle"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
-    android:textAppearance="?android:attr/textAppearanceLarge" />
+    android:layout_height="40dp" />
 
 

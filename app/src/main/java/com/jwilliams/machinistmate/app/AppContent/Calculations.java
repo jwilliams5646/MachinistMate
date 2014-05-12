@@ -1,7 +1,9 @@
 package com.jwilliams.machinistmate.app.AppContent;
 
 /**
- * Created by John on 5/10/2014.
+ * John Williams
+ * Calculation class handles all calculations for the app,
+ * which aren't directly tied to the view controller
  */
 public class Calculations {
     public Calculations(){
@@ -20,11 +22,11 @@ public class Calculations {
         return opposite/hypotenuse;
     }
 
-    public static double calcInvSinByDegree(double degreeRad) {
-        return Math.asin(Math.toRadians(degreeRad));
+    public static double calcInvSinToDegree(double degreeRad) {
+        return Math.toDegrees(Math.asin(degreeRad));
     }
 
-    public static double calcInvSinByRadian(double degreeRad) {
+    public static double calcInvSinToRadian(double degreeRad) {
         return Math.asin(degreeRad);
     }
 
@@ -40,11 +42,11 @@ public class Calculations {
         return adjacent/hypotenuse;
     }
 
-    public static double calcInvCosByDegree(double degreeRad) {
-        return Math.acos(Math.toRadians(degreeRad));
+    public static double calcInvCosToDegree(double degreeRad) {
+        return Math.toDegrees(Math.acos(degreeRad));
     }
 
-    public static double calcInvCosByRadian(double degreeRad) {
+    public static double calcInvCosToRadian(double degreeRad) {
         return Math.acos(degreeRad);
     }
 
@@ -60,11 +62,11 @@ public class Calculations {
         return Math.tan(Math.toRadians(degreeRad));
     }
 
-    public static double calcInvTanByDegree(double degreeRad) {
-        return Math.atan(Math.toRadians(degreeRad));
+    public static double calcInvTanToDegree(double degreeRad) {
+        return Math.toDegrees(Math.atan(degreeRad));
     }
 
-    public static double calcInvTanByRadian(double degreeRad) {
+    public static double calcInvTanToRadian(double degreeRad) {
         return Math.atan(degreeRad);
     }
 

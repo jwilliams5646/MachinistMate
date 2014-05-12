@@ -344,14 +344,14 @@ public class RightTriangleFragment extends Fragment {
 
     private void calcInverseTan() {
         double degreeRad = getDegreeRad();
-        if(degree){
-            clearBools();
-            return;
-        }
-        if(isDegree) {
-            rtAnswer.setText(Double.toString(Calculations.calcInvTanByDegree(degreeRad)));
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcInvTanByRadian(degreeRad)));
+        if (degree){
+            Toast.makeText(getActivity(), "Please insert a Degree/Radian", Toast.LENGTH_SHORT).show();
+        }else {
+            if (isDegree) {
+                rtAnswer.setText(Double.toString(Calculations.calcInvTanToDegree(degreeRad)));
+            } else {
+                rtAnswer.setText(Double.toString(Calculations.calcInvTanToRadian(degreeRad)));
+            }
         }
         clearBools();
     }
@@ -376,19 +376,23 @@ public class RightTriangleFragment extends Fragment {
         if(degree && entry){
             Toast.makeText(getActivity(), "Please insert a Degree/Radian or Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
         }
+
+        if(!degree && !entry){
+            Toast.makeText(getActivity(), "Please insert a Degree/Radian OR Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
+        }
         clearBools();
     }
 
     private void calcInverseCos() {
         double degreeRad = getDegreeRad();
         if (degree){
-            clearBools();
-            return;
-        }
-        if(isDegree) {
-            rtAnswer.setText(Double.toString(Calculations.calcInvCosByDegree(degreeRad)));
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcInvCosByRadian(degreeRad)));
+            Toast.makeText(getActivity(), "Please insert a Degree/Radian", Toast.LENGTH_SHORT).show();
+        }else {
+            if (isDegree) {
+                rtAnswer.setText(Double.toString(Calculations.calcInvCosToDegree(degreeRad)));
+            } else {
+                rtAnswer.setText(Double.toString(Calculations.calcInvCosToRadian(degreeRad)));
+            }
         }
         clearBools();
     }
@@ -413,19 +417,23 @@ public class RightTriangleFragment extends Fragment {
         if(degree && entry){
             Toast.makeText(getActivity(), "Please insert a Degree/Radian or Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
         }
+
+        if(!degree && !entry){
+            Toast.makeText(getActivity(), "Please insert a Degree/Radian OR Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
+        }
         clearBools();
     }
 
     private void calcInverseSine() {
         double degreeRad = getDegreeRad();
-        if(degree){
-            clearBools();
-            return;
-        }
-        if(isDegree) {
-            rtAnswer.setText(Double.toString(Calculations.calcInvSinByDegree(degreeRad)));
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcInvSinByRadian(degreeRad)));
+        if (degree){
+            Toast.makeText(getActivity(), "Please insert a Degree/Radian", Toast.LENGTH_SHORT).show();
+        }else {
+            if (isDegree) {
+                rtAnswer.setText(Double.toString(Calculations.calcInvSinToDegree(degreeRad)));
+            } else {
+                rtAnswer.setText(Double.toString(Calculations.calcInvSinToRadian(degreeRad)));
+            }
         }
         clearBools();
     }
@@ -450,6 +458,10 @@ public class RightTriangleFragment extends Fragment {
         if(degree && entry){
             Toast.makeText(getActivity(), "Please insert a Degree/Radian or Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
         }
+
+        if(!degree && !entry){
+            Toast.makeText(getActivity(), "Please insert a Degree/Radian OR Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
+        }
         clearBools();
     }
 
@@ -458,7 +470,7 @@ public class RightTriangleFragment extends Fragment {
         try{
             hypotenuse = Double.parseDouble(rtHypotenuseInput.getText().toString());
         }catch(NumberFormatException e){
-            Toast.makeText(getActivity(), "hypotenuse invalid", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getActivity(), "hypotenuse invalid", Toast.LENGTH_SHORT).show();
             entry =true;
         }
         return hypotenuse;
@@ -468,7 +480,7 @@ public class RightTriangleFragment extends Fragment {
         try{
             opposite = Double.parseDouble(rtOppositeInput.getText().toString());
         }catch(NumberFormatException e){
-            Toast.makeText(getActivity(), "opposite invalid", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "opposite invalid", Toast.LENGTH_SHORT).show();
             entry =true;
         }
         return opposite;
@@ -479,7 +491,7 @@ public class RightTriangleFragment extends Fragment {
         try{
             adjacent = Double.parseDouble(rtAdjacentInput.getText().toString());
         }catch(NumberFormatException e){
-            Toast.makeText(getActivity(), "adjacent invalid", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getActivity(), "adjacent invalid", Toast.LENGTH_SHORT).show();
             entry =true;
         }
         return adjacent;
@@ -490,7 +502,7 @@ public class RightTriangleFragment extends Fragment {
         try{
             degreeRad = Double.parseDouble(rtDegreeRadianInput.getText().toString());
         }catch(NumberFormatException e){
-            Toast.makeText(getActivity(), "degree is bad", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "degree is bad", Toast.LENGTH_SHORT).show();
             degree=true;
         }
         return degreeRad;
@@ -501,7 +513,7 @@ public class RightTriangleFragment extends Fragment {
         try{
             side1 = Double.parseDouble(rtSide1Input.getText().toString());
         }catch(NumberFormatException e){
-            Toast.makeText(getActivity(), "side 1 invalid", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "side 1 invalid", Toast.LENGTH_SHORT).show();
             entry =true;
         }
         return side1;
@@ -512,7 +524,7 @@ public class RightTriangleFragment extends Fragment {
         try{
             side2 = Double.parseDouble(rtSide2Input.getText().toString());
         }catch(NumberFormatException e){
-            Toast.makeText(getActivity(), "side 2 invalid", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "side 2 invalid", Toast.LENGTH_SHORT).show();
             entry =true;
         }
         return side2;
@@ -523,7 +535,7 @@ public class RightTriangleFragment extends Fragment {
         try{
             side3 = Double.parseDouble(rtSide3Input.getText().toString());
         }catch(NumberFormatException e){
-            Toast.makeText(getActivity(), "side 3 invalid", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "side 3 invalid", Toast.LENGTH_SHORT).show();
             entry =true;
         }
         return side3;
