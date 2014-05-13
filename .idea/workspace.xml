@@ -68,77 +68,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab4bee1-78de-4b64-bf21-cb59711258ad" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/SquareActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/SquareFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/TrapezoidActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/TrapezoidFragment.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/parallelogram_detail.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/trapezoid_detail.xml" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\apk\app-debug-unaligned.apk" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\AppContent\Calculations.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\AppContent\MenuContent$MenuItem.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\AppContent\MenuContent.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ConversionDetailActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ConversionDetailFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ConversionDetailFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ConversionDetailFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ConversionDetailFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DataBaseHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DrillChartActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DrillChartFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DrillChartFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DrillChartFragment$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DrillChartFragment$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DrillChartFragment$5.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\DrillChartFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\FeedsDetailActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\FeedsDetailFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\FeedsDetailFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\FeedsDetailFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\FractionMetricActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\FractionMetricFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\GeometryDetailActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\GeometryDetailFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ItemDetailActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ItemDetailFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ItemListActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ItemListFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ItemListFragment$Callbacks.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ItemListFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ReferenceAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ReferencePagerActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\ReferencePagerFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\SpeedsDetailActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\SpeedsDetailFragment$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\SpeedsDetailFragment$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\classes\debug\com\jwilliams\machinistmate\app\SpeedsDetailFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\build\dex\debug\classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\src\main\res\drawable\r_triangle.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/right_triangle.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/right_triangle.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/oblique_triangle.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Machinist Mate.iws" />
@@ -167,10 +99,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RightTriangleFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="right_triangle_detail.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6324">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RightTriangleFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5800344" vertical-offset="0" max-vertical-offset="2805">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2805">
               <caret line="83" column="56" selection-start-line="83" selection-start-column="56" selection-end-line="83" selection-end-column="56" />
               <folding>
                 <element signature="method#newInstance#0;class#RightTriangleFragment#0" expanded="false" />
@@ -203,6 +148,19 @@
                 <element signature="method#adjacentMoveUp#0;class#RightTriangleFragment#0" expanded="false" />
                 <element signature="method#adjacentMoveDown#0;class#RightTriangleFragment#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="oblique_triangle_detail.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml">
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -916,7 +874,6 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/trapezoid_detail.xml" />
@@ -933,6 +890,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml" />
       </list>
     </option>
   </component>
@@ -1556,7 +1514,11 @@
       <created>1399901067768</created>
       <updated>1399901067768</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added the rest of the Activities/Fragments and layouts for Geometry.">
+      <created>1399954025826</created>
+      <updated>1399954025826</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1576,7 +1538,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20628998" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32258064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32258064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1620,7 +1582,8 @@
     <MESSAGE value="Refactored itemdetail frag/activity. Removed Label from ItemListActivity in Manifest." />
     <MESSAGE value="Optimized DrillChartFragment" />
     <MESSAGE value="Lots of progress on RIghtTriangleFragment.  Changed layout so it doesn't open the keyboard at onscreen startup." />
-    <option name="LAST_COMMIT_MESSAGE" value="Lots of progress on RIghtTriangleFragment.  Changed layout so it doesn't open the keyboard at onscreen startup." />
+    <MESSAGE value="Added the rest of the Activities/Fragments and layouts for Geometry." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the rest of the Activities/Fragments and layouts for Geometry." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1879,28 +1842,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.7777777" vertical-offset="5505" max-vertical-offset="6324">
-          <caret line="333" column="51" selection-start-line="333" selection-start-column="51" selection-end-line="333" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2073,7 +2014,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5800344" vertical-offset="0" max-vertical-offset="2805">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2805">
           <caret line="83" column="56" selection-start-line="83" selection-start-column="56" selection-end-line="83" selection-end-column="56" />
           <folding>
             <element signature="method#newInstance#0;class#RightTriangleFragment#0" expanded="false" />
@@ -2106,6 +2047,28 @@
             <element signature="method#adjacentMoveUp#0;class#RightTriangleFragment#0" expanded="false" />
             <element signature="method#adjacentMoveDown#0;class#RightTriangleFragment#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/right_triangle_detail.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6324">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
