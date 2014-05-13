@@ -18,7 +18,7 @@ public class GeometryAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return(2);
+        return(6);
     }
 
     @Override
@@ -31,10 +31,22 @@ public class GeometryAdapter extends FragmentPagerAdapter {
                 frag = (RightTriangleFragment.newInstance(position));
                 break;
             case 1:
-                frag = (DrillChartFragment.newInstance(position));
+                frag = (ObliqueTriangleFragment.newInstance(position));
+                break;
+            case 2:
+                frag = (CircleFragment.newInstance(position));
+                break;
+            case 3:
+                frag = (SquareFragment.newInstance(position));
+                break;
+            case 4:
+                frag = (TrapezoidFragment.newInstance(position));
+                break;
+            case 5:
+                frag = (ParallelogramFragment.newInstance(position));
                 break;
             default:
-                frag = (FractionMetricFragment.newInstance(position));
+                frag = (RightTriangleFragment.newInstance(position));
                 break;
         }
         return frag;
@@ -50,10 +62,22 @@ public class GeometryAdapter extends FragmentPagerAdapter {
                 title = (RightTriangleFragment.getTitle(ctxt, position));
                 break;
             case 1:
-                title = (DrillChartFragment.getTitle(ctxt, position));
+                title = (ObliqueTriangleFragment.getTitle(ctxt, position));
+                break;
+            case 2:
+                title = (CircleFragment.getTitle(ctxt, position));
+                break;
+            case 3:
+                title = (SquareFragment.getTitle(ctxt, position));
+                break;
+            case 4:
+                title = (ParallelogramFragment.getTitle(ctxt, position));
+                break;
+            case 5:
+                title = (TrapezoidFragment.getTitle(ctxt, position));
                 break;
             default:
-                title = (FractionMetricFragment.getTitle(ctxt, position));
+                title = (RightTriangleFragment.getTitle(ctxt, position));
                 break;
         }
         return title;

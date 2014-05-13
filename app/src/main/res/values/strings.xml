@@ -10,34 +10,41 @@
     <string name="cm">centimeter</string>
     <string name="m">meter</string>
     <string name="calculate"><b>Calculate</b></string>
-    <string name="surface_standard"><b>SFM</b></string>
-    <string name="surface_metric"><b>SMM</b></string>
-    <string name="surfaceFeet"><b>ft</b></string>
-    <string name="surfaceMeters"><b>m</b></string>
-    <string name="speedView"><b>Speed</b></string>
-    <string name="feedPerToothView"><b>Feed per Tooth</b></string>
-    <string name="numberTeethView"><b>Number of Teeth</b></string>
+    <string name="surface_standard">SFM</string>
+    <string name="surface_metric">SMM</string>
+    <string name="surfaceFeet">ft</string>
+    <string name="surfaceMeters">m</string>
+    <string name="speedView">Speed</string>
+    <string name="feedPerToothView">Feed per Tooth</string>
+    <string name="numberTeethView">Number of Teeth</string>
     <string name="standard"><b>Standard</b></string>
     <string name="metric"><b>Metric</b></string>
     <string name="fraction"><b>Fraction</b></string>
-    <string name="rpm"><b>RPM</b></string>
-    <string name="ipm"><b>IPM</b></string>
-    <string name="mmpm"><b>MMPM</b></string>
-    <string name="input"><b>Input</b></string>
-    <string name="diameter"><b>Diameter</b></string>
-    <string name="precision"><b>Max Precision</b></string>
-    <string name="converto"><b>convert to</b></string>
-    <string name="opposite"><b>(O)pposite</b></string>
-    <string name="hypotenuse"><b>(H)ypotenuse</b></string>
-    <string name="adjacent"><b>(A)djacent</b></string>
-    <string name="base"><b>Base(A)</b></string>
-    <string name="height"><b>Height(O)</b></string>
+    <string name="rpm">RPM</string>
+    <string name="ipm">IPM</string>
+    <string name="mmpm">MMPM</string>
+    <string name="input">Input</string>
+    <string name="diameter">Diameter</string>
+    <string name="precision">Max Precision</string>
+    <string name="converto">convert to</string>
+    <string name="opposite">(O)pposite</string>
+    <string name="hypotenuse">(H)ypotenuse</string>
+    <string name="adjacent">(A)djacent</string>
+    <string name="base">Base(A)</string>
+    <string name="height">Height(O)</string>
     <string name="or"><b>or</b></string>
 
 
     <string name="drill_size_chart"><b>Drill Size Chart</b></string>
 
-    <string name="right_triangle_calc"><b>Right Triangle Calculations</b></string>
+        //Geometry Headings
+    <string name="right_triangle_calc"><b>Right Triangle</b></string>
+    <string name="oblique"><b>Oblique Triangle</b></string>
+    <string name="square"><b>Square/Rectangle</b></string>
+    <string name="circle"><b>Circle</b></string>
+    <string name="trapezoid"><b>Trapezoid</b></string>
+    <string name="parallelogram"><b>Parallelogram</b></string>
+
 
     <string-array name="conversions_array">
         <item>Inch</item>
@@ -49,12 +56,11 @@
     </string-array>
 
     <string-array name="precision_array">
-        <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
-        <item>Max</item>
+        <item>6</item>
     </string-array>
 
     <string-array name="rt_array">
@@ -71,7 +77,7 @@
         <item>Perimeter</item>
     </string-array>
 
-    <string-array name="rt_degree_rad_array">
+    <string-array name="degree_rad_array">
         <item>Degree</item>
         <item>Radian</item>
     </string-array>

@@ -548,7 +548,7 @@ public class RightTriangleFragment extends Fragment {
         rtSpinner.setAdapter(rtAdapter);
 
         ArrayAdapter<CharSequence> rtDRAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.rt_degree_rad_array, R.layout.spinner_background);
+                R.array.degree_rad_array, R.layout.spinner_background);
         rtDRAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         rtDegreeRadianSpinner.setAdapter(rtDRAdapter);
     }
