@@ -84,7 +84,7 @@ public class RightTriangleFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.right_triangle_detail, container, false);
 
-        setLayout(rootView);
+        setInitialLayout(rootView);
         setSpinnerAdapters();
 
         AdapterView.OnItemSelectedListener rtItemSelectedListener = new AdapterView.OnItemSelectedListener(){
@@ -553,7 +553,7 @@ public class RightTriangleFragment extends Fragment {
         rtDegreeRadianSpinner.setAdapter(rtDRAdapter);
     }
 
-    private void setLayout(View rootView) {
+    private void setInitialLayout(View rootView) {
         triangle = (ImageView)rootView.findViewById(R.id.right_triangle_imageView);
         rtAnswer = (RobotoTextView)rootView.findViewById(R.id.rt_answer);
         rtSide1 = (RobotoTextView)rootView.findViewById(R.id.rt_side1_view);

@@ -82,6 +82,25 @@
         <item>Radian</item>
     </string-array>
 
+    <string-array name="square_rect_choice_array">
+        <item>Square</item>
+        <item>Rectangle</item>
+    </string-array>
+
+    <string-array name="square_calc_array">
+        <item>Area</item>
+        <item>Diagonal</item>
+        <item>Side</item>
+        <item>Perimeter</item>
+    </string-array>
+
+    <string-array name="rect_calc_array">
+        <item>Area</item>
+        <item>Diagonal</item>
+        <item>Width</item>
+        <item>Length</item>
+        <item>Perimeter</item>
+    </string-array>
 
 
 </resources>
