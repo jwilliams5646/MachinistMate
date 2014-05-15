@@ -102,5 +102,12 @@
         <item>Perimeter</item>
     </string-array>
 
+    <string-array name="circle_calc_array">
+        <item>Radius</item>
+        <item>Diameter</item>
+        <item>Area</item>
+        <item>Circumference</item>
+    </string-array>
+
 
 </resources>
