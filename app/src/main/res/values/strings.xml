@@ -96,17 +96,27 @@
 
     <string-array name="rect_calc_array">
         <item>Area</item>
-        <item>Diagonal</item>
-        <item>Width</item>
-        <item>Length</item>
+        <item>Diagonal (d)</item>
+        <item>Width (W)</item>
+        <item>Length (L)</item>
         <item>Perimeter</item>
     </string-array>
 
     <string-array name="circle_calc_array">
-        <item>Radius</item>
-        <item>Diameter</item>
+        <item>Radius (r)</item>
+        <item>Diameter (d)</item>
         <item>Area</item>
-        <item>Circumference</item>
+        <item>Circumference (c)</item>
+    </string-array>
+
+    <string-array name="para_calc_array">
+        <item>Area</item>
+        <item>Base (b)</item>
+        <item>Height (h)</item>
+        <item>Side (a)</item>
+        <item>Perimeter</item>
+        <item>Angle x</item>
+        <item>Angle y</item>
     </string-array>
 
 
