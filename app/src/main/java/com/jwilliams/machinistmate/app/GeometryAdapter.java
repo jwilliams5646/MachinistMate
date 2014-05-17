@@ -71,10 +71,10 @@ public class GeometryAdapter extends FragmentPagerAdapter {
                 title = (SquareFragment.getTitle(ctxt, position));
                 break;
             case 4:
-                title = (ParallelogramFragment.getTitle(ctxt, position));
+                title = (TrapezoidFragment.getTitle(ctxt, position));
                 break;
             case 5:
-                title = (TrapezoidFragment.getTitle(ctxt, position));
+                title = (ParallelogramFragment.getTitle(ctxt, position));
                 break;
             default:
                 title = (RightTriangleFragment.getTitle(ctxt, position));
