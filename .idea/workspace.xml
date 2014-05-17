@@ -68,13 +68,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab4bee1-78de-4b64-bf21-cb59711258ad" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/parallelogram.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/parallelogram.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/pager.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/pager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/parallelogram_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/parallelogram_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Machinist Mate.iws" />
@@ -106,7 +99,7 @@
       <file leaf-file-name="circle_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6296296" vertical-offset="3288" max-vertical-offset="3842">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3288" max-vertical-offset="3842">
               <caret line="196" column="43" selection-start-line="196" selection-start-column="43" selection-end-line="196" selection-end-column="43" />
               <folding />
             </state>
@@ -116,28 +109,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ParallelogramFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ParallelogramFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="826" max-vertical-offset="1496">
+            <state vertical-scroll-proportion="0.5275862" vertical-offset="34" max-vertical-offset="5270">
               <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-              <folding>
-                <element signature="method#setCalcListener#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="e#1730#2597#0" expanded="true" />
-                <element signature="e#2586#2587#0" expanded="true" />
-                <element signature="method#calcY#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#calcX#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#calcPerimeter#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#calcSide#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#calcHeight#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#calcBase#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#calcArea#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#setSpinnerListener#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#setSpinnerAdapter#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#initialLayout#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#newInstance#0;class#ParallelogramFragment#0" expanded="false" />
-                <element signature="method#getTitle#0;class#ParallelogramFragment#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -145,17 +122,17 @@
       <file leaf-file-name="SquareFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/SquareFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3689" max-vertical-offset="8551">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4369" max-vertical-offset="8959">
               <caret line="257" column="12" selection-start-line="257" selection-start-column="12" selection-end-line="257" selection-end-column="107" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parallelogram_detail.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="parallelogram_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/parallelogram_detail.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43037975" vertical-offset="0" max-vertical-offset="1989">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="238" max-vertical-offset="1989">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
@@ -1320,6 +1297,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1345,19 +1335,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1586,7 +1563,11 @@
       <created>1400128023736</created>
       <updated>1400128023736</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Mostly Completed ParallelogramFragment and parallelogram_detail">
+      <created>1400302379931</created>
+      <updated>1400302379931</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1613,7 +1594,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1744" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17430703" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1655,7 +1636,8 @@
     <MESSAGE value="Started working on squarefragment and square_detail." />
     <MESSAGE value="Changed TextView to RobotoTextView" />
     <MESSAGE value="Mostly Completed CircleFragment and circle_detail" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mostly Completed CircleFragment and circle_detail" />
+    <MESSAGE value="Mostly Completed ParallelogramFragment and parallelogram_detail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mostly Completed ParallelogramFragment and parallelogram_detail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2007,7 +1989,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6296296" vertical-offset="3288" max-vertical-offset="3842">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3288" max-vertical-offset="3842">
           <caret line="196" column="43" selection-start-line="196" selection-start-column="43" selection-end-line="196" selection-end-column="43" />
           <folding />
         </state>
@@ -2031,7 +2013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="510">
           <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2076,39 +2057,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="826" max-vertical-offset="1496">
-          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
-          <folding>
-            <element signature="method#setCalcListener#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="e#1730#2597#0" expanded="true" />
-            <element signature="e#2586#2587#0" expanded="true" />
-            <element signature="method#calcY#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#calcX#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#calcPerimeter#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#calcSide#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#calcHeight#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#calcBase#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#calcArea#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#setSpinnerListener#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#setSpinnerAdapter#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#initialLayout#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#newInstance#0;class#ParallelogramFragment#0" expanded="false" />
-            <element signature="method#getTitle#0;class#ParallelogramFragment#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/parallelogram_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43037975" vertical-offset="0" max-vertical-offset="1989">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="238" max-vertical-offset="1989">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5275862" vertical-offset="34" max-vertical-offset="5270">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
