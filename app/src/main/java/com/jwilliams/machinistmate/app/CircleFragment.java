@@ -17,7 +17,8 @@ import android.widget.Toast;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
- * Created by John on 5/12/2014.
+ * Created by John Williams
+ * View Controller for Circle in Geometry Section.
  */
 public class CircleFragment extends Fragment {
 
