@@ -20,6 +20,7 @@ public final class R {
         public static final int rt_array=0x7f040008;
         public static final int square_calc_array=0x7f040009;
         public static final int square_rect_choice_array=0x7f04000a;
+        public static final int trap_calc_array=0x7f04000b;
     }
     public static final class attr {
     }
@@ -184,6 +185,23 @@ public final class R {
         public static final int textView1=0x7f08007d;
         public static final int textView2=0x7f080024;
         public static final int textView3=0x7f080044;
+        public static final int trap_answer=0x7f08008e;
+        public static final int trap_answer_layout=0x7f08008c;
+        public static final int trap_calc_button=0x7f08009b;
+        public static final int trap_image=0x7f08008b;
+        public static final int trap_input1=0x7f080091;
+        public static final int trap_input1_layout=0x7f08008f;
+        public static final int trap_input1_view=0x7f080090;
+        public static final int trap_input2=0x7f080094;
+        public static final int trap_input2_layout=0x7f080092;
+        public static final int trap_input2_view=0x7f080093;
+        public static final int trap_input3=0x7f080097;
+        public static final int trap_input3_layout=0x7f080095;
+        public static final int trap_input3_view=0x7f080096;
+        public static final int trap_input4=0x7f08009a;
+        public static final int trap_input4_layout=0x7f080098;
+        public static final int trap_input4_view=0x7f080099;
+        public static final int trap_spinner=0x7f08008d;
         public static final int type_header=0x7f08002d;
     }
     public static final class layout {

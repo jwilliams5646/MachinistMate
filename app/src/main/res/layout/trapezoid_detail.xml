@@ -6,10 +6,173 @@
     <ImageView
         android:layout_width="400dp"
         android:layout_height="125dp"
-        android:id="@+id/square_image"
+        android:id="@+id/trap_image"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:src="@drawable/trapezoid" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trap_image"
+        android:layout_alignLeft="@id/trap_image"
+        android:layout_marginRight="4dp"
+        android:id="@+id/trap_answer_layout">
+
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/trap_spinner"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/trap_answer"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trap_answer_layout"
+        android:id="@+id/trap_input1_layout"
+        android:layout_centerHorizontal="true">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/trap_input1_view"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            style="@style/TextViewStyle" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/trap_input1"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trap_input1_layout"
+        android:id="@+id/trap_input2_layout"
+        android:layout_centerHorizontal="true">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/trap_input2_view"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            style="@style/TextViewStyle" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/trap_input2"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trap_input2_layout"
+        android:id="@+id/trap_input3_layout"
+        android:layout_centerHorizontal="true">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/trap_input3_view"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            style="@style/TextViewStyle" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/trap_input3"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trap_input3_layout"
+        android:id="@+id/trap_input4_layout"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/trap_input4_view"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"
+            style="@style/TextViewStyle" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/trap_input4"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/calculate"
+        android:id="@+id/trap_calc_button"
+        android:layout_below="@+id/trap_input4_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="4dp"
+        style="@style/buttons"/>
+
+
 </RelativeLayout>

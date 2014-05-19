@@ -119,5 +119,16 @@
         <item>Angle y</item>
     </string-array>
 
+    <string-array name="trap_calc_array">
+        <item>Area</item>
+        <item>Base (a)</item>
+        <item>Base (b)</item>
+        <item>Side (c)</item>
+        <item>Side (d)</item>
+        <item>Height (h)</item>
+        <item>Median (m)</item>
+        <item>Perimeter</item>
+    </string-array>
+
 
 </resources>
