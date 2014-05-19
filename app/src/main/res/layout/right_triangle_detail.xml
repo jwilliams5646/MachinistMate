@@ -73,7 +73,7 @@
             style="@style/EditTextStyle"
             android:layout_height="match_parent"
             android:inputType="numberDecimal"
-            android:id="@+id/rt_degree_radian_input"
+            android:id="@+id/rt_degree_radian_value_input"
             android:layout_weight="1"
             android:layout_marginLeft="4dp"
             android:layout_marginBottom="4dp"

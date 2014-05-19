@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="400dp"
+        android:layout_height="125dp"
+        android:id="@+id/right_triangle_image"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:src="@drawable/right_triangle"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="4dp"
+        android:layout_alignLeft="@+id/right_triangle_image"
+        android:layout_below="@+id/right_triangle_image"
+        android:id="@+id/rt_choice_answer_layout">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/rt_spinner"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:id="@+id/rt_answer"
+            style="@style/TextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:singleLine="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rt_choice_answer_layout"
+        android:layout_alignLeft="@id/right_triangle_image"
+        android:layout_marginRight="4dp"
+        android:id="@+id/rt_choice2_layout">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/rt_degree_radian_value_spinner"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/rt_degree_radian_value_input"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rt_choice_answer_layout"
+        android:layout_alignLeft="@id/right_triangle_image"
+        android:layout_marginRight="4dp"
+        android:id="@+id/rt_degree_radian_layout">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/rt_degree_radian_spinner"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/rt_degree_radian_input"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/rt_input1_layout"
+        android:layout_below="@+id/rt_choice_answer_layout"
+        android:layout_alignLeft="@+id/right_triangle_image"
+        android:layout_marginRight="4dp"
+        android:visibility="invisible">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/rt_input1_view"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"
+            style="@style/TextViewStyle"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/rt_input1"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/rt_input2_layout"
+        android:layout_below="@+id/rt_choice2_layout"
+        android:layout_alignLeft="@+id/right_triangle_image"
+        android:layout_marginRight="4dp">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/rt_input2_view"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"
+            style="@style/TextViewStyle"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/rt_input2"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/rt_input3_layout"
+        android:layout_below="@+id/rt_input2_layout"
+        android:layout_alignLeft="@+id/right_triangle_image"
+        android:layout_marginRight="4dp">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/rt_input3_view"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginRight="4dp"
+            style="@style/TextViewStyle"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/rt_input3"
+            android:layout_weight="1"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginLeft="4dp"
+            style="@style/EditTextStyle"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/calculate"
+        android:id="@+id/rt_calc_button"
+        android:layout_below="@+id/rt_input3_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="4dp"
+        style="@style/buttons"/>
+
+</RelativeLayout>

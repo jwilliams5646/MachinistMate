@@ -82,6 +82,12 @@
         <item>Radian</item>
     </string-array>
 
+    <string-array name="degree_rad_value_array">
+        <item>Degree</item>
+        <item>Radian</item>
+        <item>Sides</item>
+    </string-array>
+
     <string-array name="square_rect_choice_array">
         <item>Square</item>
         <item>Rectangle</item>

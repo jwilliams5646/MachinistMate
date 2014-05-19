@@ -560,7 +560,7 @@ public class RightTriangleFragment extends Fragment {
         rtSide2 = (RobotoTextView)rootView.findViewById(R.id.rt_side2_view);
         rtSide3 = (RobotoTextView)rootView.findViewById(R.id.rt_side3_view);
         rtSpinner = (Spinner)rootView.findViewById(R.id.rt_spinner);
-        rtDegreeRadianInput = (EditText)rootView.findViewById(R.id.rt_degree_radian_input);
+        rtDegreeRadianInput = (EditText)rootView.findViewById(R.id.rt_degree_radian_value_input);
         rtOppositeInput = (EditText)rootView.findViewById(R.id.rt_opposite_input);
         rtHypotenuseInput = (EditText)rootView.findViewById(R.id.rt_hypotenuse_input);
         rtAdjacentInput = (EditText)rootView.findViewById(R.id.rt_adjacent_input);
