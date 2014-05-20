@@ -3,6 +3,7 @@ package com.jwilliams.machinistmate.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,6 +64,7 @@ public class RtFragment extends Fragment {
         setDegRadSpinnerAdapter();
         setRtChoiceSpinnerListeners();
         setRtDegRadValSpinnerListeners();
+        setRtDegRadListener();
         setCalcListener();
         return rootView;
     }
@@ -76,50 +78,181 @@ public class RtFragment extends Fragment {
                         switch(choice2) {
                             case 0:
                                 calcSinDegree();
+                                Log.d("Sin Degree"," choice 0, choice2 0");
                                 break;
                             case 1:
                                 calcSinRadian();
+                                Log.d("Sin Radian", " choice 0, choice2 1");
                                 break;
                             case 2:
                                 calcSinValue();
+                                Log.d("Sin Value", " choice 0, choice2 2");
+                                break;
                         }
                         break;
                     case 1:
                         if(choice3 ==0) {
                             calcInvSinDeg();
+                            Log.d("InvSin Degree", " choice 1, choice3 0");
                         }
                         if(choice3 == 1) {
                             calcInvSinRad();
+                            Log.d("InvSin Radian", " choice 0, choice3 1");
                         }
                         break;
                     case 2:
                         switch(choice2) {
                             case 0:
                                 calcCosDegree();
+                                Log.d("Cos Degree", " choice 2, choice2 0");
                                 break;
                             case 1:
                                 calcCosRadian();
+                                Log.d("Cos Radian", " choice 2, choice2 1");
                                 break;
                             case 2:
                                 calcCosValue();
+                                Log.d("Cos Value", " choice 2, choice2 2");
+                                break;
                         }
                         break;
                     case 3:
                         if(choice3 ==0) {
                             calcInvCosDeg();
+                            Log.d("InvCos Degree", " choice 3, choice3 0");
                         }
                         if(choice3 == 1) {
                             calcInvCosRad();
+                            Log.d("InvCos Radian", " choice 0, choice3 1");
                         }
                         break;
-
-
-
-
+                    case 4:
+                        switch(choice2) {
+                            case 0:
+                                calcTanDegree();
+                                Log.d("Tan Degree", " choice 4, choice2 0");
+                                break;
+                            case 1:
+                                calcTanRadian();
+                                Log.d("Tan Radian", " choice 4, choice2 1");
+                                break;
+                            case 2:
+                                calcTanValue();
+                                Log.d("Tan Value", " choice 4, choice2 2");
+                                break;
+                        }
+                    case 5:
+                        if(choice3 ==0) {
+                            calcInvTanDeg();
+                            Log.d("InvTan Degree", " choice 5, choice3 0");
+                        }
+                        if(choice3 == 1) {
+                            calcInvTanRad();
+                            Log.d("InvTan Radian", " choice 5, choice3 1");
+                        }
+                        break;
+                    case 6:
+                        calcArea();
+                        Log.d("Area", " choice 6");
+                        break;
+                    case 7:
+                        calcSideH();
+                        Log.d("SideH", " choice 7");
+                        break;
+                    case 8:
+                        calcSideO();
+                        Log.d("SideO", " choice 8");
+                        break;
+                    case 9:
+                        calcSideA();
+                        Log.d("SideA", " choice 9");
+                        break;
+                    case 10:
+                        calcPerimeter();
+                        Log.d("Perimeter", " choice 10");
+                        break;
                 }
-
             }
         });
+    }
+
+    private void calcSinDegree() {
+
+    }
+
+    private void calcSinRadian() {
+
+    }
+
+    private void calcSinValue() {
+
+    }
+
+    private void calcInvSinDeg() {
+
+    }
+
+    private void calcInvSinRad() {
+
+    }
+
+    private void calcCosDegree() {
+
+    }
+
+    private void calcCosRadian() {
+
+    }
+
+    private void calcCosValue() {
+
+    }
+
+    private void calcInvCosDeg() {
+
+    }
+
+    private void calcInvCosRad() {
+
+    }
+
+    private void calcTanDegree() {
+
+    }
+
+    private void calcTanRadian() {
+
+    }
+
+    private void calcTanValue() {
+
+    }
+
+    private void calcInvTanDeg() {
+
+    }
+
+    private void calcInvTanRad() {
+
+    }
+
+    private void calcArea() {
+
+    }
+
+    private void calcSideH() {
+
+    }
+
+    private void calcSideO() {
+
+    }
+
+    private void calcSideA() {
+
+    }
+
+    private void calcPerimeter() {
 
     }
 
@@ -314,7 +447,6 @@ public class RtFragment extends Fragment {
     }
 
     private void setInitialLayout() {
-        rtDegRadLayout.setVisibility(View.INVISIBLE);
         rtDegRadValInput.setVisibility(View.VISIBLE);
         rtDegRadSideLayout.setVisibility(View.VISIBLE);
         rtInput1Layout.setVisibility(View.INVISIBLE);
