@@ -68,21 +68,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.jwilliams.machinistmate.app" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ab4bee1-78de-4b64-bf21-cb59711258ad" name="Default" comment="working on new right triangle fragment and new rtlayout. trying to make it simpler">
-      <change type="DELETED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\java\com\jwilliams\machinistmate\app\AppContent\Calculations.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\java\com\jwilliams\machinistmate\app\RtActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\res\layout\right_triangle_detail.xml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\java\com\jwilliams\machinistmate\app\RtFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleFragment.java" />
-      <change type="MOVED" beforePath="C:\Users\john.williams\AndroidStudioProjects\MachinistMate\app\src\main\res\layout\r_triangle.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/right_triangle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RightTriangleActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+    <list default="true" id="5ab4bee1-78de-4b64-bf21-cb59711258ad" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Machinist Mate.iws" />
@@ -168,8 +154,8 @@
       <file leaf-file-name="CircleActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.576324" vertical-offset="70" max-vertical-offset="1071">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            <state vertical-scroll-proportion="0.15264797" vertical-offset="121" max-vertical-offset="1071">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1532,7 +1518,11 @@
       <created>1400536219624</created>
       <updated>1400536219624</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Refactored entirely RightTriangle, Circle">
+      <created>1400614089117</created>
+      <updated>1400614089117</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1601,7 +1591,8 @@
     <MESSAGE value="Finished most of square/rectangle.  Needs further testing and formatting of answer." />
     <MESSAGE value="a comment" />
     <MESSAGE value="working on new right triangle fragment and new rtlayout. trying to make it simpler" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on new right triangle fragment and new rtlayout. trying to make it simpler" />
+    <MESSAGE value="Refactored entirely RightTriangle, Circle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored entirely RightTriangle, Circle" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2045,8 +2036,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.576324" vertical-offset="70" max-vertical-offset="1071">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.15264797" vertical-offset="121" max-vertical-offset="1071">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
