@@ -17,29 +17,23 @@ import android.widget.Toast;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
- * Created by John Williams
- * View Controller for Circle in Geometry Section.
+ * Created by john.williams on 5/20/2014.
  */
 public class CircleFragment extends Fragment {
 
     private static final String KEY_POSITION="position";
-    private LinearLayout circleInput2Layout;
-    private LinearLayout circleOrLayout;
-    private LinearLayout circleInput3Layout;
-    private LinearLayout circleOr1Layout;
+    private LinearLayout circleInput1Layout;
+    private LinearLayout circleRadiusLayout;
     private EditText circleInput1;
-    private EditText circleInput2;
-    private EditText circleInput3;
+    private EditText circleRadiusInput;
     private RobotoTextView circleView1;
-    private RobotoTextView circleView2;
-    private RobotoTextView circleView3;
     private RobotoTextView circleAnswer;
     private Spinner circleSpinner;
+    private Spinner circleRadiusSpinner;
     private Button circleCalcButton;
-    private  boolean check1;
-    private  boolean check2;
-    private  boolean check3;
+    private  boolean check;
     private int pos;
+    private int radiusChoice;
 
 
     public CircleFragment() {
@@ -56,8 +50,10 @@ public class CircleFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.circle_detail, container, false);
         initializeLayout(rootView);
         initialLayout();
-        setSpinnerAdapter();
-        setSpinnerListener();
+        setCircleSpinnerAdapter();
+        setCircleRadiusAdapter();
+        setCircleSpinnerListener();
+        setCircleRadiusListener();
         setCalcListener();
 
         return rootView;
@@ -67,10 +63,20 @@ public class CircleFragment extends Fragment {
         circleCalcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setBools();
+                check = false;
                 switch (pos) {
                     case 0:
-                        calcRadius();
+                        switch(radiusChoice){
+                            case 0:
+                                calcRadDiam();
+                                break;
+                            case 1:
+                                calcRadArea();
+                                break;
+                            case 2:
+                                calcRadCirc();
+                                break;
+                        }
                         break;
                     case 1:
                         calcDiameter();
@@ -82,11 +88,55 @@ public class CircleFragment extends Fragment {
                         calcCircumference();
                         break;
                     default:
-                        calcRadius();
                         break;
                 }
             }
         });
+    }
+
+    private void calcRadCirc() {
+        double c = 0.0;
+        try {
+            c = Double.parseDouble(circleRadiusInput.getText().toString());
+        } catch (NumberFormatException e) {
+            check = true;
+        }
+
+        if(!check){
+            circleAnswer.setText(Double.toString(c/(2*Math.PI)));
+        }else{
+            Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void calcRadArea() {
+        double a = 0.0;
+        try {
+            a = Double.parseDouble(circleRadiusInput.getText().toString());
+        } catch (NumberFormatException e) {
+            check = true;
+        }
+
+        if(!check){
+            circleAnswer.setText(Double.toString(Math.sqrt(a/Math.PI)));
+        }else{
+            Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void calcRadDiam() {
+        double d = 0.0;
+        try {
+            d = Double.parseDouble(circleRadiusInput.getText().toString());
+        } catch (NumberFormatException e) {
+            check = true;
+        }
+
+        if(!check){
+            circleAnswer.setText(Double.toString(d/2));
+        }else{
+            Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void calcCircumference() {
@@ -94,10 +144,10 @@ public class CircleFragment extends Fragment {
         try {
             r = Double.parseDouble(circleInput1.getText().toString());
         } catch (NumberFormatException e) {
-            check1 = true;
+            check = true;
         }
 
-        if(!check1){
+        if(!check){
             circleAnswer.setText(Double.toString(2*Math.PI*r));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
@@ -109,10 +159,10 @@ public class CircleFragment extends Fragment {
         try {
             r = Double.parseDouble(circleInput1.getText().toString());
         } catch (NumberFormatException e) {
-            check1 = true;
+            check = true;
         }
 
-        if(!check1){
+        if(!check){
             circleAnswer.setText(Double.toString(Math.PI*Math.pow(r,2)));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
@@ -124,115 +174,85 @@ public class CircleFragment extends Fragment {
         try {
             r = Double.parseDouble(circleInput1.getText().toString());
         } catch (NumberFormatException e) {
-            check1 = true;
+            check = true;
         }
 
-        if(!check1){
+        if(!check){
             circleAnswer.setText(Double.toString(2*r));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void calcRadius() {
-        double d = 0.0;
-        double a = 0.0;
-        double c = 0.0;
-        try {
-            d = Double.parseDouble(circleInput1.getText().toString());
-        } catch (NumberFormatException e) {
-            check1 = true;
-        }
-        try{
-            a = Double.parseDouble(circleInput2.getText().toString());
-        }catch (NumberFormatException e){
-            check2=true;
-        }
-        try{
-            c = Double.parseDouble(circleInput3.getText().toString());
-        }catch (NumberFormatException e){
-            check3=true;
-        }
-        if(!check1 && check2 && check3) {
-            circleAnswer.setText(Double.toString(d/2));
-        }
-        if(check1 && !check2 && check3) {
-            circleAnswer.setText(Double.toString(Math.sqrt(a/Math.PI)));
-        }
-        if(check1 && check2 && !check3) {
-            circleAnswer.setText(Double.toString(c/(2*Math.PI)));
-        }
-        if(check1 && check2 && check3){
-            Toast.makeText(getActivity(), "Please enter 1 valid input", Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(getActivity(), "Please enter only 1 valid input", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void setBools(){
-        check1=false;
-        check2=false;
-        check3=false;
-    }
-
     private void initialLayout(){
-        circleInput2Layout.setVisibility(View.VISIBLE);
-        circleOrLayout.setVisibility(View.VISIBLE);
-        circleInput3Layout.setVisibility(View.VISIBLE);
-        circleOr1Layout.setVisibility(View.VISIBLE);
-        circleView1.setText("Diameter");
-        circleView2.setText("Area");
-        circleView3.setText("Circumference");
+        circleInput1Layout.setVisibility(View.INVISIBLE);
+        circleRadiusLayout.setVisibility(View.VISIBLE);
     }
 
-    private void setSpinnerListener() {
+    private void setCircleSpinnerListener() {
         AdapterView.OnItemSelectedListener circleSpinnerListener = new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 pos = i;
                 if(i==0) {
+                    circleRadiusSpinner.setSelection(0);
                     initialLayout();
                 }else{
-                    circleInput2Layout.setVisibility(View.INVISIBLE);
-                    circleOrLayout.setVisibility(View.INVISIBLE);
-                    circleInput3Layout.setVisibility(View.INVISIBLE);
-                    circleOr1Layout.setVisibility(View.INVISIBLE);
                     circleView1.setText("Radius");
+                    circleRadiusLayout.setVisibility(View.INVISIBLE);
+                    circleInput1Layout.setVisibility(View.VISIBLE);
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         };
 
         circleSpinner.setOnItemSelectedListener(circleSpinnerListener);
     }
 
-    private void setSpinnerAdapter() {
+    private void setCircleSpinnerAdapter() {
         ArrayAdapter<CharSequence> circleAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.circle_calc_array, R.layout.spinner_background);
         circleAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         circleSpinner.setAdapter(circleAdapter);
     }
 
+    private void setCircleRadiusListener(){
+        AdapterView.OnItemSelectedListener circleRadiusListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+                radiusChoice = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+    }
+
+    private void setCircleRadiusAdapter() {
+        ArrayAdapter<CharSequence> circleRadiusAdapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.circle_radius_array, R.layout.spinner_background);
+        circleRadiusAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
+        circleRadiusSpinner.setAdapter(circleRadiusAdapter);
+    }
+
     private void initializeLayout(View rootView) {
-        circleInput2Layout = (LinearLayout)rootView.findViewById(R.id.circle_input2_layout);
-        circleOrLayout = (LinearLayout)rootView.findViewById(R.id.circle_or_layout);
-        circleInput3Layout = (LinearLayout)rootView.findViewById(R.id.circle_input3_layout);
-        circleOr1Layout = (LinearLayout)rootView.findViewById(R.id.circle_or1_layout);
+        circleInput1Layout = (LinearLayout)rootView.findViewById(R.id.circle_input1_layout);
+        circleRadiusLayout = (LinearLayout)rootView.findViewById(R.id.circle_radius_layout);
         circleInput1 = (EditText)rootView.findViewById(R.id.circle_input1);
-        circleInput2 = (EditText)rootView.findViewById(R.id.circle_input2);
-        circleInput3 = (EditText)rootView.findViewById(R.id.circle_input3);
+        circleRadiusInput = (EditText)rootView.findViewById(R.id.circle_radius_choice_input);
         circleView1 = (RobotoTextView)rootView.findViewById(R.id.circle_view1);
-        circleView2 = (RobotoTextView)rootView.findViewById(R.id.circle_view2);
-        circleView3 = (RobotoTextView)rootView.findViewById(R.id.circle_view3);
         circleAnswer = (RobotoTextView)rootView.findViewById(R.id.circle_answer);
         circleSpinner = (Spinner)rootView.findViewById(R.id.circle_choice);
+        circleRadiusSpinner = (Spinner)rootView.findViewById(R.id.circle_radius_choice);
         circleCalcButton = (Button)rootView.findViewById(R.id.circle_calc);
-        setBools();
+        check = false;
         pos = 0;
+        radiusChoice = 0;
     }
 
     static CircleFragment newInstance(int position) {

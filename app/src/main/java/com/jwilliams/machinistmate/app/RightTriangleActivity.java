@@ -7,14 +7,14 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
 /**
- * Created by john.williams on 5/8/2014.
+ * Created by john.williams on 5/19/2014.
  */
 public class RightTriangleActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.right_triangle_detail);
+        setContentView(R.layout.right_triangle);
 
         // Show the Up button in the action bar.
         getActionBar().setDisplayHomeAsUpEnabled(true);

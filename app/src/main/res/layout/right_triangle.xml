@@ -103,7 +103,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="40dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:id="@+id/rt_input1_layout"
         android:layout_below="@+id/rt_choice_answer_layout"

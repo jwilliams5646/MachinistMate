@@ -1,7 +1,9 @@
 package com.jwilliams.machinistmate.app;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,66 +11,41 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
-
 /**
- * Created by john.williams on 5/8/2014.
+ * Created by john.williams on 5/19/2014.
  */
 public class RightTriangleFragment extends Fragment {
 
     private static final String KEY_POSITION="position";
-    private ImageView triangle;
+    private LinearLayout rtDegRadLayout;
+    private LinearLayout rtDegRadSideLayout;
+    private LinearLayout rtInput1Layout;
+    private LinearLayout rtInput2Layout;
+    private LinearLayout rtInput3Layout;
     private RobotoTextView rtAnswer;
-    private RobotoTextView rtSide1;
-    private RobotoTextView rtSide2;
-    private RobotoTextView rtSide3;
-    private Spinner rtSpinner;
-    private EditText rtDegreeRadianInput;
-    private EditText rtOppositeInput;
-    private EditText rtHypotenuseInput;
-    private EditText rtAdjacentInput;
-    private EditText rtSide1Input;
-    private EditText rtSide2Input;
-    private EditText rtSide3Input;
-    private Spinner rtDegreeRadianSpinner;
-    private LinearLayout rtDegreeRadianLayout;
-    private LinearLayout rtOppositeLayout;
-    private LinearLayout rtHypotenuseLayout;
-    private LinearLayout rtAdjacentLayout;
-    private LinearLayout rtOrLayout;
-    private LinearLayout rtSide1Layout;
-    private LinearLayout rtSide2Layout;
-    private LinearLayout rtSide3Layout;
-    private RelativeLayout rtCalcButtonLayout;
-    private int rtSpinnerPosition;
-    private boolean isDegree;
-    private Button rtCalcButton;
-    private boolean degree;
-    private boolean entry;
-    RelativeLayout.LayoutParams params;
-    RelativeLayout.LayoutParams adjacentParams;
+    private RobotoTextView rtInput1view;
+    private RobotoTextView rtInput2view;
+    private RobotoTextView rtInput3view;
+    private EditText rtDegRadValInput;
+    private EditText rtDegRadInput;
+    private EditText rtInput1;
+    private EditText rtInput2;
+    private EditText rtInput3;
+    private Spinner rtCalcChoice;
+    private Spinner rtDegRadValChoice;
+    private Spinner rtDegRadChoice;
+    private Button rtCalc;
+    private boolean check;
+    private int choice;
+    private int choice2;
+    private int choice3;
 
-    static RightTriangleFragment newInstance(int position) {
-        RightTriangleFragment frag=new RightTriangleFragment();
-        Bundle args=new Bundle();
-
-        args.putInt(KEY_POSITION, position);
-        frag.setArguments(args);
-
-        return(frag);
-    }
-
-    static String getTitle(Context ctxt, int position) {
-        return(String.format(ctxt.getString(R.string.right_triangle_calc), position + 1));
-    }
 
 
     public RightTriangleFragment() {
@@ -82,528 +59,686 @@ public class RightTriangleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.right_triangle_detail, container, false);
+        View rootView = inflater.inflate(R.layout.right_triangle, container, false);
+        initializeLayout(rootView);
+        setRtChoiceSpinnerAdapter();
+        setDegRadValSpinnerAdapter();
+        setDegRadSpinnerAdapter();
+        setRtChoiceSpinnerListeners();
+        setRtDegRadValSpinnerListeners();
+        setRtDegRadListener();
+        setCalcListener();
+        return rootView;
+    }
 
-        setInitialLayout(rootView);
-        setSpinnerAdapters();
-
-        AdapterView.OnItemSelectedListener rtItemSelectedListener = new AdapterView.OnItemSelectedListener(){
-
+    private void setCalcListener() {
+        rtCalc.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+            public void onClick(View v) {
+                check = false;
+                switch(choice){
                     case 0:
-                        rtSpinnerPosition = 0;
-                        clearLayouts();
-                        rtDegreeRadianLayout.setVisibility(View.VISIBLE);
-                        rtOrLayout.setVisibility(View.VISIBLE);
-                        rtOppositeLayout.setVisibility(View.VISIBLE);
-                        rtHypotenuseLayout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_hypotenuse_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        switch(choice2) {
+                            case 0:
+                                calcSinDegree();
+                                Log.d("Sin Degree"," choice 0, choice2 0");
+                                break;
+                            case 1:
+                                calcSinRadian();
+                                Log.d("Sin Radian", " choice 0, choice2 1");
+                                break;
+                            case 2:
+                                calcSinValue();
+                                Log.d("Sin Value", " choice 0, choice2 2");
+                                break;
+                        }
                         break;
                     case 1:
-                        rtSpinnerPosition = 1;
-                        clearLayouts();
-                        rtDegreeRadianLayout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_degree_radian_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        if(choice3 ==0) {
+                            calcInvSinDeg();
+                            Log.d("InvSin Degree", " choice 1, choice3 0");
+                        }
+                        if(choice3 == 1) {
+                            calcInvSinRad();
+                            Log.d("InvSin Radian", " choice 1, choice3 1");
+                        }
                         break;
                     case 2:
-                        rtSpinnerPosition = 2;
-                        clearLayouts();
-                        adjacentMoveUp();
-                        rtDegreeRadianLayout.setVisibility(View.VISIBLE);
-                        rtOrLayout.setVisibility(View.VISIBLE);
-                        rtAdjacentLayout.setVisibility(View.VISIBLE);
-                        rtHypotenuseLayout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_hypotenuse_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        switch(choice2) {
+                            case 0:
+                                calcCosDegree();
+                                Log.d("Cos Degree", " choice 2, choice2 0");
+                                break;
+                            case 1:
+                                calcCosRadian();
+                                Log.d("Cos Radian", " choice 2, choice2 1");
+                                break;
+                            case 2:
+                                calcCosValue();
+                                Log.d("Cos Value", " choice 2, choice2 2");
+                                break;
+                        }
                         break;
                     case 3:
-                        rtSpinnerPosition = 3;
-                        clearLayouts();
-                        rtDegreeRadianLayout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_degree_radian_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        if(choice3 ==0) {
+                            calcInvCosDeg();
+                            Log.d("InvCos Degree", " choice 3, choice3 0");
+                        }
+                        if(choice3 == 1) {
+                            calcInvCosRad();
+                            Log.d("InvCos Radian", " choice 0, choice3 1");
+                        }
                         break;
                     case 4:
-                        rtSpinnerPosition = 4;
-                        clearLayouts();
-                        adjacentMoveDown();
-                        rtDegreeRadianLayout.setVisibility(View.VISIBLE);
-                        rtOrLayout.setVisibility(View.VISIBLE);
-                        rtOppositeLayout.setVisibility(View.VISIBLE);
-                        rtAdjacentLayout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_adjacent_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        switch(choice2) {
+                            case 0:
+                                calcTanDegree();
+                                Log.d("Tan Degree", " choice 4, choice2 0");
+                                break;
+                            case 1:
+                                calcTanRadian();
+                                Log.d("Tan Radian", " choice 4, choice2 1");
+                                break;
+                            case 2:
+                                calcTanValue();
+                                Log.d("Tan Value", " choice 4, choice2 2");
+                                break;
+                        }
                         break;
                     case 5:
-                        rtSpinnerPosition = 5;
-                        clearLayouts();
-                        rtDegreeRadianLayout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_degree_radian_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        if(choice3 ==0) {
+                            calcInvTanDeg();
+                            Log.d("InvTan Degree", " choice 5, choice3 0");
+                        }
+                        if(choice3 == 1) {
+                            calcInvTanRad();
+                            Log.d("InvTan Radian", " choice 5, choice3 1");
+                        }
                         break;
                     case 6:
-                        rtSpinnerPosition = 6;
-                        clearLayouts();
-                        rtSide1.setText("Base (A)");
-                        rtSide2.setText("Height (O)");
-                        rtSide1Layout.setVisibility(View.VISIBLE);
-                        rtSide2Layout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_side2_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        calcArea();
+                        Log.d("Area", " choice 6");
                         break;
                     case 7:
-                        rtSpinnerPosition = 7;
-                        clearLayouts();
-                        rtSide1.setText("Side O");
-                        rtSide2.setText("Side A");
-                        rtSide1Layout.setVisibility(View.VISIBLE);
-                        rtSide2Layout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_side2_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        calcSideH();
+                        Log.d("SideH", " choice 7");
                         break;
                     case 8:
-                        rtSpinnerPosition = 8;
-                        clearLayouts();
-                        rtSide1.setText("Side H");
-                        rtSide2.setText("Side A");
-                        rtSide1Layout.setVisibility(View.VISIBLE);
-                        rtSide2Layout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_side2_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        calcSideO();
+                        Log.d("SideO", " choice 8");
                         break;
                     case 9:
-                        rtSpinnerPosition = 9;
-                        clearLayouts();
-                        rtSide1.setText("Side H");
-                        rtSide2.setText("Side O");
-                        rtSide1Layout.setVisibility(View.VISIBLE);
-                        rtSide2Layout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_side2_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        calcSideA();
+                        Log.d("SideA", " choice 9");
                         break;
                     case 10:
-                        rtSpinnerPosition = 10;
-                        clearLayouts();
-                        rtSide1.setText("Side H");
-                        rtSide2.setText("Side O");
-                        rtSide3.setText("Side A");
-                        rtSide1Layout.setVisibility(View.VISIBLE);
-                        rtSide2Layout.setVisibility(View.VISIBLE);
-                        rtSide3Layout.setVisibility(View.VISIBLE);
-                        params.addRule(RelativeLayout.BELOW, R.id.rt_side3_layout);
-                        rtCalcButtonLayout.setLayoutParams(params);
+                        calcPerimeter();
+                        Log.d("Perimeter", " choice 10");
                         break;
-                    default:
-                        rtSpinnerPosition = 0;
-                        clearLayouts();
+                }
+            }
+        });
+    }
+
+    private void calcSinDegree() {
+        double d = 0.0;
+        try{
+            d = Double.parseDouble(rtDegRadValInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.sin(Math.toRadians(d))));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcSinRadian() {
+        double r = 0.0;
+        try{
+            r = Double.parseDouble(rtDegRadValInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.sin(r)));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcSinValue() {
+        double o = 0.0;
+        double h = 0.0;
+
+        try{
+            o = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            h = Double.parseDouble(rtInput3.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(o/h));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void calcInvSinDeg() {
+        double d = 0.0;
+        try{
+            d = Double.parseDouble(rtDegRadInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.toDegrees(Math.asin(d))));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcInvSinRad() {
+        double r = 0.0;
+        try{
+            r = Double.parseDouble(rtDegRadInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.asin(r)));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcCosDegree() {
+        double d = 0.0;
+        try{
+            d = Double.parseDouble(rtDegRadValInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.cos(Math.toRadians(d))));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcCosRadian() {
+        double r = 0.0;
+        try{
+            r = Double.parseDouble(rtDegRadValInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.cos(r)));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcCosValue() {
+        double a = 0.0;
+        double h = 0.0;
+        try{
+            a = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            h = Double.parseDouble(rtInput3.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(a/h));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void calcInvCosDeg() {
+        double d = 0.0;
+        try{
+            d = Double.parseDouble(rtDegRadInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.toDegrees(Math.acos(d))));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcInvCosRad() {
+        double r = 0.0;
+        try{
+            r = Double.parseDouble(rtDegRadInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.acos(r)));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcTanDegree() {
+        double d = 0.0;
+        try{
+            d = Double.parseDouble(rtDegRadValInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.tan(Math.toRadians(d))));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcTanRadian() {
+        double r = 0.0;
+        try{
+            r = Double.parseDouble(rtDegRadValInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.tan(r)));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcTanValue() {
+        double o = 0.0;
+        double a = 0.0;
+
+        try{
+            o = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            a = Double.parseDouble(rtInput3.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(o/a));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void calcInvTanDeg() {
+        double d = 0.0;
+        try{
+            d = Double.parseDouble(rtDegRadInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.toDegrees(Math.atan(d))));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcInvTanRad() {
+        double r = 0.0;
+        try{
+            r = Double.parseDouble(rtDegRadInput.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.atan(r)));
+        }else{
+            singleValToast();
+        }
+    }
+
+    private void calcArea() {
+        double a = 0.0;
+        double o = 0.0;
+        try{
+            a = Double.parseDouble(rtInput1.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            o = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString((o*a)/2));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void calcSideH() {
+        double o = 0.0;
+        double a = 0.0;
+        try{
+            o = Double.parseDouble(rtInput1.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            a = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.sqrt(Math.pow(o,2)+Math.pow(a,2))));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void calcSideO() {
+        double h = 0.0;
+        double a = 0.0;
+        try{
+            h = Double.parseDouble(rtInput1.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            a = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.sqrt(Math.pow(h,2)-Math.pow(a,2))));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void calcSideA() {
+        double h = 0.0;
+        double o = 0.0;
+        try{
+            h = Double.parseDouble(rtInput1.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            o = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(Math.sqrt(Math.pow(h,2)-Math.pow(o,2))));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void calcPerimeter() {
+        double h = 0.0;
+        double o = 0.0;
+        double a = 0.0;
+        try{
+            h = Double.parseDouble(rtInput1.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            o = Double.parseDouble(rtInput2.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        try{
+            a = Double.parseDouble(rtInput3.getText().toString());
+        }catch (NumberFormatException e){
+            check = true;
+        }
+        if(!check){
+            rtAnswer.setText(Double.toString(h+o+a));
+        }else{
+            doubleValToast();
+        }
+    }
+
+    private void singleValToast(){
+        Toast.makeText(getActivity(), "Invalid input", Toast.LENGTH_SHORT).show();
+    }
+
+    private void doubleValToast(){
+        Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
+    }
+
+    private void setRtDegRadListener() {
+        AdapterView.OnItemSelectedListener rtDegRadListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+                choice3 = i;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+        rtDegRadChoice.setOnItemSelectedListener(rtDegRadListener);
+    }
+
+    private void setRtDegRadValSpinnerListeners() {
+        AdapterView.OnItemSelectedListener rtDegRadSideListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
+                choice2 = i;
+                switch (i) {
+                    case 0:
+                        rtDegRadValInput.setVisibility(View.VISIBLE);
+                        rtInput2Layout.setVisibility(View.INVISIBLE);
+                        rtInput3Layout.setVisibility(View.INVISIBLE);
+                        break;
+                    case 1:
+                        rtDegRadValInput.setVisibility(View.VISIBLE);
+                        rtInput2Layout.setVisibility(View.INVISIBLE);
+                        rtInput3Layout.setVisibility(View.INVISIBLE);
+                        break;
+                    case 2:
+                        if (choice == 0) {
+                            rtDegRadValInput.setVisibility(View.INVISIBLE);
+                            rtInput2view.setText("(O)pposite");
+                            rtInput3view.setText("(H)ypotenuse");
+                            rtInput2Layout.setVisibility(View.VISIBLE);
+                            rtInput3Layout.setVisibility(View.VISIBLE);
+                        }
+                        if (choice == 2) {
+                            rtDegRadValInput.setVisibility(View.INVISIBLE);
+                            rtInput2view.setText("(A)djacent");
+                            rtInput3view.setText("(H)ypotenuse");
+                            rtInput2Layout.setVisibility(View.VISIBLE);
+                            rtInput3Layout.setVisibility(View.VISIBLE);
+                        }
+                        if (choice == 4) {
+                            rtDegRadValInput.setVisibility(View.INVISIBLE);
+                            rtInput2view.setText("(O)pposite");
+                            rtInput3view.setText("(A)djacent");
+                            rtInput2Layout.setVisibility(View.VISIBLE);
+                            rtInput3Layout.setVisibility(View.VISIBLE);
+                        }
                         break;
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                rtSpinnerPosition = 0;
+
+            }
+        };
+        rtDegRadValChoice.setOnItemSelectedListener(rtDegRadSideListener);
+    }
+
+    private void setRtChoiceSpinnerListeners() {
+        AdapterView.OnItemSelectedListener rtChoiceListener = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int i, long id) {
                 clearLayouts();
-            }
-        };
-        rtSpinner.setOnItemSelectedListener(rtItemSelectedListener);
-
-        AdapterView.OnItemSelectedListener rtIsDegreeListener = new AdapterView.OnItemSelectedListener(){
-
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
+                choice = i;
+                switch(i){
                     case 0:
-                        isDegree=true;
+                        setInitialLayout();
+                        rtDegRadValChoice.setSelection(0);
                         break;
                     case 1:
-                        isDegree=false;
-                        break;
-                    default:
-                        isDegree=true;
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                isDegree=true;
-            }
-        };
-        rtDegreeRadianSpinner.setOnItemSelectedListener(rtIsDegreeListener);
-
-        rtCalcButton.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (rtSpinnerPosition){
-                    case 0:
-                        calcSine();
-                        break;
-                    case 1:
-                        calcInverseSine();
+                        rtDegRadChoice.setSelection(0);
+                        rtDegRadSideLayout.setVisibility(View.INVISIBLE);
+                        rtDegRadLayout.setVisibility(View.VISIBLE);
                         break;
                     case 2:
-                        calcCos();
+                        setInitialLayout();
+                        rtDegRadValChoice.setSelection(0);
                         break;
                     case 3:
-                        calcInverseCos();
+                        rtDegRadChoice.setSelection(0);
+                        rtDegRadSideLayout.setVisibility(View.INVISIBLE);
+                        rtDegRadLayout.setVisibility(View.VISIBLE);
                         break;
                     case 4:
-                        calcTan();
+                        setInitialLayout();
+                        rtDegRadValChoice.setSelection(0);
                         break;
                     case 5:
-                        calcInverseTan();
+                        rtDegRadChoice.setSelection(0);
+                        rtDegRadSideLayout.setVisibility(View.INVISIBLE);
+                        rtDegRadLayout.setVisibility(View.VISIBLE);
                         break;
                     case 6:
-                        calcArea();
+                        rtInput1view.setText("Base (A)");
+                        rtInput2view.setText("Height (O)");
+                        rtInput1Layout.setVisibility(View.VISIBLE);
+                        rtInput2Layout.setVisibility(View.VISIBLE);
                         break;
                     case 7:
-                        calcSideH();
+                        rtInput1view.setText("Side (O)");
+                        rtInput2view.setText("Side (A)");
+                        rtInput1Layout.setVisibility(View.VISIBLE);
+                        rtInput2Layout.setVisibility(View.VISIBLE);
                         break;
                     case 8:
-                        calcSideO();
+                        rtInput1view.setText("Side (H)");
+                        rtInput2view.setText("Side (A)");
+                        rtInput1Layout.setVisibility(View.VISIBLE);
+                        rtInput2Layout.setVisibility(View.VISIBLE);
                         break;
                     case 9:
-                        calcSideA();
+                        rtInput1view.setText("Side (H)");
+                        rtInput2view.setText("Side (O)");
+                        rtInput1Layout.setVisibility(View.VISIBLE);
+                        rtInput2Layout.setVisibility(View.VISIBLE);
                         break;
                     case 10:
-                        calcPerimeter();
-                        break;
-                    default:
+                        rtInput1view.setText("Side (H)");
+                        rtInput2view.setText("Side (O)");
+                        rtInput3view.setText("Side (A)");
+                        rtInput1Layout.setVisibility(View.VISIBLE);
+                        rtInput2Layout.setVisibility(View.VISIBLE);
+                        rtInput3Layout.setVisibility(View.VISIBLE);
                         break;
                 }
             }
-        });
-        return rootView;
-    }
 
-    private void calcPerimeter() {
-        double sideH = getSide1();
-        double sideO = getSide2();
-        double sideA = getSide3();
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
 
-        if(!entry){
-            Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcPerimeter(sideH, sideO, sideA)));
-        }
-        clearBools();
-    }
-
-    private void calcSideA() {
-        double sideH = getSide1();
-        double sideO = getSide2();
-
-        if(entry){
-            Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcSideA(sideH, sideO)));
-        }
-        clearBools();
-    }
-
-    private void calcSideO() {
-        double sideH = getSide1();
-        double sideA = getSide2();
-
-        if(entry){
-            Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcSideO(sideH, sideA)));
-        }
-        clearBools();
-    }
-
-    private void calcSideH() {
-        double sideO = getSide1();
-        double sideA = getSide2();
-
-        if(entry){
-            Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcSideH(sideO, sideA)));
-        }
-        clearBools();
-    }
-
-    private void calcArea() {
-        double base = getSide1();
-        double height = getSide2();
-
-        if(entry){
-            Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
-        }else{
-            rtAnswer.setText(Double.toString(Calculations.calcArea(base, height)));
-        }
-        clearBools();
-    }
-
-    private void calcInverseTan() {
-        double degreeRad = getDegreeRad();
-        if (degree){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian", Toast.LENGTH_SHORT).show();
-        }else {
-            if (isDegree) {
-                rtAnswer.setText(Double.toString(Calculations.calcInvTanToDegree(degreeRad)));
-            } else {
-                rtAnswer.setText(Double.toString(Calculations.calcInvTanToRadian(degreeRad)));
             }
-        }
-        clearBools();
+        };
+        rtCalcChoice.setOnItemSelectedListener(rtChoiceListener);
+    }
+    private void setDegRadSpinnerAdapter() {
+        ArrayAdapter<CharSequence> rtDegRadAdapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degree_rad_array, R.layout.spinner_background);
+        rtDegRadAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
+        rtDegRadChoice.setAdapter(rtDegRadAdapter);
     }
 
-    private void calcTan() {
-        double degreeRad = getDegreeRad();
-        double opposite = getOpposite();
-        double adjacent = getAdjacent();
-
-        if(!degree && entry){
-            if(isDegree) {
-                rtAnswer.setText(Double.toString(Calculations.calcTanByDegree(degreeRad)));
-            }else{
-                rtAnswer.setText(Double.toString(Calculations.calcTanByRadian(degreeRad)));
-            }
-        }
-
-        if(degree && !entry){
-            rtAnswer.setText(Double.toString(Calculations.calcTanByValues(opposite, adjacent)));
-        }
-
-        if(degree && entry){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian or Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
-        }
-
-        if(!degree && !entry){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian OR Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
-        }
-        clearBools();
+    private void setDegRadValSpinnerAdapter() {
+        ArrayAdapter<CharSequence> rtDegRadValAdapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.degree_rad_value_array, R.layout.spinner_background);
+        rtDegRadValAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
+        rtDegRadValChoice.setAdapter(rtDegRadValAdapter);
     }
 
-    private void calcInverseCos() {
-        double degreeRad = getDegreeRad();
-        if (degree){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian", Toast.LENGTH_SHORT).show();
-        }else {
-            if (isDegree) {
-                rtAnswer.setText(Double.toString(Calculations.calcInvCosToDegree(degreeRad)));
-            } else {
-                rtAnswer.setText(Double.toString(Calculations.calcInvCosToRadian(degreeRad)));
-            }
-        }
-        clearBools();
-    }
-
-    private void calcCos() {
-        double degreeRad = getDegreeRad();
-        double adjacent = getAdjacent();
-        double hypotenuse = getHypotenuse();
-
-        if(!degree && entry){
-            if(isDegree) {
-                rtAnswer.setText(Double.toString(Calculations.calcCosByDegree(degreeRad)));
-            }else{
-                rtAnswer.setText(Double.toString(Calculations.calcCosByRadian(degreeRad)));
-            }
-        }
-
-        if(degree && !entry){
-            rtAnswer.setText(Double.toString(Calculations.calcCosByValues(adjacent, hypotenuse)));
-        }
-
-        if(degree && entry){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian or Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
-        }
-
-        if(!degree && !entry){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian OR Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
-        }
-        clearBools();
-    }
-
-    private void calcInverseSine() {
-        double degreeRad = getDegreeRad();
-        if (degree){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian", Toast.LENGTH_SHORT).show();
-        }else {
-            if (isDegree) {
-                rtAnswer.setText(Double.toString(Calculations.calcInvSinToDegree(degreeRad)));
-            } else {
-                rtAnswer.setText(Double.toString(Calculations.calcInvSinToRadian(degreeRad)));
-            }
-        }
-        clearBools();
-    }
-
-    private void calcSine() {
-        double degreeRad = getDegreeRad();
-        double opposite = getOpposite();
-        double hypotenuse = getHypotenuse();
-
-        if(!degree && entry){
-            if(isDegree) {
-                rtAnswer.setText(Double.toString(Calculations.calcSinByDegree(degreeRad)));
-            }else{
-                rtAnswer.setText(Double.toString(Calculations.calcSinByRadian(degreeRad)));
-            }
-        }
-
-        if(degree && !entry){
-            rtAnswer.setText(Double.toString(Calculations.calcSinByValues(opposite, hypotenuse)));
-        }
-
-        if(degree && entry){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian or Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
-        }
-
-        if(!degree && !entry){
-            Toast.makeText(getActivity(), "Please insert a Degree/Radian OR Opposite and Hypotenuse", Toast.LENGTH_SHORT).show();
-        }
-        clearBools();
-    }
-
-    private double getHypotenuse() {
-        double hypotenuse = 0.0;
-        try{
-            hypotenuse = Double.parseDouble(rtHypotenuseInput.getText().toString());
-        }catch(NumberFormatException e){
-           // Toast.makeText(getActivity(), "hypotenuse invalid", Toast.LENGTH_SHORT).show();
-            entry =true;
-        }
-        return hypotenuse;
-    }
-    private double getOpposite(){
-        double opposite = 0.0;
-        try{
-            opposite = Double.parseDouble(rtOppositeInput.getText().toString());
-        }catch(NumberFormatException e){
-            //Toast.makeText(getActivity(), "opposite invalid", Toast.LENGTH_SHORT).show();
-            entry =true;
-        }
-        return opposite;
-    }
-
-    private double getAdjacent() {
-        double adjacent = 0.0;
-        try{
-            adjacent = Double.parseDouble(rtAdjacentInput.getText().toString());
-        }catch(NumberFormatException e){
-           // Toast.makeText(getActivity(), "adjacent invalid", Toast.LENGTH_SHORT).show();
-            entry =true;
-        }
-        return adjacent;
-    }
-
-    private double getDegreeRad() {
-        double degreeRad = 0.0;
-        try{
-            degreeRad = Double.parseDouble(rtDegreeRadianInput.getText().toString());
-        }catch(NumberFormatException e){
-            //Toast.makeText(getActivity(), "degree is bad", Toast.LENGTH_SHORT).show();
-            degree=true;
-        }
-        return degreeRad;
-    }
-
-    private double getSide1() {
-        double side1 = 0.0;
-        try{
-            side1 = Double.parseDouble(rtSide1Input.getText().toString());
-        }catch(NumberFormatException e){
-            //Toast.makeText(getActivity(), "side 1 invalid", Toast.LENGTH_SHORT).show();
-            entry =true;
-        }
-        return side1;
-    }
-
-    private double getSide2() {
-        double side2 = 0.0;
-        try{
-            side2 = Double.parseDouble(rtSide2Input.getText().toString());
-        }catch(NumberFormatException e){
-            //Toast.makeText(getActivity(), "side 2 invalid", Toast.LENGTH_SHORT).show();
-            entry =true;
-        }
-        return side2;
-    }
-
-    private double getSide3() {
-        double side3 = 0.0;
-        try{
-            side3 = Double.parseDouble(rtSide3Input.getText().toString());
-        }catch(NumberFormatException e){
-            //Toast.makeText(getActivity(), "side 3 invalid", Toast.LENGTH_SHORT).show();
-            entry =true;
-        }
-        return side3;
-    }
-
-    private void setSpinnerAdapters() {
+    private void setRtChoiceSpinnerAdapter() {
         ArrayAdapter<CharSequence> rtAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.rt_array, R.layout.spinner_background);
         rtAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        rtSpinner.setAdapter(rtAdapter);
-
-        ArrayAdapter<CharSequence> rtDRAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.degree_rad_array, R.layout.spinner_background);
-        rtDRAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        rtDegreeRadianSpinner.setAdapter(rtDRAdapter);
+        rtCalcChoice.setAdapter(rtAdapter);
     }
 
-    private void setInitialLayout(View rootView) {
-        triangle = (ImageView)rootView.findViewById(R.id.right_triangle_imageView);
+    private void initializeLayout(View rootView) {
+        rtDegRadLayout = (LinearLayout)rootView.findViewById(R.id.rt_degree_radian_layout);
+        rtDegRadSideLayout = (LinearLayout)rootView.findViewById(R.id.rt_choice2_layout);
+        rtInput1Layout = (LinearLayout)rootView.findViewById(R.id.rt_input1_layout);
+        rtInput2Layout = (LinearLayout)rootView.findViewById(R.id.rt_input2_layout);
+        rtInput3Layout = (LinearLayout)rootView.findViewById(R.id.rt_input3_layout);
         rtAnswer = (RobotoTextView)rootView.findViewById(R.id.rt_answer);
-        rtSide1 = (RobotoTextView)rootView.findViewById(R.id.rt_side1_view);
-        rtSide2 = (RobotoTextView)rootView.findViewById(R.id.rt_side2_view);
-        rtSide3 = (RobotoTextView)rootView.findViewById(R.id.rt_side3_view);
-        rtSpinner = (Spinner)rootView.findViewById(R.id.rt_spinner);
-        rtDegreeRadianInput = (EditText)rootView.findViewById(R.id.rt_degree_radian_value_input);
-        rtOppositeInput = (EditText)rootView.findViewById(R.id.rt_opposite_input);
-        rtHypotenuseInput = (EditText)rootView.findViewById(R.id.rt_hypotenuse_input);
-        rtAdjacentInput = (EditText)rootView.findViewById(R.id.rt_adjacent_input);
-        rtSide1Input = (EditText)rootView.findViewById(R.id.rt_side1_input);
-        rtSide2Input = (EditText)rootView.findViewById(R.id.rt_side2_input);
-        rtSide3Input = (EditText)rootView.findViewById(R.id.rt_side3_input);
-        rtDegreeRadianSpinner = (Spinner)rootView.findViewById(R.id.rt_degree_radian_spinner);
-        rtDegreeRadianLayout = (LinearLayout)rootView.findViewById(R.id.rt_degree_radian_layout);
-        rtOppositeLayout = (LinearLayout)rootView.findViewById(R.id.rt_opposite_layout);
-        rtHypotenuseLayout = (LinearLayout)rootView.findViewById(R.id.rt_hypotenuse_layout);
-        rtAdjacentLayout = (LinearLayout)rootView.findViewById(R.id.rt_adjacent_layout);
-        rtOrLayout = (LinearLayout)rootView.findViewById(R.id.rt_or_layout);
-        rtSide1Layout = (LinearLayout)rootView.findViewById(R.id.rt_side1_layout);
-        rtSide2Layout = (LinearLayout)rootView.findViewById(R.id.rt_side2_layout);
-        rtSide3Layout = (LinearLayout)rootView.findViewById(R.id.rt_side3_layout);
-        rtCalcButton = (Button)rootView.findViewById(R.id.rt_calc);
-        rtCalcButtonLayout = (RelativeLayout)rootView.findViewById(R.id.rt_calc_button_layout);
-        params = (RelativeLayout.LayoutParams)rtCalcButtonLayout.getLayoutParams();
-        adjacentParams = (RelativeLayout.LayoutParams)rtAdjacentLayout.getLayoutParams();
-        degree = false;
-        entry = false;
+        rtInput1view = (RobotoTextView)rootView.findViewById(R.id.rt_input1_view);
+        rtInput2view = (RobotoTextView)rootView.findViewById(R.id.rt_input2_view);
+        rtInput3view = (RobotoTextView)rootView.findViewById(R.id.rt_input3_view);
+        rtDegRadValInput = (EditText)rootView.findViewById(R.id.rt_degree_radian_value_input);
+        rtDegRadInput = (EditText)rootView.findViewById(R.id.rt_degree_radian_input);
+        rtInput1 = (EditText)rootView.findViewById(R.id.rt_input1);
+        rtInput2 = (EditText)rootView.findViewById(R.id.rt_input2);
+        rtInput3 = (EditText)rootView.findViewById(R.id.rt_input3);
+        rtCalcChoice = (Spinner)rootView.findViewById(R.id.rt_spinner);
+        rtDegRadValChoice = (Spinner)rootView.findViewById(R.id.rt_degree_radian_value_spinner);
+        rtDegRadChoice = (Spinner)rootView.findViewById(R.id.rt_degree_radian_spinner);
+        rtCalc = (Button)rootView.findViewById(R.id.rt_calc_button);
+        check = false;
+        choice = 0;
+        choice2 = 0;
+        choice3 = 0;
+        setInitialLayout();
+    }
+
+    private void setInitialLayout() {
+        rtDegRadValInput.setVisibility(View.VISIBLE);
+        rtDegRadSideLayout.setVisibility(View.VISIBLE);
+        rtInput1Layout.setVisibility(View.INVISIBLE);
+        rtInput2Layout.setVisibility(View.INVISIBLE);
+        rtInput3Layout.setVisibility(View.INVISIBLE);
     }
     private void clearLayouts(){
-        rtDegreeRadianLayout.setVisibility(View.INVISIBLE);
-        rtOppositeLayout.setVisibility(View.INVISIBLE);
-        rtHypotenuseLayout.setVisibility(View.INVISIBLE);
-        rtAdjacentLayout.setVisibility(View.INVISIBLE);
-        rtOrLayout.setVisibility(View.INVISIBLE);
-        rtSide1Layout.setVisibility(View.INVISIBLE);
-        rtSide2Layout.setVisibility(View.INVISIBLE);
-        rtSide3Layout.setVisibility(View.INVISIBLE);
-    }
-    private void clearBools(){
-        degree = false;
-        entry = false;
-    }
-    private void adjacentMoveUp(){
-        adjacentParams.addRule(RelativeLayout.BELOW, R.id.rt_or_layout);
-        rtCalcButtonLayout.setLayoutParams(params);
+        rtDegRadLayout.setVisibility(View.INVISIBLE);
+        rtDegRadValInput.setVisibility(View.INVISIBLE);
+        rtDegRadSideLayout.setVisibility(View.INVISIBLE);
+        rtInput1Layout.setVisibility(View.INVISIBLE);
+        rtInput2Layout.setVisibility(View.INVISIBLE);
+        rtInput3Layout.setVisibility(View.INVISIBLE);
     }
 
-    private void adjacentMoveDown(){
-        adjacentParams.addRule(RelativeLayout.BELOW, R.id.rt_opposite_layout);
-        rtCalcButtonLayout.setLayoutParams(params);
+    static RightTriangleFragment newInstance(int position) {
+        RightTriangleFragment frag=new RightTriangleFragment();
+        Bundle args=new Bundle();
+
+        args.putInt(KEY_POSITION, position);
+        frag.setArguments(args);
+
+        return(frag);
+    }
+
+    static String getTitle(Context ctxt, int position) {
+        return(String.format(ctxt.getString(R.string.right_triangle_calc), position + 1));
     }
 }

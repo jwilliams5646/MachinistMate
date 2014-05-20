@@ -7,7 +7,7 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
 /**
- * Created by John on 5/12/2014.
+ * Created by john.williams on 5/20/2014.
  */
 public class CircleActivity extends FragmentActivity {
 

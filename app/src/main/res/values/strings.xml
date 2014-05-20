@@ -115,6 +115,12 @@
         <item>Circumference (c)</item>
     </string-array>
 
+    <string-array name="circle_radius_array">
+        <item>Diameter</item>
+        <item>Area</item>
+        <item>Circumference</item>
+    </string-array>
+
     <string-array name="para_calc_array">
         <item>Area</item>
         <item>Base (b)</item>
