@@ -17,7 +17,9 @@ import android.widget.Toast;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
- * Created by john.williams on 5/20/2014.
+ * Created by John Williams on 5/20/2014.
+ * Contents:
+ * View-Controller for the circle calculations in the Geometry view-pager.
  */
 public class CircleFragment extends Fragment {
 

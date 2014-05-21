@@ -7,7 +7,9 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
 /**
- * Created by john.williams on 5/20/2014.
+ * Created by John Williams on 5/20/2014.
+ * Contents:
+ * Base activity for the Circle calculations in the Geometry pager setup.
  */
 public class CircleActivity extends FragmentActivity {
 

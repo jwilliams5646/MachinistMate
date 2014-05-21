@@ -142,5 +142,26 @@
         <item>Perimeter</item>
     </string-array>
 
+    <string-array name="oblique_calc_array">
+        <item>Area</item>
+        <item>Height</item>
+        <item>Side (a)</item>
+        <item>Side (b)</item>
+        <item>Side (c)</item>
+        <item>Angle (x)</item>
+        <item>Angle (y)</item>
+        <item>Angle (z)</item>
+        <item>Perimeter</item>
+    </string-array>
+
+    <string-array name="oblique_area_array">
+        <item>AAS</item>
+        <item>ASA</item>
+        <item>SAS</item>
+        <item>SSA</item>
+        <item>SSS</item>
+        <item>Base/Height</item>
+    </string-array>
+
 
 </resources>
