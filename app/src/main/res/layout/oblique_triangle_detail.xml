@@ -6,10 +6,37 @@
     <ImageView
         android:layout_width="400dp"
         android:layout_height="125dp"
-        android:id="@+id/square_image"
+        android:id="@+id/oblique_image"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:src="@drawable/oblique_triangle" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/oblique_image"
+        android:layout_alignLeft="@+id/oblique_image"
+        android:id="@+id/oblique_answer_layout">
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/oblique_choice_spinner"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:text="New Text"
+            android:id="@+id/oblique_answer"
+            android:layout_weight="1"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+    </LinearLayout>
 </RelativeLayout>
