@@ -95,13 +95,7 @@ public class CircleFragment extends Fragment {
     }
 
     private void calcRadCirc() {
-        double c = 0.0;
-        try {
-            c = Double.parseDouble(circleRadiusInput.getText().toString());
-        } catch (NumberFormatException e) {
-            check = true;
-        }
-
+        double c = getCircleRadiusInput();
         if(!check){
             circleAnswer.setText(Double.toString(c/(2*Math.PI)));
         }else{
@@ -110,13 +104,7 @@ public class CircleFragment extends Fragment {
     }
 
     private void calcRadArea() {
-        double a = 0.0;
-        try {
-            a = Double.parseDouble(circleRadiusInput.getText().toString());
-        } catch (NumberFormatException e) {
-            check = true;
-        }
-
+        double a = getCircleRadiusInput();
         if(!check){
             circleAnswer.setText(Double.toString(Math.sqrt(a/Math.PI)));
         }else{
@@ -125,13 +113,7 @@ public class CircleFragment extends Fragment {
     }
 
     private void calcRadDiam() {
-        double d = 0.0;
-        try {
-            d = Double.parseDouble(circleRadiusInput.getText().toString());
-        } catch (NumberFormatException e) {
-            check = true;
-        }
-
+        double d = getCircleRadiusInput();
         if(!check){
             circleAnswer.setText(Double.toString(d/2));
         }else{
@@ -140,13 +122,7 @@ public class CircleFragment extends Fragment {
     }
 
     private void calcCircumference() {
-        double r = 0.0;
-        try {
-            r = Double.parseDouble(circleInput1.getText().toString());
-        } catch (NumberFormatException e) {
-            check = true;
-        }
-
+        double r = getInput1();
         if(!check){
             circleAnswer.setText(Double.toString(2*Math.PI*r));
         }else{
@@ -155,13 +131,7 @@ public class CircleFragment extends Fragment {
     }
 
     private void calcArea() {
-        double r = 0.0;
-        try {
-            r = Double.parseDouble(circleInput1.getText().toString());
-        } catch (NumberFormatException e) {
-            check = true;
-        }
-
+        double r = getInput1();
         if(!check){
             circleAnswer.setText(Double.toString(Math.PI*Math.pow(r,2)));
         }else{
@@ -170,18 +140,32 @@ public class CircleFragment extends Fragment {
     }
 
     private void calcDiameter() {
-        double r = 0.0;
-        try {
-            r = Double.parseDouble(circleInput1.getText().toString());
-        } catch (NumberFormatException e) {
-            check = true;
-        }
-
+        double r = getInput1();
         if(!check){
             circleAnswer.setText(Double.toString(2*r));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private double getCircleRadiusInput(){
+        double x = 0.0;
+        try {
+            x = Double.parseDouble(circleRadiusInput.getText().toString());
+        } catch (NumberFormatException e) {
+            check = true;
+        }
+        return x;
+    }
+
+    private double getInput1(){
+        double x = 0.0;
+        try {
+            x = Double.parseDouble(circleInput1.getText().toString());
+        } catch (NumberFormatException e) {
+            check = true;
+        }
+        return x;
     }
 
     private void initialLayout(){
