@@ -16,15 +16,19 @@ public final class R {
         public static final int degree_rad_value_array=0x7f050004;
         public static final int fraction_metric_list=0x7f050005;
         public static final int oblique_area_array=0x7f050006;
-        public static final int oblique_calc_array=0x7f050007;
-        public static final int para_calc_array=0x7f050008;
-        public static final int precision_array=0x7f050009;
-        public static final int rect_calc_array=0x7f05000a;
-        public static final int reference_array=0x7f05000b;
-        public static final int rt_array=0x7f05000c;
-        public static final int square_calc_array=0x7f05000d;
-        public static final int square_rect_choice_array=0x7f05000e;
-        public static final int trap_calc_array=0x7f05000f;
+        public static final int oblique_asa_array=0x7f050007;
+        public static final int oblique_ass_array=0x7f050008;
+        public static final int oblique_initial_calc_array=0x7f050009;
+        public static final int oblique_sas_array=0x7f05000a;
+        public static final int oblique_sss_array=0x7f05000b;
+        public static final int para_calc_array=0x7f05000c;
+        public static final int precision_array=0x7f05000d;
+        public static final int rect_calc_array=0x7f05000e;
+        public static final int reference_array=0x7f05000f;
+        public static final int rt_array=0x7f050010;
+        public static final int square_calc_array=0x7f050011;
+        public static final int square_rect_choice_array=0x7f050012;
+        public static final int trap_calc_array=0x7f050013;
     }
     public static final class attr {
     }
@@ -76,8 +80,6 @@ public final class R {
         public static final int conv_precision=0x7f090019;
         public static final int conv_spinner_layout=0x7f090010;
         public static final int conversion_input_layout=0x7f090016;
-        public static final int degree_rad_view1=0x7f09004c;
-        public static final int degree_rad_view2=0x7f090050;
         public static final int diameterInput=0x7f090086;
         public static final int diameter_text=0x7f090085;
         public static final int diameter_view=0x7f090084;
@@ -112,19 +114,19 @@ public final class R {
         public static final int number_teeth_input=0x7f090038;
         public static final int number_teeth_layout=0x7f090036;
         public static final int number_teeth_view=0x7f090037;
-        public static final int oblique_answer=0x7f090043;
-        public static final int oblique_answer_degrad_spinner=0x7f090044;
-        public static final int oblique_answer_layout=0x7f090041;
-        public static final int oblique_areachoice_layout=0x7f090045;
-        public static final int oblique_areachoice_spinner=0x7f090046;
+        public static final int oblique_answer=0x7f090046;
+        public static final int oblique_answer_degrad_spinner=0x7f090047;
+        public static final int oblique_answer_layout=0x7f090044;
         public static final int oblique_calc_button=0x7f090059;
-        public static final int oblique_choice_spinner=0x7f090042;
+        public static final int oblique_choice_spinner=0x7f090045;
         public static final int oblique_deg_rad_choice_spinner1=0x7f09004e;
         public static final int oblique_deg_rad_choice_spinner2=0x7f090052;
         public static final int oblique_deg_rad_input1=0x7f09004d;
         public static final int oblique_deg_rad_input2=0x7f090051;
         public static final int oblique_deg_rad_layout1=0x7f09004b;
         public static final int oblique_deg_rad_layout2=0x7f09004f;
+        public static final int oblique_degree_rad_view1=0x7f09004c;
+        public static final int oblique_degree_rad_view2=0x7f090050;
         public static final int oblique_image=0x7f090040;
         public static final int oblique_input1=0x7f09004a;
         public static final int oblique_input1_layout=0x7f090048;
@@ -132,7 +134,9 @@ public final class R {
         public static final int oblique_input2_layout=0x7f090053;
         public static final int oblique_input3=0x7f090058;
         public static final int oblique_input3_layout=0x7f090056;
-        public static final int oblique_question_button=0x7f090047;
+        public static final int oblique_input_style_layout=0x7f090041;
+        public static final int oblique_input_style_spinner=0x7f090042;
+        public static final int oblique_question_button=0x7f090043;
         public static final int oblique_view1=0x7f090049;
         public static final int oblique_view2=0x7f090054;
         public static final int oblique_view3=0x7f090057;

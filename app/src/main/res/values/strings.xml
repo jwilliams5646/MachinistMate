@@ -142,12 +142,45 @@
         <item>Perimeter</item>
     </string-array>
 
-    <string-array name="oblique_calc_array">
+    <string-array name="oblique_initial_calc_array">
         <item>Area</item>
         <item>Height</item>
         <item>Side (a)</item>
-        <item>Side (b)</item>
         <item>Side (c)</item>
+        <item>Angle (x)</item>
+        <item>Perimeter</item>
+    </string-array>
+
+    <string-array name="oblique_asa_array">
+        <item>Area</item>
+        <item>Height</item>
+        <item>Side (a)</item>
+        <item>Side (c)</item>
+        <item>Angle (z)</item>
+        <item>Perimeter</item>
+    </string-array>
+
+    <string-array name="oblique_sas_array">
+        <item>Area</item>
+        <item>Height</item>
+        <item>Side (c)</item>
+        <item>Angle (x)</item>
+        <item>Angle (z)</item>
+        <item>Perimeter</item>
+    </string-array>
+
+    <string-array name="oblique_ass_array">
+        <item>Area</item>
+        <item>Height</item>
+        <item>Side (c)</item>
+        <item>Angle (y)</item>
+        <item>Angle (z)</item>
+        <item>Perimeter</item>
+    </string-array>
+
+    <string-array name="oblique_sss_array">
+        <item>Area</item>
+        <item>Height</item>
         <item>Angle (x)</item>
         <item>Angle (y)</item>
         <item>Angle (z)</item>
@@ -158,9 +191,8 @@
         <item>AAS</item>
         <item>ASA</item>
         <item>SAS</item>
-        <item>SSA</item>
+        <item>ASS</item>
         <item>SSS</item>
-        <item>Base/Height</item>
     </string-array>
 
 
