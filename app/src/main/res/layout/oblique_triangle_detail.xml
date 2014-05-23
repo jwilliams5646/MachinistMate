@@ -52,7 +52,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/oblique_x_input"
             android:layout_weight="1"
@@ -107,7 +107,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/oblique_y_input"
             android:layout_weight="1"
@@ -162,7 +162,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:inputType="numberSigned"
+            android:inputType="numberDecimal"
             android:ems="10"
             android:id="@+id/oblique_z_input"
             android:layout_weight="1"

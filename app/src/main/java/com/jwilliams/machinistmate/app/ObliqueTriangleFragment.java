@@ -165,14 +165,50 @@ public class ObliqueTriangleFragment extends Fragment {
                     Toast.makeText(getActivity(), "Triangle can not be solved with only angles.  This is the triangle equivalent of dividing by zero.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                if(x >= 90 || y >= 90){
+                    Toast.makeText(getActivity(), "Only angle (z) can be 90 degrees or greater", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+/*
                 if(z < y || z < x){
                     Toast.makeText(getActivity(), "Angle (z) must the widest angle in your triangle.", Toast.LENGTH_SHORT).show();
                     return;
+                }*/
+                //a-b-c -> x-y-z
+                if (cc && ca && cb && !cy && !cx && !cz){
+                    sss_abc(a, b, c, df);
+                }
+                //a-c-z -> x-y-b
+                else if (cc && ca && !cb && !cy && !cx && cz){
+                    sas_xyb(a, c, z, df);       // side-angle-side
+                }
+                //c-b-x -> a-y-z
+                else if (cc && !ca && cb && !cy && cx && !cz){
+                    sas_ayz(c, b, x, df);       // side-angle-side
+                }
+                //a-b-y -> c-x-z
+                else if (!cc && ca && cb && cy && !cx && !cz){
+                    sas_cxz(a, b, y, df);      // side-angle-side
+                }
+                //c-a-y -> b-x-z
+                else if (cc && ca && !cb && cy && !cx && !cz){
+                    ssa_bxz(c, a, y, df);       // side-side-angle
+                }
+                //c-a-x -> b-y-z
+                else if (cc && ca && !cb && !cy && cx && !cz){
+                    ssa_byz(c,a,x,df);       // side-side-angle
                 }
 
-                if (ca && cb &&  cc && !cx && !cy && !cz){
-                    sss_abc(a,b,c,df);
+                else if (cc && !ca && cb && cy && !cx && !cz){
+                    ssa_axz(c,b,y,df);       // side-side-angle
+                }
+
+                else if (cc && !ca && cb && !cy && !cx && cz){
+                    ssa_ayx(c,b,z,df);       // side-side-angle
+                }
+
+                else if (!cc && ca && cb && !cy && cx && !cz){
+                    ssa_cyz(a,b,x,df);      // side-side-angle
                 }
 
 
@@ -180,40 +216,197 @@ public class ObliqueTriangleFragment extends Fragment {
 
             }
 
-            private double arccosd(double x){
-                if (Math.abs(x - 1) < 0.000000001) x = 1.0;
-                return Math.acos(x)*(180/Math.PI);
+            private void ssa_cyz(double a, double b, double x, DecimalFormat df) {
+                if(spinnerX == 0){
+                    x = Math.toRadians(x);
+                }
+                double z = Math.toDegrees(Math.asin(b * Math.sin(x) / a));
+                double y = 180.0 - (Math.toDegrees(x) + z);
+                double c = Math.sqrt(a*a + b*b - 2*a*b*Math.cos(Math.toRadians(y)));
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                setAngleY(y, df);
+                setAngleZ(z, df);
             }
 
+            private void ssa_ayx(double c, double b, double z, DecimalFormat df) {
+                if(c > b && z >90){
+                    Toast.makeText(getActivity(), "Side b cannot be shorter than side c if angle (z) is greater than 90 degrees", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(spinnerZ == 0){
+                    z = Math.toRadians(z);
+                }
+                double y = Math.toDegrees(Math.asin(c*Math.sin(z)/b));
+                double x = 180.0 - (y + Math.toDegrees(z));
+                double a = Math.sqrt(c*c + b*b - 2*c*b*Math.cos(Math.toRadians(x)));
+                setAreaPeriHeight(a,b,c,df);
+                sideAInput.setText(df.format(a));
+                setAngleY(y, df);
+                setAngleX(x, df);
+            }
+
+            private void ssa_axz(double c, double b, double y, DecimalFormat df) {
+                if(spinnerY == 0){
+                    y = Math.toRadians(y);
+                }
+                double z = Math.toDegrees(Math.asin(b*Math.sin(y)/c));
+                double x = 180.0 - (Math.toDegrees(y) + z);
+                double a = Math.sqrt(c*c + b*b - 2*c*b*Math.cos(Math.toRadians(x)));
+                setAreaPeriHeight(a,b,c,df);
+                sideAInput.setText(df.format(a));
+                setAngleX(x, df);
+                setAngleZ(z, df);
+            }
+
+            private void ssa_byz(double c, double a, double x, DecimalFormat df) {
+                if(spinnerX == 0){
+                    x = Math.toRadians(x);
+                }
+                double y = Math.toDegrees(Math.asin(c * Math.sin(x) / a));
+                double z = 180.0 - (y + Math.toDegrees(x));
+                double b = Math.sqrt(c*c + a*a - 2*c*a*Math.cos(Math.toRadians(z)));
+                setAreaPeriHeight(a,b,c,df);
+                sideBInput.setText(df.format(b));
+                setAngleY(y, df);
+                setAngleZ(z, df);
+            }
+
+            private void ssa_bxz(double c, double a, double y, DecimalFormat df) {
+                if(spinnerY == 0){
+                    y = Math.toRadians(y);
+                }
+                double x = Math.toDegrees(Math.asin(a*Math.sin(y)/c));
+                double z = 180.0 - (Math.toDegrees(y) + x);
+                double b = Math.sqrt(c*c + a*a - 2*c*a*Math.cos(Math.toRadians(z)));
+                setAreaPeriHeight(a,b,c,df);
+                sideBInput.setText(df.format(b));
+                setAngleX(x, df);
+                setAngleZ(z, df);
+            }
+
+            private void sas_cxz(double a, double b, double y, DecimalFormat df) {
+                if(spinnerY == 0){
+                    y = Math.toRadians(y);
+                }
+                double c = Math.sqrt(a*a + b*b - 2*a*b*Math.cos(y));
+                double x = 0.0;
+                double z = 0.0;
+                // only one angle can be > 90 deg
+                if (a < b){
+                    x = Math.toDegrees(Math.asin(a*Math.sin(y)/c));
+                    z = 180 - (x + Math.toDegrees(y));
+                }else{
+                    z = Math.toDegrees(Math.asin(b * Math.sin(y) / c));
+                    x = 180 - (z + Math.toDegrees(y));
+                }
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                setAngleX(x, df);
+                setAngleZ(z, df);
+            }
+
+            private void sas_ayz(double c, double b, double x, DecimalFormat df) {
+                if(spinnerX == 0){
+                    x = Math.toRadians(x);
+                }
+                double a = Math.sqrt(c*c + b*b - 2*c*b*Math.cos(x));
+                double y = 0.0;
+                double z = 0.0;
+                // only one angle can be > 90 deg
+                if (c < b){
+                    y = Math.toDegrees(Math.asin(c*Math.sin(x)/a));
+                    Log.d(" x is ",Double.toString(Math.toDegrees(x)));
+                    Log.d(" y is ",Double.toString(y));
+                    z = 180 - (Math.toDegrees(x) + y);
+                }
+                else{
+                    z = Math.toDegrees(Math.asin(b*Math.sin(x)/a));
+                    Log.d(" x is ",Double.toString(Math.toDegrees(x)));
+                    Log.d(" z is ",Double.toString(z));
+                    y = 180 - (Math.toDegrees(x) + z);
+                }
+                setAreaPeriHeight(a,b,c,df);
+                sideAInput.setText(df.format(a));
+                setAngleY(y, df);
+                setAngleZ(z, df);
+            }
+
+            private void sas_xyb(double a, double c, double z, DecimalFormat df) {
+                if(spinnerZ == 0){
+                    z = Math.toRadians(z);
+                }
+                double x = 0.0;
+                double y = 0.0;
+                double b = Math.sqrt(c*c + a*a - 2*c*a*(Math.cos(z)));
+
+                if (c < a){  // only one angle can be > 90 deg
+                    y = Math.toDegrees(Math.asin(c*Math.sin(z)/b));
+                     Log.d(" y is ",Double.toString(y));
+                    x = 180 - (y + Math.toDegrees(z));
+                }
+                else{
+                    x = Math.toDegrees(Math.asin(a*Math.sin(z)/b));
+                    Log.d(" x is ",Double.toString(x));
+                    y = 180 - (x + Math.toDegrees(z));
+                }
+                setAreaPeriHeight(a,b,c,df);
+                sideBInput.setText(df.format(b));
+                setAngleX(x, df);
+                setAngleY(y, df);
+            }
 
             private void sss_abc(double a, double b, double c, DecimalFormat df) {
                 if(b < c || b < a){
                     Toast.makeText(getActivity(), "Side (b) is the base of the triangle and must be the longest side.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 double x = Math.acos((c * c + b * b - a * a) / (2 * b * c));
                 double y = Math.acos((a * a + b * b - c * c) / (2 * a * b));
                 double z = 180 - Double.parseDouble(df.format(Math.toDegrees(x))) - Double.parseDouble(df.format(Math.toDegrees(y)));
-                if(spinnerX == 0){
-                    angleXInput.setText(df.format(Math.toDegrees(x)));
-                }else{
-                    angleXInput.setText(Double.toString(x));
-                }
-                if(spinnerY == 0){
-                    angleYInput.setText(df.format(Math.toDegrees(y)));
-                }else{
-                    angleYInput.setText(Double.toString(y));
-                }
-                if(spinnerZ == 0){
-                    angleZInput.setText(df.format(z));
-                }else{
-                    angleZInput.setText(Double.toString(Math.toRadians(z)));
-                }
-                areaAnswer.setText(Double.toString((a+b+c/2)));
-                perimeterAnswer.setText(Double.toString(a+b+c));
-                heightAnswer.setText(Double.toString(2/((a+b+c/2)/b)));
+                setAngleX(Math.toDegrees(x), df);
+                setAngleY(Math.toDegrees(y), df);
+                setAngleZ(Math.toDegrees(z), df);
+                setAreaPeriHeight(a,b,c,df);
+                sideBInput.setText(df.format(b));
             }
+
+            private void setAngleX(double x, DecimalFormat df){
+                if(spinnerX == 1){
+                    angleXInput.setText(df.format(Math.toRadians(x)));
+                }else {
+                    angleXInput.setText(df.format(x));
+                }
+            }
+
+            private void setAngleY(double y, DecimalFormat df){
+                if(spinnerY == 1){
+                    angleYInput.setText(df.format(Math.toRadians(y)));
+                }else {
+                    angleYInput.setText(df.format(y));
+                }
+            }
+
+            private void setAngleZ(double z, DecimalFormat df){
+                if(spinnerZ == 1){
+                    angleZInput.setText(df.format(Math.toRadians(z)));
+                }else {
+                    angleZInput.setText(df.format(z));
+                }
+            }
+
+            private double getArea(double a, double b, double c){
+                double x = (a + b + c)/2;
+                return Math.sqrt(x*(x - a)*(x - b)*(x - c));
+            }
+
+            private void setAreaPeriHeight(double a, double b, double c, DecimalFormat df) {
+                double area = getArea(a,b,c);
+                areaAnswer.setText(df.format(area));
+                perimeterAnswer.setText(df.format(a + b + c));
+                heightAnswer.setText(df.format(2 / (area / b)));
+            }
+
         });
 
     }
@@ -222,7 +415,6 @@ public class ObliqueTriangleFragment extends Fragment {
         clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 sideAInput.setText("");
                 sideBInput.setText("");
                 sideCInput.setText("");
