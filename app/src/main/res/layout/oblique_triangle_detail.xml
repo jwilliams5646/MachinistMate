@@ -13,113 +13,19 @@
             android:layout_marginRight="4dp"
             android:src="@drawable/oblique_triangle" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/oblique_image"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/oblique_input_style_layout">
-
-            <Spinner
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:id="@+id/oblique_input_style_spinner"
-                android:layout_margin="4dp"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:id="@+id/oblique_question_button"
-                android:text="\?"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                style="@style/buttons"
-                android:layout_margin="4dp"/>
-        </LinearLayout>
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/oblique_input_style_layout"
+        android:layout_below="@+id/oblique_image"
         android:layout_alignLeft="@+id/oblique_image"
-        android:id="@+id/oblique_answer_layout"
-        android:layout_marginRight="4dp">
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/oblique_choice_spinner"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"/>
-
-        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:text="New Text"
-            android:id="@+id/oblique_answer"
-            android:layout_weight="1"
-            android:layout_margin="4dp"
-            style="@style/TextViewStyle"/>
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/oblique_answer_degrad_spinner"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:visibility="invisible"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/oblique_answer_layout"
-        android:layout_alignLeft="@+id/oblique_image"
-        android:layout_marginRight="4dp"
-        android:id="@+id/oblique_input1_layout"
-        android:visibility="invisible">
+        android:id="@+id/oblique_view1_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="New Text"
-            android:id="@+id/oblique_view1"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"
-            style="@style/TextViewStyle"/>
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="40dp"
-            android:inputType="numberDecimal"
-            android:id="@+id/oblique_input1"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            style="@style/EditTextStyle"/>
-        </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/oblique_answer_layout"
-        android:layout_alignLeft="@+id/oblique_image"
-        android:layout_marginRight="4dp"
-        android:id="@+id/oblique_deg_rad_layout1">
-
-
-        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="New Text"
-            android:id="@+id/oblique_degree_rad_view1"
+            android:text="a"
+            android:id="@+id/oblique_a_view"
             android:layout_marginRight="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
@@ -127,19 +33,38 @@
 
         <EditText
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="40dp"
             android:inputType="numberDecimal"
-            android:id="@+id/oblique_deg_rad_input1"
+            android:ems="10"
+            android:id="@+id/oblique_a_input"
+            android:layout_weight="1"
             android:layout_margin="4dp"
-            style="@style/EditTextStyle"/>
+            style="@style/EditTextStyle" />
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="x"
+            android:id="@+id/oblique_x_view"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberSigned"
+            android:ems="10"
+            android:id="@+id/oblique_x_input"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            style="@style/EditTextStyle"  />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:id="@+id/oblique_deg_rad_choice_spinner1"
-            android:layout_marginTop="4dp"
+            android:id="@+id/oblique_x_spinner"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"/>
     </LinearLayout>
 
@@ -147,37 +72,54 @@
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/oblique_deg_rad_layout1"
+        android:layout_below="@+id/oblique_view1_layout"
         android:layout_alignLeft="@+id/oblique_image"
-        android:layout_marginRight="4dp"
-        android:id="@+id/oblique_deg_rad_layout2">
-
+        android:id="@+id/oblique_view2_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="New Text"
-            android:id="@+id/oblique_degree_rad_view2"
-            android:layout_marginTop="4dp"
+            android:text="b"
+            android:id="@+id/oblique_b_view"
             android:layout_marginRight="4dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             style="@style/TextViewStyle"/>
 
         <EditText
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="40dp"
             android:inputType="numberDecimal"
-            android:id="@+id/oblique_deg_rad_input2"
+            android:ems="10"
+            android:id="@+id/oblique_b_input"
+            android:layout_weight="1"
             android:layout_margin="4dp"
-            style="@style/EditTextStyle"/>
+            style="@style/EditTextStyle"  />
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="y"
+            android:id="@+id/oblique_y_view"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberSigned"
+            android:ems="10"
+            android:id="@+id/oblique_y_input"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            style="@style/EditTextStyle"  />
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:id="@+id/oblique_deg_rad_choice_spinner2"
-            android:layout_marginTop="4dp"
+            android:id="@+id/oblique_y_spinner"
             android:layout_marginLeft="4dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"/>
     </LinearLayout>
 
@@ -185,73 +127,149 @@
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/oblique_input1_layout"
+        android:layout_below="@+id/oblique_view2_layout"
         android:layout_alignLeft="@+id/oblique_image"
-        android:layout_marginRight="4dp"
-        android:id="@+id/oblique_input2_layout"
-        android:visibility="invisible">
+        android:id="@+id/oblique_view3_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="New Text"
-            android:id="@+id/oblique_view2"
-            android:layout_marginTop="4dp"
+            android:text="c"
+            android:id="@+id/oblique_c_view"
             android:layout_marginRight="4dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             style="@style/TextViewStyle"/>
 
         <EditText
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="40dp"
             android:inputType="numberDecimal"
-            android:id="@+id/oblique_input2"
+            android:ems="10"
+            android:id="@+id/oblique_c_input"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            style="@style/EditTextStyle"  />
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="z"
+            android:id="@+id/oblique_z_view"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle" />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:inputType="numberSigned"
+            android:ems="10"
+            android:id="@+id/oblique_z_input"
+            android:layout_weight="1"
+            android:layout_margin="4dp"
+            style="@style/EditTextStyle"  />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/oblique_z_spinner"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            style="@style/EditTextStyle"/>
+            android:layout_marginBottom="4dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/oblique_input2_layout"
+        android:layout_below="@+id/oblique_view3_layout"
         android:layout_alignLeft="@+id/oblique_image"
-        android:layout_marginRight="4dp"
-        android:id="@+id/oblique_input3_layout">
+        android:id="@+id/oblique_view4_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="New Text"
-            android:id="@+id/oblique_view3"
-            android:layout_marginTop="4dp"
+            android:text="Area"
+            android:id="@+id/oblique_area_view"
             android:layout_marginRight="4dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             style="@style/TextViewStyle"/>
 
-        <EditText
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="40dp"
-            android:inputType="numberDecimal"
-            android:id="@+id/oblique_input3"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            style="@style/EditTextStyle"/>
+            android:id="@+id/oblique_area_answer"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            style="@style/TextViewStyle"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Height"
+            android:id="@+id/oblique_height_view"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle" />
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:id="@+id/oblique_height_answer"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            style="@style/TextViewStyle"/>
     </LinearLayout>
 
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/oblique_view4_layout"
+        android:layout_alignLeft="@+id/oblique_image"
+        android:id="@+id/oblique_view5_layout">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Perimeter"
+            android:id="@+id/oblique_perimeter_view"
+            android:layout_marginRight="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            style="@style/TextViewStyle"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:id="@+id/oblique_perimeter_answer"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            style="@style/TextViewStyle"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="@string/calculate"
-        android:id="@+id/oblique_calc_button"
-        android:layout_below="@+id/oblique_input3_layout"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/oblique_view5_layout"
         android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        style="@style/buttons"/>
+        android:id="@+id/oblique_view6_layout">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/calculate"
+            android:id="@+id/oblique_calc_button"
+            style="@style/buttons"
+            android:layout_margin="4dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Clear"
+            android:id="@+id/oblique_clear_button"
+            style="@style/buttons"
+            android:layout_margin="4dp"/>
+    </LinearLayout>
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.jwilliams.machinistmate.app;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+
+import java.text.DecimalFormat;
 
 /**
  * Created by John on 5/12/2014.
@@ -22,38 +24,23 @@ import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 public class ObliqueTriangleFragment extends Fragment {
 
     private static final String KEY_POSITION="position";
-    private LinearLayout input1Layout;
-    private LinearLayout input2Layout;
-    private LinearLayout input3Layout;
-    private LinearLayout degRad1Layout;
-    private LinearLayout degRad2Layout;
-    private Spinner answerDegRadSpinner1;
-    private Spinner degRadSpinner1;
-    private Spinner degRadSpinner2;
-    private Spinner answerChoiceSpinner;
-    private Spinner inputStyleSpinner;
-    private EditText input1;
-    private EditText input2;
-    private EditText input3;
-    private EditText degRadInput1;
-    private EditText degRadInput2;
-    private RobotoTextView answer;
-    private RobotoTextView degRadView1;
-    private RobotoTextView degRadView2;
-    private RobotoTextView input1view;
-    private RobotoTextView input2view;
-    private RobotoTextView input3view;
-    private Button what;
-    private Button calcAnswer;
-    private boolean check;
-    private int inputChoice;
-    private int answerChoice;
-    private int degRad1Choice;
-    private int degRad2Choice;
-    private int degRadAnswerChoice;
-
-
-
+    private EditText sideAInput;
+    private EditText sideBInput;
+    private EditText sideCInput;
+    private EditText angleXInput;
+    private EditText angleYInput;
+    private EditText angleZInput;
+    private RobotoTextView areaAnswer;
+    private RobotoTextView heightAnswer;
+    private RobotoTextView perimeterAnswer;
+    private Spinner angleXSpinner;
+    private Spinner angleYSpinner;
+    private Spinner angleZSpinner;
+    private Button calcButton;
+    private Button clearButton;
+    private int spinnerX;
+    private int spinnerY;
+    private int spinnerZ;
 
     public ObliqueTriangleFragment() {
     }
@@ -72,241 +59,232 @@ public class ObliqueTriangleFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
-        input1Layout = (LinearLayout)rootView.findViewById(R.id.oblique_input1_layout);
-        input2Layout = (LinearLayout)rootView.findViewById(R.id.oblique_input2_layout);
-        input3Layout = (LinearLayout)rootView.findViewById(R.id.oblique_input3_layout);
-        degRad1Layout = (LinearLayout)rootView.findViewById(R.id.oblique_deg_rad_layout1);
-        degRad2Layout = (LinearLayout)rootView.findViewById(R.id.oblique_deg_rad_layout2);
-        answerChoiceSpinner = (Spinner)rootView.findViewById(R.id.oblique_choice_spinner);
-        answerDegRadSpinner1 = (Spinner)rootView.findViewById(R.id.oblique_answer_degrad_spinner);
-        degRadSpinner1 = (Spinner)rootView.findViewById(R.id.oblique_deg_rad_choice_spinner1);
-        degRadSpinner2 = (Spinner)rootView.findViewById(R.id.oblique_deg_rad_choice_spinner2);
-        inputStyleSpinner = (Spinner)rootView.findViewById(R.id.oblique_input_style_spinner);
-        input1 = (EditText)rootView.findViewById(R.id.oblique_input1);
-        input2 = (EditText)rootView.findViewById(R.id.oblique_input2);
-        input3 = (EditText)rootView.findViewById(R.id.oblique_input3);
-        degRadInput1 = (EditText)rootView.findViewById(R.id.oblique_deg_rad_input1);
-        degRadInput2 = (EditText)rootView.findViewById(R.id.oblique_deg_rad_input2);
-        answer = (RobotoTextView)rootView.findViewById(R.id.oblique_answer);
-        degRadView1 = (RobotoTextView)rootView.findViewById(R.id.oblique_degree_rad_view1);
-        degRadView2 = (RobotoTextView)rootView.findViewById(R.id.oblique_degree_rad_view2);
-        input1view = (RobotoTextView)rootView.findViewById(R.id.oblique_view1);
-        input2view = (RobotoTextView)rootView.findViewById(R.id.oblique_view2);
-        input3view = (RobotoTextView)rootView.findViewById(R.id.oblique_view3);
-        what = (Button)rootView.findViewById(R.id.oblique_question_button);
-        calcAnswer = (Button)rootView.findViewById(R.id.oblique_calc_button);
-        check = false;
-        inputChoice = 0;
-        answerChoice = 0;
-        degRad1Choice = 0;
-        degRad2Choice = 0;
-        degRadAnswerChoice = 0;
-        setInitialLayout();
-        setDegRadAdapters();
-        setMainAdapters();
-        setDegRadListeners();
-        setLayoutChangeListener();
-        setQuestionListener();
-        setCalcAnswerListener();
+        sideAInput = (EditText)rootView.findViewById(R.id.oblique_a_input);
+        sideBInput = (EditText)rootView.findViewById(R.id.oblique_b_input);
+        sideCInput = (EditText)rootView.findViewById(R.id.oblique_c_input);
+        angleXInput = (EditText)rootView.findViewById(R.id.oblique_x_input);
+        angleYInput = (EditText)rootView.findViewById(R.id.oblique_y_input);
+        angleZInput = (EditText)rootView.findViewById(R.id.oblique_z_input);
+        areaAnswer = (RobotoTextView)rootView.findViewById(R.id.oblique_area_answer);
+        heightAnswer = (RobotoTextView)rootView.findViewById(R.id.oblique_height_answer);
+        perimeterAnswer = (RobotoTextView)rootView.findViewById(R.id.oblique_perimeter_answer);
+        angleXSpinner = (Spinner)rootView.findViewById(R.id.oblique_x_spinner);
+        angleYSpinner = (Spinner)rootView.findViewById(R.id.oblique_y_spinner);
+        angleZSpinner = (Spinner)rootView.findViewById(R.id.oblique_z_spinner);
+        calcButton = (Button)rootView.findViewById(R.id.oblique_calc_button);
+        clearButton = (Button)rootView.findViewById(R.id.oblique_clear_button);
+        spinnerX = 0;
+        spinnerY = 0;
+        spinnerZ = 0;
+        setAngleAdapters();
+        setAngleXListener();
+        setAngleYListener();
+        setAngleZListener();
+        setClearListener();
+        setCalcButtonListener();
     }
 
-    private void setCalcAnswerListener() {
-        calcAnswer.setOnClickListener(new View.OnClickListener() {
+    private void setCalcButtonListener() {
+        calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                double area = 0.0;
+            public void onClick(View view) {
                 double a = 0.0;
                 double b = 0.0;
                 double c = 0.0;
-                double height = 0.0;
                 double x = 0.0;
                 double y = 0.0;
                 double z = 0.0;
-                double perimeter = 0.0;
-                switch(inputChoice){
-                    case 0:
+                boolean ca = true;
+                boolean cb = true;
+                boolean cc = true;
+                boolean cx = true;
+                boolean cy = true;
+                boolean cz = true;
+                int count = 0;
+                DecimalFormat df = new DecimalFormat("##.####");
+
+                try {
+                    a = Double.parseDouble(sideAInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    ca=false;
+                    count++;
+                    Log.d("Side (a) has no value", Integer.toString(count));
                 }
+
+                try {
+                    b = Double.parseDouble(sideBInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    cb=false;
+                    count++;
+                    Log.d("Side (b) has no value", Integer.toString(count));
+                }
+
+                try {
+                    c = Double.parseDouble(sideCInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    cc=false;
+                    count++;
+                    Log.d("Side (c) has no value", Integer.toString(count));
+                }
+
+                try {
+                    x = Double.parseDouble(angleXInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    cx=false;
+                    count++;
+                    Log.d("Angle (x) has no value", Integer.toString(count));
+                }
+
+                try {
+                    y = Double.parseDouble(angleYInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    cy=false;
+                    count++;
+                    Log.d("Angle (y) has no value", Integer.toString(count));
+                }
+
+                try {
+                    z = Double.parseDouble(angleZInput.getText().toString());
+                } catch (NumberFormatException e) {
+                    cz=false;
+                    count++;
+                    Log.d("Angle (z) has no value", Integer.toString(count));
+                }
+
+                if(count > 3){
+                    Toast.makeText(getActivity(), "You need at least 3 values to proceed", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(count < 3){
+                    Toast.makeText(getActivity(), "Input a maximum of 3 values", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(cx && cy && cz && !ca && !cb && !cc){
+                    Toast.makeText(getActivity(), "Triangle can not be solved with only angles.  This is the triangle equivalent of dividing by zero.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(z < y || z < x){
+                    Toast.makeText(getActivity(), "Angle (z) must the widest angle in your triangle.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (ca && cb &&  cc && !cx && !cy && !cz){
+                    sss_abc(a,b,c,df);
+                }
+
+
+
+
+            }
+
+            private double arccosd(double x){
+                if (Math.abs(x - 1) < 0.000000001) x = 1.0;
+                return Math.acos(x)*(180/Math.PI);
+            }
+
+
+            private void sss_abc(double a, double b, double c, DecimalFormat df) {
+                if(b < c || b < a){
+                    Toast.makeText(getActivity(), "Side (b) is the base of the triangle and must be the longest side.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                double x = Math.acos((c * c + b * b - a * a) / (2 * b * c));
+                double y = Math.acos((a * a + b * b - c * c) / (2 * a * b));
+                double z = 180 - Double.parseDouble(df.format(Math.toDegrees(x))) - Double.parseDouble(df.format(Math.toDegrees(y)));
+                if(spinnerX == 0){
+                    angleXInput.setText(df.format(Math.toDegrees(x)));
+                }else{
+                    angleXInput.setText(Double.toString(x));
+                }
+                if(spinnerY == 0){
+                    angleYInput.setText(df.format(Math.toDegrees(y)));
+                }else{
+                    angleYInput.setText(Double.toString(y));
+                }
+                if(spinnerZ == 0){
+                    angleZInput.setText(df.format(z));
+                }else{
+                    angleZInput.setText(Double.toString(Math.toRadians(z)));
+                }
+                areaAnswer.setText(Double.toString((a+b+c/2)));
+                perimeterAnswer.setText(Double.toString(a+b+c));
+                heightAnswer.setText(Double.toString(2/((a+b+c/2)/b)));
             }
         });
 
     }
 
-    private void setQuestionListener() {
-        what.setOnClickListener(new View.OnClickListener() {
+    private void setClearListener(){
+        clearButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                switch(inputChoice){
-                    case 0:
-                        Toast.makeText(getActivity(), "Two angles and a side not between", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 1:
-                        Toast.makeText(getActivity(), "Two angles and a side between", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(getActivity(), "Two sides with an angle in between", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
-                        Toast.makeText(getActivity(), "Two sides and an angle not between", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 5:
-                        Toast.makeText(getActivity(), "All 3 sides", Toast.LENGTH_SHORT).show();
-                        break;
-                }
+            public void onClick(View view) {
+
+                sideAInput.setText("");
+                sideBInput.setText("");
+                sideCInput.setText("");
+                angleXInput.setText("");
+                angleYInput.setText("");
+                angleZInput.setText("");
+                areaAnswer.setText("");
+                heightAnswer.setText("");
+                perimeterAnswer.setText("");
             }
         });
     }
 
-    public void setLayoutChangeListener(){
-        AdapterView.OnItemSelectedListener changeLayoutListener = new AdapterView.OnItemSelectedListener() {
+    private void setAngleXListener() {
+        angleXSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                inputChoice = pos;
-                clearLayouts();
-                switch(pos){
-                    case 0:
-                        setInitialLayout();
-                        ArrayAdapter<CharSequence> answerChoiceAdapter = ArrayAdapter.createFromResource(getActivity(),
-                                R.array.oblique_initial_calc_array, R.layout.spinner_background);
-                        answerChoiceAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-                        answerChoiceSpinner.setAdapter(answerChoiceAdapter);
-                        break;
-                    case 1:
-                        ArrayAdapter<CharSequence> answerChoice1Adapter = ArrayAdapter.createFromResource(getActivity(),
-                                R.array.oblique_asa_array, R.layout.spinner_background);
-                        answerChoice1Adapter.setDropDownViewResource(R.layout.spinner_drop_down);
-                        answerChoiceSpinner.setAdapter(answerChoice1Adapter);
-                        degRadView1.setText("Angle y");
-                        degRadView2.setText("Angle x");
-                        input3view.setText("Side b");
-                        degRad1Layout.setVisibility(View.VISIBLE);
-                        degRad2Layout.setVisibility(View.VISIBLE);
-                        input3Layout.setVisibility(View.VISIBLE);
-                        break;
-                    case 2:
-                        ArrayAdapter<CharSequence> answerChoice2Adapter = ArrayAdapter.createFromResource(getActivity(),
-                                R.array.oblique_sas_array, R.layout.spinner_background);
-                        answerChoice2Adapter.setDropDownViewResource(R.layout.spinner_drop_down);
-                        answerChoiceSpinner.setAdapter(answerChoice2Adapter);
-                        degRadView1.setText("Angle y");
-                        input2view.setText("Side a");
-                        input3view.setText("Side b");
-                        degRad1Layout.setVisibility(View.VISIBLE);
-                        input2Layout.setVisibility(View.VISIBLE);
-                        input3Layout.setVisibility(View.VISIBLE);
-                        break;
-                    case 3:
-                        ArrayAdapter<CharSequence> answerChoice3Adapter = ArrayAdapter.createFromResource(getActivity(),
-                                R.array.oblique_ass_array, R.layout.spinner_background);
-                        answerChoice3Adapter.setDropDownViewResource(R.layout.spinner_drop_down);
-                        answerChoiceSpinner.setAdapter(answerChoice3Adapter);
-                        degRadView1.setText("Angle x");
-                        input2view.setText("Side a");
-                        input3view.setText("Side b");
-                        degRad1Layout.setVisibility(View.VISIBLE);
-                        input2Layout.setVisibility(View.VISIBLE);
-                        input3Layout.setVisibility(View.VISIBLE);
-                        break;
-                    case 4:
-                        ArrayAdapter<CharSequence> answerChoice4Adapter = ArrayAdapter.createFromResource(getActivity(),
-                                R.array.oblique_sss_array, R.layout.spinner_background);
-                        answerChoice4Adapter.setDropDownViewResource(R.layout.spinner_drop_down);
-                        answerChoiceSpinner.setAdapter(answerChoice4Adapter);
-                        input1view.setText("Side a");
-                        input2view.setText("Side b");
-                        input3view.setText("Side c");
-                        input1Layout.setVisibility(View.VISIBLE);
-                        input2Layout.setVisibility(View.VISIBLE);
-                        input3Layout.setVisibility(View.VISIBLE);
-                        break;
-                }
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spinnerX = i;
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
-        };
-        inputStyleSpinner.setOnItemSelectedListener(changeLayoutListener);
+        });
     }
 
-    private void setDegRadListeners() {
-        AdapterView.OnItemSelectedListener degRadListener = new AdapterView.OnItemSelectedListener() {
+    private void setAngleYListener() {
+        angleYSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                degRadAnswerChoice = pos;
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spinnerY = i;
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        };
-        answerDegRadSpinner1.setOnItemSelectedListener(degRadListener);
+            public void onNothingSelected(AdapterView<?> adapterView) {
 
-        AdapterView.OnItemSelectedListener degRad1Listener = new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                degRad1Choice = pos;
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        };
-        degRadSpinner1.setOnItemSelectedListener(degRad1Listener);
-
-        AdapterView.OnItemSelectedListener degRad2Listener = new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                degRad2Choice = pos;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        };
-        degRadSpinner2.setOnItemSelectedListener(degRad2Listener);
+        });
     }
 
-    private void setMainAdapters() {
-        ArrayAdapter<CharSequence> inputStyleAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.oblique_area_array, R.layout.spinner_background);
-        inputStyleAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        inputStyleSpinner.setAdapter(inputStyleAdapter);
+    private void setAngleZListener() {
+        angleZSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                spinnerZ = i;
+            }
 
-        ArrayAdapter<CharSequence> answerChoiceAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.oblique_initial_calc_array, R.layout.spinner_background);
-        answerChoiceAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        answerChoiceSpinner.setAdapter(answerChoiceAdapter);
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
-    private void setDegRadAdapters(){
-        ArrayAdapter<CharSequence> degRadAdapter = ArrayAdapter.createFromResource(getActivity(),
+    private void setAngleAdapters() {
+        ArrayAdapter<CharSequence> angleAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.degree_rad_array, R.layout.spinner_background);
-        degRadAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        degRadSpinner1.setAdapter(degRadAdapter);
-        degRadSpinner2.setAdapter(degRadAdapter);
-        answerDegRadSpinner1.setAdapter(degRadAdapter);
-    }
-
-    private void setInitialLayout() {
-        degRad1Layout.setVisibility(View.VISIBLE);
-        degRad2Layout.setVisibility(View.VISIBLE);
-        input3Layout.setVisibility(View.VISIBLE);
-        degRadView1.setText("Angle y");
-        degRadView2.setText("Angle z");
-        input3view.setText("Side b");
-    }
-
-    private void clearLayouts(){
-        input1Layout.setVisibility(View.INVISIBLE);
-        input2Layout.setVisibility(View.INVISIBLE);
-        input3Layout.setVisibility(View.INVISIBLE);
-        degRad1Layout.setVisibility(View.INVISIBLE);
-        degRad2Layout.setVisibility(View.INVISIBLE);
-        input1.setText("");
-        input2.setText("");
-        input3.setText("");
-        degRadInput1.setText("");
-        degRadInput2.setText("");
+        angleAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
+        angleXSpinner.setAdapter(angleAdapter);
+        angleYSpinner.setAdapter(angleAdapter);
+        angleZSpinner.setAdapter(angleAdapter);
     }
 
     static ObliqueTriangleFragment newInstance(int position) {
