@@ -82,6 +82,7 @@ public class ObliqueTriangleFragment extends Fragment {
         setAngleZListener();
         setClearListener();
         setCalcButtonListener();
+        Log.d("acos(1.2628) =",Double.toString(Math.acos(1.2628)));
     }
 
     private void setCalcButtonListener() {
@@ -211,9 +212,242 @@ public class ObliqueTriangleFragment extends Fragment {
                     ssa_cyz(a,b,x,df);      // side-side-angle
                 }
 
+                else if (!cc && ca && cb && !cy && !cx && cz){
+                    ssa_cyx(a,b,z,df);       // side-side-angle
+                }
+
+                else if (cc && !ca && !cb && cy && cx && !cz){
+                    asa_abz(c,y,x,df);       // angle-side-angle
+                }
+
+                else if (cc && !ca && !cb && cy && !cx && cz){
+                    asa_abx(c,y,z,df);       // angle-side-angle
+                }
+
+                else if (cc && !ca && !cb && !cy && cx && cz){
+                    asa_aby(c,x,z,df);      // angle-side-angle
+                }
+
+                else if (!cc && ca && !cb && cy && cx && !cz){
+                    asa_cbz(a,y,x,df);       // angle-side-angle
+                }
+
+                else if (!cc && ca && !cb && cy && !cx && cz){
+                    asa_cbx(a,y,z,df);       // angle-side-angle
+                }
+
+                else if (!cc && ca && !cb && !cy && cx && cz){
+                    asa_cby(a,x,z,df);       // angle-side-angle
+                }
+
+                else if (!cc && !ca && cb && cy && cx && !cz){
+                    asa_caz(b,y,x,df);      // angle-side-angle
+                }
+
+                else if (!cc && !ca && cb && cy && !cx && cz){
+                    asa_cax(b,y,z,df);       // angle-side-angle
+                }
+
+                else if (!cc && !ca && cb && !cy && cx && cz){
+                    asa_cay(b,x,z,df);       // angle-side-angle
+                }
 
 
 
+
+            }
+
+            private void asa_cay(double b, double x, double z, DecimalFormat df) {
+                if (spinnerX == 0) {
+                    x = Math.toRadians(x);
+                }
+                if (spinnerZ == 0) {
+                    z = Math.toRadians(z);
+                }
+                double y = 180 - (Math.toDegrees(x) + Math.toDegrees(z));
+                if (x<=0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double c = b*Math.sin(y)/Math.sin(z);
+                double a = b*Math.sin(x)/Math.sin(z);
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                sideAInput.setText(df.format(a));
+                setAngleY(y, df);
+            }
+
+            private void asa_cax(double b, double y, double z, DecimalFormat df) {
+                if (spinnerY == 0) {
+                    y = Math.toRadians(y);
+                }
+                if (spinnerZ == 0) {
+                    z = Math.toRadians(z);
+                }
+                double x = 180 - (Math.toDegrees(y) + Math.toDegrees(z));
+                if (x<=0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double c = b*Math.sin(y)/Math.sin(z);
+                double a = b*Math.sin(x)/Math.sin(z);
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                sideAInput.setText(df.format(a));
+                setAngleX(x, df);
+            }
+
+            private void asa_caz(double b, double y, double x, DecimalFormat df) {
+                if (spinnerY == 0) {
+                    y = Math.toRadians(y);
+                }
+                if (spinnerX == 0) {
+                    x = Math.toRadians(x);
+                }
+                double z = 180 - (Math.toDegrees(y) + Math.toDegrees(x));
+                if (z<=0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double c = b*Math.sin(y)/Math.sin(z);
+                double a = b*Math.sin(x)/Math.sin(z);
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                sideAInput.setText(df.format(a));
+                setAngleZ(z, df);
+            }
+
+            private void asa_cby(double a, double x, double z, DecimalFormat df) {
+                if (spinnerZ == 0) {
+                    z = Math.toRadians(z);
+                }
+                if (spinnerX == 0) {
+                    x = Math.toRadians(x);
+                }
+                double y = 180 - (Math.toDegrees(z) + Math.toDegrees(x));
+                if (y<=0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double c = a*Math.sin(y)/Math.sin(x);
+                double b = a*Math.sin(z)/Math.sin(x);
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                sideBInput.setText(df.format(b));
+                setAngleY(y, df);
+            }
+
+            private void asa_cbx(double a, double y, double z, DecimalFormat df) {
+                if (spinnerZ == 0) {
+                    z = Math.toRadians(z);
+                }
+                if (spinnerY == 0) {
+                    y = Math.toRadians(y);
+                }
+                double x = 180 - (Math.toDegrees(z) + Math.toDegrees(y));
+                if (x<=0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double c = a*Math.sin(y)/Math.sin(x);
+                double b = a*Math.sin(z)/Math.sin(x);
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                sideBInput.setText(df.format(b));
+                setAngleX(x, df);
+            }
+
+            private void asa_cbz(double a, double y, double x, DecimalFormat df) {
+                if (spinnerX == 0) {
+                    x = Math.toRadians(x);
+                }
+                if (spinnerY == 0) {
+                    y = Math.toRadians(y);
+                }
+                double z = 180 - (Math.toDegrees(x) + Math.toDegrees(y));
+                if (z<=0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double c = a*Math.sin(y)/Math.sin(x);
+                double b = a*Math.sin(z)/Math.sin(x);
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                sideBInput.setText(df.format(b));
+                setAngleZ(z, df);
+            }
+
+            private void asa_aby(double c, double x, double z, DecimalFormat df) {
+                if (spinnerX == 0) {
+                    x = Math.toRadians(x);
+                }
+                if (spinnerZ == 0) {
+                    z = Math.toRadians(z);
+                }
+                double y = 180 - (Math.toDegrees(x) + Math.toDegrees(z));
+                if (y<=0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double a = c*Math.sin(x)/Math.sin(y);
+                double b = c*Math.sin(z)/Math.sin(y);
+                setAreaPeriHeight(a,b,c,df);
+                sideAInput.setText(df.format(a));
+                sideBInput.setText(df.format(b));
+                setAngleY(y, df);
+            }
+
+            private void asa_abx(double c, double y, double z, DecimalFormat df) {
+                if (spinnerY == 0) {
+                    y = Math.toRadians(y);
+                }
+                if (spinnerZ == 0) {
+                    z = Math.toRadians(z);
+                }
+                double x = 180 - (Math.toDegrees(y) + Math.toDegrees(z));
+                if (x <= 0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double a = c*Math.sin(x)/Math.sin(y);
+                double b = c*Math.sin(z)/Math.sin(y);
+                setAreaPeriHeight(a,b,c,df);
+                sideAInput.setText(df.format(a));
+                sideBInput.setText(df.format(b));
+                setAngleX(x, df);
+            }
+
+            private void asa_abz(double c, double y, double x, DecimalFormat df) {
+                if(spinnerY == 1){
+                    y = Math.toDegrees(y);
+                }
+                if(spinnerX == 1){
+                    x = Math.toDegrees(x);
+                }
+                double z = 180 - (y + x);
+                if (z <= 0){
+                    Toast.makeText(getActivity(), "This is not a triangle", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                double a = c*Math.sin(Math.toRadians(x) / Math.sin(Math.toRadians(y)));
+                double b = c*Math.sin(Math.toRadians(z) / Math.sin(Math.toRadians(y)));
+                setAreaPeriHeight(a,b,c,df);
+                sideAInput.setText(df.format(a));
+                sideBInput.setText(df.format(b));
+                setAngleZ(z, df);
+            }
+
+            private void ssa_cyx(double a, double b, double z, DecimalFormat df) {
+                if(spinnerZ == 0){
+                    z = Math.toRadians(z);
+                }
+                double x = Math.toDegrees(Math.asin(a * Math.sin(z) / b));
+                double y = 180.0 - (Math.toDegrees(z) + x);
+                double c = Math.sqrt(a*a + b*b - 2*a*b*Math.cos(y));
+                setAreaPeriHeight(a,b,c,df);
+                sideCInput.setText(df.format(c));
+                setAngleY(y, df);
+                setAngleX(x, df);
             }
 
             private void ssa_cyz(double a, double b, double x, DecimalFormat df) {
@@ -361,14 +595,27 @@ public class ObliqueTriangleFragment extends Fragment {
                     Toast.makeText(getActivity(), "Side (b) is the base of the triangle and must be the longest side.", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                double x = Math.acos((c * c + b * b - a * a) / (2 * b * c));
-                double y = Math.acos((a * a + b * b - c * c) / (2 * a * b));
-                double z = 180 - Double.parseDouble(df.format(Math.toDegrees(x))) - Double.parseDouble(df.format(Math.toDegrees(y)));
-                setAngleX(Math.toDegrees(x), df);
-                setAngleY(Math.toDegrees(y), df);
-                setAngleZ(Math.toDegrees(z), df);
-                setAreaPeriHeight(a,b,c,df);
-                sideBInput.setText(df.format(b));
+                double x = Math.toDegrees(Math.acos((c * c + b * b - a * a) / (2 * b * c)));
+                double y = Math.toDegrees(Math.acos((a * a + b * b - c * c) / (2 * a * b)));
+                double z = 180 - (x + y);
+                if(isNaN(x) || isNaN(y) || isNaN(z)){
+                    Toast.makeText(getActivity(), "This is not a triangle.", Toast.LENGTH_SHORT).show();
+                    return;
+                }else {
+                    setAngleX(x, df);
+                    setAngleY(y, df);
+                    setAngleZ(z, df);
+                    setAreaPeriHeight(a, b, c, df);
+                }
+            }
+
+            private boolean isNaN(double x) {
+                String y = Double.toString(x);
+                if(y =="NaN")
+                return true;
+                else{
+                    return false;
+                }
             }
 
             private void setAngleX(double x, DecimalFormat df){

@@ -72,7 +72,7 @@
         android:layout_width="500dp"
         android:layout_height="48dp"
         android:layout_below="@+id/feed_radio_group"
-        android:layout_alignStart="@id/feed_answer_layout"
+        android:layout_alignLeft="@id/feed_answer_layout"
         android:layout_marginRight="4dp"
         android:orientation="horizontal">
 
@@ -109,7 +109,7 @@
         android:layout_width="500dp"
         android:layout_height="48dp"
         android:layout_below="@+id/feed_speed_layout"
-        android:layout_alignStart="@id/feed_answer_layout"
+        android:layout_alignLeft="@id/feed_answer_layout"
         android:layout_marginRight="4dp"
         android:orientation="horizontal">
 
@@ -147,7 +147,7 @@
         android:layout_width="500dp"
         android:layout_height="48dp"
         android:layout_below="@+id/feed_per_tooth_layout"
-        android:layout_alignStart="@id/feed_answer_layout"
+        android:layout_alignLeft="@id/feed_answer_layout"
         android:layout_marginRight="4dp"
         android:orientation="horizontal">
 
@@ -185,7 +185,7 @@
         android:layout_height="48dp"
         android:layout_below="@+id/number_teeth_layout"
         android:id="@+id/feed_precision"
-        android:layout_alignStart="@id/feed_answer_layout"
+        android:layout_alignLeft="@id/feed_answer_layout"
         android:layout_marginRight="4dp">
 
 
