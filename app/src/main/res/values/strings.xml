@@ -44,6 +44,7 @@
     <string name="circle"><b>Circle</b></string>
     <string name="trapezoid"><b>Trapezoid US/Trapezium UK</b></string>
     <string name="parallelogram"><b>Parallelogram</b></string>
+    <string name="rectangle"><b>Rectangle</b></string>
 
 
     <string-array name="conversions_array">
@@ -108,6 +109,12 @@
         <item>Perimeter</item>
     </string-array>
 
+    <string-array name="rect_input_array">
+        <item>Area</item>
+        <item>Diagonal (d)</item>
+        <item>Perimeter</item>
+    </string-array>
+
     <string-array name="circle_calc_array">
         <item>Radius (r)</item>
         <item>Diameter (d)</item>
@@ -142,58 +149,6 @@
         <item>Perimeter</item>
     </string-array>
 
-    <string-array name="oblique_initial_calc_array">
-        <item>Area</item>
-        <item>Height</item>
-        <item>Side (a)</item>
-        <item>Side (c)</item>
-        <item>Angle (x)</item>
-        <item>Perimeter</item>
-    </string-array>
-
-    <string-array name="oblique_asa_array">
-        <item>Area</item>
-        <item>Height</item>
-        <item>Side (a)</item>
-        <item>Side (c)</item>
-        <item>Angle (z)</item>
-        <item>Perimeter</item>
-    </string-array>
-
-    <string-array name="oblique_sas_array">
-        <item>Area</item>
-        <item>Height</item>
-        <item>Side (c)</item>
-        <item>Angle (x)</item>
-        <item>Angle (z)</item>
-        <item>Perimeter</item>
-    </string-array>
-
-    <string-array name="oblique_ass_array">
-        <item>Area</item>
-        <item>Height</item>
-        <item>Side (c)</item>
-        <item>Angle (y)</item>
-        <item>Angle (z)</item>
-        <item>Perimeter</item>
-    </string-array>
-
-    <string-array name="oblique_sss_array">
-        <item>Area</item>
-        <item>Height</item>
-        <item>Angle (x)</item>
-        <item>Angle (y)</item>
-        <item>Angle (z)</item>
-        <item>Perimeter</item>
-    </string-array>
-
-    <string-array name="oblique_area_array">
-        <item>AAS</item>
-        <item>ASA</item>
-        <item>SAS</item>
-        <item>ASS</item>
-        <item>SSS</item>
-    </string-array>
 
 
 </resources>

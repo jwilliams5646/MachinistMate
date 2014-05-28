@@ -217,6 +217,7 @@ public class CircleFragment extends Fragment {
 
             }
         };
+        circleRadiusSpinner.setOnItemSelectedListener(circleRadiusListener);
     }
 
     private void setCircleRadiusAdapter() {

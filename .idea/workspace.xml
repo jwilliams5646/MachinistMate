@@ -63,14 +63,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5ab4bee1-78de-4b64-bf21-cb59711258ad" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/rectangle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/rectangle_geometry.xml" />
+      <change type="DELETED" beforePath="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\src\main\res\RAW\svg_r_triangle.svg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/drawable/square.png" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/square.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" afterPath="$PROJECT_DIR$/app/build/source/r/debug/com/jwilliams/machinistmate/app/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Machinist Mate.iws" />
@@ -101,81 +104,130 @@
     <leaf>
       <file leaf-file-name="oblique_triangle_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-24.25926" vertical-offset="3646" max-vertical-offset="4760">
               <caret line="253" column="42" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="42" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
         </entry>
       </file>
       <file leaf-file-name="ObliqueTriangleFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="4441" max-vertical-offset="12682">
-              <caret line="275" column="49" selection-start-line="275" selection-start-column="49" selection-end-line="275" selection-end-column="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#26650#27139#0" expanded="true" />
-                <element signature="e#27128#27129#0" expanded="true" />
-                <element signature="e#29201#29233#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="11779" max-vertical-offset="12359">
+              <caret line="727" column="0" selection-start-line="727" selection-start-column="0" selection-end-line="740" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="circle_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2592592" vertical-offset="816" max-vertical-offset="2108">
+            <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="2108">
               <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="square_detail.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.777779" vertical-offset="75" max-vertical-offset="2975">
-              <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <provider selected="true" editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2992">
+              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-designer">
-            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="feeds_item_detail.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-117.74074" vertical-offset="0" max-vertical-offset="4250">
-              <caret line="187" column="29" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
+      <file leaf-file-name="rectangle_geometry.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/rectangle_geometry.xml">
           <provider editor-type-id="android-designer">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.814815" vertical-offset="204" max-vertical-offset="2703">
+              <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+              <folding>
+                <element signature="e#5554#5573#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="speeds_item_detail.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml">
+      <file leaf-file-name="RectangleActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.0144665" vertical-offset="2397" max-vertical-offset="2992">
-              <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="1054">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RectangleFragment.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="11.778793" vertical-offset="0" max-vertical-offset="6902">
+              <caret line="379" column="37" selection-start-line="379" selection-start-column="37" selection-end-line="379" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1297#1298#0" expanded="true" />
+                <element signature="e#1347#1348#0" expanded="true" />
+                <element signature="e#1914#3412#0" expanded="true" />
+                <element signature="e#3401#3402#0" expanded="true" />
+                <element signature="e#14127#14161#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GeometryAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="801" max-vertical-offset="1615">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+              <folding>
+                <element signature="e#502#503#0" expanded="true" />
+                <element signature="e#527#528#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="2720">
+              <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="CircleFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1936" max-vertical-offset="4216">
+              <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="148" selection-end-column="99" />
+              <folding>
+                <element signature="e#1942#2996#0" expanded="true" />
+                <element signature="e#2985#2986#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -854,9 +906,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/drill_chart_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/edit_text_background.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/text_background.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_item_list.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_item_twopane.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_menu_list.xml" />
@@ -892,27 +941,30 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/pager.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/parallelogram_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/TrapezoidFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/trapezoid_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RtFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/AppContent/Calculations.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/rectangle_geometry.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="375" />
+    <option name="y" value="26" />
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1232,8 +1284,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1244,7 +1296,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="C8F13360F2C216E" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="03f3f1d189532cca" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_4" />
     <property name="FullScreen" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="136" />
@@ -1283,6 +1335,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\src\main\res\drawable" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\John\AndroidStudioProjects\Machinist_Mate\app\src\main\res\drawable" />
+    </key>
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
@@ -1314,19 +1369,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -1352,6 +1394,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1608,11 +1663,15 @@
       <created>1400823562452</created>
       <updated>1400823562452</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Finished oblique calculations.  Fixed speeds, feeds, square, circle tablet layout.">
+      <created>1401154924900</created>
+      <updated>1401154924900</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="375" y="26" width="960" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1628,14 +1687,14 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20628998" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32369298" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33408833" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14453334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3011111" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32703003" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1683,34 +1742,13 @@
     <MESSAGE value="rtriangle" />
     <MESSAGE value="oblique changes" />
     <MESSAGE value="Completely new oblique layout. added calculations back and the formatter." />
-    <option name="LAST_COMMIT_MESSAGE" value="Completely new oblique layout. added calculations back and the formatter." />
+    <MESSAGE value="Finished oblique calculations.  Fixed speeds, feeds, square, circle tablet layout." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished oblique calculations.  Fixed speeds, feeds, square, circle tablet layout." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1241" max-vertical-offset="1564">
-          <caret line="73" column="66" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/SquareFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="5032" max-vertical-offset="8959">
-          <caret line="296" column="86" selection-start-line="296" selection-start-column="85" selection-end-line="296" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="833" max-vertical-offset="1445">
-          <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2091" max-vertical-offset="2584">
@@ -1720,23 +1758,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_menu_list.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="833">
           <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fraction_metric_detail.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fraction_metric_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="850" max-vertical-offset="1343">
           <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
@@ -1748,23 +1786,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/drill_chart_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.444445" vertical-offset="0" max-vertical-offset="2193">
           <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/conversion_item_detail.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2319" max-vertical-offset="2873">
           <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
         </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/edit_text_background.xml">
@@ -1894,13 +1932,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6385542" vertical-offset="0" max-vertical-offset="1071">
-          <caret line="56" column="1" selection-start-line="56" selection-start-column="1" selection-end-line="56" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/SquareActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29259896" vertical-offset="153" max-vertical-offset="1071">
@@ -1916,13 +1947,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/pager.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.9259257" vertical-offset="0" max-vertical-offset="306">
           <caret line="11" column="50" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/pager_top.xml">
@@ -1932,27 +1963,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryPagerFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20481928" vertical-offset="0" max-vertical-offset="765">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/parallelogram_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.9259257" vertical-offset="0" max-vertical-offset="1989">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1241" max-vertical-offset="1666">
-          <caret line="73" column="66" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
+        <state vertical-scroll-proportion="-6.9259257" vertical-offset="0" max-vertical-offset="1989">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -1971,13 +1988,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/trapezoid_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-24.851852" vertical-offset="2270" max-vertical-offset="3111">
           <caret line="173" column="34" selection-start-line="173" selection-start-column="34" selection-end-line="173" selection-end-column="34" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ParallelogramFragment.java">
@@ -2002,22 +2019,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49137932" vertical-offset="1738" max-vertical-offset="2584">
-          <caret line="119" column="25" selection-start-line="119" selection-start-column="25" selection-end-line="119" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2089" max-vertical-offset="4148">
-          <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="148" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/FeedsDetailFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2174" max-vertical-offset="2771">
@@ -2030,76 +2031,154 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="544">
           <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4441" max-vertical-offset="12682">
-          <caret line="275" column="49" selection-start-line="275" selection-start-column="49" selection-end-line="275" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#26650#27139#0" expanded="true" />
-            <element signature="e#27128#27129#0" expanded="true" />
-            <element signature="e#29201#29233#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/oblique_triangle_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-24.25926" vertical-offset="3646" max-vertical-offset="4760">
           <caret line="253" column="42" selection-start-line="253" selection-start-column="42" selection-end-line="253" selection-end-column="42" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml">
       <provider editor-type-id="android-designer">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/circle_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2592592" vertical-offset="816" max-vertical-offset="2108">
+        <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="2108">
           <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.777779" vertical-offset="75" max-vertical-offset="2975">
-          <caret line="39" column="25" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-117.74074" vertical-offset="0" max-vertical-offset="4250">
-          <caret line="187" column="29" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/speeds_item_detail.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.0144665" vertical-offset="2397" max-vertical-offset="2992">
+        <state vertical-scroll-proportion="-0.6618445" vertical-offset="2202" max-vertical-offset="2992">
           <caret line="108" column="23" selection-start-line="108" selection-start-column="23" selection-end-line="108" selection-end-column="23" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/feeds_item_detail.xml">
       <provider editor-type-id="android-designer">
         <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3179" max-vertical-offset="4250">
+          <caret line="187" column="29" selection-start-line="187" selection-start-column="29" selection-end-line="187" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/square_detail.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2992">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/ObliqueTriangleFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11779" max-vertical-offset="12359">
+          <caret line="727" column="0" selection-start-line="727" selection-start-column="0" selection-end-line="740" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1037">
+          <caret line="13" column="27" selection-start-line="13" selection-start-column="27" selection-end-line="58" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/rectangle_geometry.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.814815" vertical-offset="204" max-vertical-offset="2703">
+          <caret line="26" column="16" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding>
+            <element signature="e#5554#5573#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/CircleFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1936" max-vertical-offset="4216">
+          <caret line="147" column="14" selection-start-line="147" selection-start-column="14" selection-end-line="148" selection-end-column="99" />
+          <folding>
+            <element signature="e#1942#2996#0" expanded="true" />
+            <element signature="e#2985#2986#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="1054">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryPagerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.027777778" vertical-offset="103" max-vertical-offset="765">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/GeometryAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="801" max-vertical-offset="1615">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding>
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#527#528#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="495" max-vertical-offset="2720">
+          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jwilliams/machinistmate/app/RectangleFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="11.778793" vertical-offset="0" max-vertical-offset="6902">
+          <caret line="379" column="37" selection-start-line="379" selection-start-column="37" selection-end-line="379" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1297#1298#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+            <element signature="e#1914#3412#0" expanded="true" />
+            <element signature="e#3401#3402#0" expanded="true" />
+            <element signature="e#14127#14161#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

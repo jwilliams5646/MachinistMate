@@ -18,7 +18,7 @@ public class GeometryAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return(6);
+        return(7);
     }
 
     @Override
@@ -40,9 +40,12 @@ public class GeometryAdapter extends FragmentPagerAdapter {
                 frag = (SquareFragment.newInstance(position));
                 break;
             case 4:
-                frag = (TrapezoidFragment.newInstance(position));
+                frag = (RectangleFragment.newInstance(position));
                 break;
             case 5:
+                frag = (TrapezoidFragment.newInstance(position));
+                break;
+            case 6:
                 frag = (ParallelogramFragment.newInstance(position));
                 break;
             default:
@@ -71,9 +74,12 @@ public class GeometryAdapter extends FragmentPagerAdapter {
                 title = (SquareFragment.getTitle(ctxt, position));
                 break;
             case 4:
-                title = (TrapezoidFragment.getTitle(ctxt, position));
+                title = (RectangleFragment.getTitle(ctxt, position));
                 break;
             case 5:
+                title = (TrapezoidFragment.getTitle(ctxt, position));
+                break;
+            case 6:
                 title = (ParallelogramFragment.getTitle(ctxt, position));
                 break;
             default:
