@@ -40,7 +40,7 @@
         //Geometry Headings
     <string name="right_triangle_calc"><b>Right Triangle</b></string>
     <string name="oblique"><b>Oblique Triangle</b></string>
-    <string name="square"><b>Square/Rectangle</b></string>
+    <string name="square"><b>Square</b></string>
     <string name="circle"><b>Circle</b></string>
     <string name="trapezoid"><b>Trapezoid US/Trapezium UK</b></string>
     <string name="parallelogram"><b>Parallelogram</b></string>
@@ -89,15 +89,16 @@
         <item>Sides</item>
     </string-array>
 
-    <string-array name="square_rect_choice_array">
-        <item>Square</item>
-        <item>Rectangle</item>
-    </string-array>
-
     <string-array name="square_calc_array">
         <item>Area</item>
         <item>Diagonal</item>
         <item>Side</item>
+        <item>Perimeter</item>
+    </string-array>
+
+    <string-array name="square_side_array">
+        <item>Area</item>
+        <item>Diagonal</item>
         <item>Perimeter</item>
     </string-array>
 
