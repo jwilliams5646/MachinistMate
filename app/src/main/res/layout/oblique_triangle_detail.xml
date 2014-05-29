@@ -259,6 +259,13 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
+            android:text="Clear"
+            android:id="@+id/oblique_clear_button"
+            style="@style/buttons"
+            android:layout_margin="4dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:text="@string/calculate"
             android:id="@+id/oblique_calc_button"
             style="@style/buttons"
@@ -266,8 +273,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="Clear"
-            android:id="@+id/oblique_clear_button"
+            android:text="\?"
+            android:id="@+id/ot_question_button"
             style="@style/buttons"
             android:layout_margin="4dp"/>
     </LinearLayout>

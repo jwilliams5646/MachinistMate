@@ -1,5 +1,6 @@
 package com.jwilliams.machinistmate.app;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -38,6 +40,7 @@ public class ObliqueTriangleFragment extends Fragment {
     private Spinner angleZSpinner;
     private Button calcButton;
     private Button clearButton;
+    private Button questionButton;
     private int spinnerX;
     private int spinnerY;
     private int spinnerZ;
@@ -73,6 +76,7 @@ public class ObliqueTriangleFragment extends Fragment {
         angleZSpinner = (Spinner)rootView.findViewById(R.id.oblique_z_spinner);
         calcButton = (Button)rootView.findViewById(R.id.oblique_calc_button);
         clearButton = (Button)rootView.findViewById(R.id.oblique_clear_button);
+        questionButton = (Button)rootView.findViewById(R.id.ot_question_button);
         spinnerX = 0;
         spinnerY = 0;
         spinnerZ = 0;
@@ -82,7 +86,27 @@ public class ObliqueTriangleFragment extends Fragment {
         setAngleZListener();
         setClearListener();
         setCalcButtonListener();
+        setQuestionButtonListener();
         Log.d("acos(1.2628) =",Double.toString(Math.acos(1.2628)));
+    }
+
+    private void setQuestionButtonListener() {
+        questionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog d = new Dialog(getActivity());
+
+                // Set GUI of login screen
+                d.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                d.setContentView(R.layout.info_dialog);
+                final RobotoTextView dialog = (RobotoTextView)d.findViewById(R.id.dialog);
+                dialog.setText("Input at least 3 values (angles only will not work).\n" +
+                        "Only angle (z) can be 90 degrees or greater.\n" +
+                        "These calculations use the law of sine, cosine and/or tangent.");
+                // Make dialog box visible.
+                d.show();
+            }
+        });
     }
 
     private void setCalcButtonListener() {
@@ -170,11 +194,7 @@ public class ObliqueTriangleFragment extends Fragment {
                     Toast.makeText(getActivity(), "Only angle (z) can be 90 degrees or greater", Toast.LENGTH_SHORT).show();
                     return;
                 }
-/*
-                if(z < y || z < x){
-                    Toast.makeText(getActivity(), "Angle (z) must the widest angle in your triangle.", Toast.LENGTH_SHORT).show();
-                    return;
-                }*/
+
                 //a-b-c -> x-y-z
                 if (cc && ca && cb && !cy && !cx && !cz){
                     sss_abc(a, b, c, df);
