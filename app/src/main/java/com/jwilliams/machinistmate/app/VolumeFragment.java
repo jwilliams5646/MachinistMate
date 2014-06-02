@@ -1,25 +1,55 @@
 package com.jwilliams.machinistmate.app;
 
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.DbHelper;
+import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+
+import java.io.IOException;
 
 /**
  * Created by John on 6/1/2014.
  */
 public class VolumeFragment extends Fragment {
+    //Conversion Variables
 
     private static final String KEY_POSITION="position";
+    private RobotoTextView answer;
+    private RobotoTextView answerType;
+    private RobotoTextView precisionView;
+    private Spinner inputSpinner;
+    private Spinner outputSpinner;
+    private EditText input;
+    private Button calcButton;
+    private Button addButton;
+    private Button minusButton;
+    private LinearLayout answerLayout;
+    private int inputPos;
+    private int outputPos;
+    private int precision;
+    public static Typeface tf;
+    private String output;
 
     public VolumeFragment() {
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -27,7 +57,234 @@ public class VolumeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.conversion_layout, container, false);
 
+        setLayoutVariables(rootView);
+        setTwoPane();
+        setSpinnerAdapter();
+        setInputListener();
+        setOutputListener();
+        setCalcListener();
+        setPrecisionListeners();
+
         return rootView;
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                } else {
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void setCalcListener() {
+        calcButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new getCalculation().execute();
+            }
+        });
+    }
+
+    private void setOutputListener() {
+        outputSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                outputPos = i;
+                setConversionType(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+
+    private void setInputListener() {
+        inputSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                inputPos = i;
+                setInputHint(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+
+    private void setInputHint(int position) {
+        switch (position) {
+            case 0:
+                input.setHint(Html.fromHtml("in<sup><small>3</small></sup>"));
+                break;
+            case 1:
+                input.setHint(Html.fromHtml("ft<sup><small>3</small></sup>"));
+                break;
+            case 2:
+                input.setHint(Html.fromHtml("yd<sup><small>3</small></sup>"));
+                break;
+            case 3:
+                input.setHint(Html.fromHtml("mm<sup><small>3</small></sup>"));
+                break;
+            case 4:
+                input.setHint(Html.fromHtml("cm<sup><small>3</small></sup>"));
+                break;
+            case 5:
+                input.setHint(Html.fromHtml("m<sup><small>3</small></sup>"));
+                break;
+            default:
+                input.setHint(Html.fromHtml("in<sup><small>3</small></sup>"));
+                break;
+        }
+    }
+
+    private void setLayoutVariables(View rootView){
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
+        answer = (RobotoTextView) rootView.findViewById(R.id.conv_answer);
+        answerType = (RobotoTextView) rootView.findViewById(R.id.conv_answer_type);
+        precisionView = (RobotoTextView) rootView.findViewById(R.id.conv_precision_view);
+        inputSpinner = (Spinner) rootView.findViewById(R.id.conv_input_spinner);
+        outputSpinner = (Spinner) rootView.findViewById(R.id.conv_output_spinner);
+        input = (EditText) rootView.findViewById(R.id.conv_input);
+        calcButton = (Button) rootView.findViewById(R.id.conv_calc_button);
+        addButton = (Button) rootView.findViewById(R.id.conv_add_button);
+        minusButton = (Button) rootView.findViewById(R.id.conv_minus_button);
+        answerLayout = (LinearLayout) rootView.findViewById(R.id.conv_answer_layout);
+        inputPos = 0;
+        outputPos = 0;
+        precision = 2;
+        precisionView.setText(Integer.toString(precision));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
+        calcButton.setTypeface(tf);
+    }
+
+    private void setTwoPane(){
+        if (ItemListActivity.mTwoPane) {
+            final float SCALE = getActivity().getResources().getDisplayMetrics().density;
+            int topMargin = (int) (SpeedsDetailFragment.TOP_MARGIN_FROM_FLOAT * SCALE + 0.5f);
+            int x = (int) (SpeedsDetailFragment.OTHER_MARGIN_FROM_FLOAT * SCALE + 0.5f);
+            LinearLayout.MarginLayoutParams params = (LinearLayout.MarginLayoutParams) answerLayout.getLayoutParams();
+            assert params != null;
+            params.setMargins(x, topMargin, x, x);
+            answerLayout.setLayoutParams(params);
+        }
+    }
+
+    private void setSpinnerAdapter(){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.conv_volume_array, R.layout.spinner_background);
+        adapter.setDropDownViewResource(R.layout.spinner_drop_down);
+        inputSpinner.setAdapter(adapter);
+        outputSpinner.setAdapter(adapter);
+    }
+
+    private void setConversionType(int position){
+        switch (position) {
+            case 0:
+                answerType.setText(Html.fromHtml("in<sup><small>3</small></sup>"));
+                output = "cu_in";
+                break;
+            case 1:
+                answerType.setText(Html.fromHtml("ft<sup><small>3</small></sup>"));
+                output = "cu_ft";
+                break;
+            case 2:
+                answerType.setText(Html.fromHtml("yd<sup><small>3</small></sup>"));
+                output = "cu_yd";
+                break;
+            case 3:
+                answerType.setText(Html.fromHtml("mm<sup><small>3</small></sup>"));
+                output = "cu_mm";
+                break;
+            case 4:
+                answerType.setText(Html.fromHtml("cm<sup><small>3</small></sup>"));
+                output = "cu_cm";
+                break;
+            case 5:
+                answerType.setText(Html.fromHtml("m<sup><small>3</small></sup>"));
+                output = "cu_m";
+                break;
+            default:
+                answerType.setText(Html.fromHtml("in<sup><small>3</small></sup>"));
+                output = "cu_in";
+                break;
+        }
+    }
+
+    private void setDatabase(DbHelper myDbHelper){
+        //instantiates the database and the
+        try {
+            myDbHelper.createDataBase();
+        } catch (IOException ioe) {
+            throw new Error("Unable to create database");
+        }
+    }
+
+    public void openDb(DbHelper myDbHelper){
+        try {
+            myDbHelper.openDataBase();
+        }catch(SQLException sqle){
+            Log.d("Open Database", "SQL Exception");
+            throw sqle;
+        }
+    }
+
+    private class getCalculation extends AsyncTask {
+        private double calcInput = 0.0;
+
+        @Override
+        protected void onPreExecute(){
+            try {
+                calcInput = Double.parseDouble(input.getText().toString());
+            } catch (NumberFormatException e) {
+                Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
+                cancel(true);
+            }
+        }
+
+        @Override
+        protected String doInBackground(Object[] params) {
+            Log.d("DB Thread", "Starting work");
+            DbHelper myDbHelper = new DbHelper(getActivity());
+            setDatabase(myDbHelper);
+            openDb(myDbHelper);
+            Cursor c = myDbHelper.getVolumeConversionFactor(inputPos, output);
+            c.moveToFirst();
+            String result = Calculations.formatter(calcInput *
+                    Double.parseDouble(c.getString(c.getColumnIndex(output))), precision);
+            myDbHelper.close();
+            Log.d("DB Thread", "Ending work");
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(Object result){
+            answer.setText(result.toString());
+        }
     }
 
     static VolumeFragment newInstance(int position) {

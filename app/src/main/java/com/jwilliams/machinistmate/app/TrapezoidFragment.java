@@ -1,6 +1,7 @@
 package com.jwilliams.machinistmate.app;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -45,6 +46,7 @@ public class TrapezoidFragment extends Fragment {
     private boolean check;
     private int choice;
     private int precision;
+    public static Typeface tf;
 
 
     public TrapezoidFragment() {
@@ -491,6 +493,7 @@ public class TrapezoidFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         trapChoice = (Spinner)rootView.findViewById(R.id.trap_spinner);
         input1Layout =(LinearLayout)rootView.findViewById(R.id.trap_input1_layout);
         input2Layout =(LinearLayout)rootView.findViewById(R.id.trap_input2_layout);
@@ -513,6 +516,9 @@ public class TrapezoidFragment extends Fragment {
         choice = 0;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
+        calcButton.setTypeface(tf);
         setInitialLayout();
     }
 

@@ -16,12 +16,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.util.Log;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
-import com.jwilliams.machinistmate.app.AppContent.Utility;
+import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 import java.io.IOException;
 
@@ -33,17 +33,19 @@ public class LengthFragment extends Fragment {
     //Conversion Variables
 
     private static final String KEY_POSITION="position";
-    private TextView answer;
-    private TextView answerType;
+    private RobotoTextView answer;
+    private RobotoTextView answerType;
+    private RobotoTextView precisionView;
     private Spinner inputSpinner;
     private Spinner outputSpinner;
-    private Spinner convPrecisionSpinner;
     private EditText input;
     private Button calcButton;
+    private Button addButton;
+    private Button minusButton;
     private LinearLayout answerLayout;
-    int inputPos;
-    int outputPos;
-    int precSpinner;
+    private int inputPos;
+    private int outputPos;
+    private int precision;
     public static Typeface tf;
     private String output;
 
@@ -58,27 +60,38 @@ public class LengthFragment extends Fragment {
         setLayoutVariables(rootView);
         setTwoPane();
         setSpinnerAdapter();
-        setPrecisionAdapter();
         setInputListener();
         setOutputListener();
         setCalcListener();
-
-        AdapterView.OnItemSelectedListener convPrecisionSelectedListener = new AdapterView.OnItemSelectedListener(){
-            @Override
-            public void onItemSelected(AdapterView<?> spinner, View container,
-                                       int position, long id) {
-                precSpinner = position+1;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                precSpinner = 1;
-            }
-        };
-
-        convPrecisionSpinner.setOnItemSelectedListener(convPrecisionSelectedListener);
+        setPrecisionListeners();
 
         return rootView;
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                } else {
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setCalcListener() {
@@ -150,17 +163,21 @@ public class LengthFragment extends Fragment {
 
     private void setLayoutVariables(View rootView){
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
-        answer = (TextView) rootView.findViewById(R.id.conv_answer);
-        answerType = (TextView) rootView.findViewById(R.id.conv_answer_type);
+        answer = (RobotoTextView) rootView.findViewById(R.id.conv_answer);
+        answerType = (RobotoTextView) rootView.findViewById(R.id.conv_answer_type);
+        precisionView = (RobotoTextView) rootView.findViewById(R.id.conv_precision_view);
         inputSpinner = (Spinner) rootView.findViewById(R.id.conv_input_spinner);
         outputSpinner = (Spinner) rootView.findViewById(R.id.conv_output_spinner);
-        convPrecisionSpinner = (Spinner)rootView.findViewById(R.id.conv_prec_spinner);
         input = (EditText) rootView.findViewById(R.id.conv_input);
         calcButton = (Button) rootView.findViewById(R.id.conv_calc_button);
+        addButton = (Button) rootView.findViewById(R.id.conv_add_button);
+        minusButton = (Button) rootView.findViewById(R.id.conv_minus_button);
         answerLayout = (LinearLayout) rootView.findViewById(R.id.conv_answer_layout);
         calcButton.setTypeface(tf);
         inputPos = 0;
         outputPos = 0;
+        precision = 2;
+        precisionView.setText(Integer.toString(precision));
     }
 
     private void setTwoPane(){
@@ -177,17 +194,10 @@ public class LengthFragment extends Fragment {
 
     private void setSpinnerAdapter(){
         ArrayAdapter<CharSequence> convAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.conversions_array, R.layout.spinner_background);
+                R.array.conv_length_array, R.layout.spinner_background);
         convAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         inputSpinner.setAdapter(convAdapter);
         outputSpinner.setAdapter(convAdapter);
-    }
-
-    private void setPrecisionAdapter(){
-        ArrayAdapter<CharSequence> precAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.precision_array, R.layout.spinner_background);
-        precAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        convPrecisionSpinner.setAdapter(precAdapter);
     }
 
     private void setConversionType(int position){
@@ -255,15 +265,15 @@ public class LengthFragment extends Fragment {
         }
 
         @Override
-        protected Double doInBackground(Object[] params) {
+        protected String doInBackground(Object[] params) {
             Log.d("DB Thread", "Starting work");
             DbHelper myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
-            Cursor c = myDbHelper.getConversionFactor(inputPos, output);
+            Cursor c = myDbHelper.getLengthConversionFactor(inputPos, output);
             c.moveToFirst();
-            Double result = Utility.formatter(calcInput *
-                    Double.parseDouble(c.getString(c.getColumnIndex(output))), precSpinner);
+            String result = Calculations.formatter(calcInput *
+                    Double.parseDouble(c.getString(c.getColumnIndex(output))), precision);
             myDbHelper.close();
             Log.d("DB Thread", "Ending work");
             return result;

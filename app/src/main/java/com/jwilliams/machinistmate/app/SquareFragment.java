@@ -1,6 +1,7 @@
 package com.jwilliams.machinistmate.app;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class SquareFragment extends Fragment {
     private int sidePos;
     private int answerPos;
     private boolean check;
+    public static Typeface tf;
 
     public SquareFragment() {
     }
@@ -256,6 +258,7 @@ public class SquareFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         inputLayout1 = (LinearLayout)rootView.findViewById(R.id.sq_layout1);
         sideInputLayout = (LinearLayout)rootView.findViewById(R.id.sq_side_layout);
         input1 = (EditText)rootView.findViewById(R.id.sq_input1);
@@ -273,6 +276,9 @@ public class SquareFragment extends Fragment {
         precision = 2;
         check = false;
         precisionView.setText(Integer.toString(precision));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
+        calcButton.setTypeface(tf);
         setBasicLayout();
     }
 

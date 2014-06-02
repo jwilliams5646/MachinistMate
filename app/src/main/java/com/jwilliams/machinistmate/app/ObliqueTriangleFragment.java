@@ -2,6 +2,7 @@ package com.jwilliams.machinistmate.app;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -49,6 +50,7 @@ public class ObliqueTriangleFragment extends Fragment {
     private int spinnerY;
     private int spinnerZ;
     private int precision;
+    public static Typeface tf;
 
     public ObliqueTriangleFragment() {
     }
@@ -67,6 +69,7 @@ public class ObliqueTriangleFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         sideAInput = (EditText)rootView.findViewById(R.id.oblique_a_input);
         sideBInput = (EditText)rootView.findViewById(R.id.oblique_b_input);
         sideCInput = (EditText)rootView.findViewById(R.id.oblique_c_input);
@@ -97,6 +100,9 @@ public class ObliqueTriangleFragment extends Fragment {
         setQuestionButtonListener();
         precision = 2;
         precisionView.setText(Integer.toString(precision));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
+        calcButton.setTypeface(tf);
         setPrecisionListeners();
     }
 

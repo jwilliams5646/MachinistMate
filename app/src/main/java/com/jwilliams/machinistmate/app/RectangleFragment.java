@@ -1,6 +1,7 @@
 package com.jwilliams.machinistmate.app;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -43,6 +44,7 @@ public class RectangleFragment extends Fragment {
     private int answerPos;
     private int inputPos;
     private int precision;
+    public static Typeface tf;
 
     public RectangleFragment() {
     }
@@ -372,6 +374,7 @@ public class RectangleFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         inputLayout1 = (LinearLayout)rootView.findViewById(R.id.rectangle_input_layout1);
         inputLayout2 = (LinearLayout)rootView.findViewById(R.id.rectangle_input_layout2);
         inputLayout3 = (LinearLayout)rootView.findViewById(R.id.rectangle_input_layout3);
@@ -393,6 +396,9 @@ public class RectangleFragment extends Fragment {
         inputPos = 0;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
+        calcButton.setTypeface(tf);
     }
 
     private void resetLayout() {

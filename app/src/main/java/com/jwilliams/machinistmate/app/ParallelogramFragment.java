@@ -1,6 +1,7 @@
 package com.jwilliams.machinistmate.app;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -23,21 +24,22 @@ import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 public class ParallelogramFragment extends Fragment {
 
     private static final String KEY_POSITION="position";
-    private LinearLayout paraInput1Layout;
-    private LinearLayout paraInput2Layout;
-    private RobotoTextView paraInputView1;
-    private RobotoTextView paraInputView2;
-    private RobotoTextView paraAnswer;
+    private LinearLayout inputLayout1;
+    private LinearLayout inputLayout2;
+    private RobotoTextView inputView1;
+    private RobotoTextView inputView2;
+    private RobotoTextView answer;
     private RobotoTextView precisionView;
-    private EditText paraInput1;
-    private EditText paraInput2;
+    private EditText input1;
+    private EditText input2;
     private Spinner paraSpinner;
-    private Button paraCalc;
+    private Button calcButton;
     private Button addButton;
     private Button minusButton;
     private int setCalc;
     private int precision;
     private boolean check;
+    public static Typeface tf;
 
     public ParallelogramFragment() {
     }
@@ -88,11 +90,11 @@ public class ParallelogramFragment extends Fragment {
     }
 
     private void setCalcListener() {
-        paraCalc.setOnClickListener(new View.OnClickListener() {
+        calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 check = false;
-                switch(setCalc){
+                switch (setCalc) {
                     case 0:
                         calcArea();
                         break;
@@ -122,13 +124,13 @@ public class ParallelogramFragment extends Fragment {
     private void calcY() {
         double x = 0.0;
         try{
-            x = Double.parseDouble(paraInput1.getText().toString());
+            x = Double.parseDouble(input1.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         if(!check){
-            paraAnswer.setText(Calculations.formatter(180-x, precision));
+            answer.setText(Calculations.formatter(180 - x, precision));
         }else{
             Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
         }
@@ -137,13 +139,13 @@ public class ParallelogramFragment extends Fragment {
     private void calcX() {
         double y = 0.0;
         try{
-            y = Double.parseDouble(paraInput1.getText().toString());
+            y = Double.parseDouble(input1.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         if(!check){
-            paraAnswer.setText(Calculations.formatter(180-y, precision));
+            answer.setText(Calculations.formatter(180 - y, precision));
         }else{
             Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
         }
@@ -153,19 +155,19 @@ public class ParallelogramFragment extends Fragment {
         double a = 0.0;
         double b = 0.0;
         try{
-            a = Double.parseDouble(paraInput1.getText().toString());
+            a = Double.parseDouble(input1.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         try{
-            b = Double.parseDouble(paraInput2.getText().toString());
+            b = Double.parseDouble(input2.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         if(!check){
-            paraAnswer.setText(Calculations.formatter(2*(a+b), precision));
+            answer.setText(Calculations.formatter(2 * (a + b), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -176,19 +178,19 @@ public class ParallelogramFragment extends Fragment {
         double p = 0.0;
         double b = 0.0;
         try{
-            p = Double.parseDouble(paraInput1.getText().toString());
+            p = Double.parseDouble(input1.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         try{
-            b = Double.parseDouble(paraInput2.getText().toString());
+            b = Double.parseDouble(input2.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         if(!check){
-            paraAnswer.setText(Calculations.formatter((p/2)-b, precision));
+            answer.setText(Calculations.formatter((p / 2) - b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -198,19 +200,19 @@ public class ParallelogramFragment extends Fragment {
         double a = 0.0;
         double b = 0.0;
         try{
-            a = Double.parseDouble(paraInput1.getText().toString());
+            a = Double.parseDouble(input1.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         try{
-            b = Double.parseDouble(paraInput2.getText().toString());
+            b = Double.parseDouble(input2.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         if(!check){
-            paraAnswer.setText(Calculations.formatter(a/b, precision));
+            answer.setText(Calculations.formatter(a / b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -220,19 +222,19 @@ public class ParallelogramFragment extends Fragment {
         double a = 0.0;
         double h = 0.0;
         try{
-            a = Double.parseDouble(paraInput1.getText().toString());
+            a = Double.parseDouble(input1.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         try{
-            h = Double.parseDouble(paraInput2.getText().toString());
+            h = Double.parseDouble(input2.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         if(!check){
-            paraAnswer.setText(Calculations.formatter(a/h, precision));
+            answer.setText(Calculations.formatter(a / h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -242,19 +244,19 @@ public class ParallelogramFragment extends Fragment {
         double b = 0.0;
         double h = 0.0;
         try{
-            b = Double.parseDouble(paraInput1.getText().toString());
+            b = Double.parseDouble(input1.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         try{
-            h = Double.parseDouble(paraInput2.getText().toString());
+            h = Double.parseDouble(input2.getText().toString());
         }catch(NumberFormatException e){
             check = true;
         }
 
         if(!check){
-            paraAnswer.setText(Calculations.formatter(b * h, precision));
+            answer.setText(Calculations.formatter(b * h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -268,36 +270,36 @@ public class ParallelogramFragment extends Fragment {
                 setCalc = i;
                 switch(i){
                     case 0:
-                        paraInputView1.setText("Base (b)");
-                        paraInputView2.setText("Height (h)");
+                        inputView1.setText("Base (b)");
+                        inputView2.setText("Height (h)");
                         break;
                     case 1:
-                        paraInputView1.setText("Area");
-                        paraInputView2.setText("Height (h)");
+                        inputView1.setText("Area");
+                        inputView2.setText("Height (h)");
                         break;
                     case 2:
-                        paraInputView1.setText("Area");
-                        paraInputView2.setText("Base (b)");
+                        inputView1.setText("Area");
+                        inputView2.setText("Base (b)");
                         break;
                     case 3:
-                        paraInputView1.setText("Perimeter");
-                        paraInputView2.setText("Base (b)");
+                        inputView1.setText("Perimeter");
+                        inputView2.setText("Base (b)");
                         break;
                     case 4:
-                        paraInputView1.setText("Side (a)");
-                        paraInputView2.setText("Base (b)");
+                        inputView1.setText("Side (a)");
+                        inputView2.setText("Base (b)");
                         break;
                     case 5:
-                        paraInputView1.setText("Angle y");
-                        paraInput2Layout.setVisibility(View.INVISIBLE);
+                        inputView1.setText("Angle y");
+                        inputLayout2.setVisibility(View.INVISIBLE);
                         break;
                     case 6:
-                        paraInputView1.setText("Angle x");
-                        paraInput2Layout.setVisibility(View.INVISIBLE);
+                        inputView1.setText("Angle x");
+                        inputLayout2.setVisibility(View.INVISIBLE);
                         break;
                     default:
-                        paraInputView1.setText("Base");
-                        paraInputView2.setText("Height");
+                        inputView1.setText("Base");
+                        inputView2.setText("Height");
                         break;
                 }
             }
@@ -318,29 +320,33 @@ public class ParallelogramFragment extends Fragment {
     }
 
     private void initialLayout() {
-        paraInput1Layout.setVisibility(View.VISIBLE);
-        paraInput2Layout.setVisibility(View.VISIBLE);
-        paraInputView1.setText("Base");
-        paraInputView2.setText("Height");
+        inputLayout1.setVisibility(View.VISIBLE);
+        inputLayout2.setVisibility(View.VISIBLE);
+        inputView1.setText("Base");
+        inputView2.setText("Height");
     }
 
     private void initializeLayout(View rootView) {
-        paraInput1Layout = (LinearLayout)rootView.findViewById(R.id.para_input1_layout);
-        paraInput2Layout = (LinearLayout)rootView.findViewById(R.id.para_layout2);
-        paraInputView1 = (RobotoTextView)rootView.findViewById(R.id.para_view1);
-        paraInputView2 = (RobotoTextView)rootView.findViewById(R.id.para_view2);
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
+        inputLayout1 = (LinearLayout)rootView.findViewById(R.id.para_input1_layout);
+        inputLayout2 = (LinearLayout)rootView.findViewById(R.id.para_layout2);
+        inputView1 = (RobotoTextView)rootView.findViewById(R.id.para_view1);
+        inputView2 = (RobotoTextView)rootView.findViewById(R.id.para_view2);
         precisionView = (RobotoTextView)rootView.findViewById(R.id.para_precision_view);
-        paraAnswer = (RobotoTextView)rootView.findViewById(R.id.para_answer);
-        paraInput1 = (EditText)rootView.findViewById(R.id.para_input1);
-        paraInput2 = (EditText)rootView.findViewById(R.id.para_input2);
+        answer = (RobotoTextView)rootView.findViewById(R.id.para_answer);
+        input1 = (EditText)rootView.findViewById(R.id.para_input1);
+        input2 = (EditText)rootView.findViewById(R.id.para_input2);
         paraSpinner = (Spinner)rootView.findViewById(R.id.para_spinner);
-        paraCalc = (Button)rootView.findViewById(R.id.para_calc_button);
+        calcButton = (Button)rootView.findViewById(R.id.para_calc_button);
         addButton = (Button)rootView.findViewById(R.id.para_add_button);
         minusButton = (Button)rootView.findViewById(R.id.para_minus_button);
         setCalc = 0;
         precision = 2;
         check = false;
         precisionView.setText(Integer.toString(precision));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
+        calcButton.setTypeface(tf);
     }
 
     static ParallelogramFragment newInstance(int position) {

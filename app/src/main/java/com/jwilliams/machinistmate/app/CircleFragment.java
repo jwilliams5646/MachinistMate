@@ -1,6 +1,7 @@
 package com.jwilliams.machinistmate.app;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,22 +26,23 @@ import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 public class CircleFragment extends Fragment {
 
     private static final String KEY_POSITION="position";
-    private LinearLayout circleInput1Layout;
-    private LinearLayout circleRadiusLayout;
-    private EditText circleInput1;
-    private EditText circleRadiusInput;
-    private RobotoTextView circleView1;
-    private RobotoTextView circleAnswer;
+    private LinearLayout inputLayout;
+    private LinearLayout radiusLayout;
+    private EditText input1;
+    private EditText radiusInput;
+    private RobotoTextView view1;
+    private RobotoTextView answer;
     private RobotoTextView precisionView;
-    private Spinner circleSpinner;
-    private Spinner circleRadiusSpinner;
-    private Button circleCalcButton;
+    private Spinner answerSpinner;
+    private Spinner radiusSpinner;
+    private Button calcButton;
     private Button addButton;
     private Button minusButton;
     private  boolean check;
     private int pos;
     private int radiusChoice;
     private int precision;
+    public static Typeface tf;
 
 
     public CircleFragment() {
@@ -94,13 +96,13 @@ public class CircleFragment extends Fragment {
     }
 
     private void setCalcListener() {
-        circleCalcButton.setOnClickListener(new View.OnClickListener() {
+        calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 check = false;
                 switch (pos) {
                     case 0:
-                        switch(radiusChoice){
+                        switch (radiusChoice) {
                             case 0:
                                 calcRadDiam();
                                 break;
@@ -129,27 +131,27 @@ public class CircleFragment extends Fragment {
     }
 
     private void calcRadCirc() {
-        double c = getCircleRadiusInput();
+        double c = getRadiusInput();
         if(!check){
-            circleAnswer.setText(Calculations.formatter(c/(2*Math.PI), precision));
+            answer.setText(Calculations.formatter(c / (2 * Math.PI), precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcRadArea() {
-        double a = getCircleRadiusInput();
+        double a = getRadiusInput();
         if(!check){
-            circleAnswer.setText(Calculations.formatter(Math.sqrt(a/Math.PI), precision));
+            answer.setText(Calculations.formatter(Math.sqrt(a / Math.PI), precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcRadDiam() {
-        double d = getCircleRadiusInput();
+        double d = getRadiusInput();
         if(!check){
-            circleAnswer.setText(Calculations.formatter(d/2,precision));
+            answer.setText(Calculations.formatter(d / 2, precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -158,7 +160,7 @@ public class CircleFragment extends Fragment {
     private void calcCircumference() {
         double r = getInput1();
         if(!check){
-            circleAnswer.setText(Calculations.formatter(2*Math.PI*r, precision));
+            answer.setText(Calculations.formatter(2 * Math.PI * r, precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -167,7 +169,7 @@ public class CircleFragment extends Fragment {
     private void calcArea() {
         double r = getInput1();
         if(!check){
-            circleAnswer.setText(Calculations.formatter(Math.PI*Math.pow(r,2), precision));
+            answer.setText(Calculations.formatter(Math.PI * Math.pow(r, 2), precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -176,16 +178,16 @@ public class CircleFragment extends Fragment {
     private void calcDiameter() {
         double r = getInput1();
         if(!check){
-            circleAnswer.setText(Calculations.formatter(2*r, precision));
+            answer.setText(Calculations.formatter(2 * r, precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private double getCircleRadiusInput(){
+    private double getRadiusInput(){
         double x = 0.0;
         try {
-            x = Double.parseDouble(circleRadiusInput.getText().toString());
+            x = Double.parseDouble(radiusInput.getText().toString());
         } catch (NumberFormatException e) {
             check = true;
         }
@@ -195,7 +197,7 @@ public class CircleFragment extends Fragment {
     private double getInput1(){
         double x = 0.0;
         try {
-            x = Double.parseDouble(circleInput1.getText().toString());
+            x = Double.parseDouble(input1.getText().toString());
         } catch (NumberFormatException e) {
             check = true;
         }
@@ -203,8 +205,8 @@ public class CircleFragment extends Fragment {
     }
 
     private void initialLayout(){
-        circleInput1Layout.setVisibility(View.INVISIBLE);
-        circleRadiusLayout.setVisibility(View.VISIBLE);
+        inputLayout.setVisibility(View.INVISIBLE);
+        radiusLayout.setVisibility(View.VISIBLE);
     }
 
     private void setCircleSpinnerListener() {
@@ -213,12 +215,12 @@ public class CircleFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 pos = i;
                 if(i==0) {
-                    circleRadiusSpinner.setSelection(0);
+                    radiusSpinner.setSelection(0);
                     initialLayout();
                 }else{
-                    circleView1.setText("Radius");
-                    circleRadiusLayout.setVisibility(View.INVISIBLE);
-                    circleInput1Layout.setVisibility(View.VISIBLE);
+                    view1.setText("Radius");
+                    radiusLayout.setVisibility(View.INVISIBLE);
+                    inputLayout.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -227,14 +229,14 @@ public class CircleFragment extends Fragment {
             }
         };
 
-        circleSpinner.setOnItemSelectedListener(circleSpinnerListener);
+        answerSpinner.setOnItemSelectedListener(circleSpinnerListener);
     }
 
     private void setCircleSpinnerAdapter() {
         ArrayAdapter<CharSequence> circleAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.circle_calc_array, R.layout.spinner_background);
         circleAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        circleSpinner.setAdapter(circleAdapter);
+        answerSpinner.setAdapter(circleAdapter);
     }
 
     private void setCircleRadiusListener(){
@@ -249,27 +251,28 @@ public class CircleFragment extends Fragment {
 
             }
         };
-        circleRadiusSpinner.setOnItemSelectedListener(circleRadiusListener);
+        radiusSpinner.setOnItemSelectedListener(circleRadiusListener);
     }
 
     private void setCircleRadiusAdapter() {
         ArrayAdapter<CharSequence> circleRadiusAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.circle_radius_array, R.layout.spinner_background);
         circleRadiusAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        circleRadiusSpinner.setAdapter(circleRadiusAdapter);
+        radiusSpinner.setAdapter(circleRadiusAdapter);
     }
 
     private void initializeLayout(View rootView) {
-        circleInput1Layout = (LinearLayout)rootView.findViewById(R.id.c_layout1);
-        circleRadiusLayout = (LinearLayout)rootView.findViewById(R.id.circle_radius_layout);
-        circleInput1 = (EditText)rootView.findViewById(R.id.circle_input1);
-        circleRadiusInput = (EditText)rootView.findViewById(R.id.circle_radius_choice_input);
-        circleView1 = (RobotoTextView)rootView.findViewById(R.id.circle_view1);
+        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
+        inputLayout = (LinearLayout)rootView.findViewById(R.id.c_layout1);
+        radiusLayout = (LinearLayout)rootView.findViewById(R.id.circle_radius_layout);
+        input1 = (EditText)rootView.findViewById(R.id.circle_input1);
+        radiusInput = (EditText)rootView.findViewById(R.id.circle_radius_choice_input);
+        view1 = (RobotoTextView)rootView.findViewById(R.id.circle_view1);
         precisionView = (RobotoTextView)rootView.findViewById(R.id.c_precision_view);
-        circleAnswer = (RobotoTextView)rootView.findViewById(R.id.circle_answer);
-        circleSpinner = (Spinner)rootView.findViewById(R.id.circle_choice);
-        circleRadiusSpinner = (Spinner)rootView.findViewById(R.id.circle_radius_choice);
-        circleCalcButton = (Button)rootView.findViewById(R.id.c_calc);
+        answer = (RobotoTextView)rootView.findViewById(R.id.circle_answer);
+        answerSpinner = (Spinner)rootView.findViewById(R.id.circle_choice);
+        radiusSpinner = (Spinner)rootView.findViewById(R.id.circle_radius_choice);
+        calcButton = (Button)rootView.findViewById(R.id.c_calc);
         addButton = (Button)rootView.findViewById(R.id.c_add_button);
         minusButton = (Button)rootView.findViewById(R.id.c_minus_button);
         check = false;
@@ -277,6 +280,9 @@ public class CircleFragment extends Fragment {
         radiusChoice = 0;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
+        calcButton.setTypeface(tf);
     }
 
     static CircleFragment newInstance(int position) {

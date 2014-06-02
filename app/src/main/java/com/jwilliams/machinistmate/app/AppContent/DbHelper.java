@@ -5,6 +5,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -174,11 +175,20 @@ public class DbHelper extends SQLiteOpenHelper{
     }
 
     /**
-     * Conversion db query
+     * Length db query
      * */
-    public Cursor getConversionFactor(int id, String output){
+    public Cursor getLengthConversionFactor(int id, String output){
         return myDataBase.rawQuery("select "+ output + " from "
                 + "length" + " Where _id = " + id,null);
+    }
+
+    /**
+     * Volume db query
+     * */
+    public Cursor getVolumeConversionFactor(int id, String output){
+        Log.d(output, Integer.toString(id));
+        return myDataBase.rawQuery("select "+ output + " from "
+                + "volume" + " Where _id = " + id,null);
     }
 }
 

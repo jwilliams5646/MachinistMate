@@ -41,7 +41,6 @@ public class FeedsDetailFragment extends Fragment {
     private RadioButton metricButton;
     private LinearLayout feedAnswerLayout;
     private RadioGroup feedRadioGroup;
-    private Spinner feedPrecisionSpinner;
     public static Typeface tf;
     private int precision;
 
@@ -135,6 +134,8 @@ public class FeedsDetailFragment extends Fragment {
         metricButton.setTypeface(tf);
         feedCalc.setTypeface(tf);
         feedAnswerType.setText(getText(R.string.ipm));
+        addButton.setTypeface(tf);
+        minusButton.setTypeface(tf);
         feedType = true;
         precision = 2;
         precisionView.setText(Integer.toString(precision));

@@ -51,13 +51,23 @@
     <string name="rectangle"><b>Rectangle</b></string>
 
 
-    <string-array name="conversions_array">
+    <string-array name="conv_length_array">
         <item>Inch</item>
         <item>Foot</item>
         <item>Yard</item>
         <item>Millimeter</item>
         <item>Centimeter</item>
         <item>Meter</item>
+    </string-array>
+
+
+    <string-array name="conv_volume_array">
+        <item>cu in</item>
+        <item>cu ft</item>
+        <item>cu yd</item>
+        <item>cu mm</item>
+        <item>cu cm</item>
+        <item>cu m</item>
     </string-array>
 
     <string-array name="precision_array">

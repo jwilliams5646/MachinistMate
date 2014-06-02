@@ -192,6 +192,7 @@
         android:id="@+id/rect_calc"
         android:layout_below="@+id/rect_precision_layout"
         android:layout_centerHorizontal="true"
-        style="@style/buttons"/>
+        style="@style/buttons"
+        android:layout_margin="4dp"/>
 
 </RelativeLayout>
