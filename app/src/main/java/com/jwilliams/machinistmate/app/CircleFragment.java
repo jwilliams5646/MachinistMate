@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -30,12 +31,16 @@ public class CircleFragment extends Fragment {
     private EditText circleRadiusInput;
     private RobotoTextView circleView1;
     private RobotoTextView circleAnswer;
+    private RobotoTextView precisionView;
     private Spinner circleSpinner;
     private Spinner circleRadiusSpinner;
     private Button circleCalcButton;
+    private Button addButton;
+    private Button minusButton;
     private  boolean check;
     private int pos;
     private int radiusChoice;
+    private int precision;
 
 
     public CircleFragment() {
@@ -57,8 +62,35 @@ public class CircleFragment extends Fragment {
         setCircleSpinnerListener();
         setCircleRadiusListener();
         setCalcListener();
+        setPrecisionListeners();
 
         return rootView;
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                } else {
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setCalcListener() {
@@ -99,7 +131,7 @@ public class CircleFragment extends Fragment {
     private void calcRadCirc() {
         double c = getCircleRadiusInput();
         if(!check){
-            circleAnswer.setText(Double.toString(c/(2*Math.PI)));
+            circleAnswer.setText(Calculations.formatter(c/(2*Math.PI), precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -108,7 +140,7 @@ public class CircleFragment extends Fragment {
     private void calcRadArea() {
         double a = getCircleRadiusInput();
         if(!check){
-            circleAnswer.setText(Double.toString(Math.sqrt(a/Math.PI)));
+            circleAnswer.setText(Calculations.formatter(Math.sqrt(a/Math.PI), precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -117,7 +149,7 @@ public class CircleFragment extends Fragment {
     private void calcRadDiam() {
         double d = getCircleRadiusInput();
         if(!check){
-            circleAnswer.setText(Double.toString(d/2));
+            circleAnswer.setText(Calculations.formatter(d/2,precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -126,7 +158,7 @@ public class CircleFragment extends Fragment {
     private void calcCircumference() {
         double r = getInput1();
         if(!check){
-            circleAnswer.setText(Double.toString(2*Math.PI*r));
+            circleAnswer.setText(Calculations.formatter(2*Math.PI*r, precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -135,7 +167,7 @@ public class CircleFragment extends Fragment {
     private void calcArea() {
         double r = getInput1();
         if(!check){
-            circleAnswer.setText(Double.toString(Math.PI*Math.pow(r,2)));
+            circleAnswer.setText(Calculations.formatter(Math.PI*Math.pow(r,2), precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -144,7 +176,7 @@ public class CircleFragment extends Fragment {
     private void calcDiameter() {
         double r = getInput1();
         if(!check){
-            circleAnswer.setText(Double.toString(2*r));
+            circleAnswer.setText(Calculations.formatter(2*r, precision));
         }else{
             Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
         }
@@ -228,18 +260,23 @@ public class CircleFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
-        circleInput1Layout = (LinearLayout)rootView.findViewById(R.id.circle_input1_layout);
+        circleInput1Layout = (LinearLayout)rootView.findViewById(R.id.c_layout1);
         circleRadiusLayout = (LinearLayout)rootView.findViewById(R.id.circle_radius_layout);
         circleInput1 = (EditText)rootView.findViewById(R.id.circle_input1);
         circleRadiusInput = (EditText)rootView.findViewById(R.id.circle_radius_choice_input);
         circleView1 = (RobotoTextView)rootView.findViewById(R.id.circle_view1);
+        precisionView = (RobotoTextView)rootView.findViewById(R.id.c_precision_view);
         circleAnswer = (RobotoTextView)rootView.findViewById(R.id.circle_answer);
         circleSpinner = (Spinner)rootView.findViewById(R.id.circle_choice);
         circleRadiusSpinner = (Spinner)rootView.findViewById(R.id.circle_radius_choice);
-        circleCalcButton = (Button)rootView.findViewById(R.id.circle_calc);
+        circleCalcButton = (Button)rootView.findViewById(R.id.c_calc);
+        addButton = (Button)rootView.findViewById(R.id.c_add_button);
+        minusButton = (Button)rootView.findViewById(R.id.c_minus_button);
         check = false;
         pos = 0;
         radiusChoice = 0;
+        precision = 2;
+        precisionView.setText(Integer.toString(precision));
     }
 
     static CircleFragment newInstance(int position) {

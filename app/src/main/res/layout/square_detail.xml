@@ -26,18 +26,18 @@
 
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/square_choice"
+            android:layout_height="match_parent"
+            android:id="@+id/sq_choice"
             android:layout_marginTop="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp" />
 
-
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="40dp"
-            android:id="@+id/square_answer"
+            android:layout_height="wrap_content"
+            android:id="@+id/sq_answer"
+            android:textSize="32sp"
             android:layout_marginTop="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
@@ -51,14 +51,14 @@
         android:layout_below="@+id/square_answer_layout"
         android:layout_alignLeft="@id/square_image"
         android:layout_marginRight="4dp"
-        android:id="@+id/square_input_layout1">
+        android:id="@+id/sq_layout1">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="40dp"
             android:text="New Text"
-            android:id="@+id/square_view1"
+            android:id="@+id/sq_view1"
             android:layout_marginTop="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
@@ -69,7 +69,7 @@
             android:layout_weight="1"
             android:layout_height="40dp"
             android:inputType="numberDecimal"
-            android:id="@+id/square_input1"
+            android:id="@+id/sq_input1"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
@@ -83,13 +83,13 @@
         android:layout_below="@+id/square_answer_layout"
         android:layout_alignLeft="@id/square_image"
         android:layout_marginRight="4dp"
-        android:id="@+id/square_side_input_layout"
+        android:id="@+id/sq_side_layout"
         android:visibility="invisible">
 
         <Spinner
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:id="@+id/square_side_input_choice"
+            android:id="@+id/sq_side_choice"
             android:layout_marginTop="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"/>
@@ -99,24 +99,66 @@
             android:layout_weight="1"
             android:layout_height="40dp"
             android:inputType="numberDecimal"
-            android:id="@+id/square_side_input"
+            android:id="@+id/sq_side_input"
             android:layout_marginLeft="4dp"
             android:layout_marginTop="4dp"
             android:layout_marginBottom="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 
-
-
-    <Button
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="@string/calculate"
-        android:id="@+id/square_calc"
-        android:layout_below="@+id/square_input_layout1"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sq_layout1"
         android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"
-        style="@style/buttons" />
+        android:id="@+id/sq_precision_layout">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precision"
+            android:id="@+id/textView"
+            android:layout_margin="4dp"
+            android:gravity="right|bottom"
+            style="@style/TextViewStyle"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:id="@+id/sq_minus_button"
+            android:layout_margin="4dp"
+            style="@style/buttons"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="2"
+            android:id="@+id/sq_precision_view"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle"
+            android:gravity="center"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:id="@+id/sq_add_button"
+            android:layout_margin="4dp"
+            style="@style/buttons"/>
+    </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/calculate"
+            android:id="@+id/sq_calc"
+            style="@style/buttons"
+            android:layout_below="@+id/sq_precision_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="4dp"/>
+
 
 
 

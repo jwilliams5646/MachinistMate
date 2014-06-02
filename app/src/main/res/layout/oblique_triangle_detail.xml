@@ -63,9 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:id="@+id/oblique_x_spinner"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_margin="4dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -118,9 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:id="@+id/oblique_y_spinner"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_margin="4dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -173,9 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:id="@+id/oblique_z_spinner"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_margin="4dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -227,7 +221,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/oblique_view4_layout"
         android:layout_alignLeft="@+id/oblique_image"
-        android:id="@+id/oblique_view5_layout">
+        android:id="@+id/oblique_view5_layout"
+        android:layout_marginRight="4dp">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -246,16 +241,7 @@
             android:layout_margin="4dp"
             android:layout_weight="1"
             style="@style/TextViewStyle"/>
-    </LinearLayout>
 
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/oblique_view5_layout"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/oblique_view6_layout">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -263,6 +249,19 @@
             android:id="@+id/oblique_clear_button"
             style="@style/buttons"
             android:layout_margin="4dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/oblique_view6_layout"
+        android:layout_below="@+id/oblique_view5_layout"
+        android:layout_alignLeft="@+id/oblique_view5_layout"
+        android:layout_alignStart="@+id/oblique_view5_layout"
+        android:layout_marginRight="4dp">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -270,13 +269,71 @@
             android:id="@+id/oblique_calc_button"
             style="@style/buttons"
             android:layout_margin="4dp"/>
-        <Button
-            android:layout_width="wrap_content"
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="40dp"
-            android:text="\?"
-            android:id="@+id/ot_question_button"
+            android:text="Precision"
+            android:id="@+id/textView"
+            android:gravity="right|bottom"
+            android:layout_gravity="center|right"
+            style="@style/TextViewStyle" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:id="@+id/o_minus_button"
+            android:layout_margin="4dp"
+            style="@style/buttons" />
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="2"
+            android:id="@+id/o_precision"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle"
+            android:gravity="center" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:id="@+id/o_add_button"
             style="@style/buttons"
-            android:layout_margin="4dp"/>
+            android:layout_margin="4dp" />
     </LinearLayout>
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="\?"
+        android:id="@+id/ot_question_button"
+        style="@style/buttons"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/oblique_image"
+        android:layout_alignEnd="@+id/oblique_image"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp" />
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/oblique_view6_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Y U NO SHOW AD"
+            android:id="@+id/textView2"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="32sp"
+            android:gravity="center" />
+    </RelativeLayout>
 
 </RelativeLayout>

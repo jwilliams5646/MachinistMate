@@ -37,6 +37,10 @@
 
     <string name="drill_size_chart"><b>Drill Size Chart</b></string>
 
+    //Conversion Headings
+    <string name="volume"><b>Volume</b></string>
+    <string name="length"><b>Length</b></string>
+
         //Geometry Headings
     <string name="right_triangle_calc"><b>Right Triangle</b></string>
     <string name="oblique"><b>Oblique Triangle</b></string>

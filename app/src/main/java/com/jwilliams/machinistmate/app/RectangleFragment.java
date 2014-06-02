@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -31,13 +32,17 @@ public class RectangleFragment extends Fragment {
     private RobotoTextView inputView1;
     private RobotoTextView inputView2;
     private RobotoTextView inputView3;
+    private RobotoTextView precisionView;
     private EditText input1;
     private EditText input2;
     private EditText input3;
     private Button calcButton;
-    boolean check;
-    int answerPos;
-    int inputPos;
+    private Button addButton;
+    private Button minusButton;
+    private boolean check;
+    private int answerPos;
+    private int inputPos;
+    private int precision;
 
     public RectangleFragment() {
     }
@@ -57,8 +62,34 @@ public class RectangleFragment extends Fragment {
         setInputChoiceAdapter();
         setInputListener();
         setCalcListener();
-
+        setPrecisionListeners();
         return rootView;
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                } else {
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setCalcListener() {
@@ -110,7 +141,7 @@ public class RectangleFragment extends Fragment {
         double l = getInput1();
         double w = getInput2();
         if(!check){
-            answer.setText(Double.toString(2*(l+w)));
+            answer.setText(Calculations.formatter(2 * (l + w), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -121,7 +152,7 @@ public class RectangleFragment extends Fragment {
         double p = getInput2();
         double w = getInput3();
         if(!check){
-            answer.setText(Double.toString(p/2-w));
+            answer.setText(Calculations.formatter(p / 2 - w, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -131,7 +162,7 @@ public class RectangleFragment extends Fragment {
         double d = getInput2();
         double w = getInput3();
         if(!check){
-            answer.setText(Double.toString(Math.sqrt(d*d-w*w)));
+            answer.setText(Calculations.formatter(Math.sqrt(d * d - w * w), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -141,7 +172,7 @@ public class RectangleFragment extends Fragment {
         double a = getInput2();
         double w = getInput3();
         if(!check){
-            answer.setText(Double.toString(a/w));
+            answer.setText(Calculations.formatter(a / w, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -151,7 +182,7 @@ public class RectangleFragment extends Fragment {
         double p = getInput2();
         double l = getInput3();
         if(!check){
-            answer.setText(Double.toString(p/2-l));
+            answer.setText(Calculations.formatter(p / 2 - l, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -161,7 +192,7 @@ public class RectangleFragment extends Fragment {
         double d = getInput2();
         double l = getInput3();
         if(!check){
-            answer.setText(Double.toString(Math.sqrt(d*d-l*l)));
+            answer.setText(Calculations.formatter(Math.sqrt(d * d - l * l), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -171,7 +202,7 @@ public class RectangleFragment extends Fragment {
         double a = getInput2();
         double l = getInput3();
         if(!check){
-            answer.setText(Double.toString(a/l));
+            answer.setText(Calculations.formatter(a / l, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -181,7 +212,7 @@ public class RectangleFragment extends Fragment {
         double l = getInput1();
         double w = getInput2();
         if(!check){
-            answer.setText(Double.toString(Math.sqrt(l*l+w*w)));
+            answer.setText(Calculations.formatter(Math.sqrt(l * l + w * w), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -191,7 +222,7 @@ public class RectangleFragment extends Fragment {
         double l = getInput1();
         double w = getInput2();
         if(!check){
-            answer.setText(Double.toString(l*w));
+            answer.setText(Calculations.formatter(l*w, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
@@ -350,13 +381,18 @@ public class RectangleFragment extends Fragment {
         inputView1 = (RobotoTextView)rootView.findViewById(R.id.rectangle_input_view1);
         inputView2 = (RobotoTextView)rootView.findViewById(R.id.rectangle_input_view2);
         inputView3 = (RobotoTextView)rootView.findViewById(R.id.rectangle_input_view3);
+        precisionView = (RobotoTextView)rootView.findViewById(R.id.rect_precision_view);
         input1 = (EditText)rootView.findViewById(R.id.rectangle_input1);
         input2 = (EditText)rootView.findViewById(R.id.rectangle_input2);
         input3 = (EditText)rootView.findViewById(R.id.rectangle_input3);
         calcButton = (Button)rootView.findViewById(R.id.rect_calc);
+        addButton = (Button)rootView.findViewById(R.id.rect_add_button);
+        minusButton = (Button)rootView.findViewById(R.id.rect_minus_button);
         check = false;
         answerPos = 0;
         inputPos = 0;
+        precision = 2;
+        precisionView.setText(Integer.toString(precision));
     }
 
     private void resetLayout() {

@@ -7,17 +7,18 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
 /**
- * Created by John on 4/6/2014.
+ * Created by John on 6/1/2014.
  */
-public class ConversionDetailActivity extends FragmentActivity {
+public class VolumeActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.conversion_item_detail);
+        setContentView(R.layout.activity_item_detail);
 
         // Show the Up button in the action bar.
         getActionBar().setDisplayHomeAsUpEnabled(true);
+
         // savedInstanceState is non-null when there is fragment state
         // saved from previous configurations of this activity
         // (e.g. when rotating the screen from portrait to landscape).
@@ -28,7 +29,9 @@ public class ConversionDetailActivity extends FragmentActivity {
         // http://developer.android.com/guide/components/fragments.html
         //
         if (savedInstanceState == null) {
-            ConversionDetailFragment fragment = new ConversionDetailFragment();
+            // Create the detail fragment and add it to the activity
+            // using a fragment transaction.
+            VolumeFragment fragment = new VolumeFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.item_detail_container, fragment)
                     .commit();
@@ -39,7 +42,13 @@ public class ConversionDetailActivity extends FragmentActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == android.R.id.home) {
-            // Goes back to "Main Activity"
+            // This ID represents the Home or Up button. In the case of this
+            // activity, the Up button is shown. Use NavUtils to allow users
+            // to navigate up one level in the application structure. For
+            // more details, see the Navigation pattern on Android Design:
+            //
+            // http://developer.android.com/design/patterns/navigation.html#up-vs-back
+            //
             NavUtils.navigateUpTo(this, new Intent(this, ItemListActivity.class));
             return true;
         }

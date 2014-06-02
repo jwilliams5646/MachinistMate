@@ -1,5 +1,6 @@
 package com.jwilliams.machinistmate.app;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.graphics.Typeface;
@@ -26,69 +27,41 @@ import java.io.IOException;
 
 /**
  * Created by John Williams
- * Manages the ConversionDetailFragment Lifecycle
+ * Manages the LengthFragment Lifecycle
  */
-public class ConversionDetailFragment extends Fragment {
+public class LengthFragment extends Fragment {
     //Conversion Variables
-    private TextView convAnswer;
-    private TextView convAnswerType;
-    private Spinner convInputSpinner;
-    private Spinner convOutputSpinner;
+
+    private static final String KEY_POSITION="position";
+    private TextView answer;
+    private TextView answerType;
+    private Spinner inputSpinner;
+    private Spinner outputSpinner;
     private Spinner convPrecisionSpinner;
-    private EditText convInput;
-    private Button convCalcButton;
-    private LinearLayout convAnswerLayout;
-    int inputSpinner;
-    int outputSpinner;
+    private EditText input;
+    private Button calcButton;
+    private LinearLayout answerLayout;
+    int inputPos;
+    int outputPos;
     int precSpinner;
     public static Typeface tf;
     private String output;
 
-    public ConversionDetailFragment() {
+    public LengthFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.conversion_item_detail, container, false);
+        View rootView = inflater.inflate(R.layout.conversion_layout, container, false);
 
         setLayoutVariables(rootView);
         setTwoPane();
         setSpinnerAdapter();
         setPrecisionAdapter();
-
-        AdapterView.OnItemSelectedListener convInputSelectedListener = new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> spinner, View container,
-                                       int position, long id) {
-                inputSpinner = position;
-                setInputHint(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                inputSpinner = 0;
-            }
-        };
-
-        AdapterView.OnItemSelectedListener convOutputSelectedListener = new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> spinner, View container,
-                                       int position, long id) {
-                outputSpinner = position;
-                setConversionType(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                outputSpinner = 0;
-                convAnswerType.setText("in");
-            }
-        };
-
-        convInputSpinner.setOnItemSelectedListener(convInputSelectedListener);
-        convOutputSpinner.setOnItemSelectedListener(convOutputSelectedListener);
+        setInputListener();
+        setOutputListener();
+        setCalcListener();
 
         AdapterView.OnItemSelectedListener convPrecisionSelectedListener = new AdapterView.OnItemSelectedListener(){
             @Override
@@ -105,55 +78,89 @@ public class ConversionDetailFragment extends Fragment {
 
         convPrecisionSpinner.setOnItemSelectedListener(convPrecisionSelectedListener);
 
-        View.OnClickListener convCalcButtonListener = new View.OnClickListener() {
+        return rootView;
+    }
+
+    private void setCalcListener() {
+        calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new getCalculation().execute();
             }
-        };
+        });
+    }
 
-        convCalcButton.setOnClickListener(convCalcButtonListener);
+    private void setOutputListener() {
+        outputSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                outputPos = i;
+                setConversionType(i);
+            }
 
-        return rootView;
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+
+    private void setInputListener() {
+        inputSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                inputPos = i;
+                setInputHint(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
 
     private void setInputHint(int position) {
         switch (position) {
             case 0:
-                convInput.setHint("in");
+                input.setHint("in");
                 break;
             case 1:
-                convInput.setHint("ft");
+                input.setHint("ft");
                 break;
             case 2:
-                convInput.setHint("yd");
+                input.setHint("yd");
                 break;
             case 3:
-                convInput.setHint("mm");
+                input.setHint("mm");
                 break;
             case 4:
-                convInput.setHint("cm");
+                input.setHint("cm");
                 break;
             case 5:
-                convInput.setHint("m");
+                input.setHint("m");
                 break;
             default:
-                convInput.setHint("in");
+                input.setHint("in");
                 break;
         }
     }
 
     private void setLayoutVariables(View rootView){
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
-        convAnswer = (TextView) rootView.findViewById(R.id.conv_answer);
-        convAnswerType = (TextView) rootView.findViewById(R.id.conv_answer_type);
-        convInputSpinner = (Spinner) rootView.findViewById(R.id.conv_input_spinner);
-        convOutputSpinner = (Spinner) rootView.findViewById(R.id.conv_output_spinner);
+        answer = (TextView) rootView.findViewById(R.id.conv_answer);
+        answerType = (TextView) rootView.findViewById(R.id.conv_answer_type);
+        inputSpinner = (Spinner) rootView.findViewById(R.id.conv_input_spinner);
+        outputSpinner = (Spinner) rootView.findViewById(R.id.conv_output_spinner);
         convPrecisionSpinner = (Spinner)rootView.findViewById(R.id.conv_prec_spinner);
-        convInput = (EditText) rootView.findViewById(R.id.conv_input);
-        convCalcButton = (Button) rootView.findViewById(R.id.conv_calc_button);
-        convAnswerLayout = (LinearLayout) rootView.findViewById(R.id.conv_answer_layout);
-        convCalcButton.setTypeface(tf);
+        input = (EditText) rootView.findViewById(R.id.conv_input);
+        calcButton = (Button) rootView.findViewById(R.id.conv_calc_button);
+        answerLayout = (LinearLayout) rootView.findViewById(R.id.conv_answer_layout);
+        calcButton.setTypeface(tf);
+        inputPos = 0;
+        outputPos = 0;
     }
 
     private void setTwoPane(){
@@ -161,10 +168,10 @@ public class ConversionDetailFragment extends Fragment {
             final float SCALE = getActivity().getResources().getDisplayMetrics().density;
             int topMargin = (int) (SpeedsDetailFragment.TOP_MARGIN_FROM_FLOAT * SCALE + 0.5f);
             int x = (int) (SpeedsDetailFragment.OTHER_MARGIN_FROM_FLOAT * SCALE + 0.5f);
-            LinearLayout.MarginLayoutParams params = (LinearLayout.MarginLayoutParams) convAnswerLayout.getLayoutParams();
+            LinearLayout.MarginLayoutParams params = (LinearLayout.MarginLayoutParams) answerLayout.getLayoutParams();
             assert params != null;
             params.setMargins(x, topMargin, x, x);
-            convAnswerLayout.setLayoutParams(params);
+            answerLayout.setLayoutParams(params);
         }
     }
 
@@ -172,8 +179,8 @@ public class ConversionDetailFragment extends Fragment {
         ArrayAdapter<CharSequence> convAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.conversions_array, R.layout.spinner_background);
         convAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        convInputSpinner.setAdapter(convAdapter);
-        convOutputSpinner.setAdapter(convAdapter);
+        inputSpinner.setAdapter(convAdapter);
+        outputSpinner.setAdapter(convAdapter);
     }
 
     private void setPrecisionAdapter(){
@@ -186,31 +193,31 @@ public class ConversionDetailFragment extends Fragment {
     private void setConversionType(int position){
         switch (position) {
             case 0:
-                convAnswerType.setText("in");
+                answerType.setText("in");
                 output = "inch";
                 break;
             case 1:
-                convAnswerType.setText("ft");
+                answerType.setText("ft");
                 output = "feet";
                 break;
             case 2:
-                convAnswerType.setText("yd");
+                answerType.setText("yd");
                 output = "yard";
                 break;
             case 3:
-                convAnswerType.setText("mm");
+                answerType.setText("mm");
                 output = "millimeter";
                 break;
             case 4:
-                convAnswerType.setText("cm");
+                answerType.setText("cm");
                 output = "centimeter";
                 break;
             case 5:
-                convAnswerType.setText("m");
+                answerType.setText("m");
                 output = "meter";
                 break;
             default:
-                convAnswerType.setText("in");
+                answerType.setText("in");
                 output = "inch";
                 break;
         }
@@ -240,7 +247,7 @@ public class ConversionDetailFragment extends Fragment {
         @Override
         protected void onPreExecute(){
             try {
-                calcInput = Double.parseDouble(convInput.getText().toString());
+                calcInput = Double.parseDouble(input.getText().toString());
             } catch (NumberFormatException e) {
                 Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
                 cancel(true);
@@ -253,7 +260,7 @@ public class ConversionDetailFragment extends Fragment {
             DbHelper myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
-            Cursor c = myDbHelper.getConversionFactor(inputSpinner, output);
+            Cursor c = myDbHelper.getConversionFactor(inputPos, output);
             c.moveToFirst();
             Double result = Utility.formatter(calcInput *
                     Double.parseDouble(c.getString(c.getColumnIndex(output))), precSpinner);
@@ -264,7 +271,21 @@ public class ConversionDetailFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object result){
-            convAnswer.setText(result.toString());
+            answer.setText(result.toString());
         }
+    }
+
+    static LengthFragment newInstance(int position) {
+        LengthFragment frag=new LengthFragment();
+        Bundle args=new Bundle();
+
+        args.putInt(KEY_POSITION, position);
+        frag.setArguments(args);
+
+        return(frag);
+    }
+
+    static String getTitle(Context ctxt, int position) {
+        return(String.format(ctxt.getString(R.string.length), position + 1));
     }
 }

@@ -47,7 +47,7 @@
                 android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
         </activity>
         <activity
-            android:name="com.jwilliams.machinistmate.app.ConversionDetailActivity"
+            android:name=".LengthActivity"
             android:label="Conversions"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
             android:screenOrientation="nosensor">
@@ -64,9 +64,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
         </activity>
+
         <activity
             android:name="com.jwilliams.machinistmate.app.ReferencePagerActivity"
             android:label="Reference"
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
+            android:name="com.jwilliams.machinistmate.app.ConversionPagerActivity"
+            android:label="Conversion"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
             android:screenOrientation="nosensor">
             <meta-data

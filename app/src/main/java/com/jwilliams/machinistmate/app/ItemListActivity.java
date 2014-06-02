@@ -78,7 +78,7 @@ public class ItemListActivity extends FragmentActivity
 
             FeedsDetailFragment feedFragment = new FeedsDetailFragment();
 
-            ConversionDetailFragment convFragment = new ConversionDetailFragment();
+            ConversionPagerFragment convFragment = new ConversionPagerFragment();
 
             GeometryPagerFragment geometryFragment = new GeometryPagerFragment();
 
@@ -132,7 +132,7 @@ public class ItemListActivity extends FragmentActivity
 
             Intent feedIntent = new Intent(this, FeedsDetailActivity.class);
 
-            Intent convIntent = new Intent(this, ConversionDetailActivity.class);
+            Intent convIntent = new Intent(this, ConversionPagerActivity.class);
 
             Intent geometryIntent = new Intent(this, GeometryPagerActivity.class);
 

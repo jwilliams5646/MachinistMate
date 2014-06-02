@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -27,11 +28,15 @@ public class ParallelogramFragment extends Fragment {
     private RobotoTextView paraInputView1;
     private RobotoTextView paraInputView2;
     private RobotoTextView paraAnswer;
+    private RobotoTextView precisionView;
     private EditText paraInput1;
     private EditText paraInput2;
     private Spinner paraSpinner;
     private Button paraCalc;
+    private Button addButton;
+    private Button minusButton;
     private int setCalc;
+    private int precision;
     private boolean check;
 
     public ParallelogramFragment() {
@@ -52,8 +57,34 @@ public class ParallelogramFragment extends Fragment {
         setSpinnerAdapter();
         setSpinnerListener();
         setCalcListener();
-
+        setPrecisionListeners();
         return rootView;
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                } else {
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setCalcListener() {
@@ -97,7 +128,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            paraAnswer.setText(Double.toString(180-x));
+            paraAnswer.setText(Calculations.formatter(180-x, precision));
         }else{
             Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
         }
@@ -112,7 +143,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            paraAnswer.setText(Double.toString(180-y));
+            paraAnswer.setText(Calculations.formatter(180-y, precision));
         }else{
             Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
         }
@@ -134,7 +165,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            paraAnswer.setText(Double.toString(2*(a+b)));
+            paraAnswer.setText(Calculations.formatter(2*(a+b), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -157,7 +188,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            paraAnswer.setText(Double.toString((p/2)-b));
+            paraAnswer.setText(Calculations.formatter((p/2)-b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -179,7 +210,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            paraAnswer.setText(Double.toString(a/b));
+            paraAnswer.setText(Calculations.formatter(a/b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -201,7 +232,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            paraAnswer.setText(Double.toString(a/h));
+            paraAnswer.setText(Calculations.formatter(a/h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -223,7 +254,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            paraAnswer.setText(Double.toString(b*h));
+            paraAnswer.setText(Calculations.formatter(b * h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -295,16 +326,21 @@ public class ParallelogramFragment extends Fragment {
 
     private void initializeLayout(View rootView) {
         paraInput1Layout = (LinearLayout)rootView.findViewById(R.id.para_input1_layout);
-        paraInput2Layout = (LinearLayout)rootView.findViewById(R.id.para_input2_layout);
+        paraInput2Layout = (LinearLayout)rootView.findViewById(R.id.para_layout2);
         paraInputView1 = (RobotoTextView)rootView.findViewById(R.id.para_view1);
         paraInputView2 = (RobotoTextView)rootView.findViewById(R.id.para_view2);
+        precisionView = (RobotoTextView)rootView.findViewById(R.id.para_precision_view);
         paraAnswer = (RobotoTextView)rootView.findViewById(R.id.para_answer);
         paraInput1 = (EditText)rootView.findViewById(R.id.para_input1);
         paraInput2 = (EditText)rootView.findViewById(R.id.para_input2);
         paraSpinner = (Spinner)rootView.findViewById(R.id.para_spinner);
         paraCalc = (Button)rootView.findViewById(R.id.para_calc_button);
+        addButton = (Button)rootView.findViewById(R.id.para_add_button);
+        minusButton = (Button)rootView.findViewById(R.id.para_minus_button);
         setCalc = 0;
+        precision = 2;
         check = false;
+        precisionView.setText(Integer.toString(precision));
     }
 
     static ParallelogramFragment newInstance(int position) {

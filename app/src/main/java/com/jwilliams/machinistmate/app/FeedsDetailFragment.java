@@ -16,6 +16,7 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.Utility;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
@@ -25,33 +26,25 @@ import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
  * This class is the View-Controller for the Feeds calculation.
  */
 public class FeedsDetailFragment extends Fragment {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-    //public static final String ARG_ITEM_ID = "item_id";
 
-    //variables for views from layout
     private RobotoTextView feedAnswer;
     private boolean feedType;
     private EditText feedSpeedInput;
     private EditText feedPerToothInput;
     private EditText numberTeethInput;
     private RobotoTextView feedAnswerType;
+    private RobotoTextView precisionView;
     private Button feedCalc;
+    private Button addButton;
+    private Button minusButton;
     private RadioButton standardButton;
     private RadioButton metricButton;
     private LinearLayout feedAnswerLayout;
     private RadioGroup feedRadioGroup;
     private Spinner feedPrecisionSpinner;
     public static Typeface tf;
-    int precSpinner;
+    private int precision;
 
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public FeedsDetailFragment() {
     }
 
@@ -67,8 +60,21 @@ public class FeedsDetailFragment extends Fragment {
 
         setLayoutVariables(rootView);
         setTwoPane();
-        setPrecisionAdapter();
+        setPrecisionListeners();
+        setRadioButtonListeners();
+        setCalcButtonListener();
+        return rootView;
+    }
 
+    private void setCalcButtonListener() {
+        feedCalc.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View view) {
+                calcFeed();
+            }
+        });
+    }
+
+    private void setRadioButtonListeners() {
         feedRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 switch (i) {
@@ -81,31 +87,33 @@ public class FeedsDetailFragment extends Fragment {
                         feedPerToothInput.setHint(R.string.mm);
                         break;
                 }
-            }
-        });
+            }});
+    }
 
-        feedCalc.setOnClickListener(new Button.OnClickListener() {
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View view) {
-                calcFeed();
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        AdapterView.OnItemSelectedListener convPrecisionSelectedListener = new AdapterView.OnItemSelectedListener(){
+        minusButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> spinner, View container,
-                                       int position, long id) {
-                precSpinner = position+1;
+            public void onClick(View view) {
+                if(precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
             }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-                precSpinner = 1;
-            }
-        };
-
-        feedPrecisionSpinner.setOnItemSelectedListener(convPrecisionSelectedListener);
-
-        return rootView;
+        });
     }
 
     private void setLayoutVariables(View rootView){
@@ -115,17 +123,21 @@ public class FeedsDetailFragment extends Fragment {
         feedPerToothInput = (EditText) rootView.findViewById(R.id.feed_per_tooth_input);
         numberTeethInput = (EditText) rootView.findViewById(R.id.number_teeth_input);
         feedAnswerType = (RobotoTextView) rootView.findViewById(R.id.feed_answer_type);
+        precisionView = (RobotoTextView) rootView.findViewById(R.id.feed_precision_view);
         feedAnswerLayout = (LinearLayout) rootView.findViewById(R.id.feed_answer_layout);
         feedRadioGroup = (RadioGroup) rootView.findViewById(R.id.feed_radio_group);
         standardButton = (RadioButton)rootView.findViewById(R.id.feeds_standard_radio);
         metricButton = (RadioButton)rootView.findViewById(R.id.feeds_metric_radio);
         feedCalc = (Button) rootView.findViewById(R.id.feed_calc);
-        feedPrecisionSpinner = (Spinner)rootView.findViewById(R.id.feed_prec_spinner);
+        addButton = (Button) rootView.findViewById(R.id.feed_add_button);
+        minusButton = (Button) rootView.findViewById(R.id.feed_minus_button);
         standardButton.setTypeface(tf);
         metricButton.setTypeface(tf);
         feedCalc.setTypeface(tf);
         feedAnswerType.setText(getText(R.string.ipm));
         feedType = true;
+        precision = 2;
+        precisionView.setText(Integer.toString(precision));
     }
 
     private void setTwoPane(){
@@ -138,13 +150,6 @@ public class FeedsDetailFragment extends Fragment {
             params.setMargins(x, topMargin, x, x);
             feedAnswerLayout.setLayoutParams(params);
         }
-    }
-
-    private void setPrecisionAdapter(){
-        ArrayAdapter<CharSequence> precAdapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.precision_array, R.layout.spinner_background);
-        precAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        feedPrecisionSpinner.setAdapter(precAdapter);
     }
 
     public void calcFeed() {
@@ -176,11 +181,7 @@ public class FeedsDetailFragment extends Fragment {
             return;
         }
 
-        double feed = (speed * fpt * numTeeth);
-
-        feedAnswer.setText(Double.toString(Utility.formatter(feed, precSpinner)));
+        feedAnswer.setText(Calculations.formatter(speed * fpt * numTeeth, precision));
     }
-
-
 }
 

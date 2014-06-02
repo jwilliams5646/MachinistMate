@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -33,13 +34,17 @@ public class TrapezoidFragment extends Fragment {
     private RobotoTextView input3View;
     private RobotoTextView input4View;
     private RobotoTextView answer;
+    private RobotoTextView precisionView;
     private EditText input1;
     private EditText input2;
     private EditText input3;
     private EditText input4;
     private Button calcButton;
+    private Button addButton;
+    private Button minusButton;
     private boolean check;
     private int choice;
+    private int precision;
 
 
     public TrapezoidFragment() {
@@ -58,7 +63,34 @@ public class TrapezoidFragment extends Fragment {
         setSpinnerAdapter();
         setSpinnerListener();
         setCalcListener();
+        setPrecisionListeners();
         return rootView;
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                } else {
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setCalcListener() {
@@ -129,7 +161,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString(a+b+c+d));
+            answer.setText(Calculations.formatter(a + b + c + d, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -152,7 +184,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString((a+b)/2));
+            answer.setText(Calculations.formatter((a+b)/2, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -182,7 +214,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString(2*(A/(a+b))));
+            answer.setText(Calculations.formatter(2*(A/(a+b)), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -219,7 +251,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString(p-a-b-c));
+            answer.setText(Calculations.formatter(p-a-b-c, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -256,7 +288,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString(p-a-b-d));
+            answer.setText(Calculations.formatter(p-a-b-d, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -286,7 +318,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString(2*(A/h)-a));
+            answer.setText(Calculations.formatter(2*(A/h)-a, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -316,7 +348,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString(2*(A/h)-b));
+            answer.setText(Calculations.formatter(2*(A/h)-b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -346,7 +378,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Double.toString(((a+b)/2)*h));
+            answer.setText(Calculations.formatter(((a+b)/2)*h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -469,13 +501,18 @@ public class TrapezoidFragment extends Fragment {
         input3View = (RobotoTextView)rootView.findViewById(R.id.trap_input3_view);
         input4View = (RobotoTextView)rootView.findViewById(R.id.trap_input4_view);
         answer = (RobotoTextView)rootView.findViewById(R.id.trap_answer);
+        precisionView = (RobotoTextView)rootView.findViewById(R.id.trap_precision_view);
         input1 = (EditText)rootView.findViewById(R.id.trap_input1);
         input2 = (EditText)rootView.findViewById(R.id.trap_input2);
         input3 = (EditText)rootView.findViewById(R.id.trap_input3);
         input4 = (EditText)rootView.findViewById(R.id.trap_input4);
         calcButton = (Button)rootView.findViewById(R.id.trap_calc_button);
+        addButton = (Button)rootView.findViewById(R.id.trap_add_button);
+        minusButton = (Button)rootView.findViewById(R.id.trap_minus_button);
         check = false;
         choice = 0;
+        precision = 2;
+        precisionView.setText(Integer.toString(precision));
         setInitialLayout();
     }
 

@@ -181,34 +181,45 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="400dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/number_teeth_layout"
-        android:id="@+id/feed_precision"
-        android:layout_alignLeft="@id/feed_answer_layout"
-        android:layout_marginRight="4dp">
-
+        android:layout_centerHorizontal="true"
+        android:id="@+id/feed_precision_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="match_parent"
-            android:text="@string/precision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precision"
             android:id="@+id/textView"
-            style="@style/TextViewStyle"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_gravity="bottom"/>
+            android:layout_margin="4dp"
+            android:gravity="right|bottom"
+            style="@style/TextViewStyle"/>
 
-        <Spinner
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:id="@+id/feed_prec_spinner"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp" />
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:id="@+id/feed_minus_button"
+            android:layout_margin="4dp"
+            style="@style/buttons"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="2"
+            android:id="@+id/feed_precision_view"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle"
+            android:gravity="center"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:id="@+id/feed_add_button"
+            android:layout_margin="4dp"
+            style="@style/buttons"/>
     </LinearLayout>
 
     <Button
@@ -216,7 +227,7 @@
         style="@style/buttons"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:layout_below="@+id/feed_precision"
+        android:layout_below="@+id/feed_precision_layout"
         android:layout_centerHorizontal="true"
         android:layout_margin="4dp"
         android:text="@string/calculate"

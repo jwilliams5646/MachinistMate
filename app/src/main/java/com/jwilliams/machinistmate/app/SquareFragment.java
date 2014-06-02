@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -27,11 +28,14 @@ public class SquareFragment extends Fragment {
     private EditText input1;
     private EditText sideInput;
     private RobotoTextView view1;
-    private RobotoTextView sideView;
+    private RobotoTextView precisionView;
     private RobotoTextView answer;
     private Spinner answerChoice;
     private Spinner sideChoice;
+    private Button addButton;
+    private Button minusButton;
     private Button calcButton;
+    private int precision;
     private int sidePos;
     private int answerPos;
     private boolean check;
@@ -55,8 +59,35 @@ public class SquareFragment extends Fragment {
         setAnswerChoiceListener();
         setSideChoiceListener();
         setCalcListener();
+        setPrecisionListeners();
         return rootView;
 
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setCalcListener() {
@@ -94,7 +125,7 @@ public class SquareFragment extends Fragment {
                 double s = getInput();
 
                 if(!check){
-                    answer.setText(Double.toString(s*4));
+                    answer.setText(Calculations.formatter(s*4,precision));
                 }else{
                     Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
                 }
@@ -104,7 +135,7 @@ public class SquareFragment extends Fragment {
                 double p = getSideInput();
 
                 if(!check){
-                    answer.setText(Double.toString(p/4));
+                    answer.setText(Calculations.formatter(p/4, precision));
                 }else{
                     Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
                 }
@@ -114,7 +145,7 @@ public class SquareFragment extends Fragment {
                 double d = getSideInput();
 
                 if(!check){
-                    answer.setText(Double.toString(Math.sqrt(2)*(d/2)));
+                    answer.setText(Calculations.formatter(Math.sqrt(2)*(d/2),precision));
                 }else{
                     Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
                 }
@@ -124,7 +155,7 @@ public class SquareFragment extends Fragment {
                 double a = getSideInput();
 
                 if(!check){
-                    answer.setText(Double.toString(Math.sqrt(a)));
+                    answer.setText(Calculations.formatter(Math.sqrt(a), precision));
                 }else{
                     Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
                 }
@@ -134,7 +165,7 @@ public class SquareFragment extends Fragment {
                 double s = getInput();
 
                 if(!check){
-                    answer.setText(Double.toString(Math.sqrt(2)*s));
+                    answer.setText(Calculations.formatter(Math.sqrt(2)*s,precision));
                 }else{
                     Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
                 }
@@ -144,7 +175,7 @@ public class SquareFragment extends Fragment {
                 double s = getInput();
 
                 if(!check){
-                    answer.setText(Double.toString(s*s));
+                    answer.setText(Calculations.formatter(s*s, precision));
                 }else{
                     Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
                 }
@@ -225,18 +256,23 @@ public class SquareFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
-        inputLayout1 = (LinearLayout)rootView.findViewById(R.id.square_input_layout1);
-        sideInputLayout = (LinearLayout)rootView.findViewById(R.id.square_side_input_layout);
-        input1 = (EditText)rootView.findViewById(R.id.square_input1);
-        sideInput = (EditText)rootView.findViewById(R.id.square_side_input);
-        view1 = (RobotoTextView)rootView.findViewById(R.id.square_view1);
-        answer = (RobotoTextView)rootView.findViewById(R.id.square_answer);
-        answerChoice = (Spinner)rootView.findViewById(R.id.square_choice);
-        sideChoice = (Spinner)rootView.findViewById(R.id.square_side_input_choice);
-        calcButton = (Button)rootView.findViewById(R.id.square_calc);
+        inputLayout1 = (LinearLayout)rootView.findViewById(R.id.sq_layout1);
+        sideInputLayout = (LinearLayout)rootView.findViewById(R.id.sq_side_layout);
+        input1 = (EditText)rootView.findViewById(R.id.sq_input1);
+        sideInput = (EditText)rootView.findViewById(R.id.sq_side_input);
+        precisionView = (RobotoTextView)rootView.findViewById(R.id.sq_precision_view);
+        view1 = (RobotoTextView)rootView.findViewById(R.id.sq_view1);
+        answer = (RobotoTextView)rootView.findViewById(R.id.sq_answer);
+        answerChoice = (Spinner)rootView.findViewById(R.id.sq_choice);
+        sideChoice = (Spinner)rootView.findViewById(R.id.sq_side_choice);
+        calcButton = (Button)rootView.findViewById(R.id.sq_calc);
+        addButton = (Button)rootView.findViewById(R.id.sq_add_button);
+        minusButton = (Button)rootView.findViewById(R.id.sq_minus_button);
         sidePos = 0;
         answerPos = 0;
+        precision = 2;
         check = false;
+        precisionView.setText(Integer.toString(precision));
         setBasicLayout();
     }
 

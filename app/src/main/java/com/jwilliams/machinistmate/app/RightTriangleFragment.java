@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -30,14 +31,17 @@ public class RightTriangleFragment extends Fragment {
     private EditText angleY;
     private RobotoTextView areaAnswer;
     private RobotoTextView perimeterAnswer;
+    private RobotoTextView precisionView;
     private Spinner angleXSpinner;
     private Spinner angleYSpinner;
+    private Button addButton;
+    private Button minusButton;
     private Button calcButton;
     private Button clearButton;
     private Button questionButton;
     private int xPos;
     private int yPos;
-
+    private int precision;
 
 
     public RightTriangleFragment() {
@@ -59,7 +63,34 @@ public class RightTriangleFragment extends Fragment {
         setClearButtonListener();
         setQuestionButtonListener();
         setCalcButtonListener();
+        setPrecisionListeners();
         return rootView;
+    }
+
+    private void setPrecisionListeners() {
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(precision < 6) {
+                    precision++;
+                    precisionView.setText(Integer.toString(precision));
+                }else{
+                    Toast.makeText(getActivity(), "Max precision reached.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (precision > 1) {
+                    precision--;
+                    precisionView.setText(Integer.toString(precision));
+                } else {
+                    Toast.makeText(getActivity(), "You can't go down any farther.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void setCalcButtonListener() {
@@ -110,6 +141,14 @@ public class RightTriangleFragment extends Fragment {
                     cy = true;
                     count++;
                 }
+                if(count > 2){
+                    Toast.makeText(getActivity(), "Input at least 2 values", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(count < 2){
+                    Toast.makeText(getActivity(), "Input only 2 values", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if(!ch && !co && ca && cx && cy){
                     ss_ho(h, o, a, x, y, p, area);
@@ -151,9 +190,9 @@ public class RightTriangleFragment extends Fragment {
                 x = 90 - y;
                 h = a/Math.sin(Math.toRadians(y));
                 o = h*Math.sin(Math.toRadians(x));
-                sideH.setText(Double.toString(h));
-                sideO.setText(Double.toString(o));
-                angleY.setText(Double.toString(y));
+                sideH.setText(Calculations.formatter(h, precision));
+                sideO.setText(Calculations.formatter(o, precision));
+                angleY.setText(Calculations.formatter(y, precision));
                 setAreaPeri(h, o, a);
             }
 
@@ -168,9 +207,9 @@ public class RightTriangleFragment extends Fragment {
                 y = 90 - x;
                 h = a/Math.sin(Math.toRadians(y));
                 o = h*Math.sin(Math.toRadians(x));
-                sideH.setText(Double.toString(h));
-                sideO.setText(Double.toString(o));
-                angleY.setText(Double.toString(y));
+                sideH.setText(Calculations.formatter(h, precision));
+                sideO.setText(Calculations.formatter(o, precision));
+                angleY.setText(Calculations.formatter(y, precision));
                 setAreaPeri(h, o, a);
             }
 
@@ -185,9 +224,9 @@ public class RightTriangleFragment extends Fragment {
                 x = 90 - y;
                 h = a/Math.sin(Math.toRadians(y));
                 a = h*Math.cos(Math.toRadians(x));
-                sideH.setText(Double.toString(h));
-                sideA.setText(Double.toString(a));
-                angleX.setText(Double.toString(x));
+                sideH.setText(Calculations.formatter(h, precision));
+                sideA.setText(Calculations.formatter(a, precision));
+                angleX.setText(Calculations.formatter(x, precision));
                 setAreaPeri(h, o, a);
 
             }
@@ -203,9 +242,9 @@ public class RightTriangleFragment extends Fragment {
                 y = 90 - x;
                 h = a/Math.sin(Math.toRadians(y));
                 a = h*Math.cos(Math.toRadians(x));
-                sideH.setText(Double.toString(h));
-                sideA.setText(Double.toString(a));
-                angleY.setText(Double.toString(y));
+                sideH.setText(Calculations.formatter(h, precision));
+                sideA.setText(Calculations.formatter(a, precision));
+                angleY.setText(Calculations.formatter(y, precision));
                 setAreaPeri(h, o, a);
             }
 
@@ -213,9 +252,9 @@ public class RightTriangleFragment extends Fragment {
                 h = Math.sqrt(o*o + a*a);
                 x = Math.toDegrees(Math.asin(Math.sin(o/h)));
                 y = 90 - x;
-                sideH.setText(Double.toString(h));
-                angleX.setText(Double.toString(x));
-                angleY.setText(Double.toString(y));
+                sideH.setText(Calculations.formatter(h, precision));
+                angleX.setText(Calculations.formatter(x, precision));
+                angleY.setText(Calculations.formatter(y, precision));
                 setAreaPeri(h, o, a);
             }
 
@@ -226,9 +265,9 @@ public class RightTriangleFragment extends Fragment {
                 x = 90 - y;
                 o = h*Math.sin(Math.toRadians(x));
                 a = h*Math.cos(Math.toRadians(x));
-                sideO.setText(Double.toString(o));
-                sideA.setText(Double.toString(a));
-                angleX.setText(Double.toString(x));
+                sideO.setText(Calculations.formatter(o, precision));
+                sideA.setText(Calculations.formatter(a, precision));
+                angleX.setText(Calculations.formatter(x, precision));
                 setAreaPeri(h, o, a);
             }
 
@@ -243,9 +282,9 @@ public class RightTriangleFragment extends Fragment {
                 y = 90 - x;
                 o = h*Math.sin(Math.toRadians(x));
                 a = h*Math.cos(Math.toRadians(x));
-                sideO.setText(Double.toString(o));
-                sideA.setText(Double.toString(a));
-                angleY.setText(Double.toString(y));
+                sideO.setText(Calculations.formatter(o, precision));
+                sideA.setText(Calculations.formatter(a, precision));
+                angleY.setText(Calculations.formatter(y, precision));
                 setAreaPeri(h,o,a);
             }
 
@@ -259,9 +298,9 @@ public class RightTriangleFragment extends Fragment {
                 y = 90 - x;
                 area = (o+a)/2;
                 p = h+o+a;
-                sideO.setText(Double.toString(o));
-                angleX.setText(Double.toString(x));
-                angleY.setText(Double.toString(y));
+                sideO.setText(Calculations.formatter(o, precision));
+                angleX.setText(Calculations.formatter(x, precision));
+                angleY.setText(Calculations.formatter(y, precision));
                 setAreaPeri(h, o, a);
             }
 
@@ -269,15 +308,15 @@ public class RightTriangleFragment extends Fragment {
                 a = Math.sqrt(h*h - o*o);
                 x = Math.toDegrees(Math.asin(Math.sin(o/h)));
                 y = 90 - x;
-                sideA.setText(Double.toString(a));
-                angleX.setText(Double.toString(x));
-                angleY.setText(Double.toString(y));
+                sideA.setText(Calculations.formatter(a, precision));
+                angleX.setText(Calculations.formatter(x, precision));
+                angleY.setText(Calculations.formatter(y, precision));
                 setAreaPeri(h, o, a);
             }
 
             private void setAreaPeri(double h, double o, double a) {
-                areaAnswer.setText(Double.toString(getArea(o,a)));
-                perimeterAnswer.setText(Double.toString(getPeri(h,o,a)));
+                areaAnswer.setText(Calculations.formatter(getArea(o,a), precision));
+                perimeterAnswer.setText(Calculations.formatter(getPeri(h,o,a), precision));
             }
 
             private double getArea(double o, double a){
@@ -359,13 +398,18 @@ public class RightTriangleFragment extends Fragment {
         angleY = (EditText)rootView.findViewById(R.id.rt_y_input);
         areaAnswer = (RobotoTextView)rootView.findViewById(R.id.rt_area_answer);
         perimeterAnswer = (RobotoTextView)rootView.findViewById(R.id.rt_perimeter_answer);
+        precisionView = (RobotoTextView)rootView.findViewById(R.id.rt_precision_view);
         angleXSpinner = (Spinner)rootView.findViewById(R.id.rt_x_spinner);
         angleYSpinner = (Spinner)rootView.findViewById(R.id.rt_y_spinner);
         calcButton = (Button)rootView.findViewById(R.id.rt_calc_button);
+        addButton = (Button)rootView.findViewById(R.id.rt_add_button);
+        minusButton = (Button)rootView.findViewById(R.id.rt_minus_button);
         clearButton = (Button)rootView.findViewById(R.id.rt_clear_button);
         questionButton = (Button)rootView.findViewById(R.id.rt_question_button);
         xPos = 0;
         yPos = 0;
+        precision = 2;
+        precisionView.setText(Integer.toString(precision));
     }
 
     private void clear(){

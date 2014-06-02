@@ -142,12 +142,55 @@
             style="@style/EditTextStyle"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rectangle_input_layout3"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/rect_precision_layout">
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precision"
+            android:id="@+id/textView"
+            android:layout_margin="4dp"
+            android:gravity="right|bottom"
+            style="@style/TextViewStyle"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:id="@+id/rect_minus_button"
+            android:layout_margin="4dp"
+            style="@style/buttons"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="2"
+            android:id="@+id/rect_precision_view"
+            android:layout_margin="4dp"
+            style="@style/TextViewStyle"
+            android:gravity="center"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:id="@+id/rect_add_button"
+            android:layout_margin="4dp"
+            style="@style/buttons"/>
+    </LinearLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="@string/calculate"
         android:id="@+id/rect_calc"
-        android:layout_below="@+id/rectangle_input_layout3"
+        android:layout_below="@+id/rect_precision_layout"
         android:layout_centerHorizontal="true"
         style="@style/buttons"/>
 

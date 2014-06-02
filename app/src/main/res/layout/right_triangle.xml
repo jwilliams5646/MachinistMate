@@ -6,7 +6,7 @@
     <ImageView
         android:layout_width="400dp"
         android:layout_height="125dp"
-        android:id="@+id/right_triangle_image"
+        android:id="@+id/rt_image"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="4dp"
@@ -18,8 +18,8 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:id="@+id/rt_layout1"
-        android:layout_below="@+id/right_triangle_image"
-        android:layout_alignLeft="@+id/right_triangle_image">
+        android:layout_below="@+id/rt_image"
+        android:layout_alignLeft="@+id/rt_image">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/rt_layout2"
         android:layout_below="@+id/rt_layout1"
-        android:layout_alignLeft="@+id/right_triangle_image">
+        android:layout_alignLeft="@+id/rt_image">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -125,7 +125,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/rt_layout3"
         android:layout_below="@+id/rt_layout2"
-        android:layout_alignLeft="@+id/right_triangle_image">
+        android:layout_alignLeft="@+id/rt_image">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -170,7 +170,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/rt_layout4"
         android:layout_below="@+id/rt_layout3"
-        android:layout_alignLeft="@+id/right_triangle_image">
+        android:layout_alignLeft="@+id/rt_image">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -190,16 +190,7 @@
             android:layout_margin="4dp"
             style="@style/TextViewStyle"
             android:layout_weight="1"/>
-    </LinearLayout>
 
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rt_layout4"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/rt_layout5">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -207,6 +198,17 @@
             android:id="@+id/rt_clear_button"
             style="@style/buttons"
             android:layout_margin="4dp"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rt_layout4"
+        android:layout_alignLeft="@id/rt_image"
+        android:id="@+id/rt_layout5">
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -214,13 +216,51 @@
             android:id="@+id/rt_calc_button"
             style="@style/buttons"
             android:layout_margin="4dp"/>
-        <Button
-            android:layout_width="wrap_content"
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="40dp"
-            android:text="\?"
-            android:id="@+id/rt_question_button"
+            android:text="Precision"
+            android:id="@+id/textView"
+            android:gravity="right|bottom"
+            style="@style/TextViewStyle"
+            android:layout_margin="4dp"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:id="@+id/rt_minus_button"
+            style="@style/buttons"
+            android:layout_margin="4dp"/>
+
+        <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/rt_precision_view"
+            android:gravity="center"
+            android:text="2"
+            style="@style/TextViewStyle"
+            android:layout_margin="4dp"/>
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+"
+            android:id="@+id/rt_add_button"
             style="@style/buttons"
             android:layout_margin="4dp"/>
     </LinearLayout>
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="\?"
+        android:id="@+id/rt_question_button"
+        style="@style/buttons"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/rt_image"
+        android:layout_alignEnd="@+id/rt_image" />
 
 </RelativeLayout>
