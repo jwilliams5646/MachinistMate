@@ -255,6 +255,9 @@ public class VolumeFragment extends Fragment {
 
     private class getCalculation extends AsyncTask {
         private double calcInput = 0.0;
+        DbHelper myDbHelper;
+        Cursor c;
+        String result;
 
         @Override
         protected void onPreExecute(){
@@ -269,12 +272,12 @@ public class VolumeFragment extends Fragment {
         @Override
         protected String doInBackground(Object[] params) {
             Log.d("DB Thread", "Starting work");
-            DbHelper myDbHelper = new DbHelper(getActivity());
+            myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
-            Cursor c = myDbHelper.getVolumeConversionFactor(inputPos, output);
+            c = myDbHelper.getVolumeConversionFactor(inputPos, output);
             c.moveToFirst();
-            String result = Calculations.formatter(calcInput *
+            result = Calculations.formatter(calcInput *
                     Double.parseDouble(c.getString(c.getColumnIndex(output))), precision);
             myDbHelper.close();
             Log.d("DB Thread", "Ending work");
@@ -284,6 +287,9 @@ public class VolumeFragment extends Fragment {
         @Override
         protected void onPostExecute(Object result){
             answer.setText(result.toString());
+            myDbHelper = null;
+            c = null;
+            this.cancel(true);
         }
     }
 
@@ -299,5 +305,22 @@ public class VolumeFragment extends Fragment {
 
     static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.volume), position + 1));
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        tf = null;
+        answer = null;
+        answerType = null;
+        precisionView = null;
+        inputSpinner = null;
+        outputSpinner = null;
+        input = null;
+        calcButton = null;
+        addButton = null;
+        minusButton = null;
+        answerLayout = null;
+
     }
 }

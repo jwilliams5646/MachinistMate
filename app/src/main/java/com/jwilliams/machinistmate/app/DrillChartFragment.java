@@ -168,6 +168,11 @@ public class DrillChartFragment extends Fragment {
     }
 
     private class setGrid extends AsyncTask {
+        Cursor c;
+        DbHelper myDbHelper;
+        String size;
+        String standard;
+        String metric;
 
         @Override
         protected void onPreExecute(){
@@ -179,10 +184,10 @@ public class DrillChartFragment extends Fragment {
         @Override
         protected Object doInBackground(Object[] params) {
             Log.d("DB Thread", "Starting work");
-            DbHelper myDbHelper = new DbHelper(getActivity());
+            myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
-            Cursor c;
+            //Cursor c;
 
             switch (dbSwitch){
                 case 0:
@@ -218,9 +223,9 @@ public class DrillChartFragment extends Fragment {
 
         private void createListAdapter(Cursor c) {
             while(c.moveToNext()) {
-                String size = c.getString(c.getColumnIndex("size"));
-                String standard = c.getString(c.getColumnIndex("standard"));
-                String metric = c.getString(c.getColumnIndex("metric"));
+                size = c.getString(c.getColumnIndex("size"));
+                standard = c.getString(c.getColumnIndex("standard"));
+                metric = c.getString(c.getColumnIndex("metric"));
                 li.add(size);
                 li.add(standard);
                 li.add(metric);
@@ -230,6 +235,12 @@ public class DrillChartFragment extends Fragment {
         @Override
         protected void onPostExecute(Object result){
             referenceGridView.setAdapter(adapter);
+            c = null;
+            myDbHelper = null;
+            size = null;
+            standard = null;
+            metric = null;
+            this.cancel(true);
         }
     }
 }

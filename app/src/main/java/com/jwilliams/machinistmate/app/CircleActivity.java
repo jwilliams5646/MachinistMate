@@ -13,6 +13,7 @@ import android.view.MenuItem;
  */
 public class CircleActivity extends FragmentActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
