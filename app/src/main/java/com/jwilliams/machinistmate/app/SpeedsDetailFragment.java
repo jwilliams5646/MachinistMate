@@ -16,6 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
+import com.jwilliams.machinistmate.app.AppContent.RobotoRadioButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 
@@ -34,12 +36,11 @@ public class SpeedsDetailFragment extends Fragment {
     private EditText surfaceInput;
     private EditText diameterInput;
     private boolean speedsType;
-    private Typeface tf;
     private RadioGroup speedRadioGroup;
-    private Button speedsCalc;
+    private RobotoButton speedsCalc;
     private LinearLayout speedAnswerLayout;
-    private RadioButton standardButton;
-    private RadioButton metricButton;
+    private RobotoRadioButton standardButton;
+    private RobotoRadioButton metricButton;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -90,20 +91,15 @@ public class SpeedsDetailFragment extends Fragment {
     }
 
     private void setLayout(View rootView){
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         speedRadioGroup = (RadioGroup) rootView.findViewById(R.id.speed_radio_group);
         surfaceType = (RobotoTextView) rootView.findViewById(R.id.surface_view);
         surfaceInput = (EditText) rootView.findViewById(R.id.surfaceInput);
         diameterInput = (EditText) rootView.findViewById(R.id.diameterInput);
-        speedsCalc = (Button) rootView.findViewById(R.id.speed_calc);
+        speedsCalc = (RobotoButton) rootView.findViewById(R.id.speed_calc);
         speedAnswer = (RobotoTextView) rootView.findViewById(R.id.speed_answer);
         speedAnswerLayout = (LinearLayout) rootView.findViewById(R.id.speed_answer_layout);
-        standardButton = (RadioButton)rootView.findViewById(R.id.speeds_standard_radio);
-        metricButton = (RadioButton)rootView.findViewById(R.id.speeds_metric_radio);
-
-        speedsCalc.setTypeface(tf);
-        standardButton.setTypeface(tf);
-        metricButton.setTypeface(tf);
+        standardButton = (RobotoRadioButton)rootView.findViewById(R.id.speeds_standard_radio);
+        metricButton = (RobotoRadioButton)rootView.findViewById(R.id.speeds_metric_radio);
 
         speedsType = true;
     }

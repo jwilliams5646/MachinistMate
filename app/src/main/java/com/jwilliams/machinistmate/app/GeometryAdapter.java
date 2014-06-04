@@ -3,17 +3,18 @@ package com.jwilliams.machinistmate.app;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+//import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 /**
  * Created by john.williams on 5/8/2014.
  */
-public class GeometryAdapter extends FragmentPagerAdapter {
-    Context ctxt=null;
+public class GeometryAdapter extends FragmentStatePagerAdapter {
+    //Context ctxt=null;
 
     public GeometryAdapter(Context ctxt, FragmentManager mgr) {
         super(mgr);
-        this.ctxt=ctxt;
+        //this.ctxt=ctxt;
     }
 
     @Override
@@ -22,71 +23,58 @@ public class GeometryAdapter extends FragmentPagerAdapter {
     }
 
     @Override
+      public int getItemPosition(Object object){
+        return GeometryAdapter.POSITION_NONE;
+    }
+
+
+
+    @Override
     public Fragment getItem(int position) {
-        Fragment frag;
 
         switch (position)
         {
             case 0:
-                frag = (RightTriangleFragment.newInstance(position));
-                break;
+                return (RightTriangleFragment.newInstance(position));
             case 1:
-                frag = (ObliqueTriangleFragment.newInstance(position));
-                break;
+                return (ObliqueTriangleFragment.newInstance(position));
             case 2:
-                frag = (CircleFragment.newInstance(position));
-                break;
+                return (CircleFragment.newInstance(position));
             case 3:
-                frag = (SquareFragment.newInstance(position));
-                break;
+                return (SquareFragment.newInstance(position));
             case 4:
-                frag = (RectangleFragment.newInstance(position));
-                break;
+                return (RectangleFragment.newInstance(position));
             case 5:
-                frag = (TrapezoidFragment.newInstance(position));
-                break;
+                return (TrapezoidFragment.newInstance(position));
             case 6:
-                frag = (ParallelogramFragment.newInstance(position));
-                break;
+                return (ParallelogramFragment.newInstance(position));
             default:
-                frag = (RightTriangleFragment.newInstance(position));
-                break;
+                return (RightTriangleFragment.newInstance(position));
         }
-        return frag;
     }
 
     @Override
     public String getPageTitle(int position) {
-        String title;
 
         switch (position)
         {
             case 0:
-                title = (RightTriangleFragment.getTitle(ctxt, position));
-                break;
+                return "Right Triangle";
             case 1:
-                title = (ObliqueTriangleFragment.getTitle(ctxt, position));
-                break;
+                return "Oblique Triangle";
             case 2:
-                title = (CircleFragment.getTitle(ctxt, position));
-                break;
+                return "Circle";
             case 3:
-                title = (SquareFragment.getTitle(ctxt, position));
-                break;
+                return "Square";
             case 4:
-                title = (RectangleFragment.getTitle(ctxt, position));
-                break;
+                return "Rectangle";
             case 5:
-                title = (TrapezoidFragment.getTitle(ctxt, position));
-                break;
+                return "Trapezoid";
             case 6:
-                title = (ParallelogramFragment.getTitle(ctxt, position));
-                break;
+                return "Parallelogram";
             default:
-                title = (RightTriangleFragment.getTitle(ctxt, position));
-                break;
+                return "Right Triangle";
         }
-        return title;
     }
 
 }

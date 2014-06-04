@@ -16,13 +16,16 @@ import android.widget.TextView;
  * Created by john.williams on 5/8/2014.
  */
 public class GeometryPagerFragment extends Fragment {
-    Typeface tf;
+    private Typeface tf;
+    private View rootView;
+    private ViewPager pager;
+
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.pager, container, false);
-        ViewPager pager = (ViewPager) rootView.findViewById(R.id.pager);
+        rootView = inflater.inflate(R.layout.pager, container, false);
+        pager = (ViewPager) rootView.findViewById(R.id.pager);
 
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
 
@@ -46,4 +49,13 @@ public class GeometryPagerFragment extends Fragment {
     private PagerAdapter buildAdapter() {
         return(new GeometryAdapter(getActivity(), getChildFragmentManager()));
     }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        tf = null;
+        rootView = null;
+        pager = null;
+    }
+
 }

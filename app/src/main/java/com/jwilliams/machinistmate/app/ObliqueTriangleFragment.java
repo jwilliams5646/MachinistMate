@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 import java.text.DecimalFormat;
@@ -41,16 +42,17 @@ public class ObliqueTriangleFragment extends Fragment {
     private Spinner angleXSpinner;
     private Spinner angleYSpinner;
     private Spinner angleZSpinner;
-    private Button calcButton;
-    private Button addButton;
-    private Button minusButton;
-    private Button clearButton;
-    private Button questionButton;
+    private RobotoButton calcButton;
+    private RobotoButton addButton;
+    private RobotoButton minusButton;
+    private RobotoButton clearButton;
+    private RobotoButton questionButton;
     private int spinnerX;
     private int spinnerY;
     private int spinnerZ;
     private int precision;
-    public static Typeface tf;
+    private ArrayAdapter<CharSequence> angleAdapter;
+    private View rootView;
 
     public ObliqueTriangleFragment() {
     }
@@ -63,13 +65,12 @@ public class ObliqueTriangleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.oblique_triangle_detail, container, false);
+        rootView = inflater.inflate(R.layout.oblique_triangle_detail, container, false);
         initializeLayout(rootView);
         return rootView;
     }
 
     private void initializeLayout(View rootView) {
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         sideAInput = (EditText)rootView.findViewById(R.id.oblique_a_input);
         sideBInput = (EditText)rootView.findViewById(R.id.oblique_b_input);
         sideCInput = (EditText)rootView.findViewById(R.id.oblique_c_input);
@@ -83,11 +84,11 @@ public class ObliqueTriangleFragment extends Fragment {
         angleXSpinner = (Spinner)rootView.findViewById(R.id.oblique_x_spinner);
         angleYSpinner = (Spinner)rootView.findViewById(R.id.oblique_y_spinner);
         angleZSpinner = (Spinner)rootView.findViewById(R.id.oblique_z_spinner);
-        calcButton = (Button)rootView.findViewById(R.id.oblique_calc_button);
-        addButton = (Button)rootView.findViewById(R.id.o_add_button);
-        minusButton = (Button)rootView.findViewById(R.id.o_minus_button);
-        clearButton = (Button)rootView.findViewById(R.id.oblique_clear_button);
-        questionButton = (Button)rootView.findViewById(R.id.ot_question_button);
+        calcButton = (RobotoButton)rootView.findViewById(R.id.oblique_calc_button);
+        addButton = (RobotoButton)rootView.findViewById(R.id.o_add_button);
+        minusButton = (RobotoButton)rootView.findViewById(R.id.o_minus_button);
+        clearButton = (RobotoButton)rootView.findViewById(R.id.oblique_clear_button);
+        questionButton = (RobotoButton)rootView.findViewById(R.id.ot_question_button);
         spinnerX = 0;
         spinnerY = 0;
         spinnerZ = 0;
@@ -100,9 +101,6 @@ public class ObliqueTriangleFragment extends Fragment {
         setQuestionButtonListener();
         precision = 2;
         precisionView.setText(Integer.toString(precision));
-        addButton.setTypeface(tf);
-        minusButton.setTypeface(tf);
-        calcButton.setTypeface(tf);
         setPrecisionListeners();
     }
 
@@ -776,7 +774,7 @@ public class ObliqueTriangleFragment extends Fragment {
     }
 
     private void setAngleAdapters() {
-        ArrayAdapter<CharSequence> angleAdapter = ArrayAdapter.createFromResource(getActivity(),
+        angleAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.degree_rad_array, R.layout.spinner_background);
         angleAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         angleXSpinner.setAdapter(angleAdapter);
@@ -794,7 +792,32 @@ public class ObliqueTriangleFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+/*    static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.oblique), position + 1));
+    }*/
+
+    @Override
+    public void onDestroyView(){
+        super.onDestroyView();
+        sideAInput = null;
+        sideBInput = null;
+        sideCInput = null;
+        angleXInput = null;
+        angleYInput = null;
+        angleZInput = null;
+        areaAnswer = null;
+        precisionView = null;
+        heightAnswer = null;
+        perimeterAnswer = null;
+        angleXSpinner = null;
+        angleYSpinner = null;
+        angleZSpinner = null;
+        calcButton = null;
+        addButton = null;
+        minusButton = null;
+        clearButton = null;
+        questionButton = null;
+        angleAdapter = null;
+        rootView = null;
     }
 }

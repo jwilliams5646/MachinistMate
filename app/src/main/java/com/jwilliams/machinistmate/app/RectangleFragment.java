@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -37,14 +38,15 @@ public class RectangleFragment extends Fragment {
     private EditText input1;
     private EditText input2;
     private EditText input3;
-    private Button calcButton;
-    private Button addButton;
-    private Button minusButton;
+    private RobotoButton calcButton;
+    private RobotoButton addButton;
+    private RobotoButton minusButton;
     private boolean check;
     private int answerPos;
     private int inputPos;
     private int precision;
-    public static Typeface tf;
+    private ArrayAdapter<CharSequence> answerAdapter;
+    private ArrayAdapter<CharSequence> inputAdapter;
 
     public RectangleFragment() {
     }
@@ -319,7 +321,7 @@ public class RectangleFragment extends Fragment {
     }
 
     private void setInputChoiceAdapter() {
-        ArrayAdapter<CharSequence> inputAdapter = ArrayAdapter.createFromResource(getActivity(),
+        inputAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.rect_input_array, R.layout.spinner_background);
         inputAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         inputChoice.setAdapter(inputAdapter);
@@ -367,14 +369,13 @@ public class RectangleFragment extends Fragment {
     }
 
     private void setAnwerChoiceAdapter() {
-        ArrayAdapter<CharSequence> answerAdapter = ArrayAdapter.createFromResource(getActivity(),
+        answerAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.rect_calc_array, R.layout.spinner_background);
         answerAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         answerChoice.setAdapter(answerAdapter);
     }
 
     private void initializeLayout(View rootView) {
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         inputLayout1 = (LinearLayout)rootView.findViewById(R.id.rectangle_input_layout1);
         inputLayout2 = (LinearLayout)rootView.findViewById(R.id.rectangle_input_layout2);
         inputLayout3 = (LinearLayout)rootView.findViewById(R.id.rectangle_input_layout3);
@@ -388,17 +389,14 @@ public class RectangleFragment extends Fragment {
         input1 = (EditText)rootView.findViewById(R.id.rectangle_input1);
         input2 = (EditText)rootView.findViewById(R.id.rectangle_input2);
         input3 = (EditText)rootView.findViewById(R.id.rectangle_input3);
-        calcButton = (Button)rootView.findViewById(R.id.rect_calc);
-        addButton = (Button)rootView.findViewById(R.id.rect_add_button);
-        minusButton = (Button)rootView.findViewById(R.id.rect_minus_button);
+        calcButton = (RobotoButton)rootView.findViewById(R.id.rect_calc);
+        addButton = (RobotoButton)rootView.findViewById(R.id.rect_add_button);
+        minusButton = (RobotoButton)rootView.findViewById(R.id.rect_minus_button);
         check = false;
         answerPos = 0;
         inputPos = 0;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
-        addButton.setTypeface(tf);
-        minusButton.setTypeface(tf);
-        calcButton.setTypeface(tf);
     }
 
     private void resetLayout() {
@@ -436,7 +434,30 @@ public class RectangleFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+/*    static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.rectangle), position + 1));
+    }*/
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        inputLayout1 = null;
+        inputLayout2 = null;
+        inputLayout3 = null;
+        answerChoice = null;
+        inputChoice = null;
+        answer = null;
+        inputView1 = null;
+        inputView2 = null;
+        inputView3 = null;
+        precisionView = null;
+        input1 = null;
+        input2 = null;
+        input3 = null;
+        calcButton = null;
+        addButton = null;
+        minusButton = null;
+        answerAdapter = null;
+        inputAdapter = null;
     }
 }

@@ -172,7 +172,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/trap_precision_layout">
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:text="@string/calculate"
@@ -191,7 +191,7 @@
             android:gravity="right|bottom"
             style="@style/TextViewStyle"/>
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="-"
@@ -208,7 +208,7 @@
             style="@style/TextViewStyle"
             android:gravity="center"/>
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="+"
@@ -222,7 +222,9 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="4dp"></RelativeLayout>
+        android:layout_margin="4dp">
+
+        </RelativeLayout>
 
 
 </RelativeLayout>

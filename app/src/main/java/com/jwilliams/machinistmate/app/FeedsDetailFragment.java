@@ -6,18 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
-import com.jwilliams.machinistmate.app.AppContent.Utility;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
+import com.jwilliams.machinistmate.app.AppContent.RobotoRadioButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -34,14 +32,13 @@ public class FeedsDetailFragment extends Fragment {
     private EditText numberTeethInput;
     private RobotoTextView feedAnswerType;
     private RobotoTextView precisionView;
-    private Button feedCalc;
-    private Button addButton;
-    private Button minusButton;
-    private RadioButton standardButton;
-    private RadioButton metricButton;
+    private RobotoButton feedCalc;
+    private RobotoButton addButton;
+    private RobotoButton minusButton;
+    private RobotoRadioButton standardButton;
+    private RobotoRadioButton metricButton;
     private LinearLayout feedAnswerLayout;
     private RadioGroup feedRadioGroup;
-    public static Typeface tf;
     private int precision;
 
     public FeedsDetailFragment() {
@@ -116,7 +113,6 @@ public class FeedsDetailFragment extends Fragment {
     }
 
     private void setLayoutVariables(View rootView){
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         feedAnswer = (RobotoTextView) rootView.findViewById(R.id.feed_answer);
         feedSpeedInput = (EditText) rootView.findViewById(R.id.feed_speed_input);
         feedPerToothInput = (EditText) rootView.findViewById(R.id.feed_per_tooth_input);
@@ -125,17 +121,12 @@ public class FeedsDetailFragment extends Fragment {
         precisionView = (RobotoTextView) rootView.findViewById(R.id.feed_precision_view);
         feedAnswerLayout = (LinearLayout) rootView.findViewById(R.id.feed_answer_layout);
         feedRadioGroup = (RadioGroup) rootView.findViewById(R.id.feed_radio_group);
-        standardButton = (RadioButton)rootView.findViewById(R.id.feeds_standard_radio);
-        metricButton = (RadioButton)rootView.findViewById(R.id.feeds_metric_radio);
-        feedCalc = (Button) rootView.findViewById(R.id.feed_calc);
-        addButton = (Button) rootView.findViewById(R.id.feed_add_button);
-        minusButton = (Button) rootView.findViewById(R.id.feed_minus_button);
-        standardButton.setTypeface(tf);
-        metricButton.setTypeface(tf);
-        feedCalc.setTypeface(tf);
+        standardButton = (RobotoRadioButton)rootView.findViewById(R.id.feeds_standard_radio);
+        metricButton = (RobotoRadioButton)rootView.findViewById(R.id.feeds_metric_radio);
+        feedCalc = (RobotoButton) rootView.findViewById(R.id.feed_calc);
+        addButton = (RobotoButton) rootView.findViewById(R.id.feed_add_button);
+        minusButton = (RobotoButton) rootView.findViewById(R.id.feed_minus_button);
         feedAnswerType.setText(getText(R.string.ipm));
-        addButton.setTypeface(tf);
-        minusButton.setTypeface(tf);
         feedType = true;
         precision = 2;
         precisionView.setText(Integer.toString(precision));

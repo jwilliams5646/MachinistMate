@@ -1,26 +1,23 @@
 package com.jwilliams.machinistmate.app.AppContent;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
+import android.widget.RadioButton;
 
 /**
- * Created by john.williams on 5/5/2014.
+ * Created by john.williams on 6/4/2014.
  */
-public class RobotoTextView extends TextView {
-    public RobotoTextView(Context context, AttributeSet attrs, int defStyle) {
+public class RobotoRadioButton extends RadioButton {
+    public RobotoRadioButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
     }
 
-    public RobotoTextView(Context context, AttributeSet attrs) {
+    public RobotoRadioButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public RobotoTextView(Context context) {
+    public RobotoRadioButton(Context context) {
         super(context);
         init();
     }
@@ -35,6 +32,4 @@ public class RobotoTextView extends TextView {
             }
         }
     }
-
-
 }

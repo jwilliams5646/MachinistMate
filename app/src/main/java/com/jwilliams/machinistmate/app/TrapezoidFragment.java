@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -40,13 +41,13 @@ public class TrapezoidFragment extends Fragment {
     private EditText input2;
     private EditText input3;
     private EditText input4;
-    private Button calcButton;
-    private Button addButton;
-    private Button minusButton;
+    private RobotoButton calcButton;
+    private RobotoButton addButton;
+    private RobotoButton minusButton;
     private boolean check;
     private int choice;
     private int precision;
-    public static Typeface tf;
+    private ArrayAdapter<CharSequence> trapAdapter;
 
 
     public TrapezoidFragment() {
@@ -465,7 +466,7 @@ public class TrapezoidFragment extends Fragment {
     }
 
     private void setSpinnerAdapter() {
-        ArrayAdapter<CharSequence> trapAdapter = ArrayAdapter.createFromResource(getActivity(),
+        trapAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.trap_calc_array, R.layout.spinner_background);
         trapAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         trapChoice.setAdapter(trapAdapter);
@@ -493,7 +494,6 @@ public class TrapezoidFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         trapChoice = (Spinner)rootView.findViewById(R.id.trap_spinner);
         input1Layout =(LinearLayout)rootView.findViewById(R.id.trap_input1_layout);
         input2Layout =(LinearLayout)rootView.findViewById(R.id.trap_input2_layout);
@@ -509,16 +509,13 @@ public class TrapezoidFragment extends Fragment {
         input2 = (EditText)rootView.findViewById(R.id.trap_input2);
         input3 = (EditText)rootView.findViewById(R.id.trap_input3);
         input4 = (EditText)rootView.findViewById(R.id.trap_input4);
-        calcButton = (Button)rootView.findViewById(R.id.trap_calc_button);
-        addButton = (Button)rootView.findViewById(R.id.trap_add_button);
-        minusButton = (Button)rootView.findViewById(R.id.trap_minus_button);
+        calcButton = (RobotoButton)rootView.findViewById(R.id.trap_calc_button);
+        addButton = (RobotoButton)rootView.findViewById(R.id.trap_add_button);
+        minusButton = (RobotoButton)rootView.findViewById(R.id.trap_minus_button);
         check = false;
         choice = 0;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
-        addButton.setTypeface(tf);
-        minusButton.setTypeface(tf);
-        calcButton.setTypeface(tf);
         setInitialLayout();
     }
 
@@ -538,7 +535,31 @@ public class TrapezoidFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+/*    static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.trapezoid), position + 1));
+    }*/
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        trapChoice = null;
+        input1Layout = null;
+        input2Layout = null;
+        input3Layout = null;
+        input4Layout = null;
+        input1View = null;
+        input2View = null;
+        input3View = null;
+        input4View = null;
+        answer = null;
+        precisionView = null;
+        input1 = null;
+        input2 = null;
+        input3 = null;
+        input4 = null;
+        calcButton = null;
+        addButton = null;
+        minusButton = null;
+        trapAdapter = null;
     }
 }

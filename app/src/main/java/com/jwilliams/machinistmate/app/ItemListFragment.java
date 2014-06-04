@@ -3,6 +3,7 @@ package com.jwilliams.machinistmate.app;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -150,4 +151,5 @@ public class ItemListFragment extends ListFragment {
          */
         public void onItemSelected(String id);
     }
+
 }

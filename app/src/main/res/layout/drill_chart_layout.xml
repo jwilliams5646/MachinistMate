@@ -19,7 +19,7 @@
         android:id="@+id/linearLayout">
 
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -28,7 +28,7 @@
             android:layout_marginRight="1dp"
             style="@style/buttons"/>
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -37,7 +37,7 @@
             android:id="@+id/drill_wiregauge_button"
             style="@style/buttons" />
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -46,7 +46,7 @@
             android:id="@+id/drill_letter_button"
             style="@style/buttons" />
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"
@@ -55,7 +55,7 @@
             android:id="@+id/drill_fraction_button"
             style="@style/buttons" />
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="fill_parent"

@@ -49,7 +49,7 @@
         android:layout_gravity="center"
         android:orientation="horizontal">
 
-        <RadioButton
+        <com.jwilliams.machinistmate.app.AppContent.RobotoRadioButton
             android:id="@+id/feeds_standard_radio"
             style="@style/radioButtons"
             android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
             android:checked="true"
             android:text="@string/standard" />
 
-        <RadioButton
+        <com.jwilliams.machinistmate.app.AppContent.RobotoRadioButton
             android:id="@+id/feeds_metric_radio"
             style="@style/radioButtons"
             android:layout_width="wrap_content"
@@ -196,7 +196,7 @@
             android:gravity="right|bottom"
             style="@style/TextViewStyle"/>
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="-"
@@ -213,7 +213,7 @@
             style="@style/TextViewStyle"
             android:gravity="center"/>
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="+"
@@ -222,7 +222,7 @@
             style="@style/buttons"/>
     </LinearLayout>
 
-    <Button
+    <com.jwilliams.machinistmate.app.AppContent.RobotoButton
         android:id="@+id/feed_calc"
         style="@style/buttons"
         android:layout_width="wrap_content"

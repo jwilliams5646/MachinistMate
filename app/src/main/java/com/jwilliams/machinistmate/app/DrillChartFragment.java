@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.GridView;
 
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 import java.io.IOException;
@@ -28,16 +29,15 @@ import java.util.List;
 public class DrillChartFragment extends Fragment {
 
     private static final String KEY_POSITION="position";
-    private Button allInfo;
-    private Button wiregaugeButton;
-    private Button letterButton;
-    private Button fractionButton;
-    private Button metricButton;
+    private RobotoButton allInfo;
+    private RobotoButton wiregaugeButton;
+    private RobotoButton letterButton;
+    private RobotoButton fractionButton;
+    private RobotoButton metricButton;
     private RobotoTextView typeHeader;
     private GridView referenceGridView;
     private List<String> li;
     private ArrayAdapter<String> adapter;
-    private Typeface tf;
     private int dbSwitch;
 
     public DrillChartFragment() {
@@ -122,18 +122,11 @@ public class DrillChartFragment extends Fragment {
 
 
     public void setLayout(View rootView){
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Bold.ttf");
-        allInfo = (Button)rootView.findViewById(R.id.drill_all_button);
-        wiregaugeButton = (Button)rootView.findViewById(R.id.drill_wiregauge_button);
-        letterButton = (Button)rootView.findViewById(R.id.drill_letter_button);
-        fractionButton = (Button)rootView.findViewById(R.id.drill_fraction_button);
-        metricButton = (Button)rootView.findViewById(R.id.drill_metric_button);
-
-        allInfo.setTypeface(tf);
-        wiregaugeButton.setTypeface(tf);
-        letterButton.setTypeface(tf);
-        fractionButton.setTypeface(tf);
-        metricButton.setTypeface(tf);
+        allInfo = (RobotoButton)rootView.findViewById(R.id.drill_all_button);
+        wiregaugeButton = (RobotoButton)rootView.findViewById(R.id.drill_wiregauge_button);
+        letterButton = (RobotoButton)rootView.findViewById(R.id.drill_letter_button);
+        fractionButton = (RobotoButton)rootView.findViewById(R.id.drill_fraction_button);
+        metricButton = (RobotoButton)rootView.findViewById(R.id.drill_metric_button);
 
         typeHeader = (RobotoTextView)rootView.findViewById(R.id.type_header);
 
@@ -187,7 +180,6 @@ public class DrillChartFragment extends Fragment {
             myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
-            //Cursor c;
 
             switch (dbSwitch){
                 case 0:

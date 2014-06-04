@@ -242,7 +242,7 @@
             android:layout_weight="1"
             style="@style/TextViewStyle"/>
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:text="Clear"
@@ -262,7 +262,7 @@
         android:layout_alignStart="@+id/oblique_view5_layout"
         android:layout_marginRight="4dp">
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:text="@string/calculate"
@@ -280,7 +280,7 @@
             android:layout_gravity="center|right"
             style="@style/TextViewStyle" />
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="-"
@@ -297,7 +297,7 @@
             style="@style/TextViewStyle"
             android:gravity="center" />
 
-        <Button
+        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="+"
@@ -306,7 +306,7 @@
             android:layout_margin="4dp" />
     </LinearLayout>
 
-    <Button
+    <com.jwilliams.machinistmate.app.AppContent.RobotoButton
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:text="\?"

@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -35,14 +36,14 @@ public class CircleFragment extends Fragment {
     private RobotoTextView precisionView;
     private Spinner answerSpinner;
     private Spinner radiusSpinner;
-    private Button calcButton;
-    private Button addButton;
-    private Button minusButton;
+    private RobotoButton calcButton;
+    private RobotoButton addButton;
+    private RobotoButton minusButton;
     private  boolean check;
     private int pos;
     private int radiusChoice;
     private int precision;
-    public static Typeface tf;
+    private ArrayAdapter<CharSequence> circleAdapter;
 
 
     public CircleFragment() {
@@ -233,7 +234,7 @@ public class CircleFragment extends Fragment {
     }
 
     private void setCircleSpinnerAdapter() {
-        ArrayAdapter<CharSequence> circleAdapter = ArrayAdapter.createFromResource(getActivity(),
+        circleAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.circle_calc_array, R.layout.spinner_background);
         circleAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
         answerSpinner.setAdapter(circleAdapter);
@@ -262,7 +263,6 @@ public class CircleFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         inputLayout = (LinearLayout)rootView.findViewById(R.id.c_layout1);
         radiusLayout = (LinearLayout)rootView.findViewById(R.id.circle_radius_layout);
         input1 = (EditText)rootView.findViewById(R.id.circle_input1);
@@ -272,17 +272,14 @@ public class CircleFragment extends Fragment {
         answer = (RobotoTextView)rootView.findViewById(R.id.circle_answer);
         answerSpinner = (Spinner)rootView.findViewById(R.id.circle_choice);
         radiusSpinner = (Spinner)rootView.findViewById(R.id.circle_radius_choice);
-        calcButton = (Button)rootView.findViewById(R.id.c_calc);
-        addButton = (Button)rootView.findViewById(R.id.c_add_button);
-        minusButton = (Button)rootView.findViewById(R.id.c_minus_button);
+        calcButton = (RobotoButton)rootView.findViewById(R.id.c_calc);
+        addButton = (RobotoButton)rootView.findViewById(R.id.c_add_button);
+        minusButton = (RobotoButton)rootView.findViewById(R.id.c_minus_button);
         check = false;
         pos = 0;
         radiusChoice = 0;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
-        addButton.setTypeface(tf);
-        minusButton.setTypeface(tf);
-        calcButton.setTypeface(tf);
     }
 
     static CircleFragment newInstance(int position) {
@@ -295,7 +292,24 @@ public class CircleFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+/*    static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.circle), position + 1));
+    }*/
+    @Override
+    public void onPause(){
+        super.onPause();
+        inputLayout = null;
+        radiusLayout = null;
+        input1 = null;
+        radiusInput = null;
+        view1 = null;
+        precisionView = null;
+        answer = null;
+        answerSpinner = null;
+        radiusSpinner = null;
+        calcButton = null;
+        addButton = null;
+        minusButton = null;
+        circleAdapter = null;
     }
 }

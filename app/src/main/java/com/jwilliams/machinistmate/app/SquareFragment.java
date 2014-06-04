@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 /**
@@ -33,14 +34,15 @@ public class SquareFragment extends Fragment {
     private RobotoTextView answer;
     private Spinner answerChoice;
     private Spinner sideChoice;
-    private Button addButton;
-    private Button minusButton;
-    private Button calcButton;
+    private RobotoButton addButton;
+    private RobotoButton minusButton;
+    private RobotoButton calcButton;
     private int precision;
     private int sidePos;
     private int answerPos;
     private boolean check;
-    public static Typeface tf;
+    private ArrayAdapter<CharSequence> adapter;
+    private ArrayAdapter<CharSequence> answerAdapter;
 
     public SquareFragment() {
     }
@@ -244,21 +246,20 @@ public class SquareFragment extends Fragment {
     }
 
     private void setSideChoiceAdapter() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+        adapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.square_side_array, R.layout.spinner_background);
         adapter.setDropDownViewResource(R.layout.spinner_drop_down);
         sideChoice.setAdapter(adapter);
     }
 
     private void setAnswerChoiceAdapter() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+        answerAdapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.square_calc_array, R.layout.spinner_background);
-        adapter.setDropDownViewResource(R.layout.spinner_drop_down);
-        answerChoice.setAdapter(adapter);
+        answerAdapter.setDropDownViewResource(R.layout.spinner_drop_down);
+        answerChoice.setAdapter(answerAdapter);
     }
 
     private void initializeLayout(View rootView) {
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         inputLayout1 = (LinearLayout)rootView.findViewById(R.id.sq_layout1);
         sideInputLayout = (LinearLayout)rootView.findViewById(R.id.sq_side_layout);
         input1 = (EditText)rootView.findViewById(R.id.sq_input1);
@@ -268,17 +269,14 @@ public class SquareFragment extends Fragment {
         answer = (RobotoTextView)rootView.findViewById(R.id.sq_answer);
         answerChoice = (Spinner)rootView.findViewById(R.id.sq_choice);
         sideChoice = (Spinner)rootView.findViewById(R.id.sq_side_choice);
-        calcButton = (Button)rootView.findViewById(R.id.sq_calc);
-        addButton = (Button)rootView.findViewById(R.id.sq_add_button);
-        minusButton = (Button)rootView.findViewById(R.id.sq_minus_button);
+        calcButton = (RobotoButton)rootView.findViewById(R.id.sq_calc);
+        addButton = (RobotoButton)rootView.findViewById(R.id.sq_add_button);
+        minusButton = (RobotoButton)rootView.findViewById(R.id.sq_minus_button);
         sidePos = 0;
         answerPos = 0;
         precision = 2;
         check = false;
         precisionView.setText(Integer.toString(precision));
-        addButton.setTypeface(tf);
-        minusButton.setTypeface(tf);
-        calcButton.setTypeface(tf);
         setBasicLayout();
     }
 
@@ -308,8 +306,27 @@ public class SquareFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+/*    static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.square), position + 1));
+    }*/
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        inputLayout1 = null;
+        sideInputLayout = null;
+        input1 = null;
+        sideInput = null;
+        precisionView = null;
+        view1 = null;
+        answer = null;
+        answerChoice = null;
+        sideChoice = null;
+        calcButton = null;
+        addButton = null;
+        minusButton = null;
+        adapter = null;
+        answerAdapter = null;
     }
 
 }

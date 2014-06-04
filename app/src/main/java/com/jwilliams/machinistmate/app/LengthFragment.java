@@ -21,6 +21,7 @@ import android.util.Log;
 
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
+import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 
 import java.io.IOException;
@@ -39,14 +40,12 @@ public class LengthFragment extends Fragment {
     private Spinner inputSpinner;
     private Spinner outputSpinner;
     private EditText input;
-    private Button calcButton;
-    private Button addButton;
-    private Button minusButton;
+    private RobotoButton calcButton;
+    private RobotoButton addButton;
+    private RobotoButton minusButton;
     private LinearLayout answerLayout;
     private int inputPos;
-    private int outputPos;
     private int precision;
-    public static Typeface tf;
     private String output;
 
     public LengthFragment() {
@@ -107,7 +106,6 @@ public class LengthFragment extends Fragment {
         outputSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                outputPos = i;
                 setConversionType(i);
             }
 
@@ -162,20 +160,17 @@ public class LengthFragment extends Fragment {
     }
 
     private void setLayoutVariables(View rootView){
-        tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/Roboto-Medium.ttf");
         answer = (RobotoTextView) rootView.findViewById(R.id.conv_answer);
         answerType = (RobotoTextView) rootView.findViewById(R.id.conv_answer_type);
         precisionView = (RobotoTextView) rootView.findViewById(R.id.conv_precision_view);
         inputSpinner = (Spinner) rootView.findViewById(R.id.conv_input_spinner);
         outputSpinner = (Spinner) rootView.findViewById(R.id.conv_output_spinner);
         input = (EditText) rootView.findViewById(R.id.conv_input);
-        calcButton = (Button) rootView.findViewById(R.id.conv_calc_button);
-        addButton = (Button) rootView.findViewById(R.id.conv_add_button);
-        minusButton = (Button) rootView.findViewById(R.id.conv_minus_button);
+        calcButton = (RobotoButton) rootView.findViewById(R.id.conv_calc_button);
+        addButton = (RobotoButton) rootView.findViewById(R.id.conv_add_button);
+        minusButton = (RobotoButton) rootView.findViewById(R.id.conv_minus_button);
         answerLayout = (LinearLayout) rootView.findViewById(R.id.conv_answer_layout);
-        calcButton.setTypeface(tf);
         inputPos = 0;
-        outputPos = 0;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
     }
@@ -308,7 +303,6 @@ public class LengthFragment extends Fragment {
     @Override
     public void onPause(){
         super.onPause();
-        tf = null;
         answer = null;
         answerType = null;
         precisionView = null;

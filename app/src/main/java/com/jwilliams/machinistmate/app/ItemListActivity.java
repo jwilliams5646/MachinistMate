@@ -3,7 +3,9 @@ package com.jwilliams.machinistmate.app;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
 
@@ -25,6 +27,9 @@ import android.support.v4.app.FragmentActivity;
  */
 public class ItemListActivity extends FragmentActivity
         implements ItemListFragment.Callbacks {
+
+    private Intent intent;
+    private Fragment frag;
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -72,98 +77,70 @@ public class ItemListActivity extends FragmentActivity
         //check for two panes, sign of a large screen or tablet
         if (mTwoPane) {
             // Replaces fragment in the detail container
-            ItemDetailFragment fragment = new ItemDetailFragment();
-
-            SpeedsDetailFragment speedFragment = new SpeedsDetailFragment();
-
-            FeedsDetailFragment feedFragment = new FeedsDetailFragment();
-
-            ConversionPagerFragment convFragment = new ConversionPagerFragment();
-
-            GeometryPagerFragment geometryFragment = new GeometryPagerFragment();
-
-            ReferencePagerFragment referenceFragment = new ReferencePagerFragment();
-
             //instantiate fragments by id
+
             switch (input) {
                 case 1:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, speedFragment)
-                            .commit();
+                    frag = new SpeedsDetailFragment();
                     break;
 
                 case 2:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, feedFragment)
-                            .commit();
+                    frag = new FeedsDetailFragment();
                     break;
 
                 case 3:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, convFragment)
-                            .commit();
+                    frag = new ConversionPagerFragment();
                     break;
 
                 case 4:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, geometryFragment)
-                            .commit();
+                    frag = new GeometryPagerFragment();
                     break;
 
                 case 5:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, referenceFragment)
-                            .commit();
+                    frag = new ReferencePagerFragment();
                     break;
 
                 default:
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.item_detail_container, fragment)
-                            .commit();
+                    frag = new ItemDetailFragment();
                     break;
             }
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.item_detail_container, frag)
+                    .commit();
 
 
         } else {
             //if not two pane then set intent to change activities between menu items
-            Intent detailIntent = new Intent(this, ItemDetailActivity.class);
-
-            Intent speedIntent = new Intent(this, SpeedsDetailActivity.class);
-
-            Intent feedIntent = new Intent(this, FeedsDetailActivity.class);
-
-            Intent convIntent = new Intent(this, ConversionPagerActivity.class);
-
-            Intent geometryIntent = new Intent(this, GeometryPagerActivity.class);
-
-            Intent referenceIntent = new Intent(this, ReferencePagerActivity.class);
 
             //instantiate activities by id
             switch (input) {
                 case 1:
-                    startActivity(speedIntent);
+                    intent = new Intent(this, SpeedsDetailActivity.class);
                     break;
 
                 case 2:
-                    startActivity(feedIntent);
+                    intent = new Intent(this, FeedsDetailActivity.class);
                     break;
 
                 case 3:
-                    startActivity(convIntent);
+                    intent = new Intent(this, ConversionPagerActivity.class);
                     break;
 
                 case 4:
-                    startActivity(geometryIntent);
+                    intent = new Intent(this, GeometryPagerActivity.class);
                     break;
 
                 case 5:
-                    startActivity(referenceIntent);
+                    intent = new Intent(this, ReferencePagerActivity.class);
                     break;
 
                 default:
-                    startActivity(detailIntent);
+                    intent = new Intent(this, ItemDetailActivity.class);
                     break;
             }
+
+            startActivity(intent);
         }
     }
 }
