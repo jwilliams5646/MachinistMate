@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jwilliams.machinistmate.app">
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -9,6 +10,8 @@
         android:logo="@drawable/ic_action_logo"
         android:title="Machinist Mate"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
         <activity
             android:name="com.jwilliams.machinistmate.app.ItemListActivity"
             android:label="Machinist Mate"
@@ -101,6 +104,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
         </activity>
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+
     </application>
 
 </manifest>

@@ -1,8 +1,6 @@
 package com.jwilliams.machinistmate.app;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -12,11 +10,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
@@ -54,6 +53,9 @@ public class ObliqueTriangleFragment extends Fragment {
     private ArrayAdapter<CharSequence> angleAdapter;
     private View rootView;
 
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    //private static final String AD_UNIT_ID = "ca-app-pub-6986976933268044/5924552212";
+
     public ObliqueTriangleFragment() {
     }
 
@@ -66,6 +68,12 @@ public class ObliqueTriangleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.oblique_triangle_detail, container, false);
+        AdView adView = (AdView)rootView.findViewById(R.id.oblique_adView);
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
         initializeLayout(rootView);
         return rootView;
     }
@@ -704,7 +712,7 @@ public class ObliqueTriangleFragment extends Fragment {
             }
 
             private void setAreaPeriHeight(double a, double b, double c) {
-                double area = getArea(a,b,c);
+                double area = getArea(a, b, c);
                 areaAnswer.setText(Calculations.formatter(area, precision));
                 perimeterAnswer.setText(Calculations.formatter(a + b + c, precision));
                 heightAnswer.setText(Calculations.formatter(2 / (area / b), precision));

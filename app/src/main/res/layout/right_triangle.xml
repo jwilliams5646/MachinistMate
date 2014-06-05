@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:layout_width="400dp"
@@ -203,19 +209,11 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="400dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rt_layout4"
-        android:layout_alignLeft="@id/rt_image"
+        android:layout_centerHorizontal="true"
         android:id="@+id/rt_layout5">
-
-        <com.jwilliams.machinistmate.app.AppContent.RobotoButton
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="@string/calculate"
-            android:id="@+id/rt_calc_button"
-            style="@style/buttons"
-            android:layout_margin="4dp"/>
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
@@ -260,7 +258,33 @@
         android:id="@+id/rt_question_button"
         style="@style/buttons"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/rt_image"
-        android:layout_alignEnd="@+id/rt_image" />
+        android:layout_alignEnd="@+id/rt_image"
+        android:layout_margin="10dp"/>
+
+    <com.jwilliams.machinistmate.app.AppContent.RobotoButton
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="@string/calculate"
+        android:id="@+id/rt_calc_button"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rt_layout5"
+        style="@style/buttons"
+        android:layout_margin="4dp"/>
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/rt_calc_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBotton="20dp">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/rt_adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adUnitId="ca-app-pub-6986976933268044/5924552212"
+            ads:adSize="BANNER"/>
+    </RelativeLayout>
 
 </RelativeLayout>
+</ScrollView>
