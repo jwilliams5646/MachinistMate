@@ -50,6 +50,8 @@ public class RightTriangleFragment extends Fragment {
     private ArrayAdapter<CharSequence> adapter;
     private View rootView;
     private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
 
 
     public RightTriangleFragment() {
@@ -77,8 +79,8 @@ public class RightTriangleFragment extends Fragment {
     }
 
     private void setAd(View rootView){
-        AdView adView = (AdView)rootView.findViewById(R.id.rt_adView);
-        AdRequest adRequest = new AdRequest.Builder()
+        adView = (AdView)rootView.findViewById(R.id.rt_adView);
+        adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice(TEST_DEVICE_ID)
                 .build();
@@ -477,8 +479,7 @@ public class RightTriangleFragment extends Fragment {
     }*/
 
     @Override
-    public void onDestroyView(){
-        super.onDestroyView();
+    public void onPause(){
         sideH = null;
         sideO = null;
         sideA = null;
@@ -496,5 +497,6 @@ public class RightTriangleFragment extends Fragment {
         questionButton = null;
         adapter = null;
         rootView = null;
+        super.onPause();
     }
 }
