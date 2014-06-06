@@ -16,6 +16,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoRadioButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
@@ -41,6 +43,9 @@ public class SpeedsDetailFragment extends Fragment {
     private LinearLayout speedAnswerLayout;
     private RobotoRadioButton standardButton;
     private RobotoRadioButton metricButton;
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -58,7 +63,7 @@ public class SpeedsDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.speeds_item_detail, container, false);
-
+        setAd(rootView);
         setLayout(rootView);
         setTwoPane();
 
@@ -88,6 +93,15 @@ public class SpeedsDetailFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.speeds_adView);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
     }
 
     private void setLayout(View rootView){
@@ -149,6 +163,32 @@ public class SpeedsDetailFragment extends Fragment {
             speed = (int) ((surface * 320) / diameter);
             speedAnswer.setText(Integer.toString(speed));
         }
+    }
+
+    @Override
+       public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }
 

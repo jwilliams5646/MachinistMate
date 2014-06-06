@@ -19,6 +19,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.util.Log;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
@@ -47,6 +49,9 @@ public class LengthFragment extends Fragment {
     private int inputPos;
     private int precision;
     private String output;
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
 
     public LengthFragment() {
     }
@@ -55,7 +60,7 @@ public class LengthFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.conversion_layout, container, false);
-
+        setAd(rootView);
         setLayoutVariables(rootView);
         setTwoPane();
         setSpinnerAdapter();
@@ -65,6 +70,15 @@ public class LengthFragment extends Fragment {
         setPrecisionListeners();
 
         return rootView;
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.rt_adView);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
     }
 
     private void setPrecisionListeners() {
@@ -302,6 +316,9 @@ public class LengthFragment extends Fragment {
 
     @Override
     public void onPause(){
+        if (adView != null) {
+            adView.pause();
+        }
         super.onPause();
         answer = null;
         answerType = null;
@@ -313,5 +330,23 @@ public class LengthFragment extends Fragment {
         addButton = null;
         minusButton = null;
         answerLayout = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }

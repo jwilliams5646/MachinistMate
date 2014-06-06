@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_detail_container"
     android:layout_width="match_parent"
@@ -234,23 +235,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
-    <RelativeLayout
-        android:layout_width="320dp"
-        android:layout_height="50dp"
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/feeds_adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adUnitId="ca-app-pub-6986976933268044/5924552212"
+        ads:adSize="BANNER"
+        android:layout_below="@+id/feed_calc"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="4dp"
-        android:layout_alignParentBottom="true"
-        android:background="#1d1d1d"
-        android:clickable="false">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="This is where an ad will go"
-            android:id="@+id/textView2"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"/>
 
 </RelativeLayout>

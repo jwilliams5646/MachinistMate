@@ -13,6 +13,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoRadioButton;
@@ -26,7 +28,6 @@ import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 public class FeedsDetailFragment extends Fragment {
 
     private RobotoTextView feedAnswer;
-    private boolean feedType;
     private EditText feedSpeedInput;
     private EditText feedPerToothInput;
     private EditText numberTeethInput;
@@ -37,9 +38,11 @@ public class FeedsDetailFragment extends Fragment {
     private RobotoButton minusButton;
     private RobotoRadioButton standardButton;
     private RobotoRadioButton metricButton;
-    private LinearLayout feedAnswerLayout;
     private RadioGroup feedRadioGroup;
     private int precision;
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
 
     public FeedsDetailFragment() {
     }
@@ -54,12 +57,21 @@ public class FeedsDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.feeds_item_detail, container, false);
 
+        setAd(rootView);
         setLayoutVariables(rootView);
-        setTwoPane();
         setPrecisionListeners();
         setRadioButtonListeners();
         setCalcButtonListener();
         return rootView;
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.feeds_adView);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
     }
 
     private void setCalcButtonListener() {
@@ -119,7 +131,6 @@ public class FeedsDetailFragment extends Fragment {
         numberTeethInput = (EditText) rootView.findViewById(R.id.number_teeth_input);
         feedAnswerType = (RobotoTextView) rootView.findViewById(R.id.feed_answer_type);
         precisionView = (RobotoTextView) rootView.findViewById(R.id.feed_precision_view);
-        feedAnswerLayout = (LinearLayout) rootView.findViewById(R.id.feed_answer_layout);
         feedRadioGroup = (RadioGroup) rootView.findViewById(R.id.feed_radio_group);
         standardButton = (RobotoRadioButton)rootView.findViewById(R.id.feeds_standard_radio);
         metricButton = (RobotoRadioButton)rootView.findViewById(R.id.feeds_metric_radio);
@@ -127,21 +138,8 @@ public class FeedsDetailFragment extends Fragment {
         addButton = (RobotoButton) rootView.findViewById(R.id.feed_add_button);
         minusButton = (RobotoButton) rootView.findViewById(R.id.feed_minus_button);
         feedAnswerType.setText(getText(R.string.ipm));
-        feedType = true;
         precision = 2;
         precisionView.setText(Integer.toString(precision));
-    }
-
-    private void setTwoPane(){
-        if (ItemListActivity.mTwoPane) {
-            final float SCALE = getActivity().getResources().getDisplayMetrics().density;
-            int topMargin = (int) (SpeedsDetailFragment.TOP_MARGIN_FROM_FLOAT * SCALE + 0.5f);
-            int x = (int) (SpeedsDetailFragment.OTHER_MARGIN_FROM_FLOAT * SCALE + 0.5f);
-            LinearLayout.MarginLayoutParams params = (LinearLayout.MarginLayoutParams) feedAnswerLayout.getLayoutParams();
-            assert params != null;
-            params.setMargins(x, topMargin, x, x);
-            feedAnswerLayout.setLayoutParams(params);
-        }
     }
 
     public void calcFeed() {
@@ -174,6 +172,32 @@ public class FeedsDetailFragment extends Fragment {
         }
 
         feedAnswer.setText(Calculations.formatter(speed * fpt * numTeeth, precision));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }
 

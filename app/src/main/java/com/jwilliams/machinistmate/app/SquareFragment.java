@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
@@ -43,6 +45,9 @@ public class SquareFragment extends Fragment {
     private boolean check;
     private ArrayAdapter<CharSequence> adapter;
     private ArrayAdapter<CharSequence> answerAdapter;
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
 
     public SquareFragment() {
     }
@@ -56,7 +61,7 @@ public class SquareFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.square_detail, container, false);
-
+        setAd(rootView);
         initializeLayout(rootView);
         setAnswerChoiceAdapter();
         setSideChoiceAdapter();
@@ -66,6 +71,15 @@ public class SquareFragment extends Fragment {
         setPrecisionListeners();
         return rootView;
 
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.sq_adView);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
     }
 
     private void setPrecisionListeners() {
@@ -312,6 +326,9 @@ public class SquareFragment extends Fragment {
 
     @Override
     public void onPause(){
+        if (adView != null) {
+            adView.pause();
+        }
         super.onPause();
         inputLayout1 = null;
         sideInputLayout = null;
@@ -327,6 +344,24 @@ public class SquareFragment extends Fragment {
         minusButton = null;
         adapter = null;
         answerAdapter = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 
 }

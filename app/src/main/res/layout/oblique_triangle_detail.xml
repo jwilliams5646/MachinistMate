@@ -322,21 +322,16 @@
             style="@style/buttons"
             android:layout_margin="4dp"/>
 
-    <RelativeLayout
-        android:layout_width="320dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/oblique_calc_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="4dp">
-
         <com.google.android.gms.ads.AdView
             android:id="@+id/oblique_adView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             ads:adUnitId="ca-app-pub-6986976933268044/5924552212"
-            ads:adSize="BANNER"/>
-    </RelativeLayout>
+            ads:adSize="BANNER"
+            android:layout_below="@+id/oblique_calc_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="4dp"/>
 
 
 

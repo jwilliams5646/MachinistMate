@@ -497,6 +497,27 @@ public class RightTriangleFragment extends Fragment {
         questionButton = null;
         adapter = null;
         rootView = null;
+        if (adView != null) {
+            adView.pause();
+        }
         super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }

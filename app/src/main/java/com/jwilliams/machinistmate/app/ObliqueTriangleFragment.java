@@ -52,8 +52,9 @@ public class ObliqueTriangleFragment extends Fragment {
     private int precision;
     private ArrayAdapter<CharSequence> angleAdapter;
     private View rootView;
-
     private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
     //private static final String AD_UNIT_ID = "ca-app-pub-6986976933268044/5924552212";
 
     public ObliqueTriangleFragment() {
@@ -68,14 +69,18 @@ public class ObliqueTriangleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.oblique_triangle_detail, container, false);
-        AdView adView = (AdView)rootView.findViewById(R.id.oblique_adView);
-        AdRequest adRequest = new AdRequest.Builder()
+        setAd(rootView);
+        initializeLayout(rootView);
+        return rootView;
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.oblique_adView);
+        adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice(TEST_DEVICE_ID)
                 .build();
         adView.loadAd(adRequest);
-        initializeLayout(rootView);
-        return rootView;
     }
 
     private void initializeLayout(View rootView) {
@@ -805,8 +810,11 @@ public class ObliqueTriangleFragment extends Fragment {
     }*/
 
     @Override
-    public void onDestroyView(){
-        super.onDestroyView();
+    public void onPause(){
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
         sideAInput = null;
         sideBInput = null;
         sideCInput = null;
@@ -827,5 +835,23 @@ public class ObliqueTriangleFragment extends Fragment {
         questionButton = null;
         angleAdapter = null;
         rootView = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }

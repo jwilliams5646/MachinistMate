@@ -15,6 +15,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
@@ -47,6 +49,9 @@ public class RectangleFragment extends Fragment {
     private int precision;
     private ArrayAdapter<CharSequence> answerAdapter;
     private ArrayAdapter<CharSequence> inputAdapter;
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
 
     public RectangleFragment() {
     }
@@ -59,6 +64,7 @@ public class RectangleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.rectangle_geometry, container, false);
+        setAd(rootView);
         initializeLayout(rootView);
         setInitialLayout();
         setAnwerChoiceAdapter();
@@ -68,6 +74,15 @@ public class RectangleFragment extends Fragment {
         setCalcListener();
         setPrecisionListeners();
         return rootView;
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.rect_adView);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
     }
 
     private void setPrecisionListeners() {
@@ -440,6 +455,9 @@ public class RectangleFragment extends Fragment {
 
     @Override
     public void onPause(){
+        if (adView != null) {
+            adView.pause();
+        }
         super.onPause();
         inputLayout1 = null;
         inputLayout2 = null;
@@ -459,5 +477,23 @@ public class RectangleFragment extends Fragment {
         minusButton = null;
         answerAdapter = null;
         inputAdapter = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }
