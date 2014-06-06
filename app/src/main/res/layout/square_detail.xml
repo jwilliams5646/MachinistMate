@@ -71,9 +71,7 @@
             android:layout_height="40dp"
             android:inputType="numberDecimal"
             android:id="@+id/sq_input1"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_margin="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 
@@ -101,9 +99,7 @@
             android:layout_height="40dp"
             android:inputType="numberDecimal"
             android:id="@+id/sq_side_input"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
+            android:layout_margin="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 

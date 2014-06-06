@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.Spinner;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +30,9 @@ public class FractionMetricFragment extends Fragment {
      * represents.
      */
     private static final String KEY_POSITION="position";
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private static AdView adView;
+    private static AdRequest adRequest;
 
     static FractionMetricFragment newInstance(int position) {
         FractionMetricFragment frag=new FractionMetricFragment();
@@ -56,6 +62,7 @@ public class FractionMetricFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fraction_metric_detail, container, false);
+        setAd(rootView);
 
         referenceGridView = (GridView)rootView.findViewById(R.id.chart_reference_grid);
 
@@ -64,6 +71,41 @@ public class FractionMetricFragment extends Fragment {
         referenceGridView.setAdapter(metricStandardAdapter);
 
         return rootView;
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.frac_adView);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
+    }
+
+    @Override
+    public void onPause(){
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 
 

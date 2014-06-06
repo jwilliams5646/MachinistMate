@@ -190,5 +190,26 @@ public class DbHelper extends SQLiteOpenHelper{
         return myDataBase.rawQuery("select "+ output + " from "
                 + "volume" + " Where _id = " + id,null);
     }
+
+    /**
+     *
+     *CNC Codes queries
+     */
+
+    static String g = "g";
+    public Cursor getGCodes(){
+        return myDataBase.rawQuery("select code, desc, mill, turn from cncc where type = 'g'",null);
+    }
+
+    static String m = "m";
+    public Cursor getMCodes(){
+        return myDataBase.rawQuery("select code, desc, mill, turn from cncc where type = 'm'",null);
+    }
+
+    static String add = "add";
+    public Cursor getAddCodes(){
+        return myDataBase.rawQuery("select code, desc, mill, turn from cncc where type = 'add'",null);
+    }
+
 }
 

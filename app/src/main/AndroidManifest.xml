@@ -50,6 +50,15 @@
                 android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
         </activity>
         <activity
+            android:name="com.jwilliams.machinistmate.app.GMActivity"
+            android:label="CNC Codes"
+            android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
+            android:screenOrientation="nosensor">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
+        </activity>
+        <activity
             android:name=".LengthActivity"
             android:label="Conversions"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"

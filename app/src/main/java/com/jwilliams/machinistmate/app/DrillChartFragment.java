@@ -15,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
@@ -39,6 +41,9 @@ public class DrillChartFragment extends Fragment {
     private List<String> li;
     private ArrayAdapter<String> adapter;
     private int dbSwitch;
+    private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
+    private AdView adView;
+    private AdRequest adRequest;
 
     public DrillChartFragment() {
     }
@@ -53,6 +58,7 @@ public class DrillChartFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.drill_chart_layout, container, false);
         dbSwitch = 0;
+        setAd(rootView);
         setLayout(rootView);
         setAdapter();
         new setGrid().execute();
@@ -102,6 +108,15 @@ public class DrillChartFragment extends Fragment {
             }
         });
         return rootView;
+    }
+
+    private void setAd(View rootView){
+        adView = (AdView)rootView.findViewById(R.id.drill_adView);
+        adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
+                .build();
+        adView.loadAd(adRequest);
     }
 
 
@@ -234,5 +249,31 @@ public class DrillChartFragment extends Fragment {
             metric = null;
             this.cancel(true);
         }
+    }
+
+    @Override
+    public void onPause(){
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    /** Called before the activity is destroyed. */
+    @Override
+    public void onDestroy() {
+        // Destroy the AdView.
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 }

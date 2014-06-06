@@ -123,15 +123,20 @@ public class ItemListActivity extends FragmentActivity
                     intent = new Intent(this, FeedsDetailActivity.class);
                     break;
 
+
                 case 3:
-                    intent = new Intent(this, ConversionPagerActivity.class);
+                    intent = new Intent(this, GMActivity.class);
                     break;
 
                 case 4:
-                    intent = new Intent(this, GeometryPagerActivity.class);
+                    intent = new Intent(this, ConversionPagerActivity.class);
                     break;
 
                 case 5:
+                    intent = new Intent(this, GeometryPagerActivity.class);
+                    break;
+
+                case 6:
                     intent = new Intent(this, ReferencePagerActivity.class);
                     break;
 

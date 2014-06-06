@@ -42,9 +42,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/trap_answer"
             android:layout_weight="1"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_margin="4dp"
             style="@style/TextViewStyle"
             android:textSize="32sp" />
     </LinearLayout>
@@ -55,7 +53,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/trap_answer_layout"
         android:id="@+id/trap_input1_layout"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="4dp">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -73,9 +72,7 @@
             android:inputType="numberDecimal"
             android:id="@+id/trap_input1"
             android:layout_weight="1"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_margin="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 
@@ -85,7 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/trap_input1_layout"
         android:id="@+id/trap_input2_layout"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="4dp">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -103,9 +101,7 @@
             android:inputType="numberDecimal"
             android:id="@+id/trap_input2"
             android:layout_weight="1"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_margin="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 
@@ -115,7 +111,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/trap_input2_layout"
         android:id="@+id/trap_input3_layout"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="4dp">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -133,9 +130,7 @@
             android:inputType="numberDecimal"
             android:id="@+id/trap_input3"
             android:layout_weight="1"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_margin="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 
@@ -146,6 +141,7 @@
         android:layout_below="@id/trap_input3_layout"
         android:id="@+id/trap_input4_layout"
         android:layout_centerHorizontal="true"
+        android:layout_marginRight="4dp"
         android:visibility="invisible">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
@@ -164,9 +160,7 @@
             android:inputType="numberDecimal"
             android:id="@+id/trap_input4"
             android:layout_weight="1"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="4dp"
+            android:layout_margin="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
 

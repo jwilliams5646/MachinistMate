@@ -28,10 +28,10 @@ public class MenuContent {
         // Add items to list
         addListItem(new MenuItem("1", "Speeds"));
         addListItem(new MenuItem("2", "Feeds"));
-        addListItem(new MenuItem("3", "Conversions"));
-        addListItem(new MenuItem("4", "Geometry"));
-        addListItem(new MenuItem("5", "Reference"));
-        addListItem(new MenuItem("6", "Preferences"));
+        addListItem(new MenuItem("3", "CNC Codes"));
+        addListItem(new MenuItem("4", "Conversions"));
+        addListItem(new MenuItem("5", "Geometry"));
+        addListItem(new MenuItem("6", "Reference"));
     }
 
     private static void addListItem(MenuItem item) {
