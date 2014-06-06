@@ -13,6 +13,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -35,6 +38,7 @@ public class GMFragment extends Fragment {
     private RobotoButton addressButton;
     private GridView codeGrid;
     private GridView addressGrid;
+    private TableLayout codeTable;
     private List<String> li;
     private List<String> ad;
     private ArrayAdapter<String> codeAdapter;
@@ -43,6 +47,8 @@ public class GMFragment extends Fragment {
     private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
     private AdView adView;
     private AdRequest adRequest;
+
+    DbHelper myDbHelper;
 
 
     public GMFragment() {
@@ -76,6 +82,7 @@ public class GMFragment extends Fragment {
         addressButton = (RobotoButton)rootView.findViewById(R.id.gm_address_button);
         codeGrid = (GridView)rootView.findViewById(R.id.gm_code_grid);
         addressGrid = (GridView)rootView.findViewById(R.id.gm_address_grid);
+        codeTable = (TableLayout)rootView.findViewById(R.id.gm_code_table);
     }
 
     private void setButtonListeners() {
@@ -88,6 +95,7 @@ public class GMFragment extends Fragment {
                 addressGrid.setVisibility(View.INVISIBLE);
                 dbSwitch = 0;
                 new setList().execute();
+                myDbHelper.close();
             }
         });
         mButton.setOnClickListener(new Button.OnClickListener() {
@@ -161,7 +169,6 @@ public class GMFragment extends Fragment {
 
     private class setList extends AsyncTask {
         Cursor c;
-        DbHelper myDbHelper;
         String code;
         String desc;
         String m;
@@ -189,7 +196,7 @@ public class GMFragment extends Fragment {
                 case 0:
                     Log.d("do-inbackground", "case 1");
                     c = myDbHelper.getGCodes();
-                    createListAdapter(c);
+                    //createListAdapter(c);
                     break;
                 case 1:
                     c = myDbHelper.getMCodes();
@@ -205,13 +212,36 @@ public class GMFragment extends Fragment {
                     break;
             }
 
-            myDbHelper.close();
+
             Log.d("DB Thread", "Ending work");
             return null;
         }
-
         private void createListAdapter(Cursor c) {
-            Log.d("create-list adapter", "doing");
+            while (c.moveToNext()) {
+                TableRow tableRow = new TableRow(getActivity());
+
+                //ArrayList<Object> row = data.get(position);
+
+                TextView text1 = new TextView(getActivity());
+                text1.setText(c.getString(c.getColumnIndex("code")));
+                tableRow.addView(text1);
+
+                TextView textOne = new TextView(getActivity());
+                textOne.setText(c.getString(c.getColumnIndex("desc")));
+                tableRow.addView(textOne);
+
+                TextView textTwo = new TextView(getActivity());
+                textTwo.setText(c.getString(c.getColumnIndex("mill")));
+                tableRow.addView(textTwo);
+
+                TextView text4 = new TextView(getActivity());
+                text4.setText(c.getString(c.getColumnIndex("turn")));
+                tableRow.addView(text4);
+
+                codeTable.addView(tableRow);
+            }
+
+/*            Log.d("create-list adapter", "doing");
             while (c.moveToNext()) {
                 code = c.getString(c.getColumnIndex("code"));
                 desc = c.getString(c.getColumnIndex("desc"));
@@ -237,7 +267,7 @@ public class GMFragment extends Fragment {
                 }else{
                     li.add("");
                 }
-            }
+            }*/
         }
 
         private void createAddressListAdapter(Cursor c) {
@@ -251,6 +281,7 @@ public class GMFragment extends Fragment {
 
         @Override
         protected void onPostExecute(Object result){
+            createListAdapter(c);
             Log.d("post-execute", "setting");
             switch(dbSwitch){
                 case 0:
