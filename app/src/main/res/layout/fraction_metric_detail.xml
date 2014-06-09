@@ -24,31 +24,31 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/fraction"
             android:id="@+id/textView"
             android:gravity="center"
             android:layout_marginRight="1dp"
             android:layout_marginBottom="2dp"
+            android:textSize="12sp"
             style="@style/HeaderStyle"/>
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/standard"
             android:id="@+id/textView2"
             android:gravity="center"
             android:layout_marginRight="1dp"
             android:layout_marginBottom="2dp"
+            android:textSize="12sp"
             style="@style/HeaderStyle"/>
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
-            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textSize="12sp"
             android:text="@string/metric"
             android:id="@+id/textView3"
             android:gravity="center"

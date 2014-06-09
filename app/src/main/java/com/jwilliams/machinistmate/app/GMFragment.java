@@ -11,20 +11,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
+import com.jwilliams.machinistmate.app.AppContent.GMAddAdapter;
+import com.jwilliams.machinistmate.app.AppContent.GMAddContent;
+import com.jwilliams.machinistmate.app.AppContent.GMCodeAdapter;
+import com.jwilliams.machinistmate.app.AppContent.GMCodeContent;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -36,13 +36,12 @@ public class GMFragment extends Fragment {
     private RobotoButton gButton;
     private RobotoButton mButton;
     private RobotoButton addressButton;
-    private GridView codeGrid;
-    private GridView addressGrid;
-    private TableLayout codeTable;
-    private List<String> li;
-    private List<String> ad;
-    private ArrayAdapter<String> codeAdapter;
-    private ArrayAdapter<String> addressAdapter;
+    ListView codeList;
+    public ArrayList<GMCodeContent> codeContent;
+    private GMCodeAdapter codeAdapter;
+    ListView addList;
+    public ArrayList<GMAddContent> addContent;
+    private GMAddAdapter addAdapter;
     private int dbSwitch;
     private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
     private AdView adView;
@@ -80,31 +79,21 @@ public class GMFragment extends Fragment {
         gButton = (RobotoButton)rootView.findViewById(R.id.gm_g_button);
         mButton = (RobotoButton)rootView.findViewById(R.id.gm_m_button);
         addressButton = (RobotoButton)rootView.findViewById(R.id.gm_address_button);
-        codeGrid = (GridView)rootView.findViewById(R.id.gm_code_grid);
-        addressGrid = (GridView)rootView.findViewById(R.id.gm_address_grid);
-        codeTable = (TableLayout)rootView.findViewById(R.id.gm_code_table);
+        codeList = (ListView)rootView.findViewById(R.id.gm_code_list);
+        addList = (ListView)rootView.findViewById(R.id.gm_address_list);
     }
 
     private void setButtonListeners() {
         gButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                codeHeader.setVisibility(View.VISIBLE);
-                addressHeader.setVisibility(View.INVISIBLE);
-                codeGrid.setVisibility(View.VISIBLE);
-                addressGrid.setVisibility(View.INVISIBLE);
                 dbSwitch = 0;
                 new setList().execute();
-                myDbHelper.close();
             }
         });
         mButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                codeHeader.setVisibility(View.VISIBLE);
-                addressHeader.setVisibility(View.INVISIBLE);
-                codeGrid.setVisibility(View.VISIBLE);
-                addressGrid.setVisibility(View.INVISIBLE);
                 dbSwitch = 1;
                 new setList().execute();
             }
@@ -112,10 +101,6 @@ public class GMFragment extends Fragment {
         addressButton.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                codeHeader.setVisibility(View.INVISIBLE);
-                addressHeader.setVisibility(View.VISIBLE);
-                codeGrid.setVisibility(View.INVISIBLE);
-                addressGrid.setVisibility(View.VISIBLE);
                 dbSwitch = 2;
                 new setList().execute();
             }
@@ -134,20 +119,15 @@ public class GMFragment extends Fragment {
 
 
     private void setCodeAdapter(){
-        //instantiates the array list used for the adapter
-
-        li = new ArrayList<String>();
+        codeContent = new ArrayList<GMCodeContent>();
         //the adapter, sets the list to the layout
-        codeAdapter = new ArrayAdapter<String>(getActivity(),
-                R.layout.grid_item_layout, li);
+        codeAdapter = new GMCodeAdapter(codeContent, getActivity());
     }
     private void setAddressAdapter(){
+        addContent = new ArrayList<GMAddContent>();
         //instantiates the array list used for the adapter
-
-        ad = new ArrayList<String>();
         //the adapter, sets the list to the layout
-        addressAdapter = new ArrayAdapter<String>(getActivity(),
-                R.layout.grid_item_layout, ad);
+        addAdapter = new GMAddAdapter(addContent, getActivity());
     }
 
     private void setDatabase(DbHelper myDbHelper){
@@ -167,22 +147,21 @@ public class GMFragment extends Fragment {
         }
     }
 
-    private class setList extends AsyncTask {
+    public class setList extends AsyncTask {
         Cursor c;
-        String code;
-        String desc;
-        String m;
-        String t;
 
         @Override
         protected void onPreExecute(){
-            Log.d("pre-execute", "executing");
-            if(codeAdapter!=null){
-                codeAdapter.clear();
+            if(codeContent!=null){
+                codeContent.clear();
             }
-            if(addressAdapter!=null){
-                addressAdapter.clear();
+            if(addContent!=null){
+                addContent.clear();
             }
+            codeHeader.setVisibility(View.INVISIBLE);
+            codeList.setVisibility(View.GONE);
+            addressHeader.setVisibility(View.INVISIBLE);
+            addList.setVisibility(View.GONE);
         }
 
         @Override
@@ -194,11 +173,12 @@ public class GMFragment extends Fragment {
 
             switch (dbSwitch){
                 case 0:
-                    Log.d("do-inbackground", "case 1");
+                    Log.d("do-inbackground", "case 0");
                     c = myDbHelper.getGCodes();
-                    //createListAdapter(c);
+                    createListAdapter(c);
                     break;
                 case 1:
+                    Log.d("do-inbackground", "case 1");
                     c = myDbHelper.getMCodes();
                     createListAdapter(c);
                     break;
@@ -206,101 +186,58 @@ public class GMFragment extends Fragment {
                     c = myDbHelper.getAddCodes();
                     createAddressListAdapter(c);
                     break;
-                default:
-                    c = myDbHelper.getGCodes();
-                    createListAdapter(c);
-                    break;
             }
 
-
+            myDbHelper.close();
             Log.d("DB Thread", "Ending work");
             return null;
         }
         private void createListAdapter(Cursor c) {
+
             while (c.moveToNext()) {
-                TableRow tableRow = new TableRow(getActivity());
-
-                //ArrayList<Object> row = data.get(position);
-
-                TextView text1 = new TextView(getActivity());
-                text1.setText(c.getString(c.getColumnIndex("code")));
-                tableRow.addView(text1);
-
-                TextView textOne = new TextView(getActivity());
-                textOne.setText(c.getString(c.getColumnIndex("desc")));
-                tableRow.addView(textOne);
-
-                TextView textTwo = new TextView(getActivity());
-                textTwo.setText(c.getString(c.getColumnIndex("mill")));
-                tableRow.addView(textTwo);
-
-                TextView text4 = new TextView(getActivity());
-                text4.setText(c.getString(c.getColumnIndex("turn")));
-                tableRow.addView(text4);
-
-                codeTable.addView(tableRow);
+                GMCodeContent Content = new GMCodeContent();
+                Content.setCode(c.getString(c.getColumnIndex("code")));
+                Content.setDesc(c.getString(c.getColumnIndex("desc")));
+                Content.setMill(c.getString(c.getColumnIndex("mill")));
+                Content.setTurn(c.getString(c.getColumnIndex("turn")));
+                codeContent.add(Content);
             }
-
-/*            Log.d("create-list adapter", "doing");
-            while (c.moveToNext()) {
-                code = c.getString(c.getColumnIndex("code"));
-                desc = c.getString(c.getColumnIndex("desc"));
-                m = c.getString(c.getColumnIndex("mill"));
-                t = c.getString(c.getColumnIndex("turn"));
-                if(code != null) {
-                    li.add(code);
-                }else{
-                    li.add("");
-                }
-                if(desc != null) {
-                    li.add(desc);
-                }else{
-                    li.add("");
-                }
-                if(m != null) {
-                    li.add(m);
-                }else{
-                    li.add("");
-                }
-                if(t != null) {
-                    li.add(t);
-                }else{
-                    li.add("");
-                }
-            }*/
         }
 
         private void createAddressListAdapter(Cursor c) {
             while(c.moveToNext()) {
-                code = c.getString(c.getColumnIndex("code"));
-                desc = c.getString(c.getColumnIndex("desc"));
-                ad.add(code);
-                ad.add(desc);
+                GMAddContent Content = new GMAddContent();
+                Content.setCode(c.getString(c.getColumnIndex("code")));
+                Content.setDesc(c.getString(c.getColumnIndex("desc")));
+                addContent.add(Content);
             }
         }
 
         @Override
         protected void onPostExecute(Object result){
-            createListAdapter(c);
-            Log.d("post-execute", "setting");
             switch(dbSwitch){
                 case 0:
-                    Log.d("post-execute", "codeAdapter");
-                    codeGrid.setAdapter(codeAdapter);
+                    Log.d("post-execute", "codeAdapter0");
+                    codeList.setAdapter(codeAdapter);
+                    codeHeader.setVisibility(View.VISIBLE);
+                    codeList.setVisibility(View.VISIBLE);
                     break;
                 case 1:
-                    codeGrid.setAdapter(codeAdapter);
+                    Log.d("post-execute", "codeAdapter1");
+                    codeList.setAdapter(codeAdapter);
+                    codeHeader.setVisibility(View.VISIBLE);
+                    codeList.setVisibility(View.VISIBLE);
                     break;
                 case 2:
-                    addressGrid.setAdapter(addressAdapter);
+                    addList.setAdapter(addAdapter);
+                    addressHeader.setVisibility(View.VISIBLE);
+                    addList.setVisibility(View.VISIBLE);
                     break;
             }
+
             c = null;
             myDbHelper = null;
-            code = null;
-            desc = null;
-            m = null;
-            t = null;
+
             this.cancel(true);
         }
     }

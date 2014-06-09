@@ -56,7 +56,6 @@
         android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gm_buttons"
-        android:layout_margin="4dp"
         android:background="#161819"
         android:id="@+id/gm_codes_header">
 
@@ -78,6 +77,7 @@
             android:text="Description"
             android:textSize="12sp"
             style="@style/HeaderStyle"
+            android:gravity="center_vertical|left"
             android:layout_marginRight="1dp"
             android:layout_marginBottom="2dp"
             android:id="@+id/desc_header" />
@@ -107,10 +107,9 @@
         android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/gm_buttons"
-        android:layout_margin="4dp"
         android:background="#161819"
         android:id="@+id/gm_address_header"
-    android:visibility="invisible">
+        android:visibility="invisible">
 
 
     <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
@@ -119,7 +118,7 @@
         android:text="Code"
         android:textSize="12sp"
         android:id="@+id/gm_code"
-        android:layout_margin="1dp"
+        android:layout_marginRight="1dp"
         android:gravity="center"
         style="@style/HeaderStyle"/>
 
@@ -127,52 +126,34 @@
         android:layout_width="0dp"
         android:layout_weight="1"
         android:layout_height="40dp"
+        android:gravity="center_vertical|left"
         android:text="Description"
         android:textSize="12sp"
         style="@style/HeaderStyle"
-        android:layout_margin="1dp"
         android:id="@+id/gm_desc" />
 
 </LinearLayout>
 
     <LinearLayout
         android:layout_width="600dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@+id/gm_codes_header"
-        android:layout_centerHorizontal="true">
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:id="@+id/gm_code_table"/>
-        <GridView
+        android:layout_below="@+id/gm_codes_header">
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:id="@+id/gm_code_grid"
-            android:layout_margin="4dp"
-            android:layout_marginTop="-4dp"
-            android:background="#161819"
-            android:horizontalSpacing="1dp"
-            android:verticalSpacing="1dp"
-            android:gravity="center"
-            android:numColumns="4"
-            android:clickable="false"
-            android:visibility="invisible"/>
-        <GridView
+            android:id="@+id/gm_code_list"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:id="@+id/gm_address_grid"
-            android:layout_margin="4dp"
-            android:layout_marginTop="-4dp"
-            android:background="#161819"
-            android:horizontalSpacing="1dp"
-            android:verticalSpacing="1dp"
-            android:gravity="center"
-            android:numColumns="2"
-            android:clickable="false"
-            android:visibility="invisible"/>
+            android:id="@+id/gm_address_list"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:visibility="gone"/>
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/drill_adView"

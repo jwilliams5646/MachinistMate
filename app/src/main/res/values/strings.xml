@@ -62,12 +62,12 @@
 
 
     <string-array name="conv_volume_array">
-        <item>cu in</item>
-        <item>cu ft</item>
-        <item>cu yd</item>
-        <item>cu mm</item>
-        <item>cu cm</item>
-        <item>cu m</item>
+        <item>in<sup><small>3</small></sup></item>
+        <item>ft<sup><small>3</small></sup></item>
+        <item>yd<sup><small>3</small></sup></item>
+        <item>mm<sup><small>3</small></sup></item>
+        <item>cm<sup><small>3</small></sup></item>
+        <item>m<sup><small>3</small></sup></item>
     </string-array>
 
     <string-array name="precision_array">

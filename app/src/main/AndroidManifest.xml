@@ -71,7 +71,8 @@
             android:name="com.jwilliams.machinistmate.app.GeometryPagerActivity"
             android:label="Geometry"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
@@ -108,7 +109,8 @@
             android:name="com.jwilliams.machinistmate.app.RightTriangleActivity"
             android:label="Geometry"
             android:parentActivityName="com.jwilliams.machinistmate.app.ItemListActivity"
-            android:screenOrientation="nosensor">
+            android:screenOrientation="nosensor"
+            android:windowSoftInputMode="stateHidden">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.jwilliams.machinistmate.app.ItemListActivity" />
