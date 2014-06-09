@@ -57,12 +57,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/gm_buttons"
         android:background="#161819"
-        android:id="@+id/gm_codes_header">
+        android:id="@+id/gm_codes_header"
+        android:layout_centerHorizontal="true">
 
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:text="Code"
             android:textSize="12sp"
             android:id="@+id/code_header"
@@ -73,7 +74,7 @@
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:text="Description"
             android:textSize="12sp"
             style="@style/HeaderStyle"
@@ -84,7 +85,7 @@
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="match_parent"
             android:text="Milling (M)"
             android:textSize="12sp"
             style="@style/HeaderStyle"
@@ -94,7 +95,7 @@
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="60dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:text="Turning (T)"
             android:textSize="12sp"
             style="@style/HeaderStyle"
@@ -109,6 +110,7 @@
         android:layout_below="@+id/gm_buttons"
         android:background="#161819"
         android:id="@+id/gm_address_header"
+        android:layout_centerHorizontal="true"
         android:visibility="invisible">
 
 
@@ -119,6 +121,7 @@
         android:textSize="12sp"
         android:id="@+id/gm_code"
         android:layout_marginRight="1dp"
+        android:layout_marginBottom="2dp"
         android:gravity="center"
         style="@style/HeaderStyle"/>
 
@@ -129,6 +132,7 @@
         android:gravity="center_vertical|left"
         android:text="Description"
         android:textSize="12sp"
+        android:layout_marginBottom="2dp"
         style="@style/HeaderStyle"
         android:id="@+id/gm_desc" />
 
@@ -138,7 +142,8 @@
         android:layout_width="600dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_below="@+id/gm_codes_header">
+        android:layout_below="@+id/gm_codes_header"
+        android:layout_centerHorizontal="true">
         <ListView
             android:layout_width="match_parent"
             android:layout_height="0dp"

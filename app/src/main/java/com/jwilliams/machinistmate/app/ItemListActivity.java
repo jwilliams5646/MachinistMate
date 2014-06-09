@@ -3,7 +3,6 @@ package com.jwilliams.machinistmate.app;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -89,14 +88,18 @@ public class ItemListActivity extends FragmentActivity
                     break;
 
                 case 3:
-                    frag = new ConversionPagerFragment();
+                    frag = new GMFragment();
                     break;
 
                 case 4:
-                    frag = new GeometryPagerFragment();
+                    frag = new ConversionPagerFragment();
                     break;
 
                 case 5:
+                    frag = new GeometryPagerFragment();
+                    break;
+
+                case 6:
                     frag = new ReferencePagerFragment();
                     break;
 

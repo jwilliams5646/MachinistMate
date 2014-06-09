@@ -13,7 +13,7 @@
         android:id="@+id/chart_header"
         android:orientation="horizontal"
         android:layout_width="600dp"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:background="#1d1d1d"
@@ -23,7 +23,7 @@
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:text="@string/fraction"
             android:id="@+id/textView"
             android:gravity="center"
@@ -35,7 +35,7 @@
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:text="@string/standard"
             android:id="@+id/textView2"
             android:gravity="center"
@@ -47,7 +47,7 @@
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:textSize="12sp"
             android:text="@string/metric"
             android:id="@+id/textView3"
