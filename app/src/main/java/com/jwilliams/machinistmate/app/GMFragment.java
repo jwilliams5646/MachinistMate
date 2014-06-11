@@ -110,8 +110,8 @@ public class GMFragment extends Fragment {
     private void setAd(View rootView){
         adView = (AdView)rootView.findViewById(R.id.drill_adView);
         adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(TEST_DEVICE_ID)
+/*                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)*/
                 .build();
         adView.loadAd(adRequest);
     }
@@ -148,15 +148,25 @@ public class GMFragment extends Fragment {
     }
 
     public class setList extends AsyncTask {
-        Cursor c;
+        Cursor c = null;
 
         @Override
         protected void onPreExecute(){
             if(codeContent!=null){
                 codeContent.clear();
+                codeAdapter = null;
+                codeList.setAdapter(null);
             }
+
             if(addContent!=null){
                 addContent.clear();
+                addAdapter = null;
+                addList.setAdapter(null);
+            }
+            if(dbSwitch <= 1){
+                setCodeAdapter();
+            }else if(dbSwitch==2){
+                setAddressAdapter();
             }
             codeHeader.setVisibility(View.INVISIBLE);
             codeList.setVisibility(View.GONE);
@@ -192,8 +202,10 @@ public class GMFragment extends Fragment {
             Log.d("DB Thread", "Ending work");
             return null;
         }
-        private void createListAdapter(Cursor c) {
 
+
+        private void createListAdapter(Cursor c) {
+            codeContent.clear();
             while (c.moveToNext()) {
                 GMCodeContent Content = new GMCodeContent();
                 Content.setCode(c.getString(c.getColumnIndex("code")));
@@ -205,6 +217,7 @@ public class GMFragment extends Fragment {
         }
 
         private void createAddressListAdapter(Cursor c) {
+            addContent.clear();
             while(c.moveToNext()) {
                 GMAddContent Content = new GMAddContent();
                 Content.setCode(c.getString(c.getColumnIndex("code")));
@@ -235,9 +248,12 @@ public class GMFragment extends Fragment {
                     break;
             }
 
-            c = null;
-            myDbHelper = null;
 
+
+            if(addAdapter!=null){
+                addAdapter=null;
+            }
+            c = null;
             this.cancel(true);
         }
     }

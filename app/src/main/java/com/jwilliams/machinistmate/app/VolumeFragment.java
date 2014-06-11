@@ -3,18 +3,16 @@ package com.jwilliams.machinistmate.app;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Html;
-import android.util.Log;
+//import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -75,8 +73,8 @@ public class VolumeFragment extends Fragment {
     private void setAd(View rootView){
         adView = (AdView)rootView.findViewById(R.id.rt_adView);
         adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(TEST_DEVICE_ID)
+/*                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)*/
                 .build();
         adView.loadAd(adRequest);
     }
@@ -255,7 +253,7 @@ public class VolumeFragment extends Fragment {
         try {
             myDbHelper.openDataBase();
         }catch(SQLException sqle){
-            Log.d("Open Database", "SQL Exception");
+            //Log.d("Open Database", "SQL Exception");
             throw sqle;
         }
     }
@@ -278,7 +276,7 @@ public class VolumeFragment extends Fragment {
 
         @Override
         protected String doInBackground(Object[] params) {
-            Log.d("DB Thread", "Starting work");
+           // Log.d("DB Thread", "Starting work");
             myDbHelper = new DbHelper(getActivity());
             setDatabase(myDbHelper);
             openDb(myDbHelper);
@@ -287,7 +285,7 @@ public class VolumeFragment extends Fragment {
             result = Calculations.formatter(calcInput *
                     Double.parseDouble(c.getString(c.getColumnIndex(output))), precision);
             myDbHelper.close();
-            Log.d("DB Thread", "Ending work");
+           // Log.d("DB Thread", "Ending work");
             return result;
         }
 

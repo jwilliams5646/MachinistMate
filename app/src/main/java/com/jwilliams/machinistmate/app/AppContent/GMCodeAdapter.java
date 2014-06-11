@@ -2,6 +2,7 @@ package com.jwilliams.machinistmate.app.AppContent;
 
 import android.content.Context;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
  */
 public class GMCodeAdapter extends BaseAdapter {
 
-    private ArrayList<GMCodeContent> _data;
+    private ArrayList<GMCodeContent> _data = null;
     Context _c;
 
     public GMCodeAdapter(ArrayList<GMCodeContent> data, FragmentActivity c){
@@ -26,22 +27,20 @@ public class GMCodeAdapter extends BaseAdapter {
     }
 
     public int getCount() {
-        // TODO Auto-generated method stub
         return _data.size();
     }
 
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
         return _data.get(position);
     }
 
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
         return position;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
-        // TODO Auto-generated method stub
+
+        Log.d("WTF", Integer.toString(position));
         View v = convertView;
         if (v == null)
         {
@@ -55,6 +54,7 @@ public class GMCodeAdapter extends BaseAdapter {
         TextView turn = (TextView)v.findViewById(R.id.codes_turn);
 
         GMCodeContent content = _data.get(position);
+        Log.d("WTF", Integer.toString(position));
         code.setText(content.code);
         desc.setText(content.desc);
         mill.setText(content.mill);

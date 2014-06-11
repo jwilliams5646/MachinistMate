@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
-    android:baselineAligned="false"
     tools:context="com.jwilliams.machinistmate.app.ItemListActivity">
 
     <!--
@@ -25,6 +24,14 @@
         android:layout_height="match_parent"
         android:layout_weight="1.5"
         tools:layout="@android:layout/list_content" />
+
+
+
+    <View android:background="#1d1d1d"
+        android:layout_width="5dp"
+        android:layout_height="wrap_content"
+        />
+
 
     <FrameLayout
         android:id="@+id/item_detail_container"

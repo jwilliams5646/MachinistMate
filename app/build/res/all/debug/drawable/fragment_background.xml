@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<shape xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="rectangle">
-    <solid android:color="#111111" />
-</shape><!-- From: file:/C:/Users/John/AndroidStudioProjects/Machinist_Mate/app/src/main/res/drawable/fragment_background.xml -->
