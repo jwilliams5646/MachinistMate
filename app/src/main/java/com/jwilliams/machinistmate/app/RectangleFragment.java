@@ -459,24 +459,6 @@ public class RectangleFragment extends Fragment {
             adView.pause();
         }
         super.onPause();
-        inputLayout1 = null;
-        inputLayout2 = null;
-        inputLayout3 = null;
-        answerChoice = null;
-        inputChoice = null;
-        answer = null;
-        inputView1 = null;
-        inputView2 = null;
-        inputView3 = null;
-        precisionView = null;
-        input1 = null;
-        input2 = null;
-        input3 = null;
-        calcButton = null;
-        addButton = null;
-        minusButton = null;
-        answerAdapter = null;
-        inputAdapter = null;
     }
 
     @Override

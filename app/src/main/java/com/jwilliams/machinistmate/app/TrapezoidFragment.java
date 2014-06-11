@@ -559,25 +559,6 @@ public class TrapezoidFragment extends Fragment {
         if (adView != null) {
             adView.pause();
         }
-        trapChoice = null;
-        input1Layout = null;
-        input2Layout = null;
-        input3Layout = null;
-        input4Layout = null;
-        input1View = null;
-        input2View = null;
-        input3View = null;
-        input4View = null;
-        answer = null;
-        precisionView = null;
-        input1 = null;
-        input2 = null;
-        input3 = null;
-        input4 = null;
-        calcButton = null;
-        addButton = null;
-        minusButton = null;
-        trapAdapter = null;
         super.onPause();
     }
 

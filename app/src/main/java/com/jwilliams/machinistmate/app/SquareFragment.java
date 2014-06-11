@@ -330,20 +330,6 @@ public class SquareFragment extends Fragment {
             adView.pause();
         }
         super.onPause();
-        inputLayout1 = null;
-        sideInputLayout = null;
-        input1 = null;
-        sideInput = null;
-        precisionView = null;
-        view1 = null;
-        answer = null;
-        answerChoice = null;
-        sideChoice = null;
-        calcButton = null;
-        addButton = null;
-        minusButton = null;
-        adapter = null;
-        answerAdapter = null;
     }
 
     @Override

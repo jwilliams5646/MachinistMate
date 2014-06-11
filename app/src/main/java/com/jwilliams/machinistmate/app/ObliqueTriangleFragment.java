@@ -815,26 +815,6 @@ public class ObliqueTriangleFragment extends Fragment {
             adView.pause();
         }
         super.onPause();
-        sideAInput = null;
-        sideBInput = null;
-        sideCInput = null;
-        angleXInput = null;
-        angleYInput = null;
-        angleZInput = null;
-        areaAnswer = null;
-        precisionView = null;
-        heightAnswer = null;
-        perimeterAnswer = null;
-        angleXSpinner = null;
-        angleYSpinner = null;
-        angleZSpinner = null;
-        calcButton = null;
-        addButton = null;
-        minusButton = null;
-        clearButton = null;
-        questionButton = null;
-        angleAdapter = null;
-        rootView = null;
     }
 
     @Override

@@ -474,29 +474,8 @@ public class RightTriangleFragment extends Fragment {
         return(frag);
     }
 
-/*    static String getTitle(Context ctxt, int position) {
-        return(String.format(ctxt.getString(R.string.right_triangle_calc), position + 1));
-    }*/
-
     @Override
     public void onPause(){
-        sideH = null;
-        sideO = null;
-        sideA = null;
-        angleX = null;
-        angleY = null;
-        areaAnswer = null;
-        perimeterAnswer = null;
-        precisionView = null;
-        angleXSpinner = null;
-        angleYSpinner = null;
-        calcButton = null;
-        addButton = null;
-        minusButton = null;
-        clearButton = null;
-        questionButton = null;
-        adapter = null;
-        rootView = null;
         if (adView != null) {
             adView.pause();
         }

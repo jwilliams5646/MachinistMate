@@ -380,19 +380,6 @@ public class ParallelogramFragment extends Fragment {
             adView.pause();
         }
         super.onPause();
-        inputLayout1 = null;
-        inputLayout2 = null;
-        inputView1 = null;
-        inputView2 = null;
-        precisionView = null;
-        answer = null;
-        input1 = null;
-        input2 = null;
-        paraSpinner = null;
-        calcButton = null;
-        addButton = null;
-        minusButton = null;
-        paraAdapter = null;
     }
 
     @Override
