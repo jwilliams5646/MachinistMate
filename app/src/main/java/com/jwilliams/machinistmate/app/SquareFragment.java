@@ -1,7 +1,5 @@
 package com.jwilliams.machinistmate.app;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,9 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -20,6 +17,9 @@ import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.Calculations;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.GeometryClasses.ShowImage;
+import com.jwilliams.machinistmate.app.GeometryClasses.Square;
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by John on 5/12/2014.
@@ -27,11 +27,8 @@ import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 public class SquareFragment extends Fragment {
 
     private static final String KEY_POSITION="position";
-    private LinearLayout inputLayout1;
-    private LinearLayout sideInputLayout;
-    private EditText input1;
-    private EditText sideInput;
-    private RobotoTextView view1;
+    private EditText input;
+    private RobotoTextView inputView;
     private RobotoTextView precisionView;
     private RobotoTextView answer;
     private Spinner answerChoice;
@@ -42,7 +39,7 @@ public class SquareFragment extends Fragment {
     private int precision;
     private int sidePos;
     private int answerPos;
-    private boolean check;
+    private double inputValue;
     private ArrayAdapter<CharSequence> adapter;
     private ArrayAdapter<CharSequence> answerAdapter;
     private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
@@ -61,6 +58,7 @@ public class SquareFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.square_detail, container, false);
+        setSquare(rootView);
         setAd(rootView);
         initializeLayout(rootView);
         setAnswerChoiceAdapter();
@@ -73,11 +71,27 @@ public class SquareFragment extends Fragment {
 
     }
 
+    private void setSquare(View rootView) {
+        ImageView image = (ImageView)rootView.findViewById(R.id.square_image);
+        Picasso.with(getActivity())
+                .load(R.drawable.square)
+                .fit()
+                .centerInside()
+                .into(image);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ShowImage enlarge = new ShowImage(getActivity(),R.drawable.square);
+                enlarge.setDialog();
+            }
+        });
+    }
+
     private void setAd(View rootView){
         adView = (AdView)rootView.findViewById(R.id.sq_adView);
         adRequest = new AdRequest.Builder()
-/*                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(TEST_DEVICE_ID)*/
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
                 .build();
         adView.loadAd(adRequest);
     }
@@ -112,88 +126,32 @@ public class SquareFragment extends Fragment {
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                check = false;
-                switch(answerPos){
-                    case 0:
-                        calcArea();
-                        break;
-                    case 1:
-                        calcDiagonal();
-                        break;
-                    case 2:
-                        switch(sidePos){
-                            case 0:
-                                calcSideByArea();
-                                break;
-                            case 1:
-                                calcSideByDiagonal();
-                                break;
-                            case 2:
-                                calcSideByPerimeter();
-                                break;
+                if(validInput()) {
+                    Square sq = new Square(inputValue);
+                    switch (answerPos) {
+                        case 0:
+                            answer.setText(Calculations.formatter(sq.calcArea(),precision));
+                            break;
+                        case 1:
+                            answer.setText(Calculations.formatter(sq.calcDiagonal(),precision));
+                            break;
+                        case 2:
+                            switch (sidePos) {
+                                case 0:
+                                    answer.setText(Calculations.formatter(sq.calcSideByArea(),precision));
+                                    break;
+                                case 1:
+                                    answer.setText(Calculations.formatter(sq.calcSideByDiagonal(),precision));
+                                    break;
+                                case 2:
+                                    answer.setText(Calculations.formatter(sq.calcSideByPerimeter(),precision));
+                                    break;
                             }
-                        break;
-                    case 3:
-                        calcPerimeter();
-                        break;
-                }
-            }
-
-            private void calcPerimeter() {
-                double s = getInput();
-
-                if(!check){
-                    answer.setText(Calculations.formatter(s*4,precision));
-                }else{
-                    Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            private void calcSideByPerimeter() {
-                double p = getSideInput();
-
-                if(!check){
-                    answer.setText(Calculations.formatter(p/4, precision));
-                }else{
-                    Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            private void calcSideByDiagonal() {
-                double d = getSideInput();
-
-                if(!check){
-                    answer.setText(Calculations.formatter(Math.sqrt(2)*(d/2),precision));
-                }else{
-                    Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            private void calcSideByArea() {
-                double a = getSideInput();
-
-                if(!check){
-                    answer.setText(Calculations.formatter(Math.sqrt(a), precision));
-                }else{
-                    Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            private void calcDiagonal() {
-                double s = getInput();
-
-                if(!check){
-                    answer.setText(Calculations.formatter(Math.sqrt(2)*s,precision));
-                }else{
-                    Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            private void calcArea() {
-                double s = getInput();
-
-                if(!check){
-                    answer.setText(Calculations.formatter(s*s, precision));
+                            break;
+                        case 3:
+                            answer.setText(Calculations.formatter(sq.calcPerimeter(),precision));
+                            break;
+                    }
                 }else{
                     Toast.makeText(getActivity(), "Please enter a valid input", Toast.LENGTH_SHORT).show();
                 }
@@ -201,25 +159,13 @@ public class SquareFragment extends Fragment {
         });
     }
 
-    private double getInput(){
-        double x = 0.0;
-        try{
-            x = Double.parseDouble(input1.getText().toString());
+    public boolean validInput(){
+        try {
+            inputValue = Double.parseDouble(input.getText().toString());
         }catch(NumberFormatException e){
-            check = true;
+            return false;
         }
-        return x;
-    }
-
-    private double getSideInput(){
-        double x = 0.0;
-        try{
-            x = Double.parseDouble(sideInput.getText().toString());
-        }catch(NumberFormatException e){
-            check = true;
-        }
-        return x;
-
+        return true;
     }
 
     private void setSideChoiceListener() {
@@ -274,12 +220,9 @@ public class SquareFragment extends Fragment {
     }
 
     private void initializeLayout(View rootView) {
-        inputLayout1 = (LinearLayout)rootView.findViewById(R.id.sq_layout1);
-        sideInputLayout = (LinearLayout)rootView.findViewById(R.id.sq_side_layout);
-        input1 = (EditText)rootView.findViewById(R.id.sq_input1);
-        sideInput = (EditText)rootView.findViewById(R.id.sq_side_input);
+        input = (EditText)rootView.findViewById(R.id.sq_input);
         precisionView = (RobotoTextView)rootView.findViewById(R.id.sq_precision_view);
-        view1 = (RobotoTextView)rootView.findViewById(R.id.sq_view1);
+        inputView = (RobotoTextView)rootView.findViewById(R.id.sq_input_view);
         answer = (RobotoTextView)rootView.findViewById(R.id.sq_answer);
         answerChoice = (Spinner)rootView.findViewById(R.id.sq_choice);
         sideChoice = (Spinner)rootView.findViewById(R.id.sq_side_choice);
@@ -289,25 +232,23 @@ public class SquareFragment extends Fragment {
         sidePos = 0;
         answerPos = 0;
         precision = 2;
-        check = false;
         precisionView.setText(Integer.toString(precision));
         setBasicLayout();
     }
 
     private void setBasicLayout() {
-        view1.setText("Side (s)");
-        sideInputLayout.setVisibility(View.INVISIBLE);
-        inputLayout1.setVisibility(View.VISIBLE);
+        inputView.setText("Side (s)");
+        sideChoice.setVisibility(View.GONE);
+        inputView.setVisibility(View.VISIBLE);
     }
 
     private void setSideLayout(){
-        sideInputLayout.setVisibility(View.VISIBLE);
-        inputLayout1.setVisibility(View.INVISIBLE);
+        sideChoice.setVisibility(View.VISIBLE);
+        inputView.setVisibility(View.GONE);
     }
 
     private void clearInput(){
-        input1.setText("");
-        sideInput.setText("");
+        input.setText("");
     }
 
     static SquareFragment newInstance(int position) {
@@ -319,10 +260,6 @@ public class SquareFragment extends Fragment {
 
         return(frag);
     }
-
-/*    static String getTitle(Context ctxt, int position) {
-        return(String.format(ctxt.getString(R.string.square), position + 1));
-    }*/
 
     @Override
     public void onPause(){

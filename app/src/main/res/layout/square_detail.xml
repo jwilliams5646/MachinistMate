@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="125dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:id="@+id/square_image"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/square" />
+        android:layout_margin="4dp"/>
+        <!--android:src="@drawable/square" -->
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="3"
+    android:layout_margin="4dp"
+    android:layout_gravity="center_horizontal">
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="400dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/square_image"
-        android:layout_alignLeft="@id/square_image"
-        android:layout_marginRight="4dp"
         android:id="@+id/square_answer_layout">
 
         <Spinner
@@ -40,7 +41,7 @@
             android:id="@+id/sq_answer"
             android:textSize="32sp"
             android:layout_marginTop="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginBottom="4dp"
             style="@style/TextViewStyle"/>
     </LinearLayout>
@@ -50,55 +51,35 @@
         android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/square_answer_layout"
-        android:layout_alignLeft="@id/square_image"
         android:layout_marginRight="4dp"
-        android:id="@+id/sq_layout1">
+        android:layout_marginLeft="4dp"
+        android:id="@+id/sq_input_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
             android:text="New Text"
-            android:id="@+id/sq_view1"
+            android:id="@+id/sq_input_view"
             android:layout_marginTop="4dp"
             android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
             style="@style/TextViewStyle"/>
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="40dp"
-            android:inputType="numberDecimal"
-            android:id="@+id/sq_input1"
-            android:layout_margin="4dp"
-            style="@style/EditTextStyle"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="400dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/square_answer_layout"
-        android:layout_alignLeft="@id/square_image"
-        android:layout_marginRight="4dp"
-        android:id="@+id/sq_side_layout"
-        android:visibility="invisible">
 
         <Spinner
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:id="@+id/sq_side_choice"
             android:layout_marginTop="4dp"
             android:layout_marginRight="4dp"
-            android:layout_marginBottom="4dp"/>
+            android:layout_marginBottom="4dp"
+            android:visibility="gone"/>
 
         <EditText
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="40dp"
+            android:layout_height="36dp"
             android:inputType="numberDecimal"
-            android:id="@+id/sq_side_input"
+            android:id="@+id/sq_input"
             android:layout_margin="4dp"
             style="@style/EditTextStyle"/>
     </LinearLayout>
@@ -107,9 +88,8 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/sq_layout1"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/sq_precision_layout">
+        android:id="@+id/sq_precision_layout"
+        android:layout_below="@+id/sq_input_layout">
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="wrap_content"
@@ -126,7 +106,7 @@
             android:text="-"
             android:id="@+id/sq_minus_button"
             android:layout_margin="4dp"
-            style="@style/buttons"/>
+            style="@style/precision_buttons"/>
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoTextView
             android:layout_width="40dp"
@@ -143,7 +123,7 @@
             android:text="+"
             android:id="@+id/sq_add_button"
             android:layout_margin="4dp"
-            style="@style/buttons"/>
+            style="@style/precision_buttons"/>
     </LinearLayout>
 
         <com.jwilliams.machinistmate.app.AppContent.RobotoButton
@@ -151,7 +131,7 @@
             android:layout_height="40dp"
             android:text="@string/calculate"
             android:id="@+id/sq_calc"
-            style="@style/buttons"
+            style="@style/calc_buttons"
             android:layout_below="@+id/sq_precision_layout"
             android:layout_centerHorizontal="true"
             android:layout_margin="4dp"/>
@@ -163,11 +143,10 @@
         ads:adUnitId="ca-app-pub-6986976933268044/5924552212"
         ads:adSize="BANNER"
         android:layout_below="@+id/sq_calc"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"/>
-
-
-
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
+
+
+</LinearLayout>

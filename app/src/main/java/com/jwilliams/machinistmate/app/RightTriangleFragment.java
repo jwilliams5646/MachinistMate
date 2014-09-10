@@ -81,8 +81,8 @@ public class RightTriangleFragment extends Fragment {
     private void setAd(View rootView){
         adView = (AdView)rootView.findViewById(R.id.rt_adView);
         adRequest = new AdRequest.Builder()
- /*               .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(TEST_DEVICE_ID)*/
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
                 .build();
         adView.loadAd(adRequest);
     }
