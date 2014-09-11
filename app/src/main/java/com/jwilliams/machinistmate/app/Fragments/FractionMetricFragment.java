@@ -1,9 +1,6 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,14 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.Spinner;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.jwilliams.machinistmate.app.R;
 
 
 /**
@@ -34,7 +27,7 @@ public class FractionMetricFragment extends Fragment {
     private static AdView adView;
     private static AdRequest adRequest;
 
-    static FractionMetricFragment newInstance(int position) {
+    public static FractionMetricFragment newInstance(int position) {
         FractionMetricFragment frag=new FractionMetricFragment();
         Bundle args=new Bundle();
 
@@ -44,7 +37,7 @@ public class FractionMetricFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+    public static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.fraction_metric_chart), position + 1));
     }
 

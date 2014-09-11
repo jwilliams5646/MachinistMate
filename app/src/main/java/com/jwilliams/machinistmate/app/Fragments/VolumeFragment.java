@@ -1,4 +1,4 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -20,10 +20,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.ItemListActivity;
+import com.jwilliams.machinistmate.app.R;
 
 import java.io.IOException;
 
@@ -282,7 +284,7 @@ public class VolumeFragment extends Fragment {
             openDb(myDbHelper);
             c = myDbHelper.getVolumeConversionFactor(inputPos, output);
             c.moveToFirst();
-            result = Calculations.formatter(calcInput *
+            result = Formatter.formatOutput(calcInput *
                     Double.parseDouble(c.getString(c.getColumnIndex(output))), precision);
             myDbHelper.close();
            // Log.d("DB Thread", "Ending work");
@@ -298,7 +300,7 @@ public class VolumeFragment extends Fragment {
         }
     }
 
-    static VolumeFragment newInstance(int position) {
+    public static VolumeFragment newInstance(int position) {
         VolumeFragment frag=new VolumeFragment();
         Bundle args=new Bundle();
 
@@ -308,7 +310,7 @@ public class VolumeFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+    public static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.volume), position + 1));
     }
 

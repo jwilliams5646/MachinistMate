@@ -1,7 +1,5 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -17,9 +14,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.R;
 
 /**
  * Created by John on 5/12/2014.
@@ -145,7 +143,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(180 - x, precision));
+            answer.setText(Formatter.formatOutput(180 - x, precision));
         }else{
             Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
         }
@@ -160,7 +158,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(180 - y, precision));
+            answer.setText(Formatter.formatOutput(180 - y, precision));
         }else{
             Toast.makeText(getActivity(), "Invalid Input", Toast.LENGTH_SHORT).show();
         }
@@ -182,7 +180,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(2 * (a + b), precision));
+            answer.setText(Formatter.formatOutput(2 * (a + b), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -205,7 +203,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter((p / 2) - b, precision));
+            answer.setText(Formatter.formatOutput((p / 2) - b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -227,7 +225,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(a / b, precision));
+            answer.setText(Formatter.formatOutput(a / b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -249,7 +247,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(a / h, precision));
+            answer.setText(Formatter.formatOutput(a / h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -271,7 +269,7 @@ public class ParallelogramFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(b * h, precision));
+            answer.setText(Formatter.formatOutput(b * h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -360,7 +358,7 @@ public class ParallelogramFragment extends Fragment {
         precisionView.setText(Integer.toString(precision));
     }
 
-    static ParallelogramFragment newInstance(int position) {
+    public static ParallelogramFragment newInstance(int position) {
         ParallelogramFragment frag=new ParallelogramFragment();
         Bundle args=new Bundle();
 

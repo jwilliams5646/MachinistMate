@@ -1,9 +1,8 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +19,7 @@ import com.google.android.gms.ads.AdView;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -121,7 +121,7 @@ public class DrillChartFragment extends Fragment {
 
 
     //view pager setup info
-    static DrillChartFragment newInstance(int position) {
+    public static DrillChartFragment newInstance(int position) {
         DrillChartFragment frag=new DrillChartFragment();
         Bundle args=new Bundle();
 
@@ -131,7 +131,7 @@ public class DrillChartFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+    public static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.drill_size_chart), position + 2));
     }//end view pager setup info
 

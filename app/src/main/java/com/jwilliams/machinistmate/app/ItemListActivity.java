@@ -7,6 +7,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
+import com.jwilliams.machinistmate.app.Fragments.ConversionPagerFragment;
+import com.jwilliams.machinistmate.app.Fragments.FeedsDetailFragment;
+import com.jwilliams.machinistmate.app.Fragments.GMFragment;
+import com.jwilliams.machinistmate.app.Fragments.SpeedsDetailFragment;
+
 
 /**
  * An activity representing a list of Items. This activity

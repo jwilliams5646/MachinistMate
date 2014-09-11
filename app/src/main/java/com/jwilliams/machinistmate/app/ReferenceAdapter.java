@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.jwilliams.machinistmate.app.Fragments.DrillChartFragment;
+import com.jwilliams.machinistmate.app.Fragments.FractionMetricFragment;
+
 /**
  * Created by John on 4/27/2014.
  */

@@ -3,6 +3,8 @@ package com.jwilliams.machinistmate.app;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
+import com.jwilliams.machinistmate.app.Fragments.ConversionPagerFragment;
+
 /**
  * Created by John on 6/1/2014.
  */

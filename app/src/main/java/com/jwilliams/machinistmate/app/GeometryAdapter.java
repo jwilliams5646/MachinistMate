@@ -6,6 +6,13 @@ import android.support.v4.app.FragmentManager;
 //import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import com.jwilliams.machinistmate.app.Fragments.ObliqueTriangleFragment;
+import com.jwilliams.machinistmate.app.Fragments.ParallelogramFragment;
+import com.jwilliams.machinistmate.app.Fragments.RectangleFragment;
+import com.jwilliams.machinistmate.app.Fragments.RightTriangleFragment;
+import com.jwilliams.machinistmate.app.Fragments.SquareFragment;
+import com.jwilliams.machinistmate.app.Fragments.TrapezoidFragment;
+
 /**
  * Created by john.williams on 5/8/2014.
  */

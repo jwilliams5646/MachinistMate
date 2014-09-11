@@ -1,4 +1,4 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.jwilliams.machinistmate.app.ConversionAdapter;
+import com.jwilliams.machinistmate.app.R;
 
 /**
  * Created by John on 6/1/2014.

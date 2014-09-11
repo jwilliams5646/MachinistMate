@@ -1,27 +1,24 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.R;
 
 /**
  * Created by john.williams on 5/19/2014.
@@ -210,8 +207,8 @@ public class RightTriangleFragment extends Fragment {
                 x = 90 - y;
                 h = a/Math.sin(Math.toRadians(y));
                 o = h*Math.sin(Math.toRadians(x));
-                sideH.setText(Calculations.formatter(h, precision));
-                sideO.setText(Calculations.formatter(o, precision));
+                sideH.setText(Formatter.formatOutput(h, precision));
+                sideO.setText(Formatter.formatOutput(o, precision));
                 setAngleX(x);
                 setAreaPeri(h, o, a);
             }
@@ -227,8 +224,8 @@ public class RightTriangleFragment extends Fragment {
                 y = 90 - x;
                 h = a/Math.sin(Math.toRadians(y));
                 o = h*Math.sin(Math.toRadians(x));
-                sideH.setText(Calculations.formatter(h, precision));
-                sideO.setText(Calculations.formatter(o, precision));
+                sideH.setText(Formatter.formatOutput(h, precision));
+                sideO.setText(Formatter.formatOutput(o, precision));
                 setAngleY(y);
                 setAreaPeri(h, o, a);
             }
@@ -244,8 +241,8 @@ public class RightTriangleFragment extends Fragment {
                 x = 90 - y;
                 h = a/Math.sin(Math.toRadians(y));
                 a = h*Math.cos(Math.toRadians(x));
-                sideH.setText(Calculations.formatter(h, precision));
-                sideA.setText(Calculations.formatter(a, precision));
+                sideH.setText(Formatter.formatOutput(h, precision));
+                sideA.setText(Formatter.formatOutput(a, precision));
                 setAngleX(x);
                 setAreaPeri(h, o, a);
 
@@ -262,8 +259,8 @@ public class RightTriangleFragment extends Fragment {
                 y = 90 - x;
                 h = a/Math.sin(Math.toRadians(y));
                 a = h*Math.cos(Math.toRadians(x));
-                sideH.setText(Calculations.formatter(h, precision));
-                sideA.setText(Calculations.formatter(a, precision));
+                sideH.setText(Formatter.formatOutput(h, precision));
+                sideA.setText(Formatter.formatOutput(a, precision));
                 setAngleY(y);
                 setAreaPeri(h, o, a);
             }
@@ -272,7 +269,7 @@ public class RightTriangleFragment extends Fragment {
                 h = Math.sqrt(o*o + a*a);
                 x = Math.toDegrees(Math.atan(o/a));
                 y = 90 - x;
-                sideH.setText(Calculations.formatter(h, precision));
+                sideH.setText(Formatter.formatOutput(h, precision));
                 setAngleX(x);
                 setAngleY(y);
                 setAreaPeri(h, o, a);
@@ -285,8 +282,8 @@ public class RightTriangleFragment extends Fragment {
                 x = 90 - y;
                 o = h*Math.sin(Math.toRadians(x));
                 a = h*Math.cos(Math.toRadians(x));
-                sideO.setText(Calculations.formatter(o, precision));
-                sideA.setText(Calculations.formatter(a, precision));
+                sideO.setText(Formatter.formatOutput(o, precision));
+                sideA.setText(Formatter.formatOutput(a, precision));
                 setAngleX(x);
                 setAreaPeri(h, o, a);
             }
@@ -302,8 +299,8 @@ public class RightTriangleFragment extends Fragment {
                 y = 90 - x;
                 o = h*Math.sin(Math.toRadians(x));
                 a = h*Math.cos(Math.toRadians(x));
-                sideO.setText(Calculations.formatter(o, precision));
-                sideA.setText(Calculations.formatter(a, precision));
+                sideO.setText(Formatter.formatOutput(o, precision));
+                sideA.setText(Formatter.formatOutput(a, precision));
                 setAngleY(y);
                 setAreaPeri(h,o,a);
             }
@@ -316,7 +313,7 @@ public class RightTriangleFragment extends Fragment {
                 o = Math.sqrt(h*h - a*a);
                 x = Math.toDegrees(Math.acos(a/h));
                 y = 90 - x;
-                sideO.setText(Calculations.formatter(o, precision));
+                sideO.setText(Formatter.formatOutput(o, precision));
                 setAngleX(x);
                 setAngleY(y);
                 setAreaPeri(h, o, a);
@@ -326,7 +323,7 @@ public class RightTriangleFragment extends Fragment {
                 a = Math.sqrt(h*h - o*o);
                 x = Math.toDegrees(Math.asin(o/h));
                 y = 90 - x;
-                sideA.setText(Calculations.formatter(a, precision));
+                sideA.setText(Formatter.formatOutput(a, precision));
                 setAngleX(x);
                 setAngleY(y);
                 setAreaPeri(h, o, a);
@@ -334,23 +331,23 @@ public class RightTriangleFragment extends Fragment {
 
             public void setAngleX(double x){
                 if(xPos == 0){
-                    angleX.setText(Calculations.formatter(x, precision));
+                    angleX.setText(Formatter.formatOutput(x, precision));
                 }else{
-                    angleX.setText(Calculations.formatter(Math.toRadians(x), precision));
+                    angleX.setText(Formatter.formatOutput(Math.toRadians(x), precision));
                 }
             }
 
             public void setAngleY(double y){
                 if(yPos == 0){
-                    angleY.setText(Calculations.formatter(y, precision));
+                    angleY.setText(Formatter.formatOutput(y, precision));
                 }else{
-                    angleY.setText(Calculations.formatter(Math.toRadians(y), precision));
+                    angleY.setText(Formatter.formatOutput(Math.toRadians(y), precision));
                 }
             }
 
             private void setAreaPeri(double h, double o, double a) {
-                areaAnswer.setText(Calculations.formatter(getArea(o,a), precision));
-                perimeterAnswer.setText(Calculations.formatter(getPeri(h,o,a), precision));
+                areaAnswer.setText(Formatter.formatOutput(getArea(o, a), precision));
+                perimeterAnswer.setText(Formatter.formatOutput(getPeri(h, o, a), precision));
             }
 
             private double getArea(double o, double a){
@@ -464,7 +461,7 @@ public class RightTriangleFragment extends Fragment {
         angleYSpinner.setAdapter(adapter);
     }
 
-    static RightTriangleFragment newInstance(int position) {
+    public static RightTriangleFragment newInstance(int position) {
         RightTriangleFragment frag=new RightTriangleFragment();
         Bundle args=new Bundle();
 

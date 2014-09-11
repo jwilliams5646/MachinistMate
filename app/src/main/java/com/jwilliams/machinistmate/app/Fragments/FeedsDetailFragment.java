@@ -1,6 +1,5 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,17 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoRadioButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.R;
+import com.jwilliams.machinistmate.app.SpeedsandFeedsClasses.Feeds;
 
 /**
  * Created by John on 4/4/2014.
@@ -43,6 +42,7 @@ public class FeedsDetailFragment extends Fragment {
     private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
     private AdView adView;
     private AdRequest adRequest;
+    private Feeds feeds;
 
     public FeedsDetailFragment() {
     }
@@ -56,7 +56,6 @@ public class FeedsDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.feeds_item_detail, container, false);
-
         setAd(rootView);
         setLayoutVariables(rootView);
         setPrecisionListeners();
@@ -77,7 +76,11 @@ public class FeedsDetailFragment extends Fragment {
     private void setCalcButtonListener() {
         feedCalc.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View view) {
-                calcFeed();
+                if(validInput()){
+                    feedAnswer.setText(Formatter.formatOutput(feeds.getFeedRate(), precision));
+                }else{
+                    Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -142,36 +145,28 @@ public class FeedsDetailFragment extends Fragment {
         precisionView.setText(Integer.toString(precision));
     }
 
-    public void calcFeed() {
-        int speed = 0;
-        double fpt = 0.0;
-        int numTeeth = 0;
-        boolean notValid = false;
-
+    public boolean validInput(){
+        feeds = new Feeds();
+        boolean valid = true;
         try {
-            speed = Integer.parseInt(feedSpeedInput.getText().toString());
+            feeds.setSpeed(Integer.parseInt(feedSpeedInput.getText().toString()));
         } catch (NumberFormatException e) {
             feedSpeedInput.setHint("Invalid");
-            notValid = true;
+            valid = false;
         }
         try {
-            fpt = Double.parseDouble(feedPerToothInput.getText().toString());
+            feeds.setFpt(Double.parseDouble(feedPerToothInput.getText().toString()));
         } catch (NumberFormatException e) {
             feedPerToothInput.setHint("Invalid");
-            notValid = true;
+            valid = false;
         }
         try {
-            numTeeth = Integer.parseInt(numberTeethInput.getText().toString());
+            feeds.setNumTeeth(Integer.parseInt(numberTeethInput.getText().toString()));
         } catch (NumberFormatException e) {
             numberTeethInput.setHint("Invalid");
-            notValid = true;
+            valid = false;
         }
-        if (notValid) {
-            Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        feedAnswer.setText(Calculations.formatter(speed * fpt * numTeeth, precision));
+        return valid;
     }
 
     @Override
@@ -190,7 +185,6 @@ public class FeedsDetailFragment extends Fragment {
         super.onPause();
     }
 
-    /** Called before the activity is destroyed. */
     @Override
     public void onDestroy() {
         // Destroy the AdView.

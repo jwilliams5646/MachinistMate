@@ -1,7 +1,5 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -17,9 +14,11 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.GeometryClasses.Rectangle;
+import com.jwilliams.machinistmate.app.R;
 
 /**
  * Created by John on 5/27/2014.
@@ -52,6 +51,10 @@ public class RectangleFragment extends Fragment {
     private static final String TEST_DEVICE_ID = "03f3f1d189532cca";
     private AdView adView;
     private AdRequest adRequest;
+    private Rectangle rectangle;
+    private double inputValue1;
+    private double inputValue2;
+    private double inputValue3;
 
     public RectangleFragment() {
     }
@@ -79,8 +82,8 @@ public class RectangleFragment extends Fragment {
     private void setAd(View rootView){
         adView = (AdView)rootView.findViewById(R.id.rect_adView);
         adRequest = new AdRequest.Builder()
-/*                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-                .addTestDevice(TEST_DEVICE_ID)*/
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(TEST_DEVICE_ID)
                 .build();
         adView.loadAd(adRequest);
     }
@@ -115,6 +118,7 @@ public class RectangleFragment extends Fragment {
         calcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                rectangle = new Rectangle();
                 switch(answerPos){
                     case 0:
                         calcArea();
@@ -157,124 +161,120 @@ public class RectangleFragment extends Fragment {
     }
 
     private void calcPerimeter() {
-        double l = getInput1();
-        double w = getInput2();
-        if(!check){
-            answer.setText(Calculations.formatter(2 * (l + w), precision));
+        if(input1Valid() && input2Valid()){
+            rectangle.setLength(inputValue1);
+            rectangle.setWidth(inputValue2);
+            answer.setText(Formatter.formatOutput(rectangle.calcPerimeter(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     private void calcLengthByPerimeter() {
-        double p = getInput2();
-        double w = getInput3();
-        if(!check){
-            answer.setText(Calculations.formatter(p / 2 - w, precision));
+        if(input2Valid() && input3Valid()){
+            rectangle.setPerimeter(inputValue2);
+            rectangle.setWidth(inputValue3);
+            answer.setText(Formatter.formatOutput(rectangle.calcLengthByPerimeter(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcLengthByDiagonal() {
-        double d = getInput2();
-        double w = getInput3();
-        if(!check){
-            answer.setText(Calculations.formatter(Math.sqrt(d * d - w * w), precision));
+        if(input2Valid() && input3Valid()){
+            rectangle.setDiagonal(inputValue2);
+            rectangle.setWidth(inputValue3);
+            answer.setText(Formatter.formatOutput(rectangle.calcLengthByDiagonal(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcLengthByArea() {
-        double a = getInput2();
-        double w = getInput3();
-        if(!check){
-            answer.setText(Calculations.formatter(a / w, precision));
+        if(input2Valid() && input3Valid()){
+            rectangle.setArea(inputValue2);
+            rectangle.setWidth(inputValue3);
+            answer.setText(Formatter.formatOutput(rectangle.calcLengthByArea(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcWidthByPerimeter() {
-        double p = getInput2();
-        double l = getInput3();
-        if(!check){
-            answer.setText(Calculations.formatter(p / 2 - l, precision));
+        if(input2Valid() && input3Valid()){
+            rectangle.setPerimeter(inputValue2);
+            rectangle.setLength(inputValue3);
+            answer.setText(Formatter.formatOutput(rectangle.calcWidthByPerimeter(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcWidthByDiagonal() {
-        double d = getInput2();
-        double l = getInput3();
-        if(!check){
-            answer.setText(Calculations.formatter(Math.sqrt(d * d - l * l), precision));
+        if(input2Valid() && input3Valid()){
+            rectangle.setDiagonal(inputValue2);
+            rectangle.setLength(inputValue3);
+            answer.setText(Formatter.formatOutput(rectangle.calcWidthByDiagonal(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcWidthByArea() {
-        double a = getInput2();
-        double l = getInput3();
-        if(!check){
-            answer.setText(Calculations.formatter(a / l, precision));
+        if(input2Valid() && input3Valid()){
+            rectangle.setArea(inputValue2);
+            rectangle.setLength(inputValue3);
+            answer.setText(Formatter.formatOutput(rectangle.calcWidthByArea(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcDiagonal() {
-        double l = getInput1();
-        double w = getInput2();
-        if(!check){
-            answer.setText(Calculations.formatter(Math.sqrt(l * l + w * w), precision));
+        if(input1Valid() && input2Valid()){
+            rectangle.setLength(inputValue1);
+            rectangle.setWidth(inputValue2);
+            answer.setText(Formatter.formatOutput(rectangle.calcDiagonal(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
     private void calcArea() {
-        double l = getInput1();
-        double w = getInput2();
-        if(!check){
-            answer.setText(Calculations.formatter(l*w, precision));
+        if(input1Valid() && input2Valid()){
+            rectangle.setLength(inputValue1);
+            rectangle.setWidth(inputValue2);
+            answer.setText(Formatter.formatOutput(rectangle.calcArea(),precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are invalid", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private double getInput1() {
-        double x = 0.0;
+    private boolean input1Valid(){
         try {
-            x = Double.parseDouble(input1.getText().toString());
+            inputValue1 = Double.parseDouble(input1.getText().toString());
         } catch (NumberFormatException e) {
-            check = true;
+            return false;
         }
-        return x;
+        return true;
     }
 
-    private double getInput2() {
-        double x = 0.0;
+    private boolean input2Valid(){
         try {
-            x = Double.parseDouble(input2.getText().toString());
+            inputValue2 = Double.parseDouble(input2.getText().toString());
         } catch (NumberFormatException e) {
-            check = true;
+            return false;
         }
-        return x;
+        return true;
     }
 
-    private double getInput3() {
-        double x = 0.0;
+    private boolean input3Valid(){
         try {
-            x = Double.parseDouble(input3.getText().toString());
+            inputValue3 = Double.parseDouble(input3.getText().toString());
         } catch (NumberFormatException e) {
-            check = true;
+            return false;
         }
-        return x;
+        return true;
     }
 
     private void setInputListener() {
@@ -439,7 +439,7 @@ public class RectangleFragment extends Fragment {
         inputLayout2.setVisibility(View.VISIBLE);
     }
 
-    static RectangleFragment newInstance(int position) {
+    public static RectangleFragment newInstance(int position) {
         RectangleFragment frag=new RectangleFragment();
         Bundle args=new Bundle();
 
@@ -448,10 +448,6 @@ public class RectangleFragment extends Fragment {
 
         return(frag);
     }
-
-/*    static String getTitle(Context ctxt, int position) {
-        return(String.format(ctxt.getString(R.string.rectangle), position + 1));
-    }*/
 
     @Override
     public void onPause(){
@@ -469,7 +465,6 @@ public class RectangleFragment extends Fragment {
         }
     }
 
-    /** Called before the activity is destroyed. */
     @Override
     public void onDestroy() {
         // Destroy the AdView.

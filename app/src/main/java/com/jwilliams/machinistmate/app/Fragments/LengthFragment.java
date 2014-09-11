@@ -1,9 +1,8 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
-import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -21,10 +19,12 @@ import android.util.Log;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.DbHelper;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.ItemListActivity;
+import com.jwilliams.machinistmate.app.R;
 
 import java.io.IOException;
 
@@ -283,7 +283,7 @@ public class LengthFragment extends Fragment {
             openDb(myDbHelper);
             c = myDbHelper.getLengthConversionFactor(inputPos, output);
             c.moveToFirst();
-            String result = Calculations.formatter(calcInput *
+            String result = Formatter.formatOutput(calcInput *
                     Double.parseDouble(c.getString(c.getColumnIndex(output))), precision);
             myDbHelper.close();
             Log.d("DB Thread", "Ending work");
@@ -300,7 +300,7 @@ public class LengthFragment extends Fragment {
         }
     }
 
-    static LengthFragment newInstance(int position) {
+    public static LengthFragment newInstance(int position) {
         LengthFragment frag=new LengthFragment();
         Bundle args=new Bundle();
 
@@ -310,7 +310,7 @@ public class LengthFragment extends Fragment {
         return(frag);
     }
 
-    static String getTitle(Context ctxt, int position) {
+    public static String getTitle(Context ctxt, int position) {
         return(String.format(ctxt.getString(R.string.length), position + 1));
     }
 

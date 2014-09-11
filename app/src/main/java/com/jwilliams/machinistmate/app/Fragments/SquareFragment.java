@@ -1,4 +1,4 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,11 +14,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
 import com.jwilliams.machinistmate.app.GeometryClasses.ShowImage;
 import com.jwilliams.machinistmate.app.GeometryClasses.Square;
+import com.jwilliams.machinistmate.app.R;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -130,26 +131,26 @@ public class SquareFragment extends Fragment {
                     Square sq = new Square(inputValue);
                     switch (answerPos) {
                         case 0:
-                            answer.setText(Calculations.formatter(sq.calcArea(),precision));
+                            answer.setText(Formatter.formatOutput(sq.calcArea(), precision));
                             break;
                         case 1:
-                            answer.setText(Calculations.formatter(sq.calcDiagonal(),precision));
+                            answer.setText(Formatter.formatOutput(sq.calcDiagonal(), precision));
                             break;
                         case 2:
                             switch (sidePos) {
                                 case 0:
-                                    answer.setText(Calculations.formatter(sq.calcSideByArea(),precision));
+                                    answer.setText(Formatter.formatOutput(sq.calcSideByArea(), precision));
                                     break;
                                 case 1:
-                                    answer.setText(Calculations.formatter(sq.calcSideByDiagonal(),precision));
+                                    answer.setText(Formatter.formatOutput(sq.calcSideByDiagonal(), precision));
                                     break;
                                 case 2:
-                                    answer.setText(Calculations.formatter(sq.calcSideByPerimeter(),precision));
+                                    answer.setText(Formatter.formatOutput(sq.calcSideByPerimeter(), precision));
                                     break;
                             }
                             break;
                         case 3:
-                            answer.setText(Calculations.formatter(sq.calcPerimeter(),precision));
+                            answer.setText(Formatter.formatOutput(sq.calcPerimeter(), precision));
                             break;
                     }
                 }else{
@@ -251,7 +252,7 @@ public class SquareFragment extends Fragment {
         input.setText("");
     }
 
-    static SquareFragment newInstance(int position) {
+    public static SquareFragment newInstance(int position) {
         SquareFragment frag=new SquareFragment();
         Bundle args=new Bundle();
 

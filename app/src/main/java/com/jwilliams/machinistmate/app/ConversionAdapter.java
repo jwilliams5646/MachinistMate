@@ -5,6 +5,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.jwilliams.machinistmate.app.Fragments.LengthFragment;
+import com.jwilliams.machinistmate.app.Fragments.VolumeFragment;
+
 /**
  * Created by John on 6/1/2014.
  */

@@ -1,4 +1,4 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -16,9 +16,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.R;
 
 import java.text.DecimalFormat;
 
@@ -345,8 +346,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 c = b*Math.sin(y)/Math.sin(z);
                 a = b*Math.sin(x)/Math.sin(z);
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
-                sideAInput.setText(Calculations.formatter(a, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
                 setAngleY(y);
             }
 
@@ -365,8 +366,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 c = b*Math.sin(y)/Math.sin(z);
                 a = b*Math.sin(x)/Math.sin(z);
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
-                sideAInput.setText(Calculations.formatter(a, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
                 setAngleX(x);
             }
 
@@ -385,8 +386,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 c = b*Math.sin(y)/Math.sin(z);
                 a = b*Math.sin(x)/Math.sin(z);
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
-                sideAInput.setText(Calculations.formatter(a, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
                 setAngleZ(z);
             }
 
@@ -405,8 +406,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 c = a*Math.sin(y)/Math.sin(x);
                 b = a*Math.sin(z)/Math.sin(x);
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleY(y);
             }
 
@@ -425,8 +426,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 c = a*Math.sin(y)/Math.sin(x);
                 b = a*Math.sin(z)/Math.sin(x);
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleX(x);
             }
 
@@ -445,8 +446,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 c = a*Math.sin(y)/Math.sin(x);
                 b = a*Math.sin(z)/Math.sin(x);
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleZ(z);
             }
 
@@ -465,8 +466,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 a = c*Math.sin(x)/Math.sin(y);
                 b = c*Math.sin(z)/Math.sin(y);
                 setAreaPeriHeight(a,b,c);
-                sideAInput.setText(Calculations.formatter(a, precision));
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleY(y);
             }
 
@@ -485,8 +486,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 a = c*Math.sin(x)/Math.sin(y);
                 b = c*Math.sin(z)/Math.sin(y);
                 setAreaPeriHeight(a,b,c);
-                sideAInput.setText(Calculations.formatter(a, precision));
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleX(x);
             }
 
@@ -505,8 +506,8 @@ public class ObliqueTriangleFragment extends Fragment {
                 a = c*Math.sin(Math.toRadians(x) / Math.sin(Math.toRadians(y)));
                 b = c*Math.sin(Math.toRadians(z) / Math.sin(Math.toRadians(y)));
                 setAreaPeriHeight(a,b,c);
-                sideAInput.setText(Calculations.formatter(a, precision));
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleZ(z);
             }
 
@@ -518,7 +519,7 @@ public class ObliqueTriangleFragment extends Fragment {
                 y = 180.0 - (Math.toDegrees(z) + x);
                 c = Math.sqrt(a*a + b*b - 2*a*b*Math.cos(y));
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
                 setAngleY(y);
                 setAngleX(x);
             }
@@ -531,7 +532,7 @@ public class ObliqueTriangleFragment extends Fragment {
                 y = 180.0 - (Math.toDegrees(x) + z);
                 c = Math.sqrt(a*a + b*b - 2*a*b*Math.cos(Math.toRadians(y)));
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
                 setAngleY(y);
                 setAngleZ(z);
             }
@@ -548,7 +549,7 @@ public class ObliqueTriangleFragment extends Fragment {
                 x = 180.0 - (y + Math.toDegrees(z));
                 a = Math.sqrt(c*c + b*b - 2*c*b*Math.cos(Math.toRadians(x)));
                 setAreaPeriHeight(a,b,c);
-                sideAInput.setText(Calculations.formatter(a, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
                 setAngleY(y);
                 setAngleX(x);
             }
@@ -561,7 +562,7 @@ public class ObliqueTriangleFragment extends Fragment {
                 x = 180.0 - (Math.toDegrees(y) + z);
                 a = Math.sqrt(c*c + b*b - 2*c*b*Math.cos(Math.toRadians(x)));
                 setAreaPeriHeight(a,b,c);
-                sideAInput.setText(Calculations.formatter(a, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
                 setAngleX(x);
                 setAngleZ(z);
             }
@@ -574,7 +575,7 @@ public class ObliqueTriangleFragment extends Fragment {
                 z = 180.0 - (y + Math.toDegrees(x));
                 b = Math.sqrt(c*c + a*a - 2*c*a*Math.cos(Math.toRadians(z)));
                 setAreaPeriHeight(a,b,c);
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleY(y);
                 setAngleZ(z);
             }
@@ -587,7 +588,7 @@ public class ObliqueTriangleFragment extends Fragment {
                 z = 180.0 - (Math.toDegrees(y) + x);
                 b = Math.sqrt(c*c + a*a - 2*c*a*Math.cos(Math.toRadians(z)));
                 setAreaPeriHeight(a,b,c);
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleX(x);
                 setAngleZ(z);
             }
@@ -608,7 +609,7 @@ public class ObliqueTriangleFragment extends Fragment {
                     x = 180 - (z + Math.toDegrees(y));
                 }
                 setAreaPeriHeight(a,b,c);
-                sideCInput.setText(Calculations.formatter(c, precision));
+                sideCInput.setText(Formatter.formatOutput(c, precision));
                 setAngleX(x);
                 setAngleZ(z);
             }
@@ -632,7 +633,7 @@ public class ObliqueTriangleFragment extends Fragment {
                     y = 180 - (Math.toDegrees(x) + z);
                 }
                 setAreaPeriHeight(a,b,c);
-                sideAInput.setText(Calculations.formatter(a, precision));
+                sideAInput.setText(Formatter.formatOutput(a, precision));
                 setAngleY(y);
                 setAngleZ(z);
             }
@@ -654,7 +655,7 @@ public class ObliqueTriangleFragment extends Fragment {
                     y = 180 - (x + Math.toDegrees(z));
                 }
                 setAreaPeriHeight(a,b,c);
-                sideBInput.setText(Calculations.formatter(b, precision));
+                sideBInput.setText(Formatter.formatOutput(b, precision));
                 setAngleX(x);
                 setAngleY(y);
             }
@@ -689,25 +690,25 @@ public class ObliqueTriangleFragment extends Fragment {
 
             private void setAngleX(double x){
                 if(spinnerX == 1){
-                    angleXInput.setText(Calculations.formatter(Math.toRadians(x), precision));
+                    angleXInput.setText(Formatter.formatOutput(Math.toRadians(x), precision));
                 }else {
-                    angleXInput.setText(Calculations.formatter(x, precision));
+                    angleXInput.setText(Formatter.formatOutput(x, precision));
                 }
             }
 
             private void setAngleY(double y){
                 if(spinnerY == 1){
-                    angleYInput.setText(Calculations.formatter(Math.toRadians(y), precision));
+                    angleYInput.setText(Formatter.formatOutput(Math.toRadians(y), precision));
                 }else {
-                    angleYInput.setText(Calculations.formatter(y, precision));
+                    angleYInput.setText(Formatter.formatOutput(y, precision));
                 }
             }
 
             private void setAngleZ(double z){
                 if(spinnerZ == 1){
-                    angleZInput.setText(Calculations.formatter(Math.toRadians(z), precision));
+                    angleZInput.setText(Formatter.formatOutput(Math.toRadians(z), precision));
                 }else {
-                    angleZInput.setText(Calculations.formatter(z, precision));
+                    angleZInput.setText(Formatter.formatOutput(z, precision));
                 }
             }
 
@@ -718,9 +719,9 @@ public class ObliqueTriangleFragment extends Fragment {
 
             private void setAreaPeriHeight(double a, double b, double c) {
                 double area = getArea(a, b, c);
-                areaAnswer.setText(Calculations.formatter(area, precision));
-                perimeterAnswer.setText(Calculations.formatter(a + b + c, precision));
-                heightAnswer.setText(Calculations.formatter(2 / (area / b), precision));
+                areaAnswer.setText(Formatter.formatOutput(area, precision));
+                perimeterAnswer.setText(Formatter.formatOutput(a + b + c, precision));
+                heightAnswer.setText(Formatter.formatOutput(2 / (area / b), precision));
             }
 
         });
@@ -795,7 +796,7 @@ public class ObliqueTriangleFragment extends Fragment {
         angleZSpinner.setAdapter(angleAdapter);
     }
 
-    static ObliqueTriangleFragment newInstance(int position) {
+    public static ObliqueTriangleFragment newInstance(int position) {
         ObliqueTriangleFragment frag=new ObliqueTriangleFragment();
         Bundle args=new Bundle();
 

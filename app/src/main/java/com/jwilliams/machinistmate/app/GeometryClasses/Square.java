@@ -1,9 +1,5 @@
 package com.jwilliams.machinistmate.app.GeometryClasses;
 
-import android.widget.Toast;
-
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
-
 /**
  * Created by john.williams on 9/10/2014.
  */

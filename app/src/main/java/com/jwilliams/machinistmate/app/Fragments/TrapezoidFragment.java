@@ -1,16 +1,12 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -18,9 +14,10 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.jwilliams.machinistmate.app.AppContent.Calculations;
+import com.jwilliams.machinistmate.app.AppContent.Formatter;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
 import com.jwilliams.machinistmate.app.AppContent.RobotoTextView;
+import com.jwilliams.machinistmate.app.R;
 
 /**
  * Created by John on 5/12/2014.
@@ -179,7 +176,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(a + b + c + d, precision));
+            answer.setText(Formatter.formatOutput(a + b + c + d, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -202,7 +199,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter((a+b)/2, precision));
+            answer.setText(Formatter.formatOutput((a + b) / 2, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -232,7 +229,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(2*(A/(a+b)), precision));
+            answer.setText(Formatter.formatOutput(2 * (A / (a + b)), precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -269,7 +266,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(p-a-b-c, precision));
+            answer.setText(Formatter.formatOutput(p - a - b - c, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -306,7 +303,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(p-a-b-d, precision));
+            answer.setText(Formatter.formatOutput(p - a - b - d, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -336,7 +333,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(2*(A/h)-a, precision));
+            answer.setText(Formatter.formatOutput(2 * (A / h) - a, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -366,7 +363,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(2*(A/h)-b, precision));
+            answer.setText(Formatter.formatOutput(2 * (A / h) - b, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -396,7 +393,7 @@ public class TrapezoidFragment extends Fragment {
         }
 
         if(!check){
-            answer.setText(Calculations.formatter(((a+b)/2)*h, precision));
+            answer.setText(Formatter.formatOutput(((a + b) / 2) * h, precision));
         }else{
             Toast.makeText(getActivity(), "One or more inputs are missing or invalid", Toast.LENGTH_SHORT).show();
         }
@@ -540,7 +537,7 @@ public class TrapezoidFragment extends Fragment {
         input3View.setText("Height (h)");
     }
 
-    static TrapezoidFragment newInstance(int position) {
+    public static TrapezoidFragment newInstance(int position) {
         TrapezoidFragment frag=new TrapezoidFragment();
         Bundle args=new Bundle();
 

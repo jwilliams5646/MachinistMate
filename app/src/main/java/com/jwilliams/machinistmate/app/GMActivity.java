@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
+import com.jwilliams.machinistmate.app.Fragments.GMFragment;
+
 /**
  * Created by john.williams on 6/6/2014.
  */

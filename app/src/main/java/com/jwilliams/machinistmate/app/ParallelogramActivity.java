@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 
+import com.jwilliams.machinistmate.app.Fragments.ParallelogramFragment;
+
 /**
  * Created by John on 5/12/2014.
  */

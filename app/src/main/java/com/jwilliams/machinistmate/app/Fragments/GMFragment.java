@@ -1,4 +1,4 @@
-package com.jwilliams.machinistmate.app;
+package com.jwilliams.machinistmate.app.Fragments;
 
 import android.database.Cursor;
 import android.database.SQLException;
@@ -22,6 +22,7 @@ import com.jwilliams.machinistmate.app.AppContent.GMAddContent;
 import com.jwilliams.machinistmate.app.AppContent.GMCodeAdapter;
 import com.jwilliams.machinistmate.app.AppContent.GMCodeContent;
 import com.jwilliams.machinistmate.app.AppContent.RobotoButton;
+import com.jwilliams.machinistmate.app.R;
 
 import java.io.IOException;
 import java.util.ArrayList;
